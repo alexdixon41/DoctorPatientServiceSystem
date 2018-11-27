@@ -16,7 +16,15 @@ namespace DoctorPatientSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatientMenu());
+            Application.Run(new Login());
+
+            if (Login.loginSuccess)
+            {
+                if (User.Type == User.DOCTOR_USER_TYPE)
+                    Application.Run(new DoctorMenu());
+                else if (User.Type == User.PATIENT_USER_TYPE)
+                    Application.Run(new PatientMenu());
+            }
         }
     }
 }

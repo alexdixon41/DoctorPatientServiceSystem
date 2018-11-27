@@ -102,6 +102,12 @@
     <Compile Include="GeneralPatientRecords.Designer.cs">
       <DependentUpon>GeneralPatientRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,7 @@
     <Compile Include="RefillRequestResponsePopup.designer.cs">
       <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="AlertDialog.resx">
       <DependentUpon>AlertDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralPatientRecords.resx">
       <DependentUpon>GeneralPatientRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientMenu.resx">
       <DependentUpon>PatientMenu.cs</DependentUpon>
