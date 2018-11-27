@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.appointmentDetailPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.viewAppointmentsButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.appointmentCalendar = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.doctorListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             // 
             // appointmentDetailPanel
             // 
-            this.appointmentDetailPanel.Controls.Add(this.button1);
+            this.appointmentDetailPanel.Controls.Add(this.viewAppointmentsButton);
             this.appointmentDetailPanel.Controls.Add(this.groupBox2);
             this.appointmentDetailPanel.Controls.Add(this.groupBox1);
             this.appointmentDetailPanel.Controls.Add(this.label1);
@@ -58,19 +58,19 @@
             this.appointmentDetailPanel.Size = new System.Drawing.Size(832, 453);
             this.appointmentDetailPanel.TabIndex = 0;
             // 
-            // button1
+            // viewAppointmentsButton
             // 
-            this.button1.Location = new System.Drawing.Point(496, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(251, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "View Available Appointments";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.viewAppointmentsButton.Location = new System.Drawing.Point(496, 344);
+            this.viewAppointmentsButton.Name = "viewAppointmentsButton";
+            this.viewAppointmentsButton.Size = new System.Drawing.Size(251, 32);
+            this.viewAppointmentsButton.TabIndex = 8;
+            this.viewAppointmentsButton.Text = "View Available Appointments";
+            this.viewAppointmentsButton.UseVisualStyleBackColor = true;
+            this.viewAppointmentsButton.Click += new System.EventHandler(this.viewAppointmentsButton_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.monthCalendar1);
+            this.groupBox2.Controls.Add(this.appointmentCalendar);
             this.groupBox2.Location = new System.Drawing.Point(496, 67);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(333, 271);
@@ -78,12 +78,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select a Day";
             // 
-            // monthCalendar1
+            // appointmentCalendar
             // 
-            this.monthCalendar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 27);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 2;
+            this.appointmentCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentCalendar.Location = new System.Drawing.Point(12, 27);
+            this.appointmentCalendar.Name = "appointmentCalendar";
+            this.appointmentCalendar.TabIndex = 2;
+            this.appointmentCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.appointmentCalendar_DateChanged);
             // 
             // groupBox1
             // 
@@ -104,6 +105,7 @@
             this.doctorListBox.Name = "doctorListBox";
             this.doctorListBox.Size = new System.Drawing.Size(462, 224);
             this.doctorListBox.TabIndex = 4;
+            this.doctorListBox.SelectedIndexChanged += new System.EventHandler(this.doctorListBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -177,8 +179,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 453);
-            this.Controls.Add(this.availableAppointmentPanel);
             this.Controls.Add(this.appointmentDetailPanel);
+            this.Controls.Add(this.availableAppointmentPanel);
             this.Name = "AppointmentRequest";
             this.Text = "AppointmentRequest";
             this.Load += new System.EventHandler(this.AppointmentRequest_Load);
@@ -196,8 +198,8 @@
 
         private System.Windows.Forms.Panel appointmentDetailPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MonthCalendar appointmentCalendar;
+        private System.Windows.Forms.Button viewAppointmentsButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox doctorListBox;
