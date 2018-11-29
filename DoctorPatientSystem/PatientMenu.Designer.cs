@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.appointmentButton = new System.Windows.Forms.Button();
+            this.phoneCallButton = new System.Windows.Forms.Button();
+            this.refillButton = new System.Windows.Forms.Button();
+            this.recordsButton = new System.Windows.Forms.Button();
+            this.notificationsButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -45,85 +45,85 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // appointmentButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(10, 88);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 68);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Request Appointment";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.appointmentButton.BackColor = System.Drawing.Color.White;
+            this.appointmentButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appointmentButton.FlatAppearance.BorderSize = 0;
+            this.appointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appointmentButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentButton.Location = new System.Drawing.Point(10, 88);
+            this.appointmentButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.appointmentButton.Name = "appointmentButton";
+            this.appointmentButton.Size = new System.Drawing.Size(230, 68);
+            this.appointmentButton.TabIndex = 1;
+            this.appointmentButton.Text = "Request Appointment";
+            this.appointmentButton.UseVisualStyleBackColor = false;
+            this.appointmentButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // phoneCallButton
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(10, 166);
-            this.button2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(230, 68);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Request Phone Call";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.phoneCallButton.BackColor = System.Drawing.Color.White;
+            this.phoneCallButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phoneCallButton.FlatAppearance.BorderSize = 0;
+            this.phoneCallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.phoneCallButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneCallButton.Location = new System.Drawing.Point(10, 166);
+            this.phoneCallButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.phoneCallButton.Name = "phoneCallButton";
+            this.phoneCallButton.Size = new System.Drawing.Size(230, 68);
+            this.phoneCallButton.TabIndex = 2;
+            this.phoneCallButton.Text = "Request Phone Call";
+            this.phoneCallButton.UseVisualStyleBackColor = false;
+            this.phoneCallButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // refillButton
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(10, 244);
-            this.button3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(230, 68);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Request Medicine Refill";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.refillButton.BackColor = System.Drawing.Color.White;
+            this.refillButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refillButton.FlatAppearance.BorderSize = 0;
+            this.refillButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refillButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refillButton.Location = new System.Drawing.Point(10, 244);
+            this.refillButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.refillButton.Name = "refillButton";
+            this.refillButton.Size = new System.Drawing.Size(230, 68);
+            this.refillButton.TabIndex = 3;
+            this.refillButton.Text = "Request Medicine Refill";
+            this.refillButton.UseVisualStyleBackColor = false;
+            this.refillButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // recordsButton
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(10, 322);
-            this.button4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(230, 68);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "View Medical Records";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.recordsButton.BackColor = System.Drawing.Color.White;
+            this.recordsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordsButton.FlatAppearance.BorderSize = 0;
+            this.recordsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recordsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsButton.Location = new System.Drawing.Point(10, 322);
+            this.recordsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.recordsButton.Name = "recordsButton";
+            this.recordsButton.Size = new System.Drawing.Size(230, 68);
+            this.recordsButton.TabIndex = 4;
+            this.recordsButton.Text = "View Medical Records";
+            this.recordsButton.UseVisualStyleBackColor = false;
+            this.recordsButton.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // notificationsButton
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(10, 10);
-            this.button5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(230, 68);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Notifications";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.notificationsButton.BackColor = System.Drawing.Color.White;
+            this.notificationsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.notificationsButton.FlatAppearance.BorderSize = 0;
+            this.notificationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notificationsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notificationsButton.Location = new System.Drawing.Point(10, 10);
+            this.notificationsButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.notificationsButton.Name = "notificationsButton";
+            this.notificationsButton.Size = new System.Drawing.Size(230, 68);
+            this.notificationsButton.TabIndex = 0;
+            this.notificationsButton.Text = "Notifications";
+            this.notificationsButton.UseVisualStyleBackColor = false;
+            this.notificationsButton.Click += new System.EventHandler(this.button5_Click);
             // 
             // splitContainer1
             // 
@@ -172,11 +172,11 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.button4, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button5, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.recordsButton, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.refillButton, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.phoneCallButton, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.appointmentButton, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.notificationsButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -212,11 +212,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button appointmentButton;
+        private System.Windows.Forms.Button phoneCallButton;
+        private System.Windows.Forms.Button refillButton;
+        private System.Windows.Forms.Button recordsButton;
+        private System.Windows.Forms.Button notificationsButton;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

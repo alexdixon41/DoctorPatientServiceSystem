@@ -30,6 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.notificationListView = new System.Windows.Forms.ListView();
+            this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.message = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.selectNotificationButton = new System.Windows.Forms.Button();
             this.notificationListPanel = new System.Windows.Forms.Panel();
             this.notificationDetailPanel = new System.Windows.Forms.Panel();
@@ -54,32 +59,69 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 32);
+            this.label1.Size = new System.Drawing.Size(148, 51);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Notifications";
+            this.label1.Text = "Notices";
             // 
             // notificationListView
             // 
-            this.notificationListView.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notificationListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.type,
+            this.date,
+            this.status,
+            this.sender,
+            this.message});
+            this.notificationListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notificationListView.FullRowSelect = true;
-            this.notificationListView.Location = new System.Drawing.Point(12, 84);
+            this.notificationListView.Location = new System.Drawing.Point(27, 82);
             this.notificationListView.MultiSelect = false;
             this.notificationListView.Name = "notificationListView";
-            this.notificationListView.Size = new System.Drawing.Size(808, 293);
+            this.notificationListView.Size = new System.Drawing.Size(796, 607);
             this.notificationListView.TabIndex = 1;
             this.notificationListView.UseCompatibleStateImageBehavior = false;
             this.notificationListView.View = System.Windows.Forms.View.Details;
             // 
+            // type
+            // 
+            this.type.Text = "Type";
+            this.type.Width = 160;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 200;
+            // 
+            // status
+            // 
+            this.status.Text = "Status";
+            this.status.Width = 100;
+            // 
+            // sender
+            // 
+            this.sender.Text = "Sender";
+            this.sender.Width = 220;
+            // 
+            // message
+            // 
+            this.message.Text = "Message";
+            this.message.Width = 500;
+            // 
             // selectNotificationButton
             // 
-            this.selectNotificationButton.Location = new System.Drawing.Point(724, 383);
+            this.selectNotificationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectNotificationButton.AutoSize = true;
+            this.selectNotificationButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectNotificationButton.Location = new System.Drawing.Point(648, 14);
             this.selectNotificationButton.Name = "selectNotificationButton";
-            this.selectNotificationButton.Size = new System.Drawing.Size(96, 34);
+            this.selectNotificationButton.Size = new System.Drawing.Size(175, 48);
             this.selectNotificationButton.TabIndex = 2;
-            this.selectNotificationButton.Text = "Select";
+            this.selectNotificationButton.Text = "View Notice";
             this.selectNotificationButton.UseVisualStyleBackColor = true;
             this.selectNotificationButton.Click += new System.EventHandler(this.selectNotificationButton_Click);
             // 
@@ -90,8 +132,9 @@
             this.notificationListPanel.Controls.Add(this.notificationListView);
             this.notificationListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.notificationListPanel.Location = new System.Drawing.Point(0, 0);
+            this.notificationListPanel.MinimumSize = new System.Drawing.Size(450, 300);
             this.notificationListPanel.Name = "notificationListPanel";
-            this.notificationListPanel.Size = new System.Drawing.Size(832, 453);
+            this.notificationListPanel.Size = new System.Drawing.Size(835, 701);
             this.notificationListPanel.TabIndex = 3;
             // 
             // notificationDetailPanel
@@ -108,7 +151,7 @@
             this.notificationDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.notificationDetailPanel.Location = new System.Drawing.Point(0, 0);
             this.notificationDetailPanel.Name = "notificationDetailPanel";
-            this.notificationDetailPanel.Size = new System.Drawing.Size(832, 453);
+            this.notificationDetailPanel.Size = new System.Drawing.Size(835, 701);
             this.notificationDetailPanel.TabIndex = 4;
             this.notificationDetailPanel.Visible = false;
             // 
@@ -240,7 +283,7 @@
             this.Controls.Add(this.notificationListPanel);
             this.Controls.Add(this.notificationDetailPanel);
             this.Name = "NotificationUserControl";
-            this.Size = new System.Drawing.Size(832, 453);
+            this.Size = new System.Drawing.Size(835, 701);
             this.Load += new System.EventHandler(this.PatientNotifications_Load);
             this.notificationListPanel.ResumeLayout(false);
             this.notificationListPanel.PerformLayout();
@@ -271,5 +314,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel normalButtonPanel;
         private System.Windows.Forms.Button confirmButton;
+        private System.Windows.Forms.ColumnHeader type;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.ColumnHeader sender;
+        private System.Windows.Forms.ColumnHeader message;
     }
 }

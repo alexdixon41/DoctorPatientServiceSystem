@@ -19,19 +19,7 @@ namespace DoctorPatientSystem
 
         private void PatientNotifications_Load(object sender, EventArgs e)
         {
-            notificationListView.Columns.Add("Message", 220, HorizontalAlignment.Left);          
-            notificationListView.Columns.Add("Sender", 120, HorizontalAlignment.Left);
-            notificationListView.Columns.Add("Type", 120, HorizontalAlignment.Left);
-            notificationListView.Columns.Add("Time", 130, HorizontalAlignment.Left);
-
-            notificationListView.Items.Add("Dr. Doolittle would like to view your medical records.");
-            notificationListView.Items[0].SubItems.Add("Dr. Doolittle");
-            notificationListView.Items[0].SubItems.Add("Records Request");            
-            notificationListView.Items[0].SubItems.Add("09/18/2018 10:00 AM");
-            notificationListView.Items.Add("Your refill request has been approved.");
-            notificationListView.Items[1].SubItems.Add("Dr. Doofenschmirtz");
-            notificationListView.Items[1].SubItems.Add("Refill Request");            
-            notificationListView.Items[1].SubItems.Add("06/04/2018 02:00 PM");
+            // TODO load notifications for current user (patient or doctor)
         }
 
         private void selectNotificationButton_Click(object sender, EventArgs e)

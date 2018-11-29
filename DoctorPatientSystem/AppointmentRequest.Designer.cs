@@ -40,27 +40,28 @@
             this.appointmentListView = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.appointmentDetailPanel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.availableAppointmentPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // appointmentDetailPanel
             // 
             this.appointmentDetailPanel.Controls.Add(this.viewAppointmentsButton);
-            this.appointmentDetailPanel.Controls.Add(this.groupBox2);
-            this.appointmentDetailPanel.Controls.Add(this.groupBox1);
             this.appointmentDetailPanel.Controls.Add(this.label1);
+            this.appointmentDetailPanel.Controls.Add(this.tableLayoutPanel1);
             this.appointmentDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appointmentDetailPanel.Location = new System.Drawing.Point(0, 0);
             this.appointmentDetailPanel.Name = "appointmentDetailPanel";
-            this.appointmentDetailPanel.Size = new System.Drawing.Size(832, 453);
+            this.appointmentDetailPanel.Size = new System.Drawing.Size(1029, 613);
             this.appointmentDetailPanel.TabIndex = 0;
             // 
             // viewAppointmentsButton
             // 
-            this.viewAppointmentsButton.Location = new System.Drawing.Point(496, 344);
+            this.viewAppointmentsButton.Location = new System.Drawing.Point(627, 16);
             this.viewAppointmentsButton.Name = "viewAppointmentsButton";
             this.viewAppointmentsButton.Size = new System.Drawing.Size(251, 32);
             this.viewAppointmentsButton.TabIndex = 8;
@@ -71,9 +72,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.appointmentCalendar);
-            this.groupBox2.Location = new System.Drawing.Point(496, 67);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(495, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 271);
+            this.groupBox2.Size = new System.Drawing.Size(487, 508);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select a Day";
@@ -89,9 +91,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.doctorListBox);
-            this.groupBox1.Location = new System.Drawing.Point(16, 67);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(474, 271);
+            this.groupBox1.Size = new System.Drawing.Size(486, 508);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select a Doctor";
@@ -110,10 +113,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 25);
+            this.label1.Size = new System.Drawing.Size(330, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "New Appointment";
             // 
@@ -126,7 +129,7 @@
             this.availableAppointmentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.availableAppointmentPanel.Location = new System.Drawing.Point(0, 0);
             this.availableAppointmentPanel.Name = "availableAppointmentPanel";
-            this.availableAppointmentPanel.Size = new System.Drawing.Size(832, 453);
+            this.availableAppointmentPanel.Size = new System.Drawing.Size(1029, 613);
             this.availableAppointmentPanel.TabIndex = 1;
             this.availableAppointmentPanel.Visible = false;
             // 
@@ -174,15 +177,31 @@
             this.dateLabel.TabIndex = 0;
             this.dateLabel.Text = "Thursday, October 11, 2018";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 82);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(985, 514);
+            this.tableLayoutPanel1.TabIndex = 9;
+            // 
             // AppointmentRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 453);
             this.Controls.Add(this.appointmentDetailPanel);
             this.Controls.Add(this.availableAppointmentPanel);
             this.Name = "AppointmentRequest";
-            this.Text = "AppointmentRequest";
+            this.Size = new System.Drawing.Size(1029, 613);
             this.Load += new System.EventHandler(this.AppointmentRequest_Load);
             this.appointmentDetailPanel.ResumeLayout(false);
             this.appointmentDetailPanel.PerformLayout();
@@ -190,6 +209,7 @@
             this.groupBox1.ResumeLayout(false);
             this.availableAppointmentPanel.ResumeLayout(false);
             this.availableAppointmentPanel.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -208,5 +228,6 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.ListView appointmentListView;
         private System.Windows.Forms.Button selectAppointmentButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -19,6 +19,7 @@ namespace DoctorPatientSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // TODO create phone call request 
             if (doctorListBox.SelectedItem != null)
             {                
                 new AlertDialog(doctorListBox.SelectedItem.ToString() + " will contact you soon.").ShowDialog();
