@@ -22,12 +22,13 @@ namespace DoctorPatientSystem
         }
 
         private void doctorButton_Click(object sender, EventArgs e)
-        {
+        {            
             textBox1.Text = "";
             textBox2.Text = "";
             loginTitleLabel.Text = "Doctor Login";
             loginMenuPanel.Hide();
             loginPanel.Show();
+            textBox1.Select();
             userType = User.DOCTOR_USER_TYPE;
         }
 
@@ -38,6 +39,7 @@ namespace DoctorPatientSystem
             loginTitleLabel.Text = "Patient Login";
             loginMenuPanel.Hide();
             loginPanel.Show();
+            textBox1.Select();
             userType = User.PATIENT_USER_TYPE;
         }
 

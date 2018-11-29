@@ -108,7 +108,7 @@
             this.loginPanel.Location = new System.Drawing.Point(0, 0);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(832, 553);
-            this.loginPanel.TabIndex = 6;
+            this.loginPanel.TabIndex = 3;
             this.loginPanel.Visible = false;
             // 
             // loginTitleLabel
@@ -143,7 +143,7 @@
             this.panel2.Location = new System.Drawing.Point(175, 180);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 128);
-            this.panel2.TabIndex = 13;
+            this.panel2.TabIndex = 2;
             // 
             // textBox2
             // 
