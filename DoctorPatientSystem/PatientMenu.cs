@@ -12,6 +12,12 @@ namespace DoctorPatientSystem
 {
     public partial class PatientMenu : Form
     {
+        private NotificationUserControl notificationControl = new NotificationUserControl();
+        private AppointmentRequest appointmentRequestControl = new AppointmentRequest();
+        private CallRequest callRequestControl = new CallRequest();
+        private RefillRequest refillRequestControl = new RefillRequest();
+        private CheckPatientRecords patientRecordControl = new CheckPatientRecords();
+
         public PatientMenu()
         {
             InitializeComponent();
@@ -19,27 +25,57 @@ namespace DoctorPatientSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new AppointmentRequest().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(appointmentRequestControl);
+            appointmentRequestControl.Dock = DockStyle.Fill;
+            appointmentRequestControl.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new CallRequest().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(callRequestControl);
+            callRequestControl.Dock = DockStyle.Fill;
+            callRequestControl.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new RefillRequest().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(refillRequestControl);
+            refillRequestControl.Dock = DockStyle.Fill;
+            refillRequestControl.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new CheckPatientRecords().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(patientRecordControl);
+            patientRecordControl.Dock = DockStyle.Fill;
+            patientRecordControl.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new PatientNotifications().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(notificationControl);
+            notificationControl.Dock = DockStyle.Fill;
+            notificationControl.Show();
         }
     }
 }

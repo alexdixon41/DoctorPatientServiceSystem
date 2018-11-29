@@ -54,19 +54,19 @@
       <DependentUpon>AlertDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="AppointmentRequest.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AppointmentRequest.Designer.cs">
       <DependentUpon>AppointmentRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="CallRequest.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CallRequest.Designer.cs">
       <DependentUpon>CallRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckPatientRecords.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CheckPatientRecords.Designer.cs">
       <DependentUpon>CheckPatientRecords.cs</DependentUpon>
@@ -78,7 +78,7 @@
       <DependentUpon>ConfirmationPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateMedicalRecord.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CreateMedicalRecord.designer.cs">
       <DependentUpon>CreateMedicalRecord.cs</DependentUpon>
@@ -89,12 +89,6 @@
     </Compile>
     <Compile Include="DoctorMenu.designer.cs">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorNotification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorNotification.Designer.cs">
-      <DependentUpon>DoctorNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneralPatientRecords.cs">
       <SubType>Form</SubType>
@@ -114,14 +108,14 @@
     <Compile Include="PatientMenu.Designer.cs">
       <DependentUpon>PatientMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientNotifications.cs">
-      <SubType>Form</SubType>
+    <Compile Include="NotificationUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PatientNotifications.Designer.cs">
-      <DependentUpon>PatientNotifications.cs</DependentUpon>
+    <Compile Include="NotificationUserControl.Designer.cs">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientSearch.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PatientSearch.Designer.cs">
       <DependentUpon>PatientSearch.cs</DependentUpon>
@@ -141,7 +135,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefillRequest.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RefillRequest.Designer.cs">
       <DependentUpon>RefillRequest.cs</DependentUpon>
@@ -180,9 +174,6 @@
     <EmbeddedResource Include="DoctorMenu.resx">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="doctorNotification.resx">
-      <DependentUpon>DoctorNotification.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GeneralPatientRecords.resx">
       <DependentUpon>GeneralPatientRecords.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,8 +183,8 @@
     <EmbeddedResource Include="PatientMenu.resx">
       <DependentUpon>PatientMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientNotifications.resx">
-      <DependentUpon>PatientNotifications.cs</DependentUpon>
+    <EmbeddedResource Include="NotificationUserControl.resx">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>

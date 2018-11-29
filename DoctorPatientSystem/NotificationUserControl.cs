@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-    public partial class PatientNotifications : Form
+    public partial class NotificationUserControl : UserControl
     {
-        public PatientNotifications()
+        public NotificationUserControl()
         {
             InitializeComponent();
         }
@@ -36,17 +36,20 @@ namespace DoctorPatientSystem
 
         private void selectNotificationButton_Click(object sender, EventArgs e)
         {
-            notificationListPanel.Hide();
-            notificationDetailPanel.Show();            
-            if (notificationListView.SelectedItems[0].SubItems[2].Text.Equals("Records Request")) 
+            if (!(notificationListView.SelectedIndices.Count == 0))
             {
-                normalButtonPanel.Hide();           
-                recordRequestButtonPanel.Show();
-            }
-            else
-            {
-                recordRequestButtonPanel.Hide();
-                normalButtonPanel.Show();
+                notificationListPanel.Hide();
+                notificationDetailPanel.Show();
+                if (notificationListView.SelectedItems[0].SubItems[2].Text.Equals("Records Request"))
+                {
+                    normalButtonPanel.Hide();
+                    recordRequestButtonPanel.Show();
+                }
+                else
+                {
+                    recordRequestButtonPanel.Hide();
+                    normalButtonPanel.Show();
+                }
             }
         }
 

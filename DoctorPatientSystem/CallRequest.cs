@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-    public partial class CallRequest : Form
+    public partial class CallRequest : UserControl
     {
         public CallRequest()
         {

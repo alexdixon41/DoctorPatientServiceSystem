@@ -35,13 +35,13 @@
             this.loginMenuPanel = new System.Windows.Forms.Panel();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.loginTitleLabel = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.backButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.loginMenuPanel.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -122,22 +122,6 @@
             this.loginTitleLabel.TabIndex = 11;
             this.loginTitleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // backButton
-            // 
-            this.backButton.AutoSize = true;
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 40);
-            this.backButton.TabIndex = 10;
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
             // button1
             // 
             this.button1.AutoSize = true;
@@ -201,13 +185,30 @@
             this.textBox1.Size = new System.Drawing.Size(367, 31);
             this.textBox1.TabIndex = 0;
             // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 40);
+            this.backButton.TabIndex = 10;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // Login
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 553);
-            this.Controls.Add(this.loginMenuPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.loginMenuPanel);
             this.Name = "Login";
             this.Text = "Login";
             this.tableLayoutPanel1.ResumeLayout(false);

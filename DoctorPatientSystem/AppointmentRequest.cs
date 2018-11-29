@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-    public partial class AppointmentRequest : Form
+    public partial class AppointmentRequest : UserControl
     {
         public AppointmentRequest()
         {

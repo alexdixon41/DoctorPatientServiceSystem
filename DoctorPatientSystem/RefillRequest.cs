@@ -13,7 +13,7 @@ namespace DoctorPatientSystem
     /// <summary>
     /// This form allows the patient to request a refill of a past prescription.
     /// </summary>
-    public partial class RefillRequest : Form
+    public partial class RefillRequest : UserControl
     {
         public RefillRequest()
         {

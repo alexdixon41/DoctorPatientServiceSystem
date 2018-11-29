@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-	public partial class CreateMedicalRecord : Form
+	public partial class CreateMedicalRecord : UserControl
 	{
 		public CreateMedicalRecord()
 		{
@@ -19,9 +19,7 @@ namespace DoctorPatientSystem
 
 		private void submitButton_Click(object sender, EventArgs e)
 		{
-			new AlertDialog("The medical request was created successfully").ShowDialog();
-			this.DialogResult = DialogResult.OK;
-			this.Close();
+			new AlertDialog("The medical request was created successfully").ShowDialog();			
 		}
     }
 }

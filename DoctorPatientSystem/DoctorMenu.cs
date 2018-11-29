@@ -12,6 +12,10 @@ namespace DoctorPatientSystem
 {
 	public partial class DoctorMenu : Form
 	{
+        private NotificationUserControl notificationControl = new NotificationUserControl();
+        private PatientSearch patientSearchControl = new PatientSearch();
+        private CreateMedicalRecord createRecordControl = new CreateMedicalRecord();
+
 		public DoctorMenu()
 		{
 			InitializeComponent();
@@ -19,17 +23,35 @@ namespace DoctorPatientSystem
 
         private void notificationButton_Click(object sender, EventArgs e)
         {
-            new DoctorNotification().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(notificationControl);
+            notificationControl.Dock = DockStyle.Fill;
+            notificationControl.Show();
         }
 
         private void patientSearchButton_Click(object sender, EventArgs e)
         {
-            new PatientSearch().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(patientSearchControl);
+            patientSearchControl.Dock = DockStyle.Fill;
+            patientSearchControl.Show();
         }
 
         private void createRecordButton_Click(object sender, EventArgs e)
         {
-            new CreateMedicalRecord().Show();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(createRecordControl);
+            createRecordControl.Dock = DockStyle.Fill;
+            createRecordControl.Show();
         }
     }
 }

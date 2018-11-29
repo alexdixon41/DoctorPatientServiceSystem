@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-    public partial class PatientSearch : Form
+    public partial class PatientSearch : UserControl
     {
         public PatientSearch()
         {
