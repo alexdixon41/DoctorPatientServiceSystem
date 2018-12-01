@@ -122,6 +122,8 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicine.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="PatientMenu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -19,7 +19,14 @@ namespace DoctorPatientSystem
 
         private void PatientNotifications_Load(object sender, EventArgs e)
         {
-            // TODO load notifications for current user (patient or doctor)
+            if (User.Type == User.PATIENT_USER_TYPE)
+            {
+                
+            }
+            else
+            {
+
+            }
         }
 
         private void selectNotificationButton_Click(object sender, EventArgs e)

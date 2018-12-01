@@ -73,7 +73,7 @@
             this.phoneCallButton.Name = "phoneCallButton";
             this.phoneCallButton.Size = new System.Drawing.Size(230, 68);
             this.phoneCallButton.TabIndex = 2;
-            this.phoneCallButton.Text = "Request Phone Call";
+            this.phoneCallButton.Text = "Request a Phone Call";
             this.phoneCallButton.UseVisualStyleBackColor = false;
             this.phoneCallButton.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -89,7 +89,7 @@
             this.refillButton.Name = "refillButton";
             this.refillButton.Size = new System.Drawing.Size(230, 68);
             this.refillButton.TabIndex = 3;
-            this.refillButton.Text = "Request Medicine Refill";
+            this.refillButton.Text = "Request a Refill";
             this.refillButton.UseVisualStyleBackColor = false;
             this.refillButton.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -121,7 +121,7 @@
             this.notificationsButton.Name = "notificationsButton";
             this.notificationsButton.Size = new System.Drawing.Size(230, 68);
             this.notificationsButton.TabIndex = 0;
-            this.notificationsButton.Text = "Notifications";
+            this.notificationsButton.Text = "Notices";
             this.notificationsButton.UseVisualStyleBackColor = false;
             this.notificationsButton.Click += new System.EventHandler(this.button5_Click);
             // 
