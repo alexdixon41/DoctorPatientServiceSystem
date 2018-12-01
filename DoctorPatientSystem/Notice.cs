@@ -184,12 +184,11 @@ namespace DoctorPatientSystem
                 newNotice.Status = row["noticeStatus"].ToString();
                 newNotice.SentDate = row["sentDate"].ToString();
                 newNotice.Message = row["message"].ToString();
-                Console.WriteLine(row["docName"].ToString());
-                if (row["docName"].ToString().Equals(null))
+                if (!(row["docName"].ToString().Equals("")))
                     newNotice.Sender = row["docName"].ToString();
-                else if (row["paName"].ToString().Equals(null))
+                else if (!(row["paName"].ToString().Equals("")))
                     newNotice.Sender = row["paName"].ToString();
-                else if (!row["phName"].ToString().Equals(null))
+                else if (!(row["phName"].ToString().Equals("")))
                     newNotice.Sender = row["phName"].ToString();
                 if (newNotice.Status.Equals("New"))
                     unreadCount++;

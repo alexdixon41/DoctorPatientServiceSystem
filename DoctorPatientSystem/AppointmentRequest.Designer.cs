@@ -38,14 +38,15 @@
             this.availableAppointmentPanel = new System.Windows.Forms.Panel();
             this.selectAppointmentButton = new System.Windows.Forms.Button();
             this.appointmentListView = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.appointmentsLabel = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.officeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.officeNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.backButton = new System.Windows.Forms.Button();
             this.appointmentDetailPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,9 +67,11 @@
             // 
             // viewAppointmentsButton
             // 
+            this.viewAppointmentsButton.AutoSize = true;
+            this.viewAppointmentsButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewAppointmentsButton.Location = new System.Drawing.Point(627, 16);
             this.viewAppointmentsButton.Name = "viewAppointmentsButton";
-            this.viewAppointmentsButton.Size = new System.Drawing.Size(251, 32);
+            this.viewAppointmentsButton.Size = new System.Drawing.Size(386, 48);
             this.viewAppointmentsButton.TabIndex = 8;
             this.viewAppointmentsButton.Text = "View Available Appointments";
             this.viewAppointmentsButton.UseVisualStyleBackColor = true;
@@ -148,10 +151,11 @@
             // 
             // availableAppointmentPanel
             // 
+            this.availableAppointmentPanel.Controls.Add(this.backButton);
             this.availableAppointmentPanel.Controls.Add(this.selectAppointmentButton);
             this.availableAppointmentPanel.Controls.Add(this.appointmentListView);
-            this.availableAppointmentPanel.Controls.Add(this.label2);
             this.availableAppointmentPanel.Controls.Add(this.dateLabel);
+            this.availableAppointmentPanel.Controls.Add(this.appointmentsLabel);
             this.availableAppointmentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.availableAppointmentPanel.Location = new System.Drawing.Point(0, 0);
             this.availableAppointmentPanel.Name = "availableAppointmentPanel";
@@ -161,9 +165,12 @@
             // 
             // selectAppointmentButton
             // 
-            this.selectAppointmentButton.Location = new System.Drawing.Point(370, 328);
+            this.selectAppointmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectAppointmentButton.AutoSize = true;
+            this.selectAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAppointmentButton.Location = new System.Drawing.Point(742, 20);
             this.selectAppointmentButton.Name = "selectAppointmentButton";
-            this.selectAppointmentButton.Size = new System.Drawing.Size(209, 34);
+            this.selectAppointmentButton.Size = new System.Drawing.Size(271, 48);
             this.selectAppointmentButton.TabIndex = 4;
             this.selectAppointmentButton.Text = "Select Appointment";
             this.selectAppointmentButton.UseVisualStyleBackColor = true;
@@ -172,36 +179,37 @@
             // appointmentListView
             // 
             this.appointmentListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.appointmentListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appointmentListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentListView.FullRowSelect = true;
-            this.appointmentListView.HoverSelection = true;
-            this.appointmentListView.Location = new System.Drawing.Point(16, 94);
+            this.appointmentListView.Location = new System.Drawing.Point(19, 130);
             this.appointmentListView.MultiSelect = false;
             this.appointmentListView.Name = "appointmentListView";
-            this.appointmentListView.Size = new System.Drawing.Size(563, 228);
+            this.appointmentListView.Size = new System.Drawing.Size(994, 466);
             this.appointmentListView.TabIndex = 3;
             this.appointmentListView.UseCompatibleStateImageBehavior = false;
-            this.appointmentListView.View = System.Windows.Forms.View.Details;
-            this.appointmentListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.appointmentListView_ItemSelectionChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Appointments";
+            this.appointmentListView.View = System.Windows.Forms.View.List;
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(13, 13);
+            this.dateLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(12, 89);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(256, 25);
-            this.dateLabel.TabIndex = 0;
-            this.dateLabel.Text = "Thursday, October 11, 2018";
+            this.dateLabel.Size = new System.Drawing.Size(0, 38);
+            this.dateLabel.TabIndex = 2;
+            // 
+            // appointmentsLabel
+            // 
+            this.appointmentsLabel.AutoSize = true;
+            this.appointmentsLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentsLabel.Location = new System.Drawing.Point(100, 16);
+            this.appointmentsLabel.Name = "appointmentsLabel";
+            this.appointmentsLabel.Size = new System.Drawing.Size(420, 51);
+            this.appointmentsLabel.TabIndex = 0;
+            this.appointmentsLabel.Text = "Available Appointments";
             // 
             // dateTimePicker1
             // 
@@ -253,6 +261,22 @@
             this.officeNumber.Text = "Phone Number";
             this.officeNumber.Width = 200;
             // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = global::DoctorPatientSystem.Properties.Resources.icons8_left_32;
+            this.backButton.Location = new System.Drawing.Point(19, 18);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 40);
+            this.backButton.TabIndex = 6;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // AppointmentRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,7 +285,6 @@
             this.Controls.Add(this.availableAppointmentPanel);
             this.Name = "AppointmentRequest";
             this.Size = new System.Drawing.Size(1029, 613);
-            this.Load += new System.EventHandler(this.AppointmentRequest_Load);
             this.appointmentDetailPanel.ResumeLayout(false);
             this.appointmentDetailPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -282,8 +305,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel availableAppointmentPanel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label appointmentsLabel;
         private System.Windows.Forms.ListView appointmentListView;
         private System.Windows.Forms.Button selectAppointmentButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -294,5 +317,6 @@
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader officeName;
         private System.Windows.Forms.ColumnHeader officeNumber;
+        private System.Windows.Forms.Button backButton;
     }
 }
