@@ -334,5 +334,38 @@ namespace DoctorPatientSystem
             conn.Close();
             Console.WriteLine("Done");
         }
+
+		public bool validateAccess(int doctorID) 
+		{
+			bool hasAccess = false;
+
+			DataTable table = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = "SELECT * FROM dixonverifieddoctor WHERE patientID = @pid AND doctorID = @did";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@pid", Id);
+				cmd.Parameters.AddWithValue("@did", doctorID);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(table);
+
+				if (table.Rows.Count != 0)
+				{
+					hasAccess = true;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			return hasAccess;
+		}
+
     }
 }
