@@ -14,9 +14,9 @@ namespace DoctorPatientSystem
 
         private string name;
         private int id;
+        private string officeName;
+        private string officeNumber;
         private ArrayList workDays = new ArrayList();
-        private ArrayList phoneNums = new ArrayList();
-
         public ArrayList WorkDays
         {
             get
@@ -29,7 +29,6 @@ namespace DoctorPatientSystem
                 workDays = value;
             }
         }
-
         public string Name
         {
             get
@@ -42,7 +41,6 @@ namespace DoctorPatientSystem
                 name = value;
             }
         }
-
         public int Id
         {
             get
@@ -53,6 +51,30 @@ namespace DoctorPatientSystem
             set
             {
                 id = value;
+            }
+        }
+        public string OfficeName
+        {
+            get
+            {
+                return officeName;
+            }
+
+            set
+            {
+                officeName = value;
+            }
+        }
+        public string OfficeNumber
+        {
+            get
+            {
+                return officeNumber;
+            }
+
+            set
+            {
+                officeNumber = value;
             }
         }
 
@@ -66,11 +88,11 @@ namespace DoctorPatientSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = @"SELECT d.id, d.name, s.monday, s.tuesday, s.wednesday, s.thursday, s.friday, s.saturday, s.sunday, ph.officenumber  
-                            FROM DixonDoctor d JOIN DixonSchedule s ON s.id = d.workSchedule JOIN DixonPhonenumber ph ON d.phonenumber = ph.id 
-                            WHERE d.name LIKE @searchKey1 OR LIKE @searchKey2";
+                string sql = @"SELECT d.id, d.name, d.officeName, s.monday, s.tuesday, s.wednesday, s.thursday, s.friday, s.saturday, s.sunday, ph.officenumber  
+                            FROM DixonDoctor d LEFT OUTER JOIN DixonPhonenumber ph ON d.phonenumber = ph.id JOIN DixonSchedule s ON s.id = d.workSchedule 
+                            WHERE d.name LIKE @searchKey1 OR d.name LIKE @searchKey2";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@searchKey1", "" + sqlStr + "%");
+                cmd.Parameters.AddWithValue("@searchKey1", sqlStr + "%");
                 cmd.Parameters.AddWithValue("@searchKey2", "% " + sqlStr + "%");
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(dataTable);
@@ -115,10 +137,8 @@ namespace DoctorPatientSystem
                 {
                     doctor.WorkDays.Add(DayOfWeek.Sunday);
                 }
-                if (!row["officenumber"].ToString().Equals(null))
-                {
-                    doctor.phoneNums.Add(row["officenumber"].ToString());
-                }
+                doctor.OfficeNumber = row["officeNumber"].ToString();
+                doctor.OfficeName = row["officeName"].ToString();
                 doctors.Add(doctor);
             }
         }
@@ -126,6 +146,17 @@ namespace DoctorPatientSystem
         public static ArrayList displayDoctors()
         {
             return doctors;
+        }
+
+        public static void getAvailableDoctors(DayOfWeek selectedDay)
+        {
+            ArrayList availableDoctors = new ArrayList();
+            foreach (Doctor doc in doctors)
+            {
+                if (doc.WorkDays.Contains(selectedDay))
+                    availableDoctors.Add(doc);
+            }
+            doctors = availableDoctors;           
         }
       
     }

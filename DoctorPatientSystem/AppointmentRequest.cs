@@ -26,7 +26,8 @@ namespace DoctorPatientSystem
             {
                 doctorListView.Items.Add(doc.Name);
                 doctorListView.Items[i].SubItems.Add(doc.OfficeName);
-                doctorListView.Items[i].SubItems.Add(doc.OfficePhone);
+                doctorListView.Items[i].SubItems.Add(doc.OfficeNumber);
+                i++;
             }
         }
 
@@ -131,6 +132,7 @@ namespace DoctorPatientSystem
                 textBox1.Text = "";
             }
             Doctor.retrieveDoctors(textBox1.Text);
+            Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);
             populateList();
         }
     }

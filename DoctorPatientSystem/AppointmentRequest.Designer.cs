@@ -126,6 +126,7 @@
             this.officeName,
             this.officeNumber});
             this.doctorListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorListView.FullRowSelect = true;
             this.doctorListView.Location = new System.Drawing.Point(7, 78);
             this.doctorListView.Name = "doctorListView";
             this.doctorListView.Size = new System.Drawing.Size(966, 322);
