@@ -117,6 +117,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Medicine.cs" />
+    <Compile Include="Notice.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientMenu.cs">
       <SubType>Form</SubType>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.notificationListView = new System.Windows.Forms.ListView();
+            this.noticesListView = new System.Windows.Forms.ListView();
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,26 +66,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Notices";
             // 
-            // notificationListView
+            // noticesListView
             // 
-            this.notificationListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.noticesListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.noticesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.type,
             this.date,
             this.status,
             this.sender,
             this.message});
-            this.notificationListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notificationListView.FullRowSelect = true;
-            this.notificationListView.Location = new System.Drawing.Point(27, 82);
-            this.notificationListView.MultiSelect = false;
-            this.notificationListView.Name = "notificationListView";
-            this.notificationListView.Size = new System.Drawing.Size(796, 607);
-            this.notificationListView.TabIndex = 1;
-            this.notificationListView.UseCompatibleStateImageBehavior = false;
-            this.notificationListView.View = System.Windows.Forms.View.Details;
+            this.noticesListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticesListView.FullRowSelect = true;
+            this.noticesListView.Location = new System.Drawing.Point(27, 82);
+            this.noticesListView.MultiSelect = false;
+            this.noticesListView.Name = "noticesListView";
+            this.noticesListView.Size = new System.Drawing.Size(796, 607);
+            this.noticesListView.TabIndex = 1;
+            this.noticesListView.UseCompatibleStateImageBehavior = false;
+            this.noticesListView.View = System.Windows.Forms.View.Details;
             // 
             // type
             // 
@@ -129,7 +129,7 @@
             // 
             this.notificationListPanel.Controls.Add(this.selectNotificationButton);
             this.notificationListPanel.Controls.Add(this.label1);
-            this.notificationListPanel.Controls.Add(this.notificationListView);
+            this.notificationListPanel.Controls.Add(this.noticesListView);
             this.notificationListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.notificationListPanel.Location = new System.Drawing.Point(0, 0);
             this.notificationListPanel.MinimumSize = new System.Drawing.Size(450, 300);
@@ -298,7 +298,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView notificationListView;
+        private System.Windows.Forms.ListView noticesListView;
         private System.Windows.Forms.Button selectNotificationButton;
         private System.Windows.Forms.Panel notificationListPanel;
         private System.Windows.Forms.Panel notificationDetailPanel;
