@@ -12,6 +12,7 @@ namespace DoctorPatientSystem
 {
     public partial class CallRequest : UserControl
     {
+        private string key = "";
         public CallRequest()
         {
             InitializeComponent();
@@ -24,7 +25,26 @@ namespace DoctorPatientSystem
 
         private void CallRequest_Load(object sender, EventArgs e)
         {
-            
+            Doctor.retrieveDoctors(key);
+            Doctor.displayDoctors();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            key = searchKey.Text;
+            if (!searchKey.Text.Equals(null))
+            {
+                Doctor.retrieveDoctors(key);
+                Doctor.displayDoctors();
+            }else
+            {
+                Doctor.displayDoctors();
+            }
+        }
+
+        private void doctorListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

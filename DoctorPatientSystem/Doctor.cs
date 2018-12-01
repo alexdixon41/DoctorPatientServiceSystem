@@ -13,8 +13,9 @@ namespace DoctorPatientSystem
         private static ArrayList doctors = new ArrayList();
 
         private string name;
+        private int id;
         private ArrayList workDays = new ArrayList();
-        
+        private ArrayList phoneNums = new ArrayList();
 
         public ArrayList WorkDays
         {
@@ -42,6 +43,19 @@ namespace DoctorPatientSystem
             }
         }
 
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
         public static void retrieveDoctors(string sqlStr)
         {
             doctors.Clear();
@@ -52,9 +66,12 @@ namespace DoctorPatientSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT d.name, s.monday, s.tuesday, s.wednesday, s.thursday, s.friday, s.saturday, s.sunday " +
-                            "FROM DixonDoctor d JOIN DixonSchedule s ON s.id = d.workSchedule";
+                string sql = @"SELECT d.id, d.name, s.monday, s.tuesday, s.wednesday, s.thursday, s.friday, s.saturday, s.sunday, ph.officenumber  
+                            FROM DixonDoctor d JOIN DixonSchedule s ON s.id = d.workSchedule JOIN DixonPhonenumber ph ON d.phonenumber = ph.id 
+                            WHERE d.name LIKE @searchKey1 OR LIKE @searchKey2";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@searchKey1", "" + sqlStr + "%");
+                cmd.Parameters.AddWithValue("@searchKey2", "% " + sqlStr + "%");
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(dataTable);
                 Console.WriteLine("Table is ready.");
@@ -69,7 +86,7 @@ namespace DoctorPatientSystem
             {
                 Doctor doctor = new Doctor();
                 doctor.Name = row["name"].ToString();
-                Console.WriteLine(row["monday"].ToString());
+                doctor.Id = (int)row["id"];
                 if (row["monday"].ToString() == "True")
                 {
                     doctor.WorkDays.Add(DayOfWeek.Monday);
@@ -97,6 +114,10 @@ namespace DoctorPatientSystem
                 if (row["sunday"].ToString() == "True")
                 {
                     doctor.WorkDays.Add(DayOfWeek.Sunday);
+                }
+                if (!row["officenumber"].ToString().Equals(null))
+                {
+                    doctor.phoneNums.Add(row["officenumber"].ToString());
                 }
                 doctors.Add(doctor);
             }

@@ -35,7 +35,7 @@
             this.officeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.officePhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.searchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchKey = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -54,8 +54,8 @@
             this.requestPhoneCall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.requestPhoneCall.AutoSize = true;
             this.requestPhoneCall.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestPhoneCall.Location = new System.Drawing.Point(509, 17);
-            this.requestPhoneCall.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.requestPhoneCall.Location = new System.Drawing.Point(663, 17);
+            this.requestPhoneCall.Margin = new System.Windows.Forms.Padding(2);
             this.requestPhoneCall.Name = "requestPhoneCall";
             this.requestPhoneCall.Size = new System.Drawing.Size(208, 40);
             this.requestPhoneCall.TabIndex = 8;
@@ -74,15 +74,19 @@
             // 
             // doctorListView
             // 
+            this.doctorListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.doctorListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.officeName,
             this.officePhone});
             this.doctorListView.Location = new System.Drawing.Point(41, 131);
             this.doctorListView.Name = "doctorListView";
-            this.doctorListView.Size = new System.Drawing.Size(676, 284);
+            this.doctorListView.Size = new System.Drawing.Size(829, 334);
             this.doctorListView.TabIndex = 12;
             this.doctorListView.UseCompatibleStateImageBehavior = false;
             this.doctorListView.View = System.Windows.Forms.View.Details;
+            this.doctorListView.SelectedIndexChanged += new System.EventHandler(this.doctorListView_SelectedIndexChanged);
             // 
             // officeName
             // 
@@ -96,19 +100,23 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(595, 105);
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Location = new System.Drawing.Point(749, 105);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(122, 20);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // textBox1
+            // searchKey
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(548, 20);
-            this.textBox1.TabIndex = 10;
+            this.searchKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchKey.Location = new System.Drawing.Point(41, 105);
+            this.searchKey.Name = "searchKey";
+            this.searchKey.Size = new System.Drawing.Size(702, 20);
+            this.searchKey.TabIndex = 10;
             // 
             // CallRequest
             // 
@@ -117,12 +125,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.doctorListView);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchKey);
             this.Controls.Add(this.requestPhoneCall);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CallRequest";
-            this.Size = new System.Drawing.Size(789, 577);
+            this.Size = new System.Drawing.Size(943, 526);
             this.Load += new System.EventHandler(this.CallRequest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,6 +145,6 @@
         private System.Windows.Forms.ColumnHeader officeName;
         private System.Windows.Forms.ColumnHeader officePhone;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchKey;
     }
 }
