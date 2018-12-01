@@ -11,6 +11,7 @@ namespace DoctorPatientSystem
     class Patient
     {
         private static ArrayList patients = new ArrayList();
+        private ArrayList phoneNums = new ArrayList();
 
         private string name;
         private string birthDate;
@@ -334,5 +335,31 @@ namespace DoctorPatientSystem
             conn.Close();
             Console.WriteLine("Done");
         }
-    }
+        public void retrievePhoneNumber(string id)
+        {
+            DataTable table = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "SELECT height, weight, maritalStatus, disorders, allergies, notes " +
+                        "FROM DixonMedicalRecord WHERE patientID = @id;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+        }
 }
