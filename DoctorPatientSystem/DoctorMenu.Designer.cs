@@ -50,10 +50,10 @@
             this.patientSearchButton.FlatAppearance.BorderSize = 0;
             this.patientSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.patientSearchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientSearchButton.Location = new System.Drawing.Point(10, 140);
-            this.patientSearchButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.patientSearchButton.Location = new System.Drawing.Point(8, 119);
+            this.patientSearchButton.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
             this.patientSearchButton.Name = "patientSearchButton";
-            this.patientSearchButton.Size = new System.Drawing.Size(230, 120);
+            this.patientSearchButton.Size = new System.Drawing.Size(234, 103);
             this.patientSearchButton.TabIndex = 0;
             this.patientSearchButton.Text = "Search for a Patient";
             this.patientSearchButton.UseVisualStyleBackColor = false;
@@ -66,10 +66,10 @@
             this.createRecordButton.FlatAppearance.BorderSize = 0;
             this.createRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createRecordButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createRecordButton.Location = new System.Drawing.Point(10, 270);
-            this.createRecordButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.createRecordButton.Location = new System.Drawing.Point(8, 230);
+            this.createRecordButton.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
             this.createRecordButton.Name = "createRecordButton";
-            this.createRecordButton.Size = new System.Drawing.Size(230, 123);
+            this.createRecordButton.Size = new System.Drawing.Size(234, 104);
             this.createRecordButton.TabIndex = 1;
             this.createRecordButton.Text = "Create Medical Record";
             this.createRecordButton.UseVisualStyleBackColor = false;
@@ -82,10 +82,10 @@
             this.notificationButton.FlatAppearance.BorderSize = 0;
             this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.notificationButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notificationButton.Location = new System.Drawing.Point(10, 10);
-            this.notificationButton.Margin = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.notificationButton.Location = new System.Drawing.Point(8, 8);
+            this.notificationButton.Margin = new System.Windows.Forms.Padding(8, 8, 8, 0);
             this.notificationButton.Name = "notificationButton";
-            this.notificationButton.Size = new System.Drawing.Size(230, 120);
+            this.notificationButton.Size = new System.Drawing.Size(234, 103);
             this.notificationButton.TabIndex = 2;
             this.notificationButton.Text = "Notifications";
             this.notificationButton.UseVisualStyleBackColor = false;
@@ -97,6 +97,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -108,8 +109,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer1.Size = new System.Drawing.Size(1232, 753);
+            this.splitContainer1.Size = new System.Drawing.Size(926, 612);
             this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -117,6 +119,7 @@
             this.splitContainer2.BackColor = System.Drawing.Color.Black;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -129,8 +132,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitContainer2.Size = new System.Drawing.Size(250, 753);
-            this.splitContainer2.SplitterDistance = 403;
+            this.splitContainer2.Size = new System.Drawing.Size(250, 612);
+            this.splitContainer2.SplitterDistance = 342;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -142,24 +146,24 @@
             this.tableLayoutPanel1.Controls.Add(this.notificationButton, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 403);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 342);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // DoctorMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 753);
+            this.ClientSize = new System.Drawing.Size(926, 612);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1250, 700);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(942, 576);
             this.Name = "DoctorMenu";
             this.Text = "DoctorMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -21,5 +21,10 @@ namespace DoctorPatientSystem
 		{
 			new AlertDialog("The medical request was created successfully").ShowDialog();			
 		}
+
+        private void CreateMedicalRecord_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
