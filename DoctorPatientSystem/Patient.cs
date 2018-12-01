@@ -407,7 +407,73 @@ namespace DoctorPatientSystem
 			}
 			conn.Close();
 		}
+
+		public bool hasMedicalRecord()
+		{
+			bool hasRecord = false;
+
+			DataTable table = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = "SELECT patientID FROM dixonmedicalrecord WHERE patientID = @pid";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@pid", Id);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(table);
+
+				if (table.Rows.Count != 0)
+				{
+					hasRecord = true;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			return hasRecord;
+		}
 		
+		public void createMedicalRecord(String newMarStatus, int newHeight, int newWeight, String newDisorders, String newAllergies, String newNotes)
+		{
+			maritalStatus = newMarStatus;
+			height = newHeight;
+			weight = newWeight;
+			disorders = newDisorders;
+			allergies = newAllergies;
+			notes = newNotes;
+
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"INSERT INTO dixonmedicalrecord (patientID, maritalStatus, height, weight, disorders, allergies, notes) 
+								VALUES (@pid, @ms, @h, @w, @d, @a, @n)";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@ms", maritalStatus);
+				cmd.Parameters.AddWithValue("@d", disorders);
+				cmd.Parameters.AddWithValue("@a", allergies);
+				cmd.Parameters.AddWithValue("@n", notes);
+				cmd.Parameters.AddWithValue("@w", weight);
+				cmd.Parameters.AddWithValue("@h", height);
+				cmd.Parameters.AddWithValue("@pid", id);
+
+				cmd.ExecuteNonQuery();
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+		}
 
         public void retrievePhoneNumber(string id)
         {
