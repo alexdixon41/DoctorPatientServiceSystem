@@ -352,7 +352,7 @@ namespace DoctorPatientSystem
 
                 if (reader.Read())
                 {
-                    
+
                 }
 
             }
@@ -362,4 +362,5 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+    }
 }

@@ -32,10 +32,11 @@
             this.requestPhoneCall = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.doctorListView = new System.Windows.Forms.ListView();
-            this.officeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.officePhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.searchButton = new System.Windows.Forms.Button();
             this.searchKey = new System.Windows.Forms.TextBox();
+            this.officeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -78,6 +79,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.doctorListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.name,
             this.officeName,
             this.officePhone});
             this.doctorListView.Location = new System.Drawing.Point(41, 131);
@@ -87,10 +89,10 @@
             this.doctorListView.UseCompatibleStateImageBehavior = false;
             this.doctorListView.View = System.Windows.Forms.View.Details;
             // 
-            // officeName
+            // name
             // 
-            this.officeName.Text = "Doctor Name";
-            this.officeName.Width = 250;
+            this.name.Text = "Doctor Name";
+            this.name.Width = 250;
             // 
             // officePhone
             // 
@@ -117,6 +119,11 @@
             this.searchKey.Size = new System.Drawing.Size(702, 20);
             this.searchKey.TabIndex = 10;
             // 
+            // officeName
+            // 
+            this.officeName.Text = "Office Name";
+            this.officeName.Width = 250;
+            // 
             // CallRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,9 +148,10 @@
         private System.Windows.Forms.Button requestPhoneCall;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView doctorListView;
-        private System.Windows.Forms.ColumnHeader officeName;
+        private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader officePhone;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchKey;
+        private System.Windows.Forms.ColumnHeader officeName;
     }
 }

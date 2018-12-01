@@ -41,7 +41,9 @@ namespace DoctorPatientSystem
             foreach(Doctor doc in Doctor.displayDoctors())
             {
                 doctorListView.Items.Add(doc.Name);
-                doctorListView.Items[i].SubItems.Add(doc.)
+                doctorListView.Items[i].SubItems.Add(doc.OfficeName);
+                doctorListView.Items[i].SubItems.Add(doc.OfficeNumber);
+                i++;
             }
 
         }
@@ -66,10 +68,10 @@ namespace DoctorPatientSystem
             if (!searchKey.Text.Equals(null))
             {
                 Doctor.retrieveDoctors(key);
-                Doctor.displayDoctors();
+                populateList();
             }else
             {
-                Doctor.displayDoctors();
+                populateList();
             }
         }
     }
