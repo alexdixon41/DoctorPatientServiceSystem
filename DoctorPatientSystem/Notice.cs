@@ -107,7 +107,7 @@ namespace DoctorPatientSystem
         public const int SEND_CASE_DISCUSSION_NOTICE_TYPE = 1;          //notify doctor to discuss a case
         public const int SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE = 2;    //notify patient when refill request accepted
         public const int SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE = 3;    //notify patient when refill request denied
-
+        public const int SEND_PHONECALL_REQUEST_NOTICE_TYPE = 4;                    //notify doctor to call a patient
 
         public static int Unread
         {
@@ -264,6 +264,14 @@ namespace DoctorPatientSystem
                     case SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE:
                         sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, pharmacySender, patientReceiver)
                         VALUES ('Refill Request Denied', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
+                        cmd.Parameters.AddWithValue("@patientID", receiverID);
+                        break;
+                    case SEND_PHONECALL_REQUEST_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+                        VALUES ('Phone Call Request', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
                         cmd = new MySqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@message", message);
                         cmd.Parameters.AddWithValue("@pharmID", User.Id);
