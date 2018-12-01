@@ -37,23 +37,20 @@
             this.message = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.selectNotificationButton = new System.Windows.Forms.Button();
             this.notificationListPanel = new System.Windows.Forms.Panel();
-            this.notificationDetailPanel = new System.Windows.Forms.Panel();
-            this.normalButtonPanel = new System.Windows.Forms.Panel();
-            this.confirmButton = new System.Windows.Forms.Button();
-            this.recordRequestButtonPanel = new System.Windows.Forms.Panel();
-            this.acceptRecordRequestButton = new System.Windows.Forms.Button();
-            this.denyRecordRequestButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.noticeDetailPanel = new System.Windows.Forms.Panel();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.fromTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.noticeTitleLabel = new System.Windows.Forms.Label();
+            this.acceptButton = new System.Windows.Forms.Button();
+            this.denyButton = new System.Windows.Forms.Button();
             this.notificationListPanel.SuspendLayout();
-            this.notificationDetailPanel.SuspendLayout();
-            this.normalButtonPanel.SuspendLayout();
-            this.recordRequestButtonPanel.SuspendLayout();
+            this.noticeDetailPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -137,160 +134,168 @@
             this.notificationListPanel.Size = new System.Drawing.Size(835, 701);
             this.notificationListPanel.TabIndex = 3;
             // 
-            // notificationDetailPanel
+            // noticeDetailPanel
             // 
-            this.notificationDetailPanel.Controls.Add(this.normalButtonPanel);
-            this.notificationDetailPanel.Controls.Add(this.recordRequestButtonPanel);
-            this.notificationDetailPanel.Controls.Add(this.label7);
-            this.notificationDetailPanel.Controls.Add(this.label6);
-            this.notificationDetailPanel.Controls.Add(this.label5);
-            this.notificationDetailPanel.Controls.Add(this.label4);
-            this.notificationDetailPanel.Controls.Add(this.textBox1);
-            this.notificationDetailPanel.Controls.Add(this.label3);
-            this.notificationDetailPanel.Controls.Add(this.label2);
-            this.notificationDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.notificationDetailPanel.Location = new System.Drawing.Point(0, 0);
-            this.notificationDetailPanel.Name = "notificationDetailPanel";
-            this.notificationDetailPanel.Size = new System.Drawing.Size(835, 701);
-            this.notificationDetailPanel.TabIndex = 4;
-            this.notificationDetailPanel.Visible = false;
+            this.noticeDetailPanel.Controls.Add(this.denyButton);
+            this.noticeDetailPanel.Controls.Add(this.acceptButton);
+            this.noticeDetailPanel.Controls.Add(this.dateTextBox);
+            this.noticeDetailPanel.Controls.Add(this.label4);
+            this.noticeDetailPanel.Controls.Add(this.typeTextBox);
+            this.noticeDetailPanel.Controls.Add(this.label3);
+            this.noticeDetailPanel.Controls.Add(this.messageTextBox);
+            this.noticeDetailPanel.Controls.Add(this.fromTextBox);
+            this.noticeDetailPanel.Controls.Add(this.label2);
+            this.noticeDetailPanel.Controls.Add(this.backButton);
+            this.noticeDetailPanel.Controls.Add(this.noticeTitleLabel);
+            this.noticeDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noticeDetailPanel.Location = new System.Drawing.Point(0, 0);
+            this.noticeDetailPanel.Name = "noticeDetailPanel";
+            this.noticeDetailPanel.Size = new System.Drawing.Size(835, 701);
+            this.noticeDetailPanel.TabIndex = 4;
+            this.noticeDetailPanel.Visible = false;
             // 
-            // normalButtonPanel
+            // dateTextBox
             // 
-            this.normalButtonPanel.Controls.Add(this.confirmButton);
-            this.normalButtonPanel.Location = new System.Drawing.Point(246, 344);
-            this.normalButtonPanel.Name = "normalButtonPanel";
-            this.normalButtonPanel.Size = new System.Drawing.Size(292, 73);
-            this.normalButtonPanel.TabIndex = 9;
-            this.normalButtonPanel.Visible = false;
-            // 
-            // confirmButton
-            // 
-            this.confirmButton.Location = new System.Drawing.Point(193, 3);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(96, 34);
-            this.confirmButton.TabIndex = 0;
-            this.confirmButton.Text = "OK";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
-            // recordRequestButtonPanel
-            // 
-            this.recordRequestButtonPanel.Controls.Add(this.acceptRecordRequestButton);
-            this.recordRequestButtonPanel.Controls.Add(this.denyRecordRequestButton);
-            this.recordRequestButtonPanel.Location = new System.Drawing.Point(265, 344);
-            this.recordRequestButtonPanel.Name = "recordRequestButtonPanel";
-            this.recordRequestButtonPanel.Size = new System.Drawing.Size(273, 48);
-            this.recordRequestButtonPanel.TabIndex = 8;
-            this.recordRequestButtonPanel.Visible = false;
-            // 
-            // acceptRecordRequestButton
-            // 
-            this.acceptRecordRequestButton.Location = new System.Drawing.Point(72, 3);
-            this.acceptRecordRequestButton.Name = "acceptRecordRequestButton";
-            this.acceptRecordRequestButton.Size = new System.Drawing.Size(96, 34);
-            this.acceptRecordRequestButton.TabIndex = 8;
-            this.acceptRecordRequestButton.Text = "Accept";
-            this.acceptRecordRequestButton.UseVisualStyleBackColor = true;
-            this.acceptRecordRequestButton.Click += new System.EventHandler(this.acceptRecordRequestButton_Click);
-            // 
-            // denyRecordRequestButton
-            // 
-            this.denyRecordRequestButton.Location = new System.Drawing.Point(174, 3);
-            this.denyRecordRequestButton.Name = "denyRecordRequestButton";
-            this.denyRecordRequestButton.Size = new System.Drawing.Size(96, 34);
-            this.denyRecordRequestButton.TabIndex = 7;
-            this.denyRecordRequestButton.Text = "Deny ";
-            this.denyRecordRequestButton.UseVisualStyleBackColor = true;
-            this.denyRecordRequestButton.Click += new System.EventHandler(this.denyRecordRequestButton_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(78, 301);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "09/18/2018 10:00 AM";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 301);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Time: ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(78, 260);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Dr. Doolittle";
+            this.dateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTextBox.Location = new System.Drawing.Point(115, 147);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.ReadOnly = true;
+            this.dateTextBox.Size = new System.Drawing.Size(708, 38);
+            this.dateTextBox.TabIndex = 12;
+            this.dateTextBox.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 260);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(27, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Sender: ";
+            this.label4.Size = new System.Drawing.Size(80, 32);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Date: ";
             // 
-            // textBox1
+            // typeTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(10, 108);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(528, 132);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Dr. Doolittle would like to view your medical records to decide which treatment o" +
-    "ption is best for you. Please respond soon.";
+            this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeTextBox.Location = new System.Drawing.Point(115, 82);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.ReadOnly = true;
+            this.typeTextBox.Size = new System.Drawing.Size(708, 38);
+            this.typeTextBox.TabIndex = 10;
+            this.typeTextBox.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 84);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Message: ";
+            this.label3.Size = new System.Drawing.Size(72, 32);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Type:";
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageTextBox.Location = new System.Drawing.Point(32, 278);
+            this.messageTextBox.Multiline = true;
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.ReadOnly = true;
+            this.messageTextBox.Size = new System.Drawing.Size(791, 411);
+            this.messageTextBox.TabIndex = 8;
+            this.messageTextBox.TabStop = false;
+            // 
+            // fromTextBox
+            // 
+            this.fromTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fromTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromTextBox.Location = new System.Drawing.Point(115, 212);
+            this.fromTextBox.Name = "fromTextBox";
+            this.fromTextBox.ReadOnly = true;
+            this.fromTextBox.Size = new System.Drawing.Size(708, 38);
+            this.fromTextBox.TabIndex = 7;
+            this.fromTextBox.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 13);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(237, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Notification Details";
+            this.label2.Size = new System.Drawing.Size(84, 32);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "From: ";
+            // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = global::DoctorPatientSystem.Properties.Resources.icons8_left_32;
+            this.backButton.Location = new System.Drawing.Point(19, 18);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 40);
+            this.backButton.TabIndex = 5;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // noticeTitleLabel
+            // 
+            this.noticeTitleLabel.AutoSize = true;
+            this.noticeTitleLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeTitleLabel.Location = new System.Drawing.Point(100, 16);
+            this.noticeTitleLabel.Name = "noticeTitleLabel";
+            this.noticeTitleLabel.Size = new System.Drawing.Size(255, 51);
+            this.noticeTitleLabel.TabIndex = 0;
+            this.noticeTitleLabel.Text = "Notice Details";
+            // 
+            // acceptButton
+            // 
+            this.acceptButton.AutoSize = true;
+            this.acceptButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acceptButton.Location = new System.Drawing.Point(712, 20);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(111, 48);
+            this.acceptButton.TabIndex = 13;
+            this.acceptButton.Text = "Accept";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Visible = false;
+            // 
+            // denyButton
+            // 
+            this.denyButton.AutoSize = true;
+            this.denyButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denyButton.Location = new System.Drawing.Point(595, 20);
+            this.denyButton.Name = "denyButton";
+            this.denyButton.Size = new System.Drawing.Size(111, 48);
+            this.denyButton.TabIndex = 14;
+            this.denyButton.Text = "Deny";
+            this.denyButton.UseVisualStyleBackColor = true;
+            this.denyButton.Visible = false;
             // 
             // NotificationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.noticeDetailPanel);
             this.Controls.Add(this.notificationListPanel);
-            this.Controls.Add(this.notificationDetailPanel);
             this.Name = "NotificationUserControl";
             this.Size = new System.Drawing.Size(835, 701);
-            this.Load += new System.EventHandler(this.PatientNotifications_Load);
             this.notificationListPanel.ResumeLayout(false);
             this.notificationListPanel.PerformLayout();
-            this.notificationDetailPanel.ResumeLayout(false);
-            this.notificationDetailPanel.PerformLayout();
-            this.normalButtonPanel.ResumeLayout(false);
-            this.recordRequestButtonPanel.ResumeLayout(false);
+            this.noticeDetailPanel.ResumeLayout(false);
+            this.noticeDetailPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -301,23 +306,22 @@
         private System.Windows.Forms.ListView noticesListView;
         private System.Windows.Forms.Button selectNotificationButton;
         private System.Windows.Forms.Panel notificationListPanel;
-        private System.Windows.Forms.Panel notificationDetailPanel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel recordRequestButtonPanel;
-        private System.Windows.Forms.Button acceptRecordRequestButton;
-        private System.Windows.Forms.Button denyRecordRequestButton;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel normalButtonPanel;
-        private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.ColumnHeader type;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.ColumnHeader sender;
         private System.Windows.Forms.ColumnHeader message;
+        private System.Windows.Forms.Panel noticeDetailPanel;
+        private System.Windows.Forms.TextBox dateTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox typeTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.TextBox fromTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label noticeTitleLabel;
+        private System.Windows.Forms.Button denyButton;
+        private System.Windows.Forms.Button acceptButton;
     }
 }
