@@ -82,7 +82,9 @@
             this.name,
             this.officeName,
             this.officePhone});
+            this.doctorListView.FullRowSelect = true;
             this.doctorListView.Location = new System.Drawing.Point(41, 131);
+            this.doctorListView.MultiSelect = false;
             this.doctorListView.Name = "doctorListView";
             this.doctorListView.Size = new System.Drawing.Size(829, 334);
             this.doctorListView.TabIndex = 12;

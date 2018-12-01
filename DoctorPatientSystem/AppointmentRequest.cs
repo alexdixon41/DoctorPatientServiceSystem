@@ -43,80 +43,26 @@ namespace DoctorPatientSystem
                 //Display confirmation
                 new AlertDialog("The appointment was requested.").ShowDialog();
             }
-        }
-      
-        private void appointmentListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            // Disable selection of disabled items (ForeColor set to LightSlateGray)
-            if (e.Item.ForeColor == Color.LightSlateGray)
-            {
-                e.Item.Selected = false;
-                e.Item.Focused = false;
-            }
-        }
-
+        }        
         
-        private void AppointmentRequest_Load(object sender, EventArgs e)
-        {
-/*            doctorListView.Items.Clear();
-            Doctor.retrieveDoctors("");
-            foreach (Doctor doc in Doctor.displayDoctors())
-            {
-                doctorListView.Items.Add(doc.Name);                
-            }
-            SelectionRange selectionRange = appointmentCalendar.GetDisplayRange(true);
-            DateTime day = selectionRange.Start;
-            visibleMonth = day.Month;
-            while (day.CompareTo(selectionRange.End) <= 0)
-            {
-                if (doctorListView.SelectedIndices.IndexOf(0) >= 0 && Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(day.DayOfWeek))
-                {
-                    appointmentCalendar.AddBoldedDate(day);                    
-                }
-                day = day.AddDays(1);
-            }        
-            appointmentCalendar.UpdateBoldedDates();
-            */
-        }
-        /*
-
-
-        private void doctorListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            appointmentCalendar.RemoveAllBoldedDates();
-            SelectionRange selectionRange = appointmentCalendar.GetDisplayRange(true);
-            DateTime day = selectionRange.Start;
-            while(day.CompareTo(selectionRange.End) <= 0)
-            {
-                if (Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(day.DayOfWeek))
-                {
-                    appointmentCalendar.AddBoldedDate(day);
-                }                
-                day = day.AddDays(1);
-            }
-            appointmentCalendar.UpdateBoldedDates();            
-        }*/
-
         private void viewAppointmentsButton_Click(object sender, EventArgs e)
-        {/*
-            if (Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(appointmentCalendar.SelectionStart.DayOfWeek))
+        {
+            if (!(doctorListView.SelectedIndices.Count == 0))
             {
-                new AlertDialog("" + Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].Name + " is not available on this day. "
-                    + "Please select a bolded date from the calendar");
-            }
-
-            appointmentDetailPanel.Hide();
-            availableAppointmentPanel.Show();*/
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void appointmentCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
+                Doctor selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+                dateLabel.Text = dateTimePicker1.Text;
+                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.Date.ToShortDateString());
+                foreach (string s in selectedDoctor.Appointments)
+                    Console.WriteLine(s);
+                foreach (string s in Doctor.appointmentTimes)
+                {                    
+                    if (!(selectedDoctor.Appointments.Contains(s))) {
+                        appointmentListView.Items.Add(s);
+                    }
+                }
+                appointmentDetailPanel.Hide();
+                availableAppointmentPanel.Show();
+            }            
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -134,6 +80,12 @@ namespace DoctorPatientSystem
             Doctor.retrieveDoctors(textBox1.Text);
             Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);
             populateList();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            availableAppointmentPanel.Hide();
+            appointmentDetailPanel.Show();
         }
     }
 }

@@ -11,12 +11,15 @@ namespace DoctorPatientSystem
     class Doctor
     {
         private static ArrayList doctors = new ArrayList();
+        public static string[] appointmentTimes = new string[] {"09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00",
+            "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"};
 
         private string name;
         private int id;
         private string officeName;
         private string officeNumber;
         private ArrayList workDays = new ArrayList();
+        private ArrayList appointments = new ArrayList();
         public ArrayList WorkDays
         {
             get
@@ -75,6 +78,18 @@ namespace DoctorPatientSystem
             set
             {
                 officeNumber = value;
+            }
+        }
+        public ArrayList Appointments
+        {
+            get
+            {
+                return appointments;
+            }
+
+            set
+            {
+                appointments = value;
             }
         }
 
@@ -157,6 +172,42 @@ namespace DoctorPatientSystem
                     availableDoctors.Add(doc);
             }
             doctors = availableDoctors;           
+        }
+
+        public void retrieveAppointments(string date)
+        {
+            DataTable dataTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = @"SELECT DATE_FORMAT(appointmentTime, ""%H:%m"") AS 'AppointmentTime', a.doctorID, a.patientID, p.name AS 'pname', d.name
+                            FROM DixonAppointment a JOIN DixonPatient p ON a.patientID = p.patientID JOIN DixonDoctor d ON a.doctorID = d.id
+                            WHERE DATE_FORMAT(a.appointmentTime, ""%Y-%d-%m"") = @date;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@date", date);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(dataTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Appointment apt = new Appointment();
+                apt.StartTime = row["AppointmentTime"].ToString();
+                apt.DoctorID = row["doctorID"].ToString();
+                apt.PatientID = row["patientID"].ToString();
+                apt.PatientName = row["pname"].ToString();
+                apt.DoctorName = row["name"].ToString();
+                appointments.Add(apt);
+            }
         }
       
     }

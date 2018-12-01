@@ -67,6 +67,7 @@
     <Compile Include="AlertDialog.Designer.cs">
       <DependentUpon>AlertDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -50,16 +50,39 @@ namespace DoctorPatientSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // TODO create phone call request
-            selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)];
-            Message = "  ";
-            Notice.sendNotice(selectedDoc.Id, Message, 4);
+            Patient currPatient = new Patient();
+            currPatient.retrievePhoneNumber(User.Id);
+            selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+            switch (currPatient.PhoneNums.Count)
+            {
+                case 1:
+                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0];
+                    Notice.sendNotice(selectedDoc.Id, message, 4);
+                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
+                    break;
+                case 2:
+                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", or " + currPatient.PhoneNums[1];
+                    Notice.sendNotice(selectedDoc.Id, message, 4);
+                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
+                    break;
+                case 3:
+                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", " + currPatient.PhoneNums[1] + ", or " + currPatient.PhoneNums[2];
+                    Notice.sendNotice(selectedDoc.Id, message, 4);
+                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
+                    break;
+                default:
+                    AlertDialog noPhoneAlert = new AlertDialog("You have no Phonenumber listed in our systems contact your systems administrator.");
+                    noPhoneAlert.ShowDialog();
+                    break;
+            }
+            
+            
         }
 
         private void CallRequest_Load(object sender, EventArgs e)
         {
             Doctor.retrieveDoctors(key);
-            Doctor.displayDoctors();
+            populateList();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
