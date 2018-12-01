@@ -69,11 +69,13 @@ namespace DoctorPatientSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Notice.retrieveNotices();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }
             splitContainer1.Panel2.Controls.Add(notificationControl);
+            notificationControl.populateList();
             notificationControl.Dock = DockStyle.Fill;
             notificationControl.Show();
         }
