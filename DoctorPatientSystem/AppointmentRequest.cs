@@ -47,7 +47,7 @@ namespace DoctorPatientSystem
         private void AppointmentRequest_Load(object sender, EventArgs e)
         {
             doctorListBox.Items.Clear();
-            Doctor.retrieveDoctors();
+            Doctor.retrieveDoctors("");
             foreach (Doctor doc in Doctor.displayDoctors())
             {
                 doctorListBox.Items.Add(doc.Name);                
