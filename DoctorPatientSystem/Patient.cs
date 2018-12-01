@@ -422,7 +422,7 @@ namespace DoctorPatientSystem
 		}
 		
 
-        public void retrievePhoneNumber(string id)
+        public void retrievePhoneNumber(int id)
         {
             
             DataTable table = new DataTable();
