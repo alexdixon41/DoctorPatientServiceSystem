@@ -61,12 +61,29 @@
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.updateRecordPanel = new System.Windows.Forms.Panel();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.maritalStatusTextBox = new System.Windows.Forms.TextBox();
+			this.heightTextBox = new System.Windows.Forms.TextBox();
+			this.weightTextBox = new System.Windows.Forms.TextBox();
+			this.disordersTextBox = new System.Windows.Forms.RichTextBox();
+			this.allergiesTextBox = new System.Windows.Forms.RichTextBox();
+			this.notesTextBox = new System.Windows.Forms.RichTextBox();
+			this.submitUpdateButton = new System.Windows.Forms.Button();
+			this.backToMedicalRecord = new System.Windows.Forms.Button();
 			this.patientBox.SuspendLayout();
 			this.patientSearchPanel.SuspendLayout();
 			this.basicPatientInfoPanel.SuspendLayout();
 			this.viewMedicalRecordPanel.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			this.updateRecordPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// fnameLabel
@@ -302,9 +319,9 @@
 			this.viewMedicalRecordPanel.Controls.Add(this.groupBox1);
 			this.viewMedicalRecordPanel.Controls.Add(this.updateMedicalRecordButton);
 			this.viewMedicalRecordPanel.Controls.Add(this.backToBasicInfoButton);
-			this.viewMedicalRecordPanel.Location = new System.Drawing.Point(6, 6);
+			this.viewMedicalRecordPanel.Location = new System.Drawing.Point(40, 21);
 			this.viewMedicalRecordPanel.Name = "viewMedicalRecordPanel";
-			this.viewMedicalRecordPanel.Size = new System.Drawing.Size(750, 444);
+			this.viewMedicalRecordPanel.Size = new System.Drawing.Size(736, 429);
 			this.viewMedicalRecordPanel.TabIndex = 9;
 			this.viewMedicalRecordPanel.Visible = false;
 			// 
@@ -326,7 +343,7 @@
 			this.backToBasicInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.backToBasicInfoButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.backToBasicInfoButton.Image = ((System.Drawing.Image)(resources.GetObject("backToBasicInfoButton.Image")));
-			this.backToBasicInfoButton.Location = new System.Drawing.Point(0, 3);
+			this.backToBasicInfoButton.Location = new System.Drawing.Point(11, 6);
 			this.backToBasicInfoButton.Name = "backToBasicInfoButton";
 			this.backToBasicInfoButton.Size = new System.Drawing.Size(77, 38);
 			this.backToBasicInfoButton.TabIndex = 12;
@@ -335,12 +352,13 @@
 			// 
 			// updateMedicalRecordButton
 			// 
-			this.updateMedicalRecordButton.Location = new System.Drawing.Point(14, 387);
+			this.updateMedicalRecordButton.Location = new System.Drawing.Point(19, 380);
 			this.updateMedicalRecordButton.Name = "updateMedicalRecordButton";
-			this.updateMedicalRecordButton.Size = new System.Drawing.Size(167, 35);
+			this.updateMedicalRecordButton.Size = new System.Drawing.Size(317, 44);
 			this.updateMedicalRecordButton.TabIndex = 13;
 			this.updateMedicalRecordButton.Text = "Update Medical Record";
 			this.updateMedicalRecordButton.UseVisualStyleBackColor = true;
+			this.updateMedicalRecordButton.Click += new System.EventHandler(this.updateMedicalRecordButton_Click);
 			// 
 			// medicineHistoryListView
 			// 
@@ -399,10 +417,169 @@
 			// 
 			this.columnHeader3.Text = "Date";
 			// 
+			// updateRecordPanel
+			// 
+			this.updateRecordPanel.Controls.Add(this.backToMedicalRecord);
+			this.updateRecordPanel.Controls.Add(this.submitUpdateButton);
+			this.updateRecordPanel.Controls.Add(this.notesTextBox);
+			this.updateRecordPanel.Controls.Add(this.allergiesTextBox);
+			this.updateRecordPanel.Controls.Add(this.disordersTextBox);
+			this.updateRecordPanel.Controls.Add(this.weightTextBox);
+			this.updateRecordPanel.Controls.Add(this.heightTextBox);
+			this.updateRecordPanel.Controls.Add(this.maritalStatusTextBox);
+			this.updateRecordPanel.Controls.Add(this.label10);
+			this.updateRecordPanel.Controls.Add(this.label9);
+			this.updateRecordPanel.Controls.Add(this.label8);
+			this.updateRecordPanel.Controls.Add(this.label7);
+			this.updateRecordPanel.Controls.Add(this.label6);
+			this.updateRecordPanel.Controls.Add(this.label5);
+			this.updateRecordPanel.Controls.Add(this.label4);
+			this.updateRecordPanel.Location = new System.Drawing.Point(17, 0);
+			this.updateRecordPanel.Name = "updateRecordPanel";
+			this.updateRecordPanel.Size = new System.Drawing.Size(808, 445);
+			this.updateRecordPanel.TabIndex = 17;
+			this.updateRecordPanel.Visible = false;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(15, 51);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(98, 17);
+			this.label4.TabIndex = 0;
+			this.label4.Text = "Marital Status:";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+			this.label5.Location = new System.Drawing.Point(292, 10);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(215, 25);
+			this.label5.TabIndex = 1;
+			this.label5.Text = "Update Medical Record";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(306, 51);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(53, 17);
+			this.label6.TabIndex = 2;
+			this.label6.Text = "Height:";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(554, 56);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(56, 17);
+			this.label7.TabIndex = 3;
+			this.label7.Text = "Weight:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(17, 81);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(73, 17);
+			this.label8.TabIndex = 4;
+			this.label8.Text = "Disorders:";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(17, 189);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(66, 17);
+			this.label9.TabIndex = 5;
+			this.label9.Text = "Allergies:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(17, 298);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(49, 17);
+			this.label10.TabIndex = 6;
+			this.label10.Text = "Notes:";
+			// 
+			// maritalStatusTextBox
+			// 
+			this.maritalStatusTextBox.Location = new System.Drawing.Point(117, 50);
+			this.maritalStatusTextBox.Name = "maritalStatusTextBox";
+			this.maritalStatusTextBox.Size = new System.Drawing.Size(183, 22);
+			this.maritalStatusTextBox.TabIndex = 7;
+			// 
+			// heightTextBox
+			// 
+			this.heightTextBox.Location = new System.Drawing.Point(365, 51);
+			this.heightTextBox.Name = "heightTextBox";
+			this.heightTextBox.Size = new System.Drawing.Size(183, 22);
+			this.heightTextBox.TabIndex = 8;
+			// 
+			// weightTextBox
+			// 
+			this.weightTextBox.Location = new System.Drawing.Point(611, 50);
+			this.weightTextBox.Name = "weightTextBox";
+			this.weightTextBox.Size = new System.Drawing.Size(183, 22);
+			this.weightTextBox.TabIndex = 9;
+			// 
+			// disordersTextBox
+			// 
+			this.disordersTextBox.Location = new System.Drawing.Point(18, 104);
+			this.disordersTextBox.Name = "disordersTextBox";
+			this.disordersTextBox.Size = new System.Drawing.Size(776, 77);
+			this.disordersTextBox.TabIndex = 10;
+			this.disordersTextBox.Text = "";
+			// 
+			// allergiesTextBox
+			// 
+			this.allergiesTextBox.Location = new System.Drawing.Point(20, 209);
+			this.allergiesTextBox.Name = "allergiesTextBox";
+			this.allergiesTextBox.Size = new System.Drawing.Size(774, 77);
+			this.allergiesTextBox.TabIndex = 11;
+			this.allergiesTextBox.Text = "";
+			// 
+			// notesTextBox
+			// 
+			this.notesTextBox.Location = new System.Drawing.Point(20, 318);
+			this.notesTextBox.Name = "notesTextBox";
+			this.notesTextBox.Size = new System.Drawing.Size(774, 77);
+			this.notesTextBox.TabIndex = 12;
+			this.notesTextBox.Text = "";
+			// 
+			// submitUpdateButton
+			// 
+			this.submitUpdateButton.Location = new System.Drawing.Point(697, 402);
+			this.submitUpdateButton.Name = "submitUpdateButton";
+			this.submitUpdateButton.Size = new System.Drawing.Size(97, 40);
+			this.submitUpdateButton.TabIndex = 13;
+			this.submitUpdateButton.Text = "Update";
+			this.submitUpdateButton.UseVisualStyleBackColor = true;
+			this.submitUpdateButton.Click += new System.EventHandler(this.submitUpdateButton_Click);
+			// 
+			// backToMedicalRecord
+			// 
+			this.backToMedicalRecord.AutoSize = true;
+			this.backToMedicalRecord.BackColor = System.Drawing.Color.Transparent;
+			this.backToMedicalRecord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.backToMedicalRecord.FlatAppearance.BorderSize = 0;
+			this.backToMedicalRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.backToMedicalRecord.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.backToMedicalRecord.Image = ((System.Drawing.Image)(resources.GetObject("backToMedicalRecord.Image")));
+			this.backToMedicalRecord.Location = new System.Drawing.Point(6, 4);
+			this.backToMedicalRecord.Name = "backToMedicalRecord";
+			this.backToMedicalRecord.Size = new System.Drawing.Size(77, 38);
+			this.backToMedicalRecord.TabIndex = 14;
+			this.backToMedicalRecord.UseVisualStyleBackColor = false;
+			this.backToMedicalRecord.Click += new System.EventHandler(this.backToMedicalRecord_Click);
+			// 
 			// PatientSearch
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.updateRecordPanel);
 			this.Controls.Add(this.viewMedicalRecordPanel);
 			this.Controls.Add(this.patientSearchPanel);
 			this.Controls.Add(this.basicPatientInfoPanel);
@@ -419,6 +596,8 @@
 			this.viewMedicalRecordPanel.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			this.updateRecordPanel.ResumeLayout(false);
+			this.updateRecordPanel.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -457,5 +636,21 @@
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
+		private System.Windows.Forms.Panel updateRecordPanel;
+		private System.Windows.Forms.Button submitUpdateButton;
+		private System.Windows.Forms.RichTextBox notesTextBox;
+		private System.Windows.Forms.RichTextBox allergiesTextBox;
+		private System.Windows.Forms.RichTextBox disordersTextBox;
+		private System.Windows.Forms.TextBox weightTextBox;
+		private System.Windows.Forms.TextBox heightTextBox;
+		private System.Windows.Forms.TextBox maritalStatusTextBox;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Button backToMedicalRecord;
 	}
 }

@@ -99,11 +99,11 @@ namespace DoctorPatientSystem
 			basicPatientInfoPanel.Hide();
 			selectedPatient.retrieveMedicalRecord();
 			selectedPatient.retrieveMedicineHistory();
-			displayMedicalRecord(selectedPatient);
-			displayMedicineHistory(selectedPatient);
+			displayMedicalRecord();
+			displayMedicineHistory();
 		}
 
-		private void displayMedicalRecord(Patient selectedPatient)
+		private void displayMedicalRecord()
 		{
 			medicalRecordListView.Items.Clear();
 			patientNameRecordLabel.Text = selectedPatient.Name;
@@ -116,7 +116,7 @@ namespace DoctorPatientSystem
 			medicalRecordListView.Items.Add("Notes: " + selectedPatient.Notes);
 		}
 
-		private void displayMedicineHistory(Patient selectedPatient)
+		private void displayMedicineHistory()
 		{
 			medicineHistoryListView.Items.Clear();
 			int i = 0;
@@ -132,13 +132,51 @@ namespace DoctorPatientSystem
 
 		private void requestMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
-
+			//doctor needs to be able to request access to a patient's medical history
 		}
 
 		private void backToBasicInfoButton_Click(object sender, EventArgs e)
 		{
 			basicPatientInfoPanel.Show();
 			viewMedicalRecordPanel.Hide();
+		}
+
+		private void updateMedicalRecordButton_Click(object sender, EventArgs e)
+		{
+			updateRecordPanel.Show();
+			viewMedicalRecordPanel.Hide();
+			displayEditableInformation();
+		}
+
+		private void displayEditableInformation()
+		{
+			maritalStatusTextBox.Text = selectedPatient.MaritalStatus;
+			heightTextBox.Text = selectedPatient.Height.ToString();
+			weightTextBox.Text = selectedPatient.Weight.ToString();
+			disordersTextBox.Text = selectedPatient.Disorders;
+			allergiesTextBox.Text = selectedPatient.Allergies;
+			notesTextBox.Text = selectedPatient.Notes;
+		}
+
+		private void backToMedicalRecord_Click(object sender, EventArgs e)
+		{
+			updateRecordPanel.Hide();
+			viewMedicalRecordPanel.Show();
+		}
+
+		private void submitUpdateButton_Click(object sender, EventArgs e)
+		{
+			String ms = maritalStatusTextBox.Text;
+			int h = Int32.Parse(heightTextBox.Text);
+			int w = Int32.Parse(weightTextBox.Text);
+			String d = disordersTextBox.Text;
+			String a = allergiesTextBox.Text;
+			String n = notesTextBox.Text;
+			selectedPatient.updateMedicalRecord(ms, h, w, d, a, n);
+			displayMedicalRecord(); //display updated info
+			updateRecordPanel.Hide();
+			viewMedicalRecordPanel.Show();
+
 		}
 	}
 }
