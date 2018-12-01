@@ -11,6 +11,7 @@ namespace DoctorPatientSystem
     class Patient
     {
         private static ArrayList patients = new ArrayList();
+        private ArrayList phoneNums = new ArrayList();
 
         private string name;
         private string birthDate;
@@ -220,6 +221,19 @@ namespace DoctorPatientSystem
                 medicineHistory = value;
             }
         }
+        public ArrayList PhoneNums
+
+        {
+            get
+            {
+                return phoneNums;
+            }
+
+            set
+            {
+                phoneNums = value;
+            }
+        }
 
         public static ArrayList displayPatients()
         {
@@ -326,6 +340,122 @@ namespace DoctorPatientSystem
                     Weight = (int)reader["weight"];
                     BodyMassIndex = Weight * .45 / (Height * Height * .000625);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            Console.WriteLine("Done");
+        }
+
+		public bool validateAccess(int doctorID) 
+		{
+			bool hasAccess = false;
+
+			DataTable table = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = "SELECT * FROM dixonverifieddoctor WHERE patientID = @pid AND doctorID = @did";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@pid", Id);
+				cmd.Parameters.AddWithValue("@did", doctorID);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(table);
+
+				if (table.Rows.Count != 0)
+				{
+					hasAccess = true;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			return hasAccess;
+		}
+
+		public void updateMedicalRecord(String newMarStatus, int newHeight, int newWeight, String newDisorders, String newAllergies, String newNotes)
+		{
+			maritalStatus = newMarStatus;
+			height = newHeight;
+			weight = newWeight;
+			disorders = newDisorders;
+			allergies = newAllergies;
+			notes = newNotes;
+
+			saveMedicalRecord();
+		}
+
+		private void saveMedicalRecord()
+		{
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = "UPDATE dixonmedicalrecord SET maritalStatus = @ms, disorders = @d, allergies = @a, notes = @n, weight = @w, height = @h WHERE patientID = @pid";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@ms", maritalStatus);
+				cmd.Parameters.AddWithValue("@d", disorders);
+				cmd.Parameters.AddWithValue("@a", allergies);
+				cmd.Parameters.AddWithValue("@n", notes);
+				cmd.Parameters.AddWithValue("@w", weight);
+				cmd.Parameters.AddWithValue("@h", height);
+				cmd.Parameters.AddWithValue("@pid", id);
+
+				cmd.ExecuteNonQuery();
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+		}
+		
+
+        public void retrievePhoneNumber(int id)
+        {
+            
+            DataTable table = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = @"SELECT p.name, ph.homeNumber, ph.cellNumber, ph.officeNumber 
+                                FROM Dixonpatient p JOIN Dixonphonenumber ph ON p.phonenumber = ph.ID
+                                WHERE p.patientid = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    if (!(reader["homeNumber"].ToString().Equals("")))
+                    {
+                        PhoneNums.Add(reader["homeNumber"].ToString());
+                    }
+                    if (!(reader["cellNumber"].ToString().Equals("")))
+                    {
+                        PhoneNums.Add(reader["cellNumber"].ToString());
+                    }
+                    if (!(reader["officeNumber"].ToString().Equals("")))
+                    {
+                        PhoneNums.Add(reader["officeNumber"].ToString());
+                    }
+                    name = reader["name"].ToString();
+                }
+
             }
             catch (Exception ex)
             {
