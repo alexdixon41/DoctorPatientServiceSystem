@@ -17,6 +17,8 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+        private Notice selectedNotice;
+
         public void populateList()
         {
             noticesListView.Items.Clear();
@@ -32,40 +34,35 @@ namespace DoctorPatientSystem
             }
         }
 
-        private void PatientNotifications_Load(object sender, EventArgs e)
-        {
-            if (User.Type == User.PATIENT_USER_TYPE)
-            {
-                Notice.retrieveNotices();
-            }
-            else
-            {
-
-            }
-        }
-
         private void selectNotificationButton_Click(object sender, EventArgs e)
         {
             if (!(noticesListView.SelectedIndices.Count == 0))
             {
+                selectedNotice = (Notice)Notice.displayNotices()[noticesListView.SelectedIndices[0]];
+                typeTextBox.Text = selectedNotice.Type;
+                dateTextBox.Text = selectedNotice.SentDate;
+                fromTextBox.Text = selectedNotice.Sender;
+                messageTextBox.Text = selectedNotice.Message;
                 notificationListPanel.Hide();
-                notificationDetailPanel.Show();
-                if (noticesListView.SelectedItems[0].SubItems[2].Text.Equals("Records Request"))
+                noticeDetailPanel.Show();
+                selectedNotice.updateStatus();
+
+                if (selectedNotice.Type.Equals("Record Request"))
                 {
-                    normalButtonPanel.Hide();
-                    recordRequestButtonPanel.Show();
+                    denyButton.Show();
+                    acceptButton.Show();
                 }
                 else
                 {
-                    recordRequestButtonPanel.Hide();
-                    normalButtonPanel.Show();
+                    denyButton.Hide();
+                    acceptButton.Hide();
                 }
             }
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            notificationDetailPanel.Hide();
+            noticeDetailPanel.Hide();
             notificationListPanel.Show();
         }
 
@@ -78,7 +75,7 @@ namespace DoctorPatientSystem
                 //TODO deny the record request
 
                 //after denying a request, return to notifications
-                notificationDetailPanel.Hide();
+                noticeDetailPanel.Hide();
                 notificationListPanel.Show();
             }                        
         }
@@ -92,9 +89,17 @@ namespace DoctorPatientSystem
                 //TODO accept the record request
 
                 //after accepting a request, return to notifications
-                notificationDetailPanel.Hide();
+                noticeDetailPanel.Hide();
                 notificationListPanel.Show();
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Notice.retrieveNotices();
+            populateList();
+            noticeDetailPanel.Hide();
+            notificationListPanel.Show();
         }
     }
 }
