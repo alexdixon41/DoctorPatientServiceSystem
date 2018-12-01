@@ -18,7 +18,18 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
-        private int visibleMonth = 0;
+        public void populateList()
+        {
+            doctorListView.Items.Clear();
+            int i = 0;
+            foreach (Doctor doc in Doctor.displayDoctors())
+            {
+                doctorListView.Items.Add(doc.Name);
+                doctorListView.Items[i].SubItems.Add(doc.OfficeName);
+                doctorListView.Items[i].SubItems.Add(doc.OfficeNumber);
+                i++;
+            }
+        }
 
         private void selectAppointmentButton_Click(object sender, EventArgs e)
         {
@@ -44,47 +55,31 @@ namespace DoctorPatientSystem
             }
         }
 
+        
         private void AppointmentRequest_Load(object sender, EventArgs e)
         {
-            doctorListBox.Items.Clear();
+/*            doctorListView.Items.Clear();
             Doctor.retrieveDoctors("");
             foreach (Doctor doc in Doctor.displayDoctors())
             {
-                doctorListBox.Items.Add(doc.Name);                
-                Console.WriteLine(doc);
+                doctorListView.Items.Add(doc.Name);                
             }
             SelectionRange selectionRange = appointmentCalendar.GetDisplayRange(true);
             DateTime day = selectionRange.Start;
             visibleMonth = day.Month;
             while (day.CompareTo(selectionRange.End) <= 0)
             {
-                if (doctorListBox.SelectedIndex >= 0 && Doctor.displayDoctors()[doctorListBox.SelectedIndex].WorkDays.Contains(day.DayOfWeek))
+                if (doctorListView.SelectedIndices.IndexOf(0) >= 0 && Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(day.DayOfWeek))
                 {
                     appointmentCalendar.AddBoldedDate(day);                    
                 }
                 day = day.AddDays(1);
             }        
             appointmentCalendar.UpdateBoldedDates();
+            */
         }
+        /*
 
-        private void appointmentCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            if (appointmentCalendar.SelectionStart.Month != visibleMonth)
-            {
-                SelectionRange selectionRange = appointmentCalendar.GetDisplayRange(true);
-                DateTime day = selectionRange.Start;
-                visibleMonth = day.Month;
-                while (day.CompareTo(selectionRange.End) <= 0)
-                {
-                    if (doctorListBox.SelectedIndex >= 0 && Doctor.displayDoctors()[doctorListBox.SelectedIndex].WorkDays.Contains(day.DayOfWeek))
-                    {
-                        appointmentCalendar.AddBoldedDate(day);
-                    }
-                    day = day.AddDays(1);
-                }
-                appointmentCalendar.UpdateBoldedDates();
-            }
-        }
 
         private void doctorListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -93,25 +88,52 @@ namespace DoctorPatientSystem
             DateTime day = selectionRange.Start;
             while(day.CompareTo(selectionRange.End) <= 0)
             {
-                if (Doctor.displayDoctors()[doctorListBox.SelectedIndex].WorkDays.Contains(day.DayOfWeek))
+                if (Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(day.DayOfWeek))
                 {
                     appointmentCalendar.AddBoldedDate(day);
                 }                
                 day = day.AddDays(1);
             }
             appointmentCalendar.UpdateBoldedDates();            
-        }
+        }*/
 
         private void viewAppointmentsButton_Click(object sender, EventArgs e)
-        {
-            if (Doctor.displayDoctors()[doctorListBox.SelectedIndex].WorkDays.Contains(appointmentCalendar.SelectionStart.DayOfWeek))
+        {/*
+            if (Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].WorkDays.Contains(appointmentCalendar.SelectionStart.DayOfWeek))
             {
-                new AlertDialog("" + Doctor.displayDoctors()[doctorListBox.SelectedIndex].Name + " is not available on this day. "
+                new AlertDialog("" + Doctor.displayDoctors()[doctorListView.SelectedIndices.IndexOf(0)].Name + " is not available on this day. "
                     + "Please select a bolded date from the calendar");
             }
 
             appointmentDetailPanel.Hide();
-            availableAppointmentPanel.Show();
+            availableAppointmentPanel.Show();*/
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appointmentCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox1.ForeColor = Color.Black;
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Equals("Search for a doctor"))
+            {
+                textBox1.Text = "";
+            }
+            Doctor.retrieveDoctors(textBox1.Text);
+            Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);
+            populateList();
         }
     }
 }
