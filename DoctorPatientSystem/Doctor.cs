@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -10,13 +10,13 @@ namespace DoctorPatientSystem
 {
     class Doctor
     {
-        private static List<Doctor> doctors = new List<Doctor>();
+        private static ArrayList doctors = new ArrayList();
 
         private string name;
-        private List<DayOfWeek> workDays = new List<DayOfWeek>();
+        private ArrayList workDays = new ArrayList();
         
 
-        public List<DayOfWeek> WorkDays
+        public ArrayList WorkDays
         {
             get
             {
@@ -102,7 +102,7 @@ namespace DoctorPatientSystem
             }
         }
 
-        public static List<Doctor> displayDoctors()
+        public static ArrayList displayDoctors()
         {
             return doctors;
         }
