@@ -363,8 +363,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.prescriptionsPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RefillRequest";
             this.Size = new System.Drawing.Size(788, 459);

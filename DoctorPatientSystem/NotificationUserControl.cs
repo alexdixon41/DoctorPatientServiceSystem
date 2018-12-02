@@ -108,5 +108,10 @@ namespace DoctorPatientSystem
 				notificationListPanel.Show();
 			}
 		}
-	}
+
+        private void notificationListPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }
