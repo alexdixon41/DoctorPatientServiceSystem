@@ -155,7 +155,7 @@ namespace DoctorPatientSystem
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
                             "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
                             "WHERE patientReceiver = @id " +
-                            "ORDER BY n.noticeStatus ASC";
+                            "ORDER BY n.noticeStatus, n.sentDate DESC";
                 }
                 else
                 {
@@ -166,7 +166,7 @@ namespace DoctorPatientSystem
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
                             "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
                             "WHERE doctorReceiver = @id " +
-                            "ORDER BY n.noticeStatus ASC";
+                            "ORDER BY n.noticeStatus, n.sentDate DESC";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
