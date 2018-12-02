@@ -63,7 +63,7 @@
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.updateRecordPanel = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
+			this.updateOrCreateLabel = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -77,6 +77,8 @@
 			this.notesTextBox = new System.Windows.Forms.RichTextBox();
 			this.submitUpdateButton = new System.Windows.Forms.Button();
 			this.backToMedicalRecord = new System.Windows.Forms.Button();
+			this.createMedicalRecordButton = new System.Windows.Forms.Button();
+			this.createButton = new System.Windows.Forms.Button();
 			this.patientBox.SuspendLayout();
 			this.patientSearchPanel.SuspendLayout();
 			this.basicPatientInfoPanel.SuspendLayout();
@@ -183,6 +185,7 @@
 			// 
 			// basicPatientInfoPanel
 			// 
+			this.basicPatientInfoPanel.Controls.Add(this.createMedicalRecordButton);
 			this.basicPatientInfoPanel.Controls.Add(this.patientDOBLabel);
 			this.basicPatientInfoPanel.Controls.Add(this.patientIDLabel);
 			this.basicPatientInfoPanel.Controls.Add(this.patientNameLabel);
@@ -419,6 +422,7 @@
 			// 
 			// updateRecordPanel
 			// 
+			this.updateRecordPanel.Controls.Add(this.createButton);
 			this.updateRecordPanel.Controls.Add(this.backToMedicalRecord);
 			this.updateRecordPanel.Controls.Add(this.submitUpdateButton);
 			this.updateRecordPanel.Controls.Add(this.notesTextBox);
@@ -432,7 +436,7 @@
 			this.updateRecordPanel.Controls.Add(this.label8);
 			this.updateRecordPanel.Controls.Add(this.label7);
 			this.updateRecordPanel.Controls.Add(this.label6);
-			this.updateRecordPanel.Controls.Add(this.label5);
+			this.updateRecordPanel.Controls.Add(this.updateOrCreateLabel);
 			this.updateRecordPanel.Controls.Add(this.label4);
 			this.updateRecordPanel.Location = new System.Drawing.Point(17, 0);
 			this.updateRecordPanel.Name = "updateRecordPanel";
@@ -449,15 +453,15 @@
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Marital Status:";
 			// 
-			// label5
+			// updateOrCreateLabel
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-			this.label5.Location = new System.Drawing.Point(292, 10);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(215, 25);
-			this.label5.TabIndex = 1;
-			this.label5.Text = "Update Medical Record";
+			this.updateOrCreateLabel.AutoSize = true;
+			this.updateOrCreateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+			this.updateOrCreateLabel.Location = new System.Drawing.Point(292, 10);
+			this.updateOrCreateLabel.Name = "updateOrCreateLabel";
+			this.updateOrCreateLabel.Size = new System.Drawing.Size(215, 25);
+			this.updateOrCreateLabel.TabIndex = 1;
+			this.updateOrCreateLabel.Text = "Update Medical Record";
 			// 
 			// label6
 			// 
@@ -575,6 +579,29 @@
 			this.backToMedicalRecord.UseVisualStyleBackColor = false;
 			this.backToMedicalRecord.Click += new System.EventHandler(this.backToMedicalRecord_Click);
 			// 
+			// createMedicalRecordButton
+			// 
+			this.createMedicalRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+			this.createMedicalRecordButton.Location = new System.Drawing.Point(557, 66);
+			this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(4);
+			this.createMedicalRecordButton.Name = "createMedicalRecordButton";
+			this.createMedicalRecordButton.Size = new System.Drawing.Size(251, 97);
+			this.createMedicalRecordButton.TabIndex = 17;
+			this.createMedicalRecordButton.Text = "Create Medical Record";
+			this.createMedicalRecordButton.UseVisualStyleBackColor = true;
+			this.createMedicalRecordButton.Visible = false;
+			this.createMedicalRecordButton.Click += new System.EventHandler(this.createMedicalRecordButton_Click);
+			// 
+			// createButton
+			// 
+			this.createButton.Location = new System.Drawing.Point(697, 401);
+			this.createButton.Name = "createButton";
+			this.createButton.Size = new System.Drawing.Size(97, 40);
+			this.createButton.TabIndex = 15;
+			this.createButton.Text = "Create";
+			this.createButton.UseVisualStyleBackColor = true;
+			this.createButton.Click += new System.EventHandler(this.createButton_Click);
+			// 
 			// PatientSearch
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -649,8 +676,10 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label updateOrCreateLabel;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button backToMedicalRecord;
+		private System.Windows.Forms.Button createMedicalRecordButton;
+		private System.Windows.Forms.Button createButton;
 	}
 }

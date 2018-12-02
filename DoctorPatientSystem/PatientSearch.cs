@@ -72,16 +72,25 @@ namespace DoctorPatientSystem
 		private void determineDoctorAccess(Patient selectedPatient)
 		{
 			bool hasAccess = selectedPatient.validateAccess(User.Id);
-			Console.WriteLine("hasAccess is " + hasAccess);
-			if (hasAccess)
+			bool hasRecord = selectedPatient.hasMedicalRecord();
+			Console.WriteLine("hasRecord is " + hasRecord);
+			if (hasAccess && hasRecord)
 			{
 				viewMedicalHistoryButton.Show();
 				requestMedicalHistoryButton.Hide();
+				createMedicalRecordButton.Hide();
+			}
+			else if (hasAccess && !hasRecord)
+			{
+				createMedicalRecordButton.Show();
+				requestMedicalHistoryButton.Hide();
+				viewMedicalHistoryButton.Hide();
 			}
 			else
 			{
 				requestMedicalHistoryButton.Show();
 				viewMedicalHistoryButton.Hide();
+				createMedicalRecordButton.Hide();
 			}
 		}
 
@@ -146,6 +155,9 @@ namespace DoctorPatientSystem
 			updateRecordPanel.Show();
 			viewMedicalRecordPanel.Hide();
 			displayEditableInformation();
+			updateOrCreateLabel.Text = "Update Medical Record";
+			createButton.Hide();
+			updateMedicalRecordButton.Show();
 		}
 
 		private void displayEditableInformation()
@@ -177,6 +189,31 @@ namespace DoctorPatientSystem
 			updateRecordPanel.Hide();
 			viewMedicalRecordPanel.Show();
 
+		}
+
+		private void createMedicalRecordButton_Click(object sender, EventArgs e)
+		{
+			updateRecordPanel.Show();
+			basicPatientInfoPanel.Hide();
+			updateOrCreateLabel.Text = "Create Medical Record";
+			updateMedicalRecordButton.Hide();
+			createMedicalRecordButton.Show();
+		}
+
+		private void createButton_Click(object sender, EventArgs e)
+		{
+			String ms = maritalStatusTextBox.Text;
+			int h = Int32.Parse(heightTextBox.Text);
+			int w = Int32.Parse(weightTextBox.Text);
+			String d = disordersTextBox.Text;
+			String a = allergiesTextBox.Text;
+			String n = notesTextBox.Text;
+			selectedPatient.createMedicalRecord(ms, h, w, d, a, n);
+			displayMedicalRecord(); //display newly created record
+			updateRecordPanel.Hide();
+			viewMedicalRecordPanel.Show();
+			createMedicalRecordButton.Hide();
+			updateMedicalRecordButton.Show();
 		}
 	}
 }
