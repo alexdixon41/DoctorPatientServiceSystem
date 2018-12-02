@@ -16,6 +16,10 @@ namespace DoctorPatientSystem
         {
             InitializeComponent();
         }
-
+        
+        public void populateLists(Patient patient)
+        {
+            generalHistoryListView.Items.Add(patient.Name);
+        }
     }
 }

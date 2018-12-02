@@ -58,11 +58,15 @@ namespace DoctorPatientSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Patient patient = new Patient();
+            patient.retrieveMedicalRecord();
+            patient.retrieveMedicineHistory();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }
             splitContainer1.Panel2.Controls.Add(patientRecordControl);
+            patientRecordControl.populateLists(patient);
             patientRecordControl.Dock = DockStyle.Fill;
             patientRecordControl.Show();
         }

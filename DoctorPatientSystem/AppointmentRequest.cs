@@ -46,7 +46,7 @@ namespace DoctorPatientSystem
                 DateTime time = Convert.ToDateTime(listBox1.SelectedItem);
                 date = date.AddHours(time.Hour);
                 date = date.AddMinutes(time.Minute);
-                Appointment.createAppointment(selectedDoctor.Id, User.Id, date.ToString("yyyy-MM-dd HH:mm:ss"));
+                Appointment.createAppointment(selectedDoctor.Id, User.Id, date.ToString("yyyy-MM-dd HH:mm:ss"), "New");
 
                 //Display confirmation
                 new AlertDialog("The appointment was requested.").ShowDialog();
