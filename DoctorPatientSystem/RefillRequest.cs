@@ -83,23 +83,33 @@ namespace DoctorPatientSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (selectedPrescription.RemainingRefills == 0) {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = new ConfirmationPopup("You have no refills remaining.","Are you sure you want to request a permit for this refill from the doctor?").ShowDialog();
-                if (dialogResult == DialogResult.OK)
-                {
-                    Notice.sendNotice(selectedPrescription.DoctorId, selectedPrescription.PatientName.ToString() + " would like to request a permit for more refills.", Notice.SEND_REFILL_PERMIT_NOTICE_TYPE);
-                    new AlertDialog("The refill permit was requested.").ShowDialog();
-                }
-            }else
+            if (selectedPrescription.canRequestRefill())
             {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = new ConfirmationPopup("You have " + selectedPrescription.RemainingRefills.ToString() + " refills remaining.", "Are you sure you want to request a refill from your pharmacy?").ShowDialog();
-                if (dialogResult == DialogResult.OK)
+                if (selectedPrescription.RemainingRefills == 0)
                 {
-                    selectedPrescription.createRefillRequest(selectedPrescription.PharmacyId);
-                    new AlertDialog("The refill was requested.").ShowDialog();
+                    DialogResult dialogResult = new DialogResult();
+                    dialogResult = new ConfirmationPopup("You have no refills remaining.", "Are you sure you want to request a permit for this refill from the doctor?").ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        Notice.sendNotice(selectedPrescription.DoctorId, selectedPrescription.PatientName.ToString() + " would like to request a permit for more refills.", Notice.SEND_REFILL_PERMIT_NOTICE_TYPE);
+                        new AlertDialog("The refill permit was requested.").ShowDialog();
+                    }
                 }
+                else
+                {
+                    DialogResult dialogResult = new DialogResult();
+                    dialogResult = new ConfirmationPopup("You have " + selectedPrescription.RemainingRefills.ToString() + " refills remaining.", "Are you sure you want to request a refill from your pharmacy?").ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        selectedPrescription.createRefillRequest(selectedPrescription.PharmacyId);
+                        new AlertDialog("The refill was requested.").ShowDialog();
+                    }
+                }
+                selectedPrescription.disableRefillRequest();
+            }
+            else
+            {
+                new AlertDialog("You have already requested a refill for this prescription.").ShowDialog();
             }
             
         }

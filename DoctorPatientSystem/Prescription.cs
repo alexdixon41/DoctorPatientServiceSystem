@@ -250,7 +250,6 @@ namespace DoctorPatientSystem
 
         public void createRefillRequest(int prescriptionID)
         {
-            DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
@@ -263,8 +262,13 @@ namespace DoctorPatientSystem
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
                 cmd.Parameters.AddWithValue("@pId", prescriptionID);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(table);
+                cmd.ExecuteNonQuery();
+
+                sql = @"UPDATE DixonPrescription
+                    SET canRequestRefill = FALSE 
+                    WHERE id = @id;";
+                cmd.Parameters.AddWithValue("@id", User.Id);
+                cmd.ExecuteNonQuery();
                 Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)
@@ -273,6 +277,58 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+
+        public bool canRequestRefill()
+        {
+            bool result = true;
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = @"SELECT canRequestRefill FROM DixonPrescription WHERE id = @id;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = reader["canRequestRefill"].ToString().Equals("1") ? true : false;
+                }
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            return result;
+        }
+
+        public void disableRefillRequest()
+        {
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql;
+                sql = @"UPDATE DixonPrescription SET canRequestRefill = FALSE
+                    WHERE id = @id;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+        }
+
         /// <summary>
         /// Execute SQL query to retrieve prescriptions matching user's id
         /// </summary>
