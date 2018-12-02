@@ -491,6 +491,7 @@ namespace DoctorPatientSystem
 		public static Patient retrievePatientByID(int patientID)
 		{
             Patient patient = new Patient();
+            patient.Id = patientID;
             DataTable dataTable = new DataTable();
 			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
 			MySqlConnection conn = new MySqlConnection(connStr);
