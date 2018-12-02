@@ -67,6 +67,7 @@
             // 
             // viewAppointmentsButton
             // 
+            this.viewAppointmentsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.viewAppointmentsButton.AutoSize = true;
             this.viewAppointmentsButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewAppointmentsButton.Location = new System.Drawing.Point(627, 16);
@@ -216,6 +217,7 @@
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePicker1.Location = new System.Drawing.Point(103, 45);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(150, 3, 150, 3);

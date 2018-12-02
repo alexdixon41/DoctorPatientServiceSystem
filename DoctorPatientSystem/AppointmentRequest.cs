@@ -49,15 +49,18 @@ namespace DoctorPatientSystem
         {
             if (!(doctorListView.SelectedIndices.Count == 0))
             {
+                appointmentListView.Clear();
                 Doctor selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
                 dateLabel.Text = dateTimePicker1.Text;
-                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.Date.ToShortDateString());
-                foreach (string s in selectedDoctor.Appointments)
-                    Console.WriteLine(s);
+                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.ToString("yyyy-MM-dd"));
                 foreach (string s in Doctor.appointmentTimes)
-                {                    
-                    if (!(selectedDoctor.Appointments.Contains(s))) {
-                        appointmentListView.Items.Add(s);
+                {
+                    foreach (Appointment apt in selectedDoctor.Appointments)
+                    {
+                        if (!(apt.StartTime.Equals(s)))
+                        {
+                            appointmentListView.Items.Add(s);
+                        }
                     }
                 }
                 appointmentDetailPanel.Hide();

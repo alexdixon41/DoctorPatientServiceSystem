@@ -183,9 +183,9 @@ namespace DoctorPatientSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = @"SELECT DATE_FORMAT(appointmentTime, ""%H:%m"") AS 'AppointmentTime', a.doctorID, a.patientID, p.name AS 'pname', d.name
+                string sql = @"SELECT DATE_FORMAT(appointmentTime, ""%H:%i"") AS 'AppointmentTime', a.doctorID, a.patientID, p.name AS 'pname', d.name
                             FROM DixonAppointment a JOIN DixonPatient p ON a.patientID = p.patientID JOIN DixonDoctor d ON a.doctorID = d.id
-                            WHERE DATE_FORMAT(a.appointmentTime, ""%Y-%d-%m"") = @date;";
+                            WHERE DATE_FORMAT(a.appointmentTime, ""%Y-%m-%d"") = @date;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@date", date);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
