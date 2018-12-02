@@ -64,26 +64,7 @@ namespace DoctorPatientSystem
         {
             noticeDetailPanel.Hide();
             notificationListPanel.Show();
-        }
-
-        private void denyRecordRequestButton_Click(object sender, EventArgs e)
-        {
-			//NEED TO CHECK IF THIS BUTTON IS STILL BEING USED
-
-            DialogResult dialogResult = new DialogResult();
-            dialogResult = new ConfirmationPopup("Are you sure you want to deny this record request?", "").ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-				//TODO deny the record request
-				String message = Patient.retrievePatientByID(User.Id).Name + " has denied your request to view their medical records.";
-				int receiverID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
-				Console.WriteLine("receiverID is "+receiverID);
-				
-                //after denying a request, return to notifications
-                noticeDetailPanel.Hide();
-                notificationListPanel.Show();
-            }                        
-        }
+        }      
 
         private void acceptRecordRequestButton_Click(object sender, EventArgs e)
         {
