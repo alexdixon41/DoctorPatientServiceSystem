@@ -247,7 +247,9 @@ namespace DoctorPatientSystem
             }
             Medicines = medicines;
         }
-
+        /// <summary>
+        /// Execute SQL query to create a refill request
+        /// </summary>
         public void createRefillRequest(int prescriptionID)
         {
             DataTable table = new DataTable();
@@ -264,8 +266,6 @@ namespace DoctorPatientSystem
                 cmd.Parameters.AddWithValue("@id", User.Id);
                 cmd.Parameters.AddWithValue("@pId", prescriptionID);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(table);
-                Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)
             {
