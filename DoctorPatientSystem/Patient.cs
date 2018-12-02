@@ -488,17 +488,18 @@ namespace DoctorPatientSystem
 			conn.Close();
 		}
 
-		public static String retrievePatientName(int patientID)
+		public static Patient retrievePatientByID(int patientID)
 		{
-			String patientName = "";
-			DataTable dataTable = new DataTable();
+            Patient patient = new Patient();
+            patient.Id = patientID;
+            DataTable dataTable = new DataTable();
 			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
 			MySqlConnection conn = new MySqlConnection(connStr);
 			try
 			{
 				Console.WriteLine("Connecting to MySQL...");
 				conn.Open();
-				string sql = @"SELECT name FROM dixonpatient where id = @id";
+				string sql = @"SELECT name, DATE_FORMAT(birthDate, ""%Y-%m-%d"") AS 'birthDate' FROM dixonpatient where patientID = @id";
 				MySqlCommand cmd = new MySqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("@id", patientID);
 				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -511,9 +512,10 @@ namespace DoctorPatientSystem
 			}
 			conn.Close();
 
-			patientName = dataTable.Rows[0]["name"].ToString();
-
-			return patientName;
+			patient.Name = dataTable.Rows[0]["name"].ToString();
+            patient.BirthDate = dataTable.Rows[0]["birthDate"].ToString();
+            
+			return patient;
 		}
 
         public void retrievePhoneNumber(int id)

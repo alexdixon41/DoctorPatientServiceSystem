@@ -336,5 +336,33 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+		
+		public static int retrievedDoctorSenderID(int noticeID)
+		{
+			int senderID = -1;
+			DataTable dataTable = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"SELECT doctorSender FROM dixonnotice where noticeID = @id";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@id", noticeID);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(dataTable);
+				Console.WriteLine("Table is ready.");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			senderID = Int32.Parse(dataTable.Rows[0]["doctorSender"].ToString());
+			return senderID;
+		}
+		
     }
 }

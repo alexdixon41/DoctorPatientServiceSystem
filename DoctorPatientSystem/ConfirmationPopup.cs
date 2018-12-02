@@ -21,7 +21,6 @@ namespace DoctorPatientSystem
         {
             primaryLabel.Text = primaryText;
             secondaryLabel.Text = secondaryText;
-            
         }
 
         /// <summary>

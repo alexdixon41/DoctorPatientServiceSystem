@@ -63,6 +63,7 @@ namespace DoctorPatientSystem
                 c.Hide();
             }
             splitContainer1.Panel2.Controls.Add(patientRecordControl);
+            patientRecordControl.populateLists();
             patientRecordControl.Dock = DockStyle.Fill;
             patientRecordControl.Show();
         }

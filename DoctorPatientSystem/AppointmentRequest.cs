@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,9 @@ namespace DoctorPatientSystem
 {
     public partial class AppointmentRequest : UserControl
     {
+        private Doctor selectedDoctor;
+        private ArrayList appointmentTimes = new ArrayList();
+
         public AppointmentRequest()
         {
             InitializeComponent();
@@ -33,12 +37,16 @@ namespace DoctorPatientSystem
 
         private void selectAppointmentButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = new DialogResult();
-            dialogResult = new ConfirmationPopup("Are you sure you want to request this appointment?",
-                                                "Appointment with Dr. Doolittle at 09:00 AM October 11, 2018").ShowDialog();
+            DialogResult dialogResult = new ConfirmationPopup("Are you sure you want to request this appointment?",
+                "Appointment with " + selectedDoctor.Name + " at " + listBox1.SelectedItem + " on " + dateLabel.Text).ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                //TODO set appointment
+                //Create new appointment
+                DateTime date = Convert.ToDateTime(dateLabel.Text);
+                DateTime time = Convert.ToDateTime(listBox1.SelectedItem);
+                date = date.AddHours(time.Hour);
+                date = date.AddMinutes(time.Minute);
+                Appointment.createAppointment(selectedDoctor.Id, User.Id, date.ToString("yyyy-MM-dd HH:mm:ss"), "New");
 
                 //Display confirmation
                 new AlertDialog("The appointment was requested.").ShowDialog();
@@ -49,20 +57,29 @@ namespace DoctorPatientSystem
         {
             if (!(doctorListView.SelectedIndices.Count == 0))
             {
-                appointmentListView.Clear();
-                Doctor selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+                listBox1.Items.Clear();
+                appointmentTimes.Clear();
+                selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
                 dateLabel.Text = dateTimePicker1.Text;
-                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.ToString("yyyy-MM-dd"));               
                 foreach (string s in Doctor.appointmentTimes)
                 {
-                    foreach (Appointment apt in selectedDoctor.Appointments)
+                    appointmentTimes.Add(s);
+                }
+                foreach (string s in Doctor.appointmentTimes)
+                {
+                    foreach(Appointment apt in selectedDoctor.Appointments)
                     {
-                        if (!(apt.StartTime.Equals(s)))
-                        {
-                            appointmentListView.Items.Add(s);
-                        }
+                        if (apt.StartTime.Equals(s))
+                            appointmentTimes.Remove(s);
                     }
                 }
+                foreach (string s in appointmentTimes)
+                {
+                    DateTime d = Convert.ToDateTime(s);
+                    listBox1.Items.Add(d.ToShortTimeString());
+                }
+                    
                 appointmentDetailPanel.Hide();
                 availableAppointmentPanel.Show();
             }            
@@ -89,6 +106,16 @@ namespace DoctorPatientSystem
         {
             availableAppointmentPanel.Hide();
             appointmentDetailPanel.Show();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (!textBox1.Text.Equals("Search for a doctor"))
+            {
+                Doctor.retrieveDoctors(textBox1.Text);
+                Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);
+                populateList();
+            }
         }
     }
 }

@@ -64,26 +64,12 @@ namespace DoctorPatientSystem
         {
             noticeDetailPanel.Hide();
             notificationListPanel.Show();
-        }
-
-        private void denyRecordRequestButton_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = new DialogResult();
-            dialogResult = new ConfirmationPopup("Are you sure you want to deny this record request?", "").ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-				//TODO deny the record request
-				String message = Patient.retrievePatientName(User.Id) + " has denied your request to view their medical records.";
-				
-				
-                //after denying a request, return to notifications
-                noticeDetailPanel.Hide();
-                notificationListPanel.Show();
-            }                        
-        }
+        }      
 
         private void acceptRecordRequestButton_Click(object sender, EventArgs e)
         {
+			//NEED TO CHECK IF THIS BUTTON IS STILL BEING USED
+
             DialogResult dialogResult = new DialogResult();
             dialogResult = new ConfirmationPopup("Are you sure you want to accept this record request?", "").ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -103,5 +89,40 @@ namespace DoctorPatientSystem
             noticeDetailPanel.Hide();
             notificationListPanel.Show();
         }
-    }
+
+		private void denyButton_Click(object sender, EventArgs e)
+		{
+			DialogResult dialogResult = new DialogResult();
+			dialogResult = new ConfirmationPopup("Are you sure you want to deny this record request?", "").ShowDialog();
+			if (dialogResult == DialogResult.OK)
+			{
+				//TODO deny the record request
+				String message = Patient.retrievePatientByID(User.Id).Name + " has denied your request to view their medical records.";
+				int receiverID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
+				Notice.sendNotice(receiverID, message, 9);
+
+				//after denying a request, return to notifications
+				noticeDetailPanel.Hide();
+				notificationListPanel.Show();
+			}
+		}
+
+		private void acceptButton_Click(object sender, EventArgs e)
+		{
+			DialogResult dialogResult = new DialogResult();
+			dialogResult = new ConfirmationPopup("Are you sure you want to accept this record request?", "").ShowDialog();
+			if (dialogResult == DialogResult.OK)
+			{
+				//TODO accept the record request
+				int doctorID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
+				String message = Patient.retrievePatientByID(User.Id).Name + " has accepted your request to view their medical records.";
+				Notice.sendNotice(doctorID, message, 8);
+				Doctor.grantRecordAccess(doctorID, User.Id);
+
+				//after accepting a request, return to notifications
+				noticeDetailPanel.Hide();
+				notificationListPanel.Show();
+			}
+		}
+	}
 }
