@@ -180,10 +180,11 @@ namespace DoctorPatientSystem
         {
             return Medicines;
         }
+
         /// <summary>
         /// Adds list of medicines to the Medicines property of prescription.
         /// </summary>
-        public void retrieveMedicines(int ID)
+        public void retrieveMedicines()
         {
             DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -196,7 +197,7 @@ namespace DoctorPatientSystem
                             "FROM DixonPrescription pr JOIN DixonMedicine m ON m.prescriptionID = pr.id " +
                             "WHERE pr.id = @id;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.Parameters.AddWithValue("@id", Id);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");
@@ -225,7 +226,7 @@ namespace DoctorPatientSystem
         /// <summary>
         /// Execute SQL query to retrieve prescriptions matching user's id
         /// </summary>
-        public static void retrievePrescriptions()
+        public static void retrievePatientPrescriptions()
         {
             prescriptions.Clear();
             DataTable table = new DataTable();

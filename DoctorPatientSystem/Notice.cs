@@ -154,7 +154,7 @@ namespace DoctorPatientSystem
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
                             "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
                             "WHERE patientReceiver = @id " +
-                            "ORDER BY n.noticeStatus ASC";
+                            "ORDER BY n.noticeStatus, n.sentDate DESC";
                 }
                 else
                 {
@@ -165,7 +165,7 @@ namespace DoctorPatientSystem
                             "LEFT OUTER JOIN DixonPatient pa ON n.patientSender = pa.patientID " +
                             "LEFT OUTER JOIN DixonPharmacy ph ON n.pharmacySender = ph.id " +
                             "WHERE doctorReceiver = @id " +
-                            "ORDER BY n.noticeStatus ASC";
+                            "ORDER BY n.noticeStatus, n.sentDate DESC";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -284,7 +284,7 @@ namespace DoctorPatientSystem
                         break;
                     case SEND_REFILL_PERMIT_NOTICE_TYPE:
                         sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
-                        VALUES ('Refill Request', 'New', CURRENT_DATE, @message, @patientID, @doctorID);";
+                        VALUES ('Refill Permit Request', 'New', CURRENT_DATE, @message, @patientID, @doctorID);";
                         cmd = new MySqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@message", message);
                         cmd.Parameters.AddWithValue("@patientID", User.Id);

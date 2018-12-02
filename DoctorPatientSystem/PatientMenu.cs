@@ -47,6 +47,7 @@ namespace DoctorPatientSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();

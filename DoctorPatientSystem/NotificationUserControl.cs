@@ -49,13 +49,17 @@ namespace DoctorPatientSystem
 
                 if (selectedNotice.Type.Equals("Record Request"))
                 {
-                    denyButton.Show();
-                    acceptButton.Show();
+                    buttonPanel.Show();
+                }
+                else if (selectedNotice.Type.Equals("Refill Permit Request"))
+                {
+                    buttonPanel.Hide();
+                    prescriptionButtonPanel.Show();                    
                 }
                 else
                 {
-                    denyButton.Hide();
-                    acceptButton.Hide();
+                    buttonPanel.Hide();
+                    prescriptionButtonPanel.Hide();
                 }
             }
         }
@@ -108,5 +112,10 @@ namespace DoctorPatientSystem
 				notificationListPanel.Show();
 			}
 		}
-	}
+
+        private void viewPrescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

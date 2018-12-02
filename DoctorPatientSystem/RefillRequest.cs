@@ -23,7 +23,7 @@ namespace DoctorPatientSystem
 
         private void RefillRequest_Load(object sender, EventArgs e)
         {
-            Prescription.retrievePrescriptions();
+            Prescription.retrievePatientPrescriptions();
             populatePrescriptionList();
         }
 
@@ -32,7 +32,7 @@ namespace DoctorPatientSystem
                 
             prescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
-            selectedPrescription.retrieveMedicines(selectedPrescription.Id);
+            selectedPrescription.retrieveMedicines();
             populateMedicineList();
             
         }
@@ -81,7 +81,6 @@ namespace DoctorPatientSystem
         }
         private void prescriptionListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
         }
 
         private void button1_Click(object sender, EventArgs e)
