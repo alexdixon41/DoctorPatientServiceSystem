@@ -108,9 +108,11 @@ namespace DoctorPatientSystem
         public const int SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE = 2;    //notify patient when refill request accepted
         public const int SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE = 3;    //notify patient when refill request denied
         public const int SEND_PHONECALL_REQUEST_NOTICE_TYPE = 4;                    //notify doctor to call a patient
-		public const int SEND_RECORD_REQUEST_NOTICE_TYPE = 5;			//notify patient that a doctor wants to view their records
+		public const int SEND_RECORD_REQUEST_NOTICE_TYPE = 7;           //notify patient that a doctor wants to view their records
+		public const int SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE = 8;    //notify doctor that record request accepted
+		public const int SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE = 9;    //notify doctor that record request denied
 
-        public static int Unread
+		public static int Unread
         {
             get
             {
@@ -286,7 +288,23 @@ namespace DoctorPatientSystem
 						cmd.Parameters.AddWithValue("@docID", User.Id);
 						cmd.Parameters.AddWithValue("@patientID", receiverID);
 						break;
-                    default:
+					case SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+								VALUES ('Record Request Accepted', 'New', CURRENT_DATE, @message, @patientID, @docID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@patientID", User.Id);
+						cmd.Parameters.AddWithValue("@docID", receiverID);
+						break;
+					case SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+								VALUES ('Record Request Denied', 'New', CURRENT_DATE, @message, @patientID, @docID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@patientID", User.Id);
+						cmd.Parameters.AddWithValue("@docID", receiverID);
+						break;
+					default:
                         sql = "";
                         cmd = new MySqlCommand(sql, conn);
                         break;
@@ -300,5 +318,7 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+
+		
     }
 }
