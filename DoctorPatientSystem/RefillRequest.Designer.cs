@@ -42,20 +42,20 @@
             this.backButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.prescriptionStatusLabel = new System.Windows.Forms.Label();
             this.remainingLabel = new System.Windows.Forms.Label();
             this.refillsLabel = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.prescriptionRemainingRefillsLabel = new System.Windows.Forms.Label();
+            this.prescriptionRefillLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.prescriptionDetailListView = new System.Windows.Forms.ListView();
             this.medicine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dose = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.route = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.instructions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.prescriptionDateLabel = new System.Windows.Forms.Label();
             this.prescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,12 +85,12 @@
             this.prescriptionListView.FullRowSelect = true;
             this.prescriptionListView.Location = new System.Drawing.Point(21, 68);
             this.prescriptionListView.Margin = new System.Windows.Forms.Padding(2);
+            this.prescriptionListView.MultiSelect = false;
             this.prescriptionListView.Name = "prescriptionListView";
             this.prescriptionListView.Size = new System.Drawing.Size(758, 379);
             this.prescriptionListView.TabIndex = 1;
             this.prescriptionListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionListView.View = System.Windows.Forms.View.Details;
-            this.prescriptionListView.SelectedIndexChanged += new System.EventHandler(this.prescriptionListView_SelectedIndexChanged);
             // 
             // prescriptionID
             // 
@@ -201,15 +201,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.statusLabel);
-            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.prescriptionStatusLabel);
             this.panel2.Controls.Add(this.remainingLabel);
             this.panel2.Controls.Add(this.refillsLabel);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.prescriptionRemainingRefillsLabel);
+            this.panel2.Controls.Add(this.prescriptionRefillLabel);
             this.panel2.Controls.Add(this.dateLabel);
-            this.panel2.Controls.Add(this.listView2);
+            this.panel2.Controls.Add(this.prescriptionDetailListView);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.prescriptionDateLabel);
             this.panel2.Location = new System.Drawing.Point(14, 59);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -227,16 +227,16 @@
             this.statusLabel.Size = new System.Drawing.Size(0, 19);
             this.statusLabel.TabIndex = 13;
             // 
-            // label11
+            // prescriptionStatusLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(2, 37);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 19);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Status: ";
+            this.prescriptionStatusLabel.AutoSize = true;
+            this.prescriptionStatusLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionStatusLabel.Location = new System.Drawing.Point(2, 37);
+            this.prescriptionStatusLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.prescriptionStatusLabel.Name = "prescriptionStatusLabel";
+            this.prescriptionStatusLabel.Size = new System.Drawing.Size(55, 19);
+            this.prescriptionStatusLabel.TabIndex = 12;
+            this.prescriptionStatusLabel.Text = "Status: ";
             // 
             // remainingLabel
             // 
@@ -258,27 +258,27 @@
             this.refillsLabel.Size = new System.Drawing.Size(0, 19);
             this.refillsLabel.TabIndex = 10;
             // 
-            // label10
+            // prescriptionRemainingRefillsLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(2, 99);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 19);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Remaining Refills: ";
+            this.prescriptionRemainingRefillsLabel.AutoSize = true;
+            this.prescriptionRemainingRefillsLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionRemainingRefillsLabel.Location = new System.Drawing.Point(2, 99);
+            this.prescriptionRemainingRefillsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.prescriptionRemainingRefillsLabel.Name = "prescriptionRemainingRefillsLabel";
+            this.prescriptionRemainingRefillsLabel.Size = new System.Drawing.Size(126, 19);
+            this.prescriptionRemainingRefillsLabel.TabIndex = 9;
+            this.prescriptionRemainingRefillsLabel.Text = "Remaining Refills: ";
             // 
-            // label9
+            // prescriptionRefillLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(2, 67);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 19);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Refills: ";
+            this.prescriptionRefillLabel.AutoSize = true;
+            this.prescriptionRefillLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionRefillLabel.Location = new System.Drawing.Point(2, 67);
+            this.prescriptionRefillLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.prescriptionRefillLabel.Name = "prescriptionRefillLabel";
+            this.prescriptionRefillLabel.Size = new System.Drawing.Size(55, 19);
+            this.prescriptionRefillLabel.TabIndex = 8;
+            this.prescriptionRefillLabel.Text = "Refills: ";
             // 
             // dateLabel
             // 
@@ -290,26 +290,27 @@
             this.dateLabel.Size = new System.Drawing.Size(0, 19);
             this.dateLabel.TabIndex = 7;
             // 
-            // listView2
+            // prescriptionDetailListView
             // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.prescriptionDetailListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.prescriptionDetailListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.medicine,
             this.count,
             this.dose,
             this.route,
             this.instructions});
-            this.listView2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.FullRowSelect = true;
-            this.listView2.Location = new System.Drawing.Point(5, 167);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(761, 211);
-            this.listView2.TabIndex = 6;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.prescriptionDetailListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionDetailListView.FullRowSelect = true;
+            this.prescriptionDetailListView.Location = new System.Drawing.Point(5, 167);
+            this.prescriptionDetailListView.Margin = new System.Windows.Forms.Padding(2);
+            this.prescriptionDetailListView.MultiSelect = false;
+            this.prescriptionDetailListView.Name = "prescriptionDetailListView";
+            this.prescriptionDetailListView.Size = new System.Drawing.Size(761, 211);
+            this.prescriptionDetailListView.TabIndex = 6;
+            this.prescriptionDetailListView.UseCompatibleStateImageBehavior = false;
+            this.prescriptionDetailListView.View = System.Windows.Forms.View.Details;
             // 
             // medicine
             // 
@@ -347,23 +348,23 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Prescription Details";
             // 
-            // label7
+            // prescriptionDateLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 6);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Date: ";
+            this.prescriptionDateLabel.AutoSize = true;
+            this.prescriptionDateLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptionDateLabel.Location = new System.Drawing.Point(2, 6);
+            this.prescriptionDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.prescriptionDateLabel.Name = "prescriptionDateLabel";
+            this.prescriptionDateLabel.Size = new System.Drawing.Size(45, 19);
+            this.prescriptionDateLabel.TabIndex = 3;
+            this.prescriptionDateLabel.Text = "Date: ";
             // 
             // RefillRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.prescriptionsPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RefillRequest";
             this.Size = new System.Drawing.Size(788, 459);
@@ -390,20 +391,20 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label prescriptionStatusLabel;
         private System.Windows.Forms.Label remainingLabel;
         private System.Windows.Forms.Label refillsLabel;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label prescriptionRemainingRefillsLabel;
+        private System.Windows.Forms.Label prescriptionRefillLabel;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView prescriptionDetailListView;
         private System.Windows.Forms.ColumnHeader medicine;
         private System.Windows.Forms.ColumnHeader count;
         private System.Windows.Forms.ColumnHeader dose;
         private System.Windows.Forms.ColumnHeader route;
         private System.Windows.Forms.ColumnHeader instructions;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label prescriptionDateLabel;
         private System.Windows.Forms.ColumnHeader prescriptionID;
         private System.Windows.Forms.ColumnHeader Prescriber;
         private System.Windows.Forms.ColumnHeader pharamcy;
