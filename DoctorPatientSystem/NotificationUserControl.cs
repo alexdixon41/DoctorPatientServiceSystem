@@ -72,8 +72,10 @@ namespace DoctorPatientSystem
             dialogResult = new ConfirmationPopup("Are you sure you want to deny this record request?", "").ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                //TODO deny the record request
-
+				//TODO deny the record request
+				String message = Patient.retrievePatientName(User.Id) + " has denied your request to view their medical records.";
+				
+				
                 //after denying a request, return to notifications
                 noticeDetailPanel.Hide();
                 notificationListPanel.Show();

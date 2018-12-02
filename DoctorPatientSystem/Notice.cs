@@ -107,9 +107,14 @@ namespace DoctorPatientSystem
         public const int SEND_CASE_DISCUSSION_NOTICE_TYPE = 1;          //notify doctor to discuss a case
         public const int SEND_REFILL_REQUEST_ACCEPT_NOTICE_TYPE = 2;    //notify patient when refill request accepted
         public const int SEND_REFILL_REQUEST_REJECT_NOTICE_TYPE = 3;    //notify patient when refill request denied
-        public const int SEND_PHONECALL_REQUEST_NOTICE_TYPE = 4;                    //notify doctor to call a patient
+        public const int SEND_PHONECALL_REQUEST_NOTICE_TYPE = 4;        //notify doctor to call a patient
+        public const int SEND_REFILL_PERMIT_NOTICE_TYPE = 5;            //notify doctor to permit a new refill for a prescription
+        public const int SEND_REFILL_REQUEST_NOTICE_TYPE = 6;           //notify pharmacy to refill a prescription
+		public const int SEND_RECORD_REQUEST_NOTICE_TYPE = 7;           //notify patient that a doctor wants to view their records
+		public const int SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE = 8;    //notify doctor that record request accepted
+		public const int SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE = 9;    //notify doctor that record request denied
 
-        public static int Unread
+		public static int Unread
         {
             get
             {
@@ -271,13 +276,53 @@ namespace DoctorPatientSystem
                         break;
                     case SEND_PHONECALL_REQUEST_NOTICE_TYPE:
                         sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
-                        VALUES ('Phone Call Request', 'New', CURRENT_DATE, @message, @pharmID, @patientID);";
+                        VALUES ('Phone Call Request', 'New', CURRENT_DATE, @message, @patientID, @doctorID);";
                         cmd = new MySqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@message", message);
-                        cmd.Parameters.AddWithValue("@pharmID", User.Id);
-                        cmd.Parameters.AddWithValue("@patientID", receiverID);
+                        cmd.Parameters.AddWithValue("@patientID", User.Id);
+                        cmd.Parameters.AddWithValue("@doctorID", receiverID);
                         break;
-                    default:
+                    case SEND_REFILL_PERMIT_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+                        VALUES ('Refill Request', 'New', CURRENT_DATE, @message, @patientID, @doctorID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@patientID", User.Id);
+                        cmd.Parameters.AddWithValue("@doctorID", receiverID);
+                        break;
+                    case SEND_REFILL_REQUEST_NOTICE_TYPE:
+                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, pharmacyReceiver)
+                        VALUES ('Refill Request', 'New', CURRENT_DATE, @message, @patientID, @pharmacyID);";
+                        cmd = new MySqlCommand(sql, conn);
+                        cmd.Parameters.AddWithValue("@message", message);
+                        cmd.Parameters.AddWithValue("@patientID", User.Id);
+                        cmd.Parameters.AddWithValue("@pharmacyID", receiverID);
+                        break;
+					case SEND_RECORD_REQUEST_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, patientReceiver)
+								VALUES ('Record Request', 'New', CURRENT_DATE, @message, @docID, @patientID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@docID", User.Id);
+						cmd.Parameters.AddWithValue("@patientID", receiverID);
+						break;
+					case SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+								VALUES ('Record Request Accepted', 'New', CURRENT_DATE, @message, @patientID, @docID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@patientID", User.Id);
+						cmd.Parameters.AddWithValue("@docID", receiverID);
+						break;
+					case SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
+								VALUES ('Record Request Denied', 'New', CURRENT_DATE, @message, @patientID, @docID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@patientID", User.Id);
+						cmd.Parameters.AddWithValue("@docID", receiverID);
+						break;
+					default:
                         sql = "";
                         cmd = new MySqlCommand(sql, conn);
                         break;
@@ -291,5 +336,7 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+
+		
     }
 }

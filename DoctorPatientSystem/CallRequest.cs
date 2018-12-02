@@ -45,7 +45,6 @@ namespace DoctorPatientSystem
                 doctorListView.Items[i].SubItems.Add(doc.OfficeNumber);
                 i++;
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)

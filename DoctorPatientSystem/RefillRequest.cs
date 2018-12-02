@@ -48,5 +48,31 @@ namespace DoctorPatientSystem
             prescriptionDetailPanel.Hide();
             prescriptionsPanel.Show();
         }
+
+        private void prescriptionDetailPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void populateList()
+        {
+            prescriptionListView.Items.Clear();
+            int i = 0;
+            foreach (Prescription prescriptions in Prescription.displayPrescriptions())
+            {
+                prescriptionListView.Items.Add("" + prescriptions.Id);
+                prescriptionListView.Items[i].SubItems.Add(prescriptions.PrescriberName);
+                prescriptionListView.Items[i].SubItems.Add(prescriptions.PharmacyName);
+                i++;
+            }
+        }
+        private void prescriptionListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
