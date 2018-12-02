@@ -5,18 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Data;
 
 namespace DoctorPatientSystem
 {
     class Appointment
     {
-        private string startTime;
+		private static ArrayList appointmentList = new ArrayList();
+
+		private string startTime;
         private string patientName;
         private string patientID;
         private string doctorName;
         private string doctorID;
         private string status;
-		private ArrayList appointmentList = new ArrayList();
+		
         public string StartTime
         {
             get
@@ -115,10 +118,47 @@ namespace DoctorPatientSystem
             conn.Close();
         }
 
-		public static void retrieveAppointments(int doctorID)
+		//Returns the doctors list of appointments
+		public static ArrayList displayAppointments()
 		{
-			//TO DO retrieve appointments from the database
+			return appointmentList;
 		}
 
-    }
+		//Retrieves all of a doctor's appointments from the database and stores them in appointmentList
+		public static void retrieveAppointments(int doctorID)
+		{
+			DataTable table = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"SELECT p.name, a.appointmentTime, a.appointmentStatus 
+							FROM dixonpatient p join dixonappointment a on p.patientID = a.patientID join dixondoctor d on a.doctorID = d.id
+							WHERE d.id = @docID ORDER BY a.appointmentStatus";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@docID", doctorID);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(table);
+				Console.WriteLine("Table is ready.");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			appointmentList.Clear();
+			foreach (DataRow row in table.Rows)
+			{
+				Appointment newAppointment = new Appointment();
+				newAppointment.patientName = row["name"].ToString();
+				newAppointment.startTime = row["appointmentTime"].ToString();
+				newAppointment.status = row["appointmentStatus"].ToString();
+				appointmentList.Add(newAppointment);
+			}
+		}
+
+	}
 }
