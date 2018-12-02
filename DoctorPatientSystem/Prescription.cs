@@ -11,18 +11,13 @@ namespace DoctorPatientSystem
 {
     class Prescription
     {
-        public const int SEARCH_BY_PATIENT = 0;
-        public const int SEARCH_BY_DOCTOR = 1;
-        public const int ACTIVE_STATUS_CODE = 2;
-        public const int READY_STATUS_CODE = 3;
-        public const int COMPLETE_STATUS_CODE = 4;
-        public const int DELETED_STATUS_CODE = 5;
 
         private int id;
         private string date;
         private string patientName;
         private string prescriberName;
         private string status;
+        private string pharmacyName;
         private int refills;
         private int remainingRefills;
         private int patientId;
@@ -148,7 +143,6 @@ namespace DoctorPatientSystem
                 patientBirthDate = value;
             }
         }
-
         public static int NewPrescriptionCount
         {
             get
@@ -161,6 +155,19 @@ namespace DoctorPatientSystem
                 newPrescriptionCount = value;
             }
         }
+        public string PharmacyName
+        {
+            get
+            {
+                return pharmacyName;
+            }
+
+            set
+            {
+                pharmacyName = value;
+            }
+        }
+
         private static int newPrescriptionCount;
         private static ArrayList prescriptions = new ArrayList();
 
@@ -168,17 +175,6 @@ namespace DoctorPatientSystem
         public static ArrayList displayPrescriptions()
         {
             return prescriptions;
-        }
-
-        public Patient retrievePatientDetails()
-        {
-            Patient patient = new Patient();
-            patient.Id = PatientId;
-            patient.Name = PatientName;
-            patient.BirthDate = PatientBirthDate;
-            patient.retrieveMedicalRecord();
-            patient.retrieveMedicineHistory();
-            return patient;
         }
 
         /// <summary>
@@ -222,52 +218,6 @@ namespace DoctorPatientSystem
             Medicines = medicines;
         }
 
-        public static void retrieveNewPrescriptions()
-        {
-            prescriptions.Clear();
-            DataTable table = new DataTable();
-            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
-                pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
-                DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
-                FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id) 
-                WHERE pr.pharmacyID = @id ORDER BY pr.prescriptionStatus; ";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", User.Id);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(table);
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-
-            int newCount = 0;
-            foreach (DataRow row in table.Rows)
-            {
-                Prescription newPrescription = new Prescription();
-                newPrescription.Date = row["dateFilled"].ToString();
-                newPrescription.Refills = (int)row["refills"];
-                newPrescription.RemainingRefills = (int)row["remainingRefills"];
-                newPrescription.Status = row["prescriptionStatus"].ToString();
-                newPrescription.PatientName = row["patientName"].ToString();
-                newPrescription.PatientId = (int)row["patientID"];
-                newPrescription.PatientBirthDate = row["birthDate"].ToString();
-                newPrescription.PrescriberName = row["doctorName"].ToString();
-                newPrescription.Id = (int)row["id"];
-                if (newPrescription.Status.Equals("New"))
-                    newCount++;
-                prescriptions.Add(newPrescription);
-            }
-            newPrescriptionCount = newCount;
-        }
 
         /// <summary>
         /// Execute SQL query to retrieve prescriptions matching user's search parameters
@@ -283,28 +233,9 @@ namespace DoctorPatientSystem
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
                 string sql;
-                if (searchTypeCode == SEARCH_BY_DOCTOR)
-                {
-                    sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
-                    pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
-                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
-                    FROM(DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
-                    JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
-                    WHERE (doc.name LIKE @searchKey1 OR doc.name LIKE @searchKey2) AND ph.id = @id;";
-                }
-                else
-                {
-                    sql = @"SELECT pr.id, DATE_FORMAT(pr.dateFilled, ""%m-%d-%Y"") AS 'dateFilled', pr.refills, 
-                    pr.remainingRefills, pr.prescriptionStatus, pa.name AS patientName, pa.patientID, 
-                    DATE_FORMAT(pa.birthDate, ""%m-%d-%Y"") AS 'birthDate', doc.name AS doctorName 
-                    FROM DixonPrescription pr JOIN DixonPatient pa ON pr.patientID = pa.patientID 
-                    JOIN DixonDoctor doc ON pr.doctorID = doc.id JOIN DixonPharmacy ph ON pr.pharmacyID = ph.id
-                    WHERE (pa.name LIKE @searchKey1 OR pa.name LIKE @searchKey2) AND ph.id = @id;";
-                }
+                    sql = @"SELECT";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
-                cmd.Parameters.AddWithValue("@searchKey1", "" + searchKey + "%");
-                cmd.Parameters.AddWithValue("@searchKey2", "% " + searchKey + "%");
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");
@@ -329,66 +260,6 @@ namespace DoctorPatientSystem
                 newPrescription.Id = (int)row["id"];
                 prescriptions.Add(newPrescription);
             }
-        }
-
-        public void changeStatus(int newStatusCode)
-        {
-            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "";
-                switch (newStatusCode)
-                {
-                    case ACTIVE_STATUS_CODE:
-                        sql = "UPDATE DixonPrescription SET prescriptionStatus = 'Active' WHERE id = @id;";
-                        break;
-                    case READY_STATUS_CODE:
-                        sql = "UPDATE DixonPrescription SET prescriptionStatus = 'Ready' WHERE id = @id;";
-                        break;
-                    case COMPLETE_STATUS_CODE:
-                        sql = "UPDATE DixonPrescription SET prescriptionStatus = 'Complete' WHERE id = @id;";
-                        break;
-                    case DELETED_STATUS_CODE:
-                        sql = "UPDATE DixonPrescription SET prescriptionStatus = 'Deleted' WHERE id = @id;";
-                        break;
-                }
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", Id);
-                cmd.ExecuteNonQuery();
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-        }
-
-        public void updateRefills()
-        {
-            RemainingRefills -= 1;
-            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "UPDATE DixonPrescription SET remainingRefills = @refills WHERE id = @id";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@refills", RemainingRefills);
-                cmd.Parameters.AddWithValue("@id", Id);
-                cmd.ExecuteNonQuery();
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
         }
     }
 }
