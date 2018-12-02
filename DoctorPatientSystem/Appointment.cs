@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace DoctorPatientSystem
 {
@@ -15,6 +16,7 @@ namespace DoctorPatientSystem
         private string doctorName;
         private string doctorID;
         private string status;
+		private ArrayList appointmentList = new ArrayList();
         public string StartTime
         {
             get
@@ -112,5 +114,11 @@ namespace DoctorPatientSystem
             }
             conn.Close();
         }
+
+		public static void retrieveAppointments(int doctorID)
+		{
+			//TO DO retrieve appointments from the database
+		}
+
     }
 }

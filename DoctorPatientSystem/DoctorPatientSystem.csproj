@@ -172,6 +172,12 @@
       <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="ViewAppointments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewAppointments.Designer.cs">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AlertDialog.resx">
       <DependentUpon>AlertDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RefillRequestResponsePopup.resx">
       <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAppointments.resx">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

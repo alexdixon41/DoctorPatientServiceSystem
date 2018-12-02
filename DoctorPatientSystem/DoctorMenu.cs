@@ -14,7 +14,7 @@ namespace DoctorPatientSystem
 	{
         private NotificationUserControl notificationControl = new NotificationUserControl();
         private PatientSearch patientSearchControl = new PatientSearch();
-        private CreateMedicalRecord createRecordControl = new CreateMedicalRecord();
+		private ViewAppointments viewAppointmentsControl = new ViewAppointments();
 
 		public DoctorMenu()
 		{
@@ -45,15 +45,16 @@ namespace DoctorPatientSystem
             patientSearchControl.Show();
         }
 
-        private void createRecordButton_Click(object sender, EventArgs e)
-        {
-            foreach (Control c in splitContainer1.Panel2.Controls)
-            {
-                c.Hide();
-            }
-            splitContainer1.Panel2.Controls.Add(createRecordControl);
-            createRecordControl.Dock = DockStyle.Fill;
-            createRecordControl.Show();
-        }
-    }
+
+		private void viewAppointmentsButton_Click(object sender, EventArgs e)
+		{
+			foreach (Control c in splitContainer1.Panel2.Controls)
+			{
+				c.Hide();
+			}
+			splitContainer1.Panel2.Controls.Add(viewAppointmentsControl);
+			viewAppointmentsControl.Dock = DockStyle.Fill;
+			viewAppointmentsControl.Show();
+		}
+	}
 }

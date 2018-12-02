@@ -290,8 +290,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.noticeDetailPanel);
 			this.Controls.Add(this.notificationListPanel);
+			this.Controls.Add(this.noticeDetailPanel);
 			this.Name = "NotificationUserControl";
 			this.Size = new System.Drawing.Size(835, 701);
 			this.notificationListPanel.ResumeLayout(false);
