@@ -283,14 +283,6 @@ namespace DoctorPatientSystem
                         cmd.Parameters.AddWithValue("@patientID", User.Id);
                         cmd.Parameters.AddWithValue("@doctorID", receiverID);
                         break;
-                    case SEND_REFILL_PERMIT_NOTICE_TYPE:
-                        sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
-                        VALUES ('Refill Permit Request', 'New', CURRENT_DATE, @message, @patientID, @doctorID);";
-                        cmd = new MySqlCommand(sql, conn);
-                        cmd.Parameters.AddWithValue("@message", message);
-                        cmd.Parameters.AddWithValue("@patientID", User.Id);
-                        cmd.Parameters.AddWithValue("@doctorID", receiverID);
-                        break;
 					case SEND_RECORD_REQUEST_NOTICE_TYPE:
 						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, patientReceiver)
 								VALUES ('Record Request', 'New', CURRENT_DATE, @message, @docID, @patientID)";

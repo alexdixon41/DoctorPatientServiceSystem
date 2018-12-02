@@ -1,122 +1,169 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DoctorPatientSystem
 {
-    /// <summary>
-    /// This form allows the patient to request a refill of a past prescription.
-    /// </summary>
-    public partial class RefillRequest : UserControl
+    public class RefillRequest
     {
-        private Prescription selectedPrescription = new Prescription();
-        public RefillRequest()
+        private string date;
+        private string status;
+        private string id;
+        private Prescription prescription;
+        public string Date
         {
-            InitializeComponent();
-        }
-
-        private void selectPrescriptionButton_Click(object sender, EventArgs e)
-        {
-            if (!(prescriptionListView.SelectedIndices.Count == 0))
+            get
             {
-                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
-                prescriptionsPanel.Hide();
-                prescriptionDetailPanel.Show();
-                prescriptionDateLabel.Text = "Date: " + selectedPrescription.Date.ToString();
-                prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
-                prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
-                prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
-                selectedPrescription.retrieveMedicines();
-                populateMedicineList();
+                return date;
+            }
+
+            set
+            {
+                date = value;
+            }
+        }
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
+            }
+        }
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+        internal Prescription Prescription
+        {
+            get
+            {
+                return prescription;
+            }
+
+            set
+            {
+                prescription = value;
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        public static int NewRefillRequestCount
         {
-            prescriptionDetailPanel.Hide();
-            prescriptionsPanel.Show();
-        }
-
-        private void prescriptionDetailPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        public void populateMedicineList()
-        {
-            prescriptionDetailListView.Items.Clear();
-            int i = 0;
-            foreach (Medicine medicine in selectedPrescription.Medicines)
+            get
             {
-                prescriptionDetailListView.Items.Add(medicine.Name);
-                prescriptionDetailListView.Items[i].SubItems.Add("" + medicine.Quantity);
-                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Dosage);
-                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Route);
-                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Instructions);
-                i++;
+                return newRefillRequestCount;
+            }
+
+            set
+            {
+                newRefillRequestCount = value;
             }
         }
-        public void populatePrescriptionList()
-        {
-            prescriptionListView.Items.Clear();
-            int i = 0;
-            foreach (Prescription prescriptions in Prescription.displayPrescriptions())
-            {
-                prescriptionListView.Items.Add("" + prescriptions.Id);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.PrescriberName);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.PharmacyName);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.Date);
-                i++;
-            }
-        }
-        
+        private static int newRefillRequestCount;
+        private static ArrayList refillRequests = new ArrayList();
 
-        private void button1_Click(object sender, EventArgs e)
+        public const int ACCEPTED_STATUS_CODE = 0;
+        public const int DENIED_STATUS_CODE = 1;
+
+        public static ArrayList displayRefillRequests()
         {
-            if (selectedPrescription.canRequestRefill())
+            return refillRequests;
+        }
+
+        public static void retrieveRefillRequests()
+        {
+            refillRequests.Clear();
+            DataTable table = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
             {
-                if (selectedPrescription.RemainingRefills == 0)
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "SELECT DATE_FORMAT(re.dateRequested, \"%m-%d-%Y\") AS dateRequested, re.refillRequestStatus, " +
+                        "re.id, pa.name AS patientName, pa.patientID, doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid'" +
+                        "FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id " +
+                        "JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id " +
+                        "WHERE pr.pharmacyID = @id AND re.refillRequestStatus != 'Unapproved';";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", User.Id);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(table);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            int newCount = 0;
+            foreach (DataRow row in table.Rows)
+            {
+                RefillRequest request = new RefillRequest();
+                request.Prescription = new Prescription();
+                request.Date = row["dateRequested"].ToString();
+                request.Status = row["refillRequestStatus"].ToString();
+                request.Id = row["id"].ToString();
+                request.Prescription.PatientName = row["patientName"].ToString();
+                request.Prescription.PrescriberName = row["name"].ToString();
+                request.Prescription.Refills = (int)row["refills"];
+                request.Prescription.RemainingRefills = (int)row["remainingRefills"];
+                request.Prescription.Id = (int)row["pid"];
+                request.Prescription.PatientId = (int)row["patientID"];
+                if (request.Status.Equals("New"))
+                    newCount++;
+                refillRequests.Add(request);
+            }
+            newRefillRequestCount = newCount;
+        }
+
+        public void changeStatus(int newStatusCode)
+        {
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "";
+                switch (newStatusCode)
                 {
-                    DialogResult dialogResult = new DialogResult();
-                    dialogResult = new ConfirmationPopup("You have no refills remaining.", "Are you sure you want to request a permit for this refill from the doctor?").ShowDialog();
-                    if (dialogResult == DialogResult.OK)
-                    {
-                        Notice.sendNotice(selectedPrescription.DoctorId, selectedPrescription.PatientName.ToString() + " would like to request a permit for more refills.", Notice.SEND_REFILL_PERMIT_NOTICE_TYPE);
-                        new AlertDialog("The refill permit was requested.").ShowDialog();
-                    }
+                    case ACCEPTED_STATUS_CODE:
+                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Accepted' WHERE id = @id;";
+                        break;
+                    case DENIED_STATUS_CODE:
+                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Denied' WHERE id = @id;";
+                        break;
                 }
-                else
-                {
-                    DialogResult dialogResult = new DialogResult();
-                    dialogResult = new ConfirmationPopup("You have " + selectedPrescription.RemainingRefills.ToString() + " refills remaining.", "Are you sure you want to request a refill from your pharmacy?").ShowDialog();
-                    if (dialogResult == DialogResult.OK)
-                    {
-                        selectedPrescription.createRefillRequest(selectedPrescription.PharmacyId);
-                        new AlertDialog("The refill was requested.").ShowDialog();
-                    }
-                }
-                selectedPrescription.disableRefillRequest();
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
             }
-            else
+            catch (Exception ex)
             {
-                new AlertDialog("You have already requested a refill for this prescription.").ShowDialog();
+                Console.WriteLine(ex.ToString());
             }
-            
+            conn.Close();
         }
 
-        private void prescriptionsPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
+
 }

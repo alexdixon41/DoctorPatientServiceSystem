@@ -38,8 +38,6 @@
             this.selectNotificationButton = new System.Windows.Forms.Button();
             this.notificationListPanel = new System.Windows.Forms.Panel();
             this.noticeDetailPanel = new System.Windows.Forms.Panel();
-            this.denyButton = new System.Windows.Forms.Button();
-            this.acceptButton = new System.Windows.Forms.Button();
             this.dateTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.typeTextBox = new System.Windows.Forms.TextBox();
@@ -50,12 +48,11 @@
             this.backButton = new System.Windows.Forms.Button();
             this.noticeTitleLabel = new System.Windows.Forms.Label();
             this.buttonPanel = new System.Windows.Forms.Panel();
-            this.prescriptionButtonPanel = new System.Windows.Forms.Panel();
-            this.viewPrescriptionButton = new System.Windows.Forms.Button();
+            this.denyButton = new System.Windows.Forms.Button();
+            this.acceptButton = new System.Windows.Forms.Button();
             this.notificationListPanel.SuspendLayout();
             this.noticeDetailPanel.SuspendLayout();
             this.buttonPanel.SuspendLayout();
-            this.prescriptionButtonPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +81,7 @@
             this.noticesListView.Location = new System.Drawing.Point(27, 82);
             this.noticesListView.MultiSelect = false;
             this.noticesListView.Name = "noticesListView";
-            this.noticesListView.Size = new System.Drawing.Size(796, 607);
+            this.noticesListView.Size = new System.Drawing.Size(1095, 607);
             this.noticesListView.TabIndex = 1;
             this.noticesListView.UseCompatibleStateImageBehavior = false;
             this.noticesListView.View = System.Windows.Forms.View.Details;
@@ -119,7 +116,7 @@
             this.selectNotificationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectNotificationButton.AutoSize = true;
             this.selectNotificationButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectNotificationButton.Location = new System.Drawing.Point(648, 14);
+            this.selectNotificationButton.Location = new System.Drawing.Point(947, 14);
             this.selectNotificationButton.Name = "selectNotificationButton";
             this.selectNotificationButton.Size = new System.Drawing.Size(175, 48);
             this.selectNotificationButton.TabIndex = 2;
@@ -136,7 +133,7 @@
             this.notificationListPanel.Location = new System.Drawing.Point(0, 0);
             this.notificationListPanel.MinimumSize = new System.Drawing.Size(450, 300);
             this.notificationListPanel.Name = "notificationListPanel";
-            this.notificationListPanel.Size = new System.Drawing.Size(835, 701);
+            this.notificationListPanel.Size = new System.Drawing.Size(1134, 701);
             this.notificationListPanel.TabIndex = 3;
             // 
             // noticeDetailPanel
@@ -150,42 +147,13 @@
             this.noticeDetailPanel.Controls.Add(this.label2);
             this.noticeDetailPanel.Controls.Add(this.backButton);
             this.noticeDetailPanel.Controls.Add(this.noticeTitleLabel);
-            this.noticeDetailPanel.Controls.Add(this.prescriptionButtonPanel);
             this.noticeDetailPanel.Controls.Add(this.buttonPanel);
             this.noticeDetailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noticeDetailPanel.Location = new System.Drawing.Point(0, 0);
             this.noticeDetailPanel.Name = "noticeDetailPanel";
-            this.noticeDetailPanel.Size = new System.Drawing.Size(835, 701);
+            this.noticeDetailPanel.Size = new System.Drawing.Size(1134, 701);
             this.noticeDetailPanel.TabIndex = 4;
             this.noticeDetailPanel.Visible = false;
-            // 
-            // denyButton
-            // 
-            this.denyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.denyButton.AutoSize = true;
-            this.denyButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.denyButton.Location = new System.Drawing.Point(34, 3);
-            this.denyButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.denyButton.Name = "denyButton";
-            this.denyButton.Size = new System.Drawing.Size(111, 48);
-            this.denyButton.TabIndex = 14;
-            this.denyButton.Text = "Deny";
-            this.denyButton.UseVisualStyleBackColor = true;
-            this.denyButton.Click += new System.EventHandler(this.denyButton_Click);
-            // 
-            // acceptButton
-            // 
-            this.acceptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.acceptButton.AutoSize = true;
-            this.acceptButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acceptButton.Location = new System.Drawing.Point(158, 3);
-            this.acceptButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(111, 48);
-            this.acceptButton.TabIndex = 13;
-            this.acceptButton.Text = "Accept";
-            this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // dateTextBox
             // 
@@ -195,7 +163,7 @@
             this.dateTextBox.Location = new System.Drawing.Point(115, 147);
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.ReadOnly = true;
-            this.dateTextBox.Size = new System.Drawing.Size(708, 38);
+            this.dateTextBox.Size = new System.Drawing.Size(1007, 38);
             this.dateTextBox.TabIndex = 12;
             this.dateTextBox.TabStop = false;
             // 
@@ -217,7 +185,7 @@
             this.typeTextBox.Location = new System.Drawing.Point(115, 82);
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.ReadOnly = true;
-            this.typeTextBox.Size = new System.Drawing.Size(708, 38);
+            this.typeTextBox.Size = new System.Drawing.Size(1007, 38);
             this.typeTextBox.TabIndex = 10;
             this.typeTextBox.TabStop = false;
             // 
@@ -241,7 +209,7 @@
             this.messageTextBox.Multiline = true;
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.ReadOnly = true;
-            this.messageTextBox.Size = new System.Drawing.Size(791, 411);
+            this.messageTextBox.Size = new System.Drawing.Size(1090, 411);
             this.messageTextBox.TabIndex = 8;
             this.messageTextBox.TabStop = false;
             // 
@@ -253,7 +221,7 @@
             this.fromTextBox.Location = new System.Drawing.Point(115, 212);
             this.fromTextBox.Name = "fromTextBox";
             this.fromTextBox.ReadOnly = true;
-            this.fromTextBox.Size = new System.Drawing.Size(708, 38);
+            this.fromTextBox.Size = new System.Drawing.Size(1007, 38);
             this.fromTextBox.TabIndex = 7;
             this.fromTextBox.TabStop = false;
             // 
@@ -299,36 +267,39 @@
             this.buttonPanel.AutoSize = true;
             this.buttonPanel.Controls.Add(this.denyButton);
             this.buttonPanel.Controls.Add(this.acceptButton);
-            this.buttonPanel.Location = new System.Drawing.Point(554, 13);
+            this.buttonPanel.Location = new System.Drawing.Point(853, 13);
             this.buttonPanel.Name = "buttonPanel";
             this.buttonPanel.Size = new System.Drawing.Size(269, 54);
             this.buttonPanel.TabIndex = 15;
             this.buttonPanel.Visible = false;
             // 
-            // prescriptionButtonPanel
+            // denyButton
             // 
-            this.prescriptionButtonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.prescriptionButtonPanel.AutoSize = true;
-            this.prescriptionButtonPanel.Controls.Add(this.viewPrescriptionButton);
-            this.prescriptionButtonPanel.Location = new System.Drawing.Point(554, 13);
-            this.prescriptionButtonPanel.Name = "prescriptionButtonPanel";
-            this.prescriptionButtonPanel.Size = new System.Drawing.Size(269, 54);
-            this.prescriptionButtonPanel.TabIndex = 16;
-            this.prescriptionButtonPanel.Visible = false;
+            this.denyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.denyButton.AutoSize = true;
+            this.denyButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denyButton.Location = new System.Drawing.Point(34, 3);
+            this.denyButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.denyButton.Name = "denyButton";
+            this.denyButton.Size = new System.Drawing.Size(111, 48);
+            this.denyButton.TabIndex = 14;
+            this.denyButton.Text = "Deny";
+            this.denyButton.UseVisualStyleBackColor = true;
+            this.denyButton.Click += new System.EventHandler(this.denyButton_Click);
             // 
-            // viewPrescriptionButton
+            // acceptButton
             // 
-            this.viewPrescriptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewPrescriptionButton.AutoSize = true;
-            this.viewPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewPrescriptionButton.Location = new System.Drawing.Point(28, 3);
-            this.viewPrescriptionButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.viewPrescriptionButton.Name = "viewPrescriptionButton";
-            this.viewPrescriptionButton.Size = new System.Drawing.Size(241, 48);
-            this.viewPrescriptionButton.TabIndex = 13;
-            this.viewPrescriptionButton.Text = "View Prescription";
-            this.viewPrescriptionButton.UseVisualStyleBackColor = true;
-            this.viewPrescriptionButton.Click += new System.EventHandler(this.viewPrescriptionButton_Click);
+            this.acceptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.acceptButton.AutoSize = true;
+            this.acceptButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acceptButton.Location = new System.Drawing.Point(158, 3);
+            this.acceptButton.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(111, 48);
+            this.acceptButton.TabIndex = 13;
+            this.acceptButton.Text = "Accept";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // NotificationUserControl
             // 
@@ -337,15 +308,13 @@
             this.Controls.Add(this.noticeDetailPanel);
             this.Controls.Add(this.notificationListPanel);
             this.Name = "NotificationUserControl";
-            this.Size = new System.Drawing.Size(835, 701);
+            this.Size = new System.Drawing.Size(1134, 701);
             this.notificationListPanel.ResumeLayout(false);
             this.notificationListPanel.PerformLayout();
             this.noticeDetailPanel.ResumeLayout(false);
             this.noticeDetailPanel.PerformLayout();
             this.buttonPanel.ResumeLayout(false);
             this.buttonPanel.PerformLayout();
-            this.prescriptionButtonPanel.ResumeLayout(false);
-            this.prescriptionButtonPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,7 +343,5 @@
         private System.Windows.Forms.Button denyButton;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.Panel buttonPanel;
-        private System.Windows.Forms.Panel prescriptionButtonPanel;
-        private System.Windows.Forms.Button viewPrescriptionButton;
     }
 }

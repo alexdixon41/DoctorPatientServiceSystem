@@ -1,6 +1,6 @@
 ﻿namespace DoctorPatientSystem
 {
-    partial class RefillRequest
+    partial class RefillRequestUserControl
     {
         /// <summary>
         /// Required designer variable.
@@ -160,7 +160,7 @@
             this.button1.Location = new System.Drawing.Point(777, 14);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 59);
+            this.button1.Size = new System.Drawing.Size(260, 48);
             this.button1.TabIndex = 8;
             this.button1.Text = "Request Refill";
             this.button1.UseVisualStyleBackColor = true;
@@ -348,14 +348,14 @@
             this.prescriptionDateLabel.TabIndex = 3;
             this.prescriptionDateLabel.Text = "Date: ";
             // 
-            // RefillRequest
+            // RefillRequestUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionsPanel);
             this.Controls.Add(this.prescriptionDetailPanel);
+            this.Controls.Add(this.prescriptionsPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "RefillRequest";
+            this.Name = "RefillRequestUserControl";
             this.Size = new System.Drawing.Size(1051, 565);
             this.prescriptionsPanel.ResumeLayout(false);
             this.prescriptionsPanel.PerformLayout();
