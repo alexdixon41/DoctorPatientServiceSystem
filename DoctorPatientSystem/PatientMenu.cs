@@ -15,7 +15,7 @@ namespace DoctorPatientSystem
         private NotificationUserControl notificationControl = new NotificationUserControl();
         private AppointmentRequest appointmentRequestControl = new AppointmentRequest();
         private CallRequest callRequestControl = new CallRequest();
-        private RefillRequest refillRequestControl = new RefillRequest();
+        private RefillRequestUserControl refillRequestControl = new RefillRequestUserControl();
         private CheckPatientRecords patientRecordControl = new CheckPatientRecords();
 
         public PatientMenu()

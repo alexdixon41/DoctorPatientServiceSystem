@@ -207,6 +207,17 @@ namespace DoctorPatientSystem
             return Medicines;
         }
 
+        public Patient retrievePatientDetails()
+        {
+            Patient patient = new Patient();
+            patient.Id = PatientId;
+            patient.Name = PatientName;
+            patient.BirthDate = PatientBirthDate;
+            patient.retrieveMedicalRecord();
+            patient.retrieveMedicineHistory();
+            return patient;
+        }
+
         /// <summary>
         /// Adds list of medicines to the Medicines property of prescription.
         /// </summary>
@@ -248,7 +259,7 @@ namespace DoctorPatientSystem
             Medicines = medicines;
         }
 
-        public void createRefillRequest(int prescriptionID)
+        public void createRefillRequest(string status)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -258,10 +269,11 @@ namespace DoctorPatientSystem
                 conn.Open();
                 string sql;
                 sql = @"INSERT INTO DixonRefillRequest (dateRequested, refillRequestStatus, prescriptionID, patientID)
-                        VALUES (CURDATE(), 'New', @pId, @id);";
+                        VALUES (CURDATE(), @status, @pId, @id);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@id", User.Id);
-                cmd.Parameters.AddWithValue("@pId", prescriptionID);
+                cmd.Parameters.AddWithValue("@pId", Id);
                 cmd.ExecuteNonQuery();
 
                 sql = @"UPDATE DixonPrescription
@@ -293,7 +305,8 @@ namespace DoctorPatientSystem
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    result = reader["canRequestRefill"].ToString().Equals("1") ? true : false;
+                    result = reader["canRequestRefill"].ToString().Equals("True") ? true : false;
+                    Console.WriteLine(reader["canRequestRefill"].ToString());
                 }
                 Console.WriteLine("Table is ready.");
             }

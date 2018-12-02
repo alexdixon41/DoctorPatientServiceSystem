@@ -51,15 +51,9 @@ namespace DoctorPatientSystem
                 {
                     buttonPanel.Show();
                 }
-                else if (selectedNotice.Type.Equals("Refill Permit Request"))
-                {
-                    buttonPanel.Hide();
-                    prescriptionButtonPanel.Show();                    
-                }
                 else
                 {
                     buttonPanel.Hide();
-                    prescriptionButtonPanel.Hide();
                 }
             }
         }
@@ -113,9 +107,5 @@ namespace DoctorPatientSystem
 			}
 		}
 
-        private void viewPrescriptionButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

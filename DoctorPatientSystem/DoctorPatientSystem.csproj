@@ -153,11 +153,12 @@
     <Compile Include="Prescription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RefillRequest.cs">
+    <Compile Include="RefillRequest.cs" />
+    <Compile Include="RefillRequestUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RefillRequest.Designer.cs">
-      <DependentUpon>RefillRequest.cs</DependentUpon>
+    <Compile Include="RefillRequestUserControl.Designer.cs">
+      <DependentUpon>RefillRequestUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="refillRequestResponse.cs">
       <SubType>Form</SubType>
@@ -170,6 +171,12 @@
     </Compile>
     <Compile Include="RefillRequestResponsePopup.designer.cs">
       <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RefillUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RefillUserControl.Designer.cs">
+      <DependentUpon>RefillUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="ViewAppointments.cs">
@@ -230,14 +237,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RefillRequest.resx">
-      <DependentUpon>RefillRequest.cs</DependentUpon>
+    <EmbeddedResource Include="RefillRequestUserControl.resx">
+      <DependentUpon>RefillRequestUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="refillRequestResponse.resx">
       <DependentUpon>refillRequestResponse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RefillRequestResponsePopup.resx">
       <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RefillUserControl.resx">
+      <DependentUpon>RefillUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAppointments.resx">
       <DependentUpon>ViewAppointments.cs</DependentUpon>

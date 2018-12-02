@@ -60,5 +60,10 @@ namespace DoctorPatientSystem
 			viewAppointmentsControl.Dock = DockStyle.Fill;
 			viewAppointmentsControl.Show();
 		}
-	}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
