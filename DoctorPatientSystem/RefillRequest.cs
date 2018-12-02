@@ -15,6 +15,7 @@ namespace DoctorPatientSystem
     /// </summary>
     public partial class RefillRequest : UserControl
     {
+        private Prescription selectedPrescription = new Prescription();
         public RefillRequest()
         {
             InitializeComponent();
@@ -22,25 +23,18 @@ namespace DoctorPatientSystem
 
         private void RefillRequest_Load(object sender, EventArgs e)
         {
-            
+            Prescription.retrievePrescriptions();
+            populatePrescriptionList();
         }
 
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
-            // TODO retrieve and display prescription information
+                
             prescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
-
-            /*DialogResult dialogResult = new DialogResult();
-            dialogResult = new ConfirmationPopup("Are you sure you want to request this refill?", 
-                                            "Amoxicillin 50 mg").ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                //TODO request refill
-                
-                new AlertDialog("The refill was requested.").ShowDialog();
-            }
-            */
+            selectedPrescription.retrieveMedicines(selectedPrescription.Id);
+            populateMedicineList();
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -58,7 +52,21 @@ namespace DoctorPatientSystem
         {
 
         }
-        public void populateList()
+        public void populateMedicineList()
+        {
+            prescriptionListView.Items.Clear();
+            int i = 0;
+            foreach (Medicine medicine in selectedPrescription.Medicines)
+            {
+                prescriptionListView.Items.Add(medicine.Name);
+                prescriptionListView.Items[i].SubItems.Add("" + medicine.Quantity);
+                prescriptionListView.Items[i].SubItems.Add(medicine.Dosage);
+                prescriptionListView.Items[i].SubItems.Add(medicine.Route);
+                prescriptionListView.Items[i].SubItems.Add(medicine.Instructions);
+                i++;
+            }
+        }
+        public void populatePrescriptionList()
         {
             prescriptionListView.Items.Clear();
             int i = 0;
@@ -67,12 +75,27 @@ namespace DoctorPatientSystem
                 prescriptionListView.Items.Add("" + prescriptions.Id);
                 prescriptionListView.Items[i].SubItems.Add(prescriptions.PrescriberName);
                 prescriptionListView.Items[i].SubItems.Add(prescriptions.PharmacyName);
+                prescriptionListView.Items[i].SubItems.Add(prescriptions.Date);
                 i++;
             }
         }
         private void prescriptionListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*DialogResult dialogResult = new DialogResult();
+            dialogResult = new ConfirmationPopup("Are you sure you want to request this refill?", 
+                                            "Amoxicillin 50 mg").ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                //TODO request refill
+                
+                new AlertDialog("The refill was requested.").ShowDialog();
+            }
+            */
         }
     }
 }

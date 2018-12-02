@@ -33,6 +33,7 @@
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.viewAppointmentsButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -122,6 +123,7 @@
 			// 
 			this.tableLayoutPanel1.ColumnCount = 1;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.viewAppointmentsButton, 0, 2);
 			this.tableLayoutPanel1.Controls.Add(this.patientSearchButton, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.notificationButton, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,6 +137,22 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 420);
 			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// viewAppointmentsButton
+			// 
+			this.viewAppointmentsButton.BackColor = System.Drawing.Color.White;
+			this.viewAppointmentsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.viewAppointmentsButton.FlatAppearance.BorderSize = 0;
+			this.viewAppointmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.viewAppointmentsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.viewAppointmentsButton.Location = new System.Drawing.Point(11, 282);
+			this.viewAppointmentsButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
+			this.viewAppointmentsButton.Name = "viewAppointmentsButton";
+			this.viewAppointmentsButton.Size = new System.Drawing.Size(228, 128);
+			this.viewAppointmentsButton.TabIndex = 3;
+			this.viewAppointmentsButton.Text = "View Appointments";
+			this.viewAppointmentsButton.UseVisualStyleBackColor = false;
+			this.viewAppointmentsButton.Click += new System.EventHandler(this.viewAppointmentsButton_Click);
 			// 
 			// DoctorMenu
 			// 
@@ -165,5 +183,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-    }
+		private System.Windows.Forms.Button viewAppointmentsButton;
+	}
 }
