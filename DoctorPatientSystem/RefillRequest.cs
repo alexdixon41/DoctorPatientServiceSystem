@@ -36,7 +36,7 @@ namespace DoctorPatientSystem
             prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
             prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
             prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
-            selectedPrescription.retrieveMedicines(selectedPrescription.Id);
+            selectedPrescription.retrieveMedicines();
             populateMedicineList();
             
         }
