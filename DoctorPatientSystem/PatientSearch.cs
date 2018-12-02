@@ -141,7 +141,10 @@ namespace DoctorPatientSystem
 
 		private void requestMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
-			//doctor needs to be able to request access to a patient's medical history
+			String message = Doctor.retrieveDoctorName(User.Id) + " wants to view your medical records.";
+			Notice.sendNotice(selectedPatient.Id, message, 5);
+			new AlertDialog("Your record request has been sent.").ShowDialog();
+
 		}
 
 		private void backToBasicInfoButton_Click(object sender, EventArgs e)

@@ -295,6 +295,14 @@ namespace DoctorPatientSystem
                         cmd.Parameters.AddWithValue("@patientID", User.Id);
                         cmd.Parameters.AddWithValue("@pharmacyID", receiverID);
                         break;
+					case SEND_RECORD_REQUEST_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, patientReceiver)
+								VALUES ('Record Request', 'New', CURRENT_DATE, @message, @docID, @patientID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@docID", User.Id);
+						cmd.Parameters.AddWithValue("@patientID", receiverID);
+						break;
                     default:
                         sql = "";
                         cmd = new MySqlCommand(sql, conn);
