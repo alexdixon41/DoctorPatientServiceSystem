@@ -13,6 +13,7 @@ namespace DoctorPatientSystem
     {
 		private static ArrayList appointmentList = new ArrayList();
 
+		private int id;
 		private string startTime;
         private string patientName;
         private string patientID;
@@ -32,6 +33,18 @@ namespace DoctorPatientSystem
                 startTime = value;
             }
         }
+		public int ID
+		{
+			get
+			{
+				return id;
+			}
+
+			set
+			{
+				id = value;
+			}
+		}
         public string PatientName
         {
             get
@@ -134,7 +147,7 @@ namespace DoctorPatientSystem
 			{
 				Console.WriteLine("Connecting to MySQL...");
 				conn.Open();
-				string sql = @"SELECT p.name, a.appointmentTime, a.appointmentStatus 
+				string sql = @"SELECT p.name, a.appointmentTime, a.appointmentStatus, a.id, a.patientID 
 							FROM dixonpatient p join dixonappointment a on p.patientID = a.patientID join dixondoctor d on a.doctorID = d.id
 							WHERE d.id = @docID ORDER BY a.appointmentStatus";
 				MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -156,9 +169,35 @@ namespace DoctorPatientSystem
 				newAppointment.patientName = row["name"].ToString();
 				newAppointment.startTime = row["appointmentTime"].ToString();
 				newAppointment.status = row["appointmentStatus"].ToString();
+				newAppointment.id = Int32.Parse(row["id"].ToString());
+				newAppointment.patientID = row["patientID"].ToString();
 				appointmentList.Add(newAppointment);
 			}
 		}
+
+		//updates the status of the appointment to newStatus
+		public void UpdateStatus(String newStatus)
+		{
+			status = newStatus;
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"UPDATE dixonappointment SET appointmentStatus = @status WHERE id = @id ";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@id", id);
+				cmd.Parameters.AddWithValue("@status", status);
+				cmd.ExecuteNonQuery();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+		}
+
 
 	}
 }
