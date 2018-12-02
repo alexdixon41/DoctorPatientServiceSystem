@@ -81,19 +81,22 @@ namespace DoctorPatientSystem
 			if (hasAccess && hasRecord)
 			{
 				viewMedicalHistoryButton.Show();
+                createPrescriptionButton.Show();
 				requestMedicalHistoryButton.Hide();
 				createMedicalRecordButton.Hide();
 			}
 			else if (hasAccess && !hasRecord)
 			{
 				createMedicalRecordButton.Show();
-				requestMedicalHistoryButton.Hide();
+                createPrescriptionButton.Show();
+                requestMedicalHistoryButton.Hide();
 				viewMedicalHistoryButton.Hide();
 			}
 			else
 			{
 				requestMedicalHistoryButton.Show();
-				viewMedicalHistoryButton.Hide();
+                createPrescriptionButton.Show();
+                viewMedicalHistoryButton.Hide();
 				createMedicalRecordButton.Hide();
 			}
 		}
@@ -222,5 +225,15 @@ namespace DoctorPatientSystem
 			createMedicalRecordButton.Hide();
 			updateMedicalRecordButton.Show();
 		}
-	}
+
+        private void createAppointmentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createPrescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
