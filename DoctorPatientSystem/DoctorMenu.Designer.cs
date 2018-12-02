@@ -69,7 +69,7 @@
             this.createRecordButton.Location = new System.Drawing.Point(11, 282);
             this.createRecordButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.createRecordButton.Name = "createRecordButton";
-            this.createRecordButton.Size = new System.Drawing.Size(228, 128);
+            this.createRecordButton.Size = new System.Drawing.Size(228, 127);
             this.createRecordButton.TabIndex = 1;
             this.createRecordButton.Text = "Create Medical Record";
             this.createRecordButton.UseVisualStyleBackColor = false;
@@ -109,8 +109,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer1.Size = new System.Drawing.Size(1235, 753);
+            this.splitContainer1.Size = new System.Drawing.Size(1235, 734);
             this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -131,8 +132,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitContainer2.Size = new System.Drawing.Size(250, 753);
-            this.splitContainer2.SplitterDistance = 420;
+            this.splitContainer2.Size = new System.Drawing.Size(250, 734);
+            this.splitContainer2.SplitterDistance = 419;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -151,19 +152,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 420);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 419);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // DoctorMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1235, 753);
+            this.ClientSize = new System.Drawing.Size(1235, 734);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1250, 698);
             this.Name = "DoctorMenu";
-            this.Text = "DoctorMenu";
+            this.Text = "Doctor Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
