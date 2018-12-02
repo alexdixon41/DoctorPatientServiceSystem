@@ -112,6 +112,8 @@ namespace DoctorPatientSystem
         public const int SEND_RECORD_REQUEST_NOTICE_TYPE = 7;           //notify patient that a doctor wants to view their records
         public const int SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE = 8;    //notify doctor that record request accepted
         public const int SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE = 9;    //notify doctor that record request denied
+		public const int SEND_APPOINTMENT_REQUEST_ACCEPT_NOICE_TYPE = 10;   //notify patient that their appointment request was accepted
+		public const int SEND_APPOINTMENT_REQUEST_REJECT_NOTICE_TYPE = 11;	//notify patient that their appointment request was denied
 
         public static int Unread
         {
@@ -313,6 +315,22 @@ namespace DoctorPatientSystem
                         cmd.Parameters.AddWithValue("@patientID", User.Id);
                         cmd.Parameters.AddWithValue("@docID", receiverID);
                         break;
+					case SEND_APPOINTMENT_REQUEST_ACCEPT_NOICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, patientReceiver)
+								VALUES ('Appointment Request Accepted', 'New', CURRENT_DATE, @message, @docID, @patientID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@docID", User.Id);
+						cmd.Parameters.AddWithValue("@patientID", receiverID);
+						break;
+					case SEND_APPOINTMENT_REQUEST_REJECT_NOTICE_TYPE:
+						sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, patientReceiver)
+								VALUES ('Appointment Request Denied', 'New', CURRENT_DATE, @message, @docID, @patientID)";
+						cmd = new MySqlCommand(sql, conn);
+						cmd.Parameters.AddWithValue("@message", message);
+						cmd.Parameters.AddWithValue("@docID", User.Id);
+						cmd.Parameters.AddWithValue("@patientID", receiverID);
+						break;
                     default:
                         sql = "";
                         cmd = new MySqlCommand(sql, conn);
