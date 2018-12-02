@@ -176,11 +176,14 @@ namespace DoctorPatientSystem
         {
             return prescriptions;
         }
-
+        public ArrayList displayMedicines()
+        {
+            return Medicines;
+        }
         /// <summary>
         /// Adds list of medicines to the Medicines property of prescription.
         /// </summary>
-        public void retrieveMedicines()
+        public void retrieveMedicines(int ID)
         {
             DataTable table = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -193,7 +196,7 @@ namespace DoctorPatientSystem
                             "FROM DixonPrescription pr JOIN DixonMedicine m ON m.prescriptionID = pr.id " +
                             "WHERE pr.id = @id;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Parameters.AddWithValue("@id", ID);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(table);
                 Console.WriteLine("Table is ready.");
@@ -220,9 +223,9 @@ namespace DoctorPatientSystem
 
 
         /// <summary>
-        /// Execute SQL query to retrieve prescriptions matching user's search parameters
+        /// Execute SQL query to retrieve prescriptions matching user's id
         /// </summary>
-        public static void retrievePrescriptions(int searchTypeCode, string searchKey)
+        public static void retrievePrescriptions()
         {
             prescriptions.Clear();
             DataTable table = new DataTable();
@@ -233,7 +236,11 @@ namespace DoctorPatientSystem
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
                 string sql;
-                    sql = @"SELECT";
+                    sql = @"SELECT DATE_FORMAT(pr.datefilled, ""%Y-%m-%d"") AS 'dateFilled', pr.refills, pr.remainingRefills, pr.prescriptionStatus, pr.id, d.name AS 'doctorName', p.name AS 'patientName', ph.name AS 'pharmacyName', p.patientID
+                            FROM dixonPrescription pr JOIN dixondoctor d ON pr.doctorID = d.id 
+                            JOIN dixonpharmacy ph ON pr.id = ph.id
+                            JOIN dixonpatient p ON pr.id = p.patientid
+                            WHERE pr.patientID = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -255,8 +262,8 @@ namespace DoctorPatientSystem
                 newPrescription.Status = row["prescriptionStatus"].ToString();
                 newPrescription.PatientName = row["patientName"].ToString();
                 newPrescription.PatientId = (int)row["patientID"];
-                newPrescription.PatientBirthDate = row["birthDate"].ToString();
                 newPrescription.PrescriberName = row["doctorName"].ToString();
+                newPrescription.PharmacyName = row["pharmacyName"].ToString();
                 newPrescription.Id = (int)row["id"];
                 prescriptions.Add(newPrescription);
             }
