@@ -30,9 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.prescriptionListView = new System.Windows.Forms.ListView();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pharamcy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refillsRemaining = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.selectPrescriptionButton = new System.Windows.Forms.Button();
             this.prescriptionsPanel = new System.Windows.Forms.Panel();
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
@@ -55,7 +56,6 @@
             this.instructions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.prescriptionDateLabel = new System.Windows.Forms.Label();
-            this.refillsRemaining = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,6 +91,11 @@
             this.prescriptionListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionListView.View = System.Windows.Forms.View.Details;
             // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 200;
+            // 
             // Prescriber
             // 
             this.Prescriber.Text = "Prescriber";
@@ -101,20 +106,19 @@
             this.pharamcy.Text = "Pharmacy";
             this.pharamcy.Width = 200;
             // 
-            // date
+            // refillsRemaining
             // 
-            this.date.Text = "Date";
-            this.date.Width = 200;
+            this.refillsRemaining.Text = "Remaining Refills";
             // 
             // selectPrescriptionButton
             // 
             this.selectPrescriptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectPrescriptionButton.AutoSize = true;
             this.selectPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectPrescriptionButton.Location = new System.Drawing.Point(593, 14);
+            this.selectPrescriptionButton.Location = new System.Drawing.Point(704, 16);
             this.selectPrescriptionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectPrescriptionButton.Name = "selectPrescriptionButton";
-            this.selectPrescriptionButton.Size = new System.Drawing.Size(444, 59);
+            this.selectPrescriptionButton.Size = new System.Drawing.Size(333, 48);
             this.selectPrescriptionButton.TabIndex = 3;
             this.selectPrescriptionButton.Text = "View Prescription Details";
             this.selectPrescriptionButton.UseVisualStyleBackColor = true;
@@ -343,10 +347,6 @@
             this.prescriptionDateLabel.Size = new System.Drawing.Size(55, 23);
             this.prescriptionDateLabel.TabIndex = 3;
             this.prescriptionDateLabel.Text = "Date: ";
-            // 
-            // refillsRemaining
-            // 
-            this.refillsRemaining.Text = "Remaining Refills";
             // 
             // RefillRequest
             // 
