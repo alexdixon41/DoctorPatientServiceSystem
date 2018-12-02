@@ -209,6 +209,34 @@ namespace DoctorPatientSystem
                 appointments.Add(apt);
             }
         }
+
+		public static String retrieveDoctorName(int docID)
+		{
+			String doctorName = "";
+			DataTable dataTable = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"SELECT name FROM dixondoctor where id = @id";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@id", docID);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(dataTable);
+				Console.WriteLine("Table is ready.");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			doctorName = dataTable.Rows[0]["name"].ToString();
+
+			return doctorName;
+		}
       
     }
 }
