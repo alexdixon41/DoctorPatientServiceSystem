@@ -498,7 +498,7 @@ namespace DoctorPatientSystem
 			{
 				Console.WriteLine("Connecting to MySQL...");
 				conn.Open();
-				string sql = @"SELECT name FROM dixonpatient where id = @id";
+				string sql = @"SELECT name FROM dixonpatient where patientID = @id";
 				MySqlCommand cmd = new MySqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("@id", patientID);
 				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);

@@ -237,6 +237,27 @@ namespace DoctorPatientSystem
 
 			return doctorName;
 		}
+
+		public static void grantRecordAccess(int doctorID, int patientID)
+		{
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"INSERT INTO dixonverifieddoctor (patientID, doctorID) VALUES (@pid, @docID)";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@docID", doctorID);
+				cmd.Parameters.AddWithValue("@pid", patientID);
+				cmd.ExecuteNonQuery();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+		}
       
     }
 }
