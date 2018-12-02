@@ -48,11 +48,13 @@ namespace DoctorPatientSystem
 
 		private void viewAppointmentsButton_Click(object sender, EventArgs e)
 		{
+			Appointment.retrieveAppointments(User.Id);
 			foreach (Control c in splitContainer1.Panel2.Controls)
 			{
 				c.Hide();
 			}
 			splitContainer1.Panel2.Controls.Add(viewAppointmentsControl);
+			viewAppointmentsControl.populateListView();
 			viewAppointmentsControl.Dock = DockStyle.Fill;
 			viewAppointmentsControl.Show();
 		}

@@ -33,6 +33,7 @@
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.selectButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// appointmentsListView
@@ -41,9 +42,11 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+			this.appointmentsListView.FullRowSelect = true;
 			this.appointmentsListView.Location = new System.Drawing.Point(27, 48);
+			this.appointmentsListView.MultiSelect = false;
 			this.appointmentsListView.Name = "appointmentsListView";
-			this.appointmentsListView.Size = new System.Drawing.Size(728, 356);
+			this.appointmentsListView.Size = new System.Drawing.Size(737, 346);
 			this.appointmentsListView.TabIndex = 0;
 			this.appointmentsListView.UseCompatibleStateImageBehavior = false;
 			this.appointmentsListView.View = System.Windows.Forms.View.Details;
@@ -70,12 +73,22 @@
 			// columnHeader3
 			// 
 			this.columnHeader3.Text = "Status";
-			this.columnHeader3.Width = 80;
+			this.columnHeader3.Width = 82;
+			// 
+			// selectButton
+			// 
+			this.selectButton.Location = new System.Drawing.Point(669, 400);
+			this.selectButton.Name = "selectButton";
+			this.selectButton.Size = new System.Drawing.Size(95, 36);
+			this.selectButton.TabIndex = 2;
+			this.selectButton.Text = "Select";
+			this.selectButton.UseVisualStyleBackColor = true;
 			// 
 			// ViewAppointments
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.selectButton);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.appointmentsListView);
 			this.Name = "ViewAppointments";
@@ -92,5 +105,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button selectButton;
 	}
 }

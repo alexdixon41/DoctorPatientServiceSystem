@@ -16,5 +16,19 @@ namespace DoctorPatientSystem
 		{
 			InitializeComponent();
 		}
+
+		public void populateListView()
+		{
+			appointmentsListView.Items.Clear();
+			int i = 0;
+			foreach (Appointment appointment in Appointment.displayAppointments())
+			{
+				appointmentsListView.Items.Add(appointment.PatientName);
+				appointmentsListView.Items[i].SubItems.Add(appointment.StartTime);
+				appointmentsListView.Items[i].SubItems.Add(appointment.Status);
+				i++;
+			}
+		}
+
 	}
 }
