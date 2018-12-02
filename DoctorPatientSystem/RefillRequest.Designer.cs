@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.prescriptionListView = new System.Windows.Forms.ListView();
-            this.prescriptionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pharamcy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,6 +55,7 @@
             this.instructions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.prescriptionDateLabel = new System.Windows.Forms.Label();
+            this.refillsRemaining = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,10 +78,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.prescriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.prescriptionID,
+            this.date,
             this.Prescriber,
             this.pharamcy,
-            this.date});
+            this.refillsRemaining});
             this.prescriptionListView.FullRowSelect = true;
             this.prescriptionListView.Location = new System.Drawing.Point(21, 68);
             this.prescriptionListView.Margin = new System.Windows.Forms.Padding(2);
@@ -91,11 +91,6 @@
             this.prescriptionListView.TabIndex = 1;
             this.prescriptionListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionListView.View = System.Windows.Forms.View.Details;
-            // 
-            // prescriptionID
-            // 
-            this.prescriptionID.Text = "ID";
-            this.prescriptionID.Width = 150;
             // 
             // Prescriber
             // 
@@ -137,6 +132,7 @@
             this.prescriptionsPanel.Name = "prescriptionsPanel";
             this.prescriptionsPanel.Size = new System.Drawing.Size(788, 459);
             this.prescriptionsPanel.TabIndex = 4;
+            this.prescriptionsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prescriptionsPanel_Paint);
             // 
             // prescriptionDetailPanel
             // 
@@ -359,6 +355,10 @@
             this.prescriptionDateLabel.TabIndex = 3;
             this.prescriptionDateLabel.Text = "Date: ";
             // 
+            // refillsRemaining
+            // 
+            this.refillsRemaining.Text = "Remaining Refills";
+            // 
             // RefillRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,9 +405,9 @@
         private System.Windows.Forms.ColumnHeader instructions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label prescriptionDateLabel;
-        private System.Windows.Forms.ColumnHeader prescriptionID;
         private System.Windows.Forms.ColumnHeader Prescriber;
         private System.Windows.Forms.ColumnHeader pharamcy;
         private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader refillsRemaining;
     }
 }

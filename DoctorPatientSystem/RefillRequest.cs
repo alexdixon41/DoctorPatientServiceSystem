@@ -107,5 +107,10 @@ namespace DoctorPatientSystem
             }
             
         }
+
+        private void prescriptionsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
