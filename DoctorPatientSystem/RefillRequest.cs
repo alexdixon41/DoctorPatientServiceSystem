@@ -29,9 +29,13 @@ namespace DoctorPatientSystem
 
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
-                
+            selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
             prescriptionsPanel.Hide();
             prescriptionDetailPanel.Show();
+            prescriptionDateLabel.Text = "Date: " + selectedPrescription.Date.ToString();
+            prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
+            prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
+            prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
             selectedPrescription.retrieveMedicines(selectedPrescription.Id);
             populateMedicineList();
             
@@ -54,15 +58,15 @@ namespace DoctorPatientSystem
         }
         public void populateMedicineList()
         {
-            prescriptionListView.Items.Clear();
+            prescriptionDetailListView.Items.Clear();
             int i = 0;
             foreach (Medicine medicine in selectedPrescription.Medicines)
             {
-                prescriptionListView.Items.Add(medicine.Name);
-                prescriptionListView.Items[i].SubItems.Add("" + medicine.Quantity);
-                prescriptionListView.Items[i].SubItems.Add(medicine.Dosage);
-                prescriptionListView.Items[i].SubItems.Add(medicine.Route);
-                prescriptionListView.Items[i].SubItems.Add(medicine.Instructions);
+                prescriptionDetailListView.Items.Add(medicine.Name);
+                prescriptionDetailListView.Items[i].SubItems.Add("" + medicine.Quantity);
+                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Dosage);
+                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Route);
+                prescriptionDetailListView.Items[i].SubItems.Add(medicine.Instructions);
                 i++;
             }
         }
@@ -79,23 +83,29 @@ namespace DoctorPatientSystem
                 i++;
             }
         }
-        private void prescriptionListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*DialogResult dialogResult = new DialogResult();
-            dialogResult = new ConfirmationPopup("Are you sure you want to request this refill?", 
-                                            "Amoxicillin 50 mg").ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            if (selectedPrescription.RemainingRefills == 0) {
+                DialogResult dialogResult = new DialogResult();
+                dialogResult = new ConfirmationPopup("You have no refills remaining.","Are you sure you want to request a permit for this refill from the doctor?").ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    Notice.sendNotice(selectedPrescription.DoctorId, selectedPrescription.PatientName.ToString() + " would like to request a permit for more refills.", Notice.SEND_REFILL_PERMIT_NOTICE_TYPE);
+                    new AlertDialog("The refill was requested.").ShowDialog();
+                }
+            }else
             {
-                //TODO request refill
-                
-                new AlertDialog("The refill was requested.").ShowDialog();
+                DialogResult dialogResult = new DialogResult();
+                dialogResult = new ConfirmationPopup("You have " + selectedPrescription.RemainingRefills.ToString() + " refills remaining.", "Are you sure you want to request a refill from your pharmacy?").ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    selectedPrescription.createRefillRequest(selectedPrescription.PharmacyId);
+                    new AlertDialog("The refill was requested.").ShowDialog();
+                }
             }
-            */
+            
         }
     }
 }
