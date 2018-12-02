@@ -17,9 +17,15 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
         
-        public void populateLists(Patient patient)
+        public void populateLists()
         {
-            generalHistoryListView.Items.Add(patient.Name);
+            Patient patient = Patient.retrievePatientByID(User.Id);
+            patient.retrieveMedicalRecord();
+            patient.retrieveMedicineHistory();
+
+            generalHistoryListView.Items.Clear();
+            generalHistoryListView.Items.Add("Name: " + patient.Name);
+            generalHistoryListView.Items.Add("Date of Birth: " + patient.BirthDate);
         }
     }
 }

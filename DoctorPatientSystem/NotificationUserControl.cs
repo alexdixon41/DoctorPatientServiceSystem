@@ -75,7 +75,7 @@ namespace DoctorPatientSystem
             if (dialogResult == DialogResult.OK)
             {
 				//TODO deny the record request
-				String message = Patient.retrievePatientName(User.Id) + " has denied your request to view their medical records.";
+				String message = Patient.retrievePatientByID(User.Id).Name + " has denied your request to view their medical records.";
 				int receiverID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
 				Console.WriteLine("receiverID is "+receiverID);
 				
@@ -116,7 +116,7 @@ namespace DoctorPatientSystem
 			if (dialogResult == DialogResult.OK)
 			{
 				//TODO deny the record request
-				String message = Patient.retrievePatientName(User.Id) + " has denied your request to view their medical records.";
+				String message = Patient.retrievePatientByID(User.Id).Name + " has denied your request to view their medical records.";
 				int receiverID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
 				Notice.sendNotice(receiverID, message, 9);
 
@@ -134,7 +134,7 @@ namespace DoctorPatientSystem
 			{
 				//TODO accept the record request
 				int doctorID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
-				String message = Patient.retrievePatientName(User.Id) + " has accepted your request to view their medical records.";
+				String message = Patient.retrievePatientByID(User.Id).Name + " has accepted your request to view their medical records.";
 				Notice.sendNotice(doctorID, message, 8);
 				Doctor.grantRecordAccess(doctorID, User.Id);
 
