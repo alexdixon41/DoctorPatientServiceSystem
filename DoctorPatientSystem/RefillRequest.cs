@@ -21,24 +21,20 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
-        private void RefillRequest_Load(object sender, EventArgs e)
-        {
-            Prescription.retrievePatientPrescriptions();
-            populatePrescriptionList();
-        }
-
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
-            selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
-            prescriptionsPanel.Hide();
-            prescriptionDetailPanel.Show();
-            prescriptionDateLabel.Text = "Date: " + selectedPrescription.Date.ToString();
-            prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
-            prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
-            prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
-            selectedPrescription.retrieveMedicines();
-            populateMedicineList();
-            
+            if (!(prescriptionListView.SelectedIndices.Count == 0))
+            {
+                selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
+                prescriptionsPanel.Hide();
+                prescriptionDetailPanel.Show();
+                prescriptionDateLabel.Text = "Date: " + selectedPrescription.Date.ToString();
+                prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
+                prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
+                prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
+                selectedPrescription.retrieveMedicines();
+                populateMedicineList();
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -93,7 +89,7 @@ namespace DoctorPatientSystem
                 if (dialogResult == DialogResult.OK)
                 {
                     Notice.sendNotice(selectedPrescription.DoctorId, selectedPrescription.PatientName.ToString() + " would like to request a permit for more refills.", Notice.SEND_REFILL_PERMIT_NOTICE_TYPE);
-                    new AlertDialog("The refill was requested.").ShowDialog();
+                    new AlertDialog("The refill permit was requested.").ShowDialog();
                 }
             }else
             {

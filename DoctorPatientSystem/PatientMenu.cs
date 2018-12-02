@@ -47,11 +47,13 @@ namespace DoctorPatientSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            Prescription.retrievePatientPrescriptions();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
             }
+            refillRequestControl.populateMedicineList();
+            refillRequestControl.populatePrescriptionList();
             splitContainer1.Panel2.Controls.Add(refillRequestControl);
             refillRequestControl.Dock = DockStyle.Fill;
             refillRequestControl.Show();
