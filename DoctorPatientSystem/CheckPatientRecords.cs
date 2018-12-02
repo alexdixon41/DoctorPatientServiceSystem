@@ -32,6 +32,9 @@ namespace DoctorPatientSystem
             generalHistoryListBox.Items.Add("Weight: " + patient.Weight);
             generalHistoryListBox.Items.Add("Body Mass Index: " + patient.BodyMassIndex);
 
+            disorderTextBox.Text = patient.Disorders;
+            allergyTextBox.Text = patient.Allergies;
+
             int i = 0;
             foreach (Medicine m in patient.MedicineHistory)
             {
