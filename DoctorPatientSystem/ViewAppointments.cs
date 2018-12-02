@@ -87,7 +87,6 @@ namespace DoctorPatientSystem
 
 		private void acceptButton_Click(object sender, EventArgs e)
 		{
-			//TO DO: Change status of appt to accepted and send notice to patient
 			DialogResult dialogResult = new DialogResult();
 			dialogResult = new ConfirmationPopup("Are you sure you want to accept this appointment request?", "").ShowDialog();
 			if (dialogResult == DialogResult.OK)
@@ -102,6 +101,12 @@ namespace DoctorPatientSystem
 				viewAppointmentsPanel.Show();
 				appointmentDetailPanel.Hide();
 			}
+		}
+
+		public void resetViewAppointment()
+		{
+			viewAppointmentsPanel.Show();
+			appointmentDetailPanel.Hide();
 		}
 	}
 }

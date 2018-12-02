@@ -41,6 +41,7 @@ namespace DoctorPatientSystem
                 c.Hide();
             }
             splitContainer1.Panel2.Controls.Add(patientSearchControl);
+			patientSearchControl.resetPatientSearch();
             patientSearchControl.Dock = DockStyle.Fill;
             patientSearchControl.Show();
         }
@@ -54,6 +55,7 @@ namespace DoctorPatientSystem
 				c.Hide();
 			}
 			splitContainer1.Panel2.Controls.Add(viewAppointmentsControl);
+			viewAppointmentsControl.resetViewAppointment();
 			viewAppointmentsControl.populateListView();
 			viewAppointmentsControl.Dock = DockStyle.Fill;
 			viewAppointmentsControl.Show();

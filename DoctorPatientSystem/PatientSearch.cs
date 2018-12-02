@@ -23,17 +23,11 @@ namespace DoctorPatientSystem
 
         private void PatientSearch_Load(object sender, EventArgs e)
         {
-			/*
-            patientView.Items.Add("Ethen");
-            patientView.Items[0].SubItems.Add("Holzapfel");
-            patientView.Items[0].SubItems.Add("0000001");
-            patientView.Items[0].SubItems.Add("04-02-1998");
-			*/
+
         }
 
         private void viewPatientInformation_Click(object sender, EventArgs e)
         {
-			//new GeneralPatientRecords().Show();
 			if (patientView.SelectedIndices.Count != 0)
 			{
 				basicPatientInfoPanel.Show();
@@ -44,6 +38,16 @@ namespace DoctorPatientSystem
 				determineDoctorAccess(selectedPatient);
 			}
         }
+
+		public void resetPatientSearch()
+		{
+			patientView.Items.Clear();
+			patientSearchTextBox.Text = "";
+			patientSearchPanel.Show();
+			basicPatientInfoPanel.Hide();
+			updateRecordPanel.Hide();
+			viewMedicalRecordPanel.Hide();
+		}
 
         private void nameSearch_Click(object sender, EventArgs e)
         {
