@@ -258,6 +258,60 @@ namespace DoctorPatientSystem
 			}
 			conn.Close();
 		}
-      
-    }
+
+		//retrieves a doctor's schedule from the database
+		public void retrieveSchedule()
+		{
+			DataTable dataTable = new DataTable();
+			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+			MySqlConnection conn = new MySqlConnection(connStr);
+			try
+			{
+				Console.WriteLine("Connecting to MySQL...");
+				conn.Open();
+				string sql = @"SELECT s.* FROM dixondoctor d JOIN dixonschedule s ON d.workSchedule = s.id WHERE d.id = @docID";
+				MySqlCommand cmd = new MySqlCommand(sql, conn);
+				cmd.Parameters.AddWithValue("@docID", id);
+				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+				myAdapter.Fill(dataTable);
+				Console.WriteLine("Table is ready.");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+			conn.Close();
+
+			DataRow row = dataTable.Rows[0];
+			if (row["monday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Monday);
+			}
+			if (row["tuesday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Tuesday);
+			}
+			if (row["wednesday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Wednesday);
+			}
+			if (row["thursday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Thursday);
+			}
+			if (row["friday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Friday);
+			}
+			if (row["saturday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Saturday);
+			}
+			if (row["sunday"].ToString() == "True")
+			{
+				WorkDays.Add(DayOfWeek.Sunday);
+			}
+		}
+
+	}
 }

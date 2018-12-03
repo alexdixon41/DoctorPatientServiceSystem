@@ -15,8 +15,10 @@ namespace DoctorPatientSystem
     {
 		private ArrayList patientResultsList = new ArrayList();
 		private Patient selectedPatient = new Patient();
+		private Doctor doctorUser = new Doctor();
+		private ArrayList appointmentTimes = new ArrayList();
 
-        public PatientSearch()
+		public PatientSearch()
         {
             InitializeComponent();
         }
@@ -228,12 +230,72 @@ namespace DoctorPatientSystem
 
         private void createAppointmentButton_Click(object sender, EventArgs e)
         {
+			doctorUser.Id = User.Id;
+			doctorUser.retrieveSchedule();
 
-        }
+			createAppointmentPanel.Show();
+			basicPatientInfoPanel.Hide();
+		}
 
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
 
         }
-    }
+
+		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
+		{
+			createAppointmentPanel.Hide();
+			basicPatientInfoPanel.Show();
+		}
+
+		private void confirmAppointmentButton_Click(object sender, EventArgs e)
+		{
+			DialogResult dialogResult = new ConfirmationPopup("Are you sure you want to make this appointment?",
+			   "Appointment with " + selectedPatient.Name + " at " + availableAppointmentsListBox.SelectedItem + " on " + appointmentDateTimePicker.Text).ShowDialog();
+			if (dialogResult == DialogResult.OK)
+			{
+				//Create new appointment
+				DateTime date = Convert.ToDateTime(appointmentDateTimePicker.Text);
+				DateTime time = Convert.ToDateTime(availableAppointmentsListBox.SelectedItem);
+				date = date.AddHours(time.Hour);
+				date = date.AddMinutes(time.Minute);
+				Appointment.createAppointment(User.Id, selectedPatient.Id, date.ToString("yyyy-MM-dd HH:mm:ss"), "Accepted");
+
+				//Display confirmation
+				new AlertDialog("The appointment was made.").ShowDialog();
+			}
+
+			//send notice to patient
+			String message = Doctor.retrieveDoctorName(User.Id) + " has made an appointment for you at " + availableAppointmentsListBox.SelectedItem + " on " + appointmentDateTimePicker.Text;
+			Notice.sendNotice(selectedPatient.Id, message, 12);
+		}
+
+		private void appointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
+		{
+			availableAppointmentsListBox.Items.Clear();
+			if (doctorUser.WorkDays.Contains(appointmentDateTimePicker.Value.DayOfWeek))
+			{
+				//show available appointment times in listbox
+				appointmentTimes.Clear();
+				doctorUser.retrieveAppointments(appointmentDateTimePicker.Value.ToString("yyyy-MM-dd"));
+				foreach (string s in Doctor.appointmentTimes)
+				{
+					appointmentTimes.Add(s);
+				}
+				foreach (string s in Doctor.appointmentTimes)
+				{
+					foreach (Appointment apt in doctorUser.Appointments)
+					{
+						if (apt.StartTime.Equals(s))
+							appointmentTimes.Remove(s);
+					}
+				}
+				foreach (string s in appointmentTimes)
+				{
+					DateTime d = Convert.ToDateTime(s);
+					availableAppointmentsListBox.Items.Add(d.ToShortTimeString());
+				}
+			}
+		}
+	}
 }
