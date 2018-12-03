@@ -28,10 +28,10 @@ namespace DoctorPatientSystem
                 selectedPrescription = (Prescription)Prescription.displayPrescriptions()[prescriptionListView.SelectedIndices[0]];
                 prescriptionsPanel.Hide();
                 prescriptionDetailPanel.Show();
-                prescriptionDateLabel.Text = "Date: " + selectedPrescription.Date.ToString();
-                prescriptionStatusLabel.Text = "Status: " + selectedPrescription.Status.ToString();
-                prescriptionRefillLabel.Text = "Refills: " + selectedPrescription.Refills.ToString();
-                prescriptionRemainingRefillsLabel.Text = "Remaining Refills: " + selectedPrescription.RemainingRefills.ToString();
+                dateLabel.Text = selectedPrescription.Date.ToString();
+                statusLabel.Text = selectedPrescription.Status.ToString();
+                refillsLabel.Text = selectedPrescription.Refills.ToString();
+                remainingLabel.Text = selectedPrescription.RemainingRefills.ToString();
                 selectedPrescription.retrieveMedicines();
                 populateMedicineList();
             }
@@ -41,17 +41,7 @@ namespace DoctorPatientSystem
         {
             prescriptionDetailPanel.Hide();
             prescriptionsPanel.Show();
-        }
-
-        private void prescriptionDetailPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        }    
 
         public void populateMedicineList()
         {
@@ -71,16 +61,17 @@ namespace DoctorPatientSystem
         {
             prescriptionListView.Items.Clear();
             int i = 0;
-            foreach (Prescription prescriptions in Prescription.displayPrescriptions())
+            foreach (Prescription prescription in Prescription.displayPrescriptions())
             {
-                prescriptionListView.Items.Add("" + prescriptions.Id);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.PrescriberName);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.PharmacyName);
-                prescriptionListView.Items[i].SubItems.Add(prescriptions.Date);
+                prescriptionListView.Items.Add(prescription.Date);
+                prescriptionListView.Items[i].SubItems.Add(prescription.Status);
+                prescriptionListView.Items[i].SubItems.Add(prescription.PrescriberName);
+                prescriptionListView.Items[i].SubItems.Add(prescription.PharmacyName);
+                prescriptionListView.Items[i].SubItems.Add("" + prescription.Refills);
+                prescriptionListView.Items[i].SubItems.Add("" + prescription.RemainingRefills);
                 i++;
             }
-        }
-        
+        }        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -115,9 +106,5 @@ namespace DoctorPatientSystem
             
         }
 
-        private void prescriptionsPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

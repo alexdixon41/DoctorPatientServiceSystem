@@ -34,7 +34,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.viewAppointmentsButton = new System.Windows.Forms.Button();
             this.patientSearchButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.refillRequestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.refillRequestButton, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.patientSearchButton, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.viewAppointmentsButton, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.notificationButton, 0, 0);
@@ -158,21 +158,21 @@
             this.patientSearchButton.UseVisualStyleBackColor = false;
             this.patientSearchButton.Click += new System.EventHandler(this.patientSearchButton_Click);
             // 
-            // button1
+            // refillRequestButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(11, 112);
-            this.button1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(228, 92);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Refill Requests";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.refillRequestButton.BackColor = System.Drawing.Color.White;
+            this.refillRequestButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refillRequestButton.FlatAppearance.BorderSize = 0;
+            this.refillRequestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refillRequestButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refillRequestButton.Location = new System.Drawing.Point(11, 112);
+            this.refillRequestButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
+            this.refillRequestButton.Name = "refillRequestButton";
+            this.refillRequestButton.Size = new System.Drawing.Size(228, 92);
+            this.refillRequestButton.TabIndex = 6;
+            this.refillRequestButton.Text = "Refill Requests";
+            this.refillRequestButton.UseVisualStyleBackColor = false;
+            this.refillRequestButton.Click += new System.EventHandler(this.refillRequestButton_Click);
             // 
             // DoctorMenu
             // 
@@ -201,7 +201,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button refillRequestButton;
         private System.Windows.Forms.Button patientSearchButton;
         private System.Windows.Forms.Button viewAppointmentsButton;
     }

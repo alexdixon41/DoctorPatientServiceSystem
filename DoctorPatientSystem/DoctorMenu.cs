@@ -13,6 +13,7 @@ namespace DoctorPatientSystem
 	public partial class DoctorMenu : Form
 	{
         private NotificationUserControl notificationControl = new NotificationUserControl();
+        private RefillUserControl refillRequestControl = new RefillUserControl();
         private PatientSearch patientSearchControl = new PatientSearch();
 		private ViewAppointments viewAppointmentsControl = new ViewAppointments();
 
@@ -61,9 +62,17 @@ namespace DoctorPatientSystem
 			viewAppointmentsControl.Show();
 		}
 
-        private void button1_Click(object sender, EventArgs e)
+        private void refillRequestButton_Click(object sender, EventArgs e)
         {
-
+            RefillRequest.retrieveRefillRequests();
+            foreach (Control c in splitContainer1.Panel2.Controls)
+            {
+                c.Hide();
+            }
+            splitContainer1.Panel2.Controls.Add(refillRequestControl);
+            refillRequestControl.populateList();
+            refillRequestControl.Dock = DockStyle.Fill;
+            refillRequestControl.Show();
         }
     }
 }

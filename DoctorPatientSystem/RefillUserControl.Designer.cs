@@ -160,6 +160,7 @@
             this.viewRefillRequestsButton.TabIndex = 12;
             this.viewRefillRequestsButton.Text = "View Refill Request";
             this.viewRefillRequestsButton.UseVisualStyleBackColor = true;
+            this.viewRefillRequestsButton.Click += new System.EventHandler(this.viewRefillRequestsButton_Click);
             // 
             // label2
             // 
@@ -167,9 +168,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(19, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(349, 51);
+            this.label2.Size = new System.Drawing.Size(382, 51);
             this.label2.TabIndex = 5;
-            this.label2.Text = "New Refill Requests";
+            this.label2.Text = "Refill Permit Requests";
             // 
             // prescriptionDetailPanel
             // 
@@ -196,6 +197,7 @@
             this.rejectButton.TabIndex = 28;
             this.rejectButton.Text = "Reject";
             this.rejectButton.UseVisualStyleBackColor = true;
+            this.rejectButton.Click += new System.EventHandler(this.rejectButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -546,6 +548,7 @@
             this.acceptButton.TabIndex = 26;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // backButton
             // 
@@ -555,11 +558,13 @@
             this.backButton.FlatAppearance.BorderSize = 0;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = global::DoctorPatientSystem.Properties.Resources.icons8_left_32;
             this.backButton.Location = new System.Drawing.Point(19, 18);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 40);
             this.backButton.TabIndex = 7;
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // label1
             // 
@@ -573,8 +578,8 @@
             // 
             // RefillUserControl
             // 
-            this.Controls.Add(this.newRefillRequestsPanel);
             this.Controls.Add(this.prescriptionDetailPanel);
+            this.Controls.Add(this.newRefillRequestsPanel);
             this.Name = "RefillUserControl";
             this.Size = new System.Drawing.Size(1104, 565);
             this.newRefillRequestsPanel.ResumeLayout(false);

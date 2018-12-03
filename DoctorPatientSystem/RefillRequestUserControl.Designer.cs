@@ -30,16 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.prescriptionListView = new System.Windows.Forms.ListView();
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prescriber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pharamcy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pharmacy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.refillsRemaining = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.selectPrescriptionButton = new System.Windows.Forms.Button();
             this.prescriptionsPanel = new System.Windows.Forms.Panel();
             this.prescriptionDetailPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.statusLabel = new System.Windows.Forms.Label();
             this.prescriptionStatusLabel = new System.Windows.Forms.Label();
@@ -56,6 +55,9 @@
             this.instructions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.prescriptionDateLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refills = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prescriptionsPanel.SuspendLayout();
             this.prescriptionDetailPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,9 +80,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.prescriptionListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.date,
+            this.status,
             this.Prescriber,
-            this.pharamcy,
+            this.pharmacy,
+            this.refills,
             this.refillsRemaining});
+            this.prescriptionListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prescriptionListView.FullRowSelect = true;
             this.prescriptionListView.Location = new System.Drawing.Point(28, 84);
             this.prescriptionListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -91,24 +96,25 @@
             this.prescriptionListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionListView.View = System.Windows.Forms.View.Details;
             // 
-            // date
+            // status
             // 
-            this.date.Text = "Date";
-            this.date.Width = 200;
+            this.status.Text = "Status";
+            this.status.Width = 160;
             // 
             // Prescriber
             // 
             this.Prescriber.Text = "Prescriber";
             this.Prescriber.Width = 200;
             // 
-            // pharamcy
+            // pharmacy
             // 
-            this.pharamcy.Text = "Pharmacy";
-            this.pharamcy.Width = 200;
+            this.pharmacy.Text = "Pharmacy";
+            this.pharmacy.Width = 200;
             // 
             // refillsRemaining
             // 
             this.refillsRemaining.Text = "Remaining Refills";
+            this.refillsRemaining.Width = 160;
             // 
             // selectPrescriptionButton
             // 
@@ -135,7 +141,6 @@
             this.prescriptionsPanel.Name = "prescriptionsPanel";
             this.prescriptionsPanel.Size = new System.Drawing.Size(1051, 565);
             this.prescriptionsPanel.TabIndex = 4;
-            this.prescriptionsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prescriptionsPanel_Paint);
             // 
             // prescriptionDetailPanel
             // 
@@ -150,7 +155,6 @@
             this.prescriptionDetailPanel.Size = new System.Drawing.Size(1051, 565);
             this.prescriptionDetailPanel.TabIndex = 5;
             this.prescriptionDetailPanel.Visible = false;
-            this.prescriptionDetailPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prescriptionDetailPanel_Paint);
             // 
             // button1
             // 
@@ -176,23 +180,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Prescription Details";
             // 
-            // backButton
-            // 
-            this.backButton.AutoSize = true;
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Image = global::DoctorPatientSystem.Properties.Resources.icons8_left_32;
-            this.backButton.Location = new System.Drawing.Point(19, 18);
-            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 47);
-            this.backButton.TabIndex = 6;
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -213,7 +200,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1023, 478);
             this.panel2.TabIndex = 9;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // statusLabel
             // 
@@ -348,12 +334,39 @@
             this.prescriptionDateLabel.TabIndex = 3;
             this.prescriptionDateLabel.Text = "Date: ";
             // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Image = global::DoctorPatientSystem.Properties.Resources.icons8_left_32;
+            this.backButton.Location = new System.Drawing.Point(19, 18);
+            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 47);
+            this.backButton.TabIndex = 6;
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 120;
+            // 
+            // refills
+            // 
+            this.refills.Text = "Refills";
+            this.refills.Width = 120;
+            // 
             // RefillRequestUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.prescriptionDetailPanel);
             this.Controls.Add(this.prescriptionsPanel);
+            this.Controls.Add(this.prescriptionDetailPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RefillRequestUserControl";
             this.Size = new System.Drawing.Size(1051, 565);
@@ -394,8 +407,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label prescriptionDateLabel;
         private System.Windows.Forms.ColumnHeader Prescriber;
-        private System.Windows.Forms.ColumnHeader pharamcy;
-        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader pharmacy;
+        private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.ColumnHeader refillsRemaining;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader refills;
     }
 }

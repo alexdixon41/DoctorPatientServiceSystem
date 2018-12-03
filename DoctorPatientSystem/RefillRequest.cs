@@ -12,6 +12,7 @@ namespace DoctorPatientSystem
         private string status;
         private string id;
         private Prescription prescription;
+        private string pharmacyID;
         public string Date
         {
             get
@@ -60,6 +61,18 @@ namespace DoctorPatientSystem
                 prescription = value;
             }
         }
+        public string PharmacyID
+        {
+            get
+            {
+                return pharmacyID;
+            }
+
+            set
+            {
+                pharmacyID = value;
+            }
+        }
 
         public static int NewRefillRequestCount
         {
@@ -73,6 +86,7 @@ namespace DoctorPatientSystem
                 newRefillRequestCount = value;
             }
         }
+
         private static int newRefillRequestCount;
         private static ArrayList refillRequests = new ArrayList();
 
@@ -94,11 +108,11 @@ namespace DoctorPatientSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT DATE_FORMAT(re.dateRequested, \"%m-%d-%Y\") AS dateRequested, re.refillRequestStatus, " +
-                        "re.id, pa.name AS patientName, pa.patientID, doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid'" +
-                        "FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id " +
-                        "JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id " +
-                        "WHERE pr.pharmacyID = @id AND re.refillRequestStatus != 'Unapproved';";
+                string sql = @"SELECT DATE_FORMAT(re.dateRequested, ""%m-%d-%Y"") AS dateRequested, re.refillRequestStatus, 
+                        re.id, pa.name AS patientName, pa.patientID, doc.name, pr.refills, pr.remainingRefills, pr.id AS 'pid', pr.pharmacyID
+                        FROM DixonRefillRequest re JOIN DixonPrescription pr ON re.prescriptionID = pr.id
+                        JOIN DixonPatient pa ON re.patientID = pa.patientID JOIN DixonDoctor doc ON pr.doctorID = doc.id 
+                        WHERE pr.doctorID = @id AND re.refillRequestStatus = 'Unapproved';";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
@@ -120,6 +134,7 @@ namespace DoctorPatientSystem
                 request.Date = row["dateRequested"].ToString();
                 request.Status = row["refillRequestStatus"].ToString();
                 request.Id = row["id"].ToString();
+                request.PharmacyID = row["pharmacyID"].ToString();
                 request.Prescription.PatientName = row["patientName"].ToString();
                 request.Prescription.PrescriberName = row["name"].ToString();
                 request.Prescription.Refills = (int)row["refills"];
@@ -145,7 +160,7 @@ namespace DoctorPatientSystem
                 switch (newStatusCode)
                 {
                     case ACCEPTED_STATUS_CODE:
-                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Accepted' WHERE id = @id;";
+                        sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'New' WHERE id = @id;";
                         break;
                     case DENIED_STATUS_CODE:
                         sql = "UPDATE DixonRefillRequest SET refillRequestStatus = 'Denied' WHERE id = @id;";
@@ -155,6 +170,14 @@ namespace DoctorPatientSystem
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.ExecuteNonQuery();
+
+                if (newStatusCode == ACCEPTED_STATUS_CODE)
+                {
+                    sql = "UPDATE DixonPrescription SET remainingRefills = 1 WHERE id = @id";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@id", Prescription.Id);
+                    cmd.ExecuteNonQuery();
+                }
                 Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)

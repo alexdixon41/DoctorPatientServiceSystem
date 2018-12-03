@@ -80,7 +80,7 @@ namespace DoctorPatientSystem
                 allergyTextBox.Text = patient.Allergies;
 
                 //Disable or enable Accept and Deny buttons depending on RefillRequest status
-                if (selectedRefillRequest.Status.ToLower().Equals("new"))
+                if (selectedRefillRequest.Status.ToLower().Equals("unapproved"))
                 {
                     acceptButton.Enabled = true;
                     rejectButton.Enabled = true;
@@ -102,6 +102,32 @@ namespace DoctorPatientSystem
             populateList();
             prescriptionDetailPanel.Hide();
             newRefillRequestsPanel.Show();
+        }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+            if (new ConfirmationPopup("Are you sure you want to accept this refill permit?",
+                "Note: This will send the refill request to the pharmacy").ShowDialog() == DialogResult.OK)
+            {
+                selectedRefillRequest.changeStatus(RefillRequest.ACCEPTED_STATUS_CODE);
+                new AlertDialog("The refill permit was accepted.");
+                statusLabel.Text = "New";
+                rejectButton.Enabled = false;
+                acceptButton.Enabled = false;
+            }
+        }
+
+        private void rejectButton_Click(object sender, EventArgs e)
+        {
+            if (new ConfirmationPopup("Are you sure you want to deny this refill permit?",
+                "Note: The patient will not be able to request this refill from the pharmacy").ShowDialog() == DialogResult.OK)
+            {
+                selectedRefillRequest.changeStatus(RefillRequest.DENIED_STATUS_CODE);
+                new AlertDialog("The refill permit was denied.");
+                statusLabel.Text = "Denied";
+                rejectButton.Enabled = false;
+                acceptButton.Enabled = false;
+            }
         }
     }
 }

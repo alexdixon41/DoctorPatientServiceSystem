@@ -160,18 +160,6 @@
     <Compile Include="RefillRequestUserControl.Designer.cs">
       <DependentUpon>RefillRequestUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="refillRequestResponse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="refillRequestResponse.designer.cs">
-      <DependentUpon>refillRequestResponse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RefillRequestResponsePopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RefillRequestResponsePopup.designer.cs">
-      <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
-    </Compile>
     <Compile Include="RefillUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,12 +227,6 @@
     </Compile>
     <EmbeddedResource Include="RefillRequestUserControl.resx">
       <DependentUpon>RefillRequestUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="refillRequestResponse.resx">
-      <DependentUpon>refillRequestResponse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RefillRequestResponsePopup.resx">
-      <DependentUpon>RefillRequestResponsePopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RefillUserControl.resx">
       <DependentUpon>RefillUserControl.cs</DependentUpon>
