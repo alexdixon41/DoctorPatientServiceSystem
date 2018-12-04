@@ -239,7 +239,7 @@ namespace DoctorPatientSystem
 
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
-
+            basicPatientInfoPanel.Hide();
         }
 
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
@@ -297,5 +297,10 @@ namespace DoctorPatientSystem
 				}
 			}
 		}
-	}
+
+        private void backToBasicPatientInfoPanel_Click(object sender, EventArgs e)
+        {
+            basicPatientInfoPanel.Show();
+        }
+    }
 }
