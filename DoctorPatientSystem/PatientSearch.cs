@@ -46,7 +46,7 @@ namespace DoctorPatientSystem
 			patientView.Items.Clear();
 			patientSearchTextBox.Text = "";
 			patientSearchPanel.Show();
-			basicPatientInfoPanel.Hide();
+			panel1.Hide();
 			updateRecordPanel.Hide();
 			viewMedicalRecordPanel.Hide();
 		}
@@ -77,6 +77,8 @@ namespace DoctorPatientSystem
 
 		private void determineDoctorAccess(Patient selectedPatient)
 		{
+            // TODO fix button overlap for multiple buttons
+
 			bool hasAccess = selectedPatient.validateAccess(User.Id);
 			bool hasRecord = selectedPatient.hasMedicalRecord();
 			Console.WriteLine("hasRecord is " + hasRecord);
@@ -107,14 +109,12 @@ namespace DoctorPatientSystem
 		{
 				basicPatientInfoPanel.Hide();
 				patientSearchPanel.Show();
-			
-
 		}
 
 		private void viewMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
 			viewMedicalRecordPanel.Show();
-			basicPatientInfoPanel.Hide();
+			panel1.Hide();
 			selectedPatient.retrieveMedicalRecord();
 			selectedPatient.retrieveMedicineHistory();
 			displayMedicalRecord();
@@ -205,11 +205,11 @@ namespace DoctorPatientSystem
 
 		private void createMedicalRecordButton_Click(object sender, EventArgs e)
 		{
-			updateRecordPanel.Show();
+            updateOrCreateLabel.Text = "Create Medical Record";
+            updateMedicalRecordButton.Hide();
+            createMedicalRecordButton.Show();
+            updateRecordPanel.Show();
 			basicPatientInfoPanel.Hide();
-			updateOrCreateLabel.Text = "Create Medical Record";
-			updateMedicalRecordButton.Hide();
-			createMedicalRecordButton.Show();
 		}
 
 		private void createButton_Click(object sender, EventArgs e)
@@ -300,6 +300,7 @@ namespace DoctorPatientSystem
 
         private void backToBasicPatientInfoPanel_Click(object sender, EventArgs e)
         {
+            createPrescriptionPanel.Hide();
             basicPatientInfoPanel.Show();
         }
     }
