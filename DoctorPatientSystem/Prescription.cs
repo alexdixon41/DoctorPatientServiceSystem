@@ -391,30 +391,40 @@ namespace DoctorPatientSystem
             }
         }
 
-        public int createPrescription(int pharmID, int refillAmnt, int patientID)
+        public static int createPrescription(int pharmID, int refillAmnt, int patientID)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
             MySqlConnection conn = new MySqlConnection(connStr);
+            DataTable dataTable = new DataTable();
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
                 string sql;
-                sql = @"INSERT INTO DixonPrescription (datefilled, refills, prescriptionStatus, patientID, doctorID, pharmacyID, remainingRefills, canRequestRefill)
-                        VALUES ();";
+                sql = @"INSERT INTO DixonPrescription (datefilled, refills, prescriptionStatus, patientID, doctorID, pharmacyID, remainingRefills)
+                        VALUES (CURDATE(), @refillAmnt, 'New', @pId, @dId, @phId, @refillAmnt);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@status", status);
-                cmd.Parameters.AddWithValue("@id", User.Id);
-                cmd.Parameters.AddWithValue("@pId", Id);
+                cmd.Parameters.AddWithValue("@refillAmnt", refillAmnt);
+                cmd.Parameters.AddWithValue("@dId", User.Id);
+                cmd.Parameters.AddWithValue("@pId", patientID);
+                cmd.Parameters.AddWithValue("@phId", pharmID);
                 cmd.ExecuteNonQuery();
+                sql = @"SELECT id
+                        FROM DixonPrescription
+                        ORDER BY id DESC
+                        LIMIT 1;";
+                cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(dataTable);
                 Console.WriteLine("Table is ready.");
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
             conn.Close();
-            return 1;
+            return (int)(dataTable.Rows[0]["id"]);
         }
     }
 }

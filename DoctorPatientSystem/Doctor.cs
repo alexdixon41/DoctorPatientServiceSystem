@@ -307,7 +307,7 @@ namespace DoctorPatientSystem
             foreach (DataRow row in dataTable.Rows)
             {
                 Pharmacies.Add(row["name"].ToString());
-                PharmaciesId.Add(row["id"].ToString());
+                PharmaciesId.Add((int)row["id"]);
             }
             conn.Close();
         }

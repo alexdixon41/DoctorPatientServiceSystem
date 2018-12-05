@@ -22,7 +22,6 @@ namespace DoctorPatientSystem
         {
             InitializeComponent();
         }
-
         private void viewPatientInformation_Click(object sender, EventArgs e)
         {
 			if (patientView.SelectedIndices.Count != 0)
@@ -407,88 +406,108 @@ namespace DoctorPatientSystem
             switch (checkBoxAmnt)
             {
                 case 1:
-                    if (string.IsNullOrEmpty(medName1.ToString()))
+                    if (string.IsNullOrEmpty(medName1.Text) || (int)numericUpDownRefills.Value == 0)
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
-                        medicine1.Name = medName1.ToString();
-                        medicine1.Route = routeText1.ToString();
+                        medicine1.Name = medName1.Text;
+                        medicine1.Route = routeText1.Text;
                         medicine1.Quantity = (int)amntUpDown1.Value;
-                        medicine1.Instructions = instructionText1.ToString();
+                        medicine1.Instructions = instructionText1.Text;
+                        medicine1.Dosage = dosageTextbox1.Text;
                         medicines.Add(medicine1);
+                        
+                        Medicine.createMedicine(medicines ,Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
+                        new AlertDialog("Your prescription has been made.").ShowDialog();
                     }
                     break;
                 case 2:
-                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()))
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || (int)numericUpDownRefills.Value == 0)
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     }
-                    else { 
-                        medicine1.Name = medName1.ToString();
-                        medicine1.Route = routeText1.ToString();
+                    else {
+                        medicine1.Name = medName1.Text;
+                        medicine1.Route = routeText1.Text;
                         medicine1.Quantity = (int)amntUpDown1.Value;
-                        medicine1.Instructions = instructionText1.ToString();
-                        medicine2.Name = medName2.ToString();
-                        medicine2.Route = routeText2.ToString();
+                        medicine1.Instructions = instructionText1.Text;
+                        medicine1.Dosage = dosageTextbox1.Text;
+                        medicine2.Name = medName2.Text;
+                        medicine2.Route = routeText2.Text;
                         medicine2.Quantity = (int)amntUpDown2.Value;
-                        medicine2.Instructions = instructionText2.ToString();
+                        medicine2.Instructions = instructionText2.Text;
+                        medicine2.Dosage = dosageTextbox2.Text;
                         medicines.Add(medicine1);
                         medicines.Add(medicine2);
+                        Medicine.createMedicine(medicines, Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
+                        new AlertDialog("Your prescription has been made.").ShowDialog();
                     }
                     break;
                 case 3:
-                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()) || string.IsNullOrEmpty(medName3.ToString()))
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text) || (int)numericUpDownRefills.Value == 0)
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
-                        medicine1.Name = medName1.ToString();
-                        medicine1.Route = routeText1.ToString();
+                        medicine1.Name = medName1.Text;
+                        medicine1.Route = routeText1.Text;
                         medicine1.Quantity = (int)amntUpDown1.Value;
-                        medicine1.Instructions = instructionText1.ToString();
-                        medicine2.Name = medName2.ToString();
-                        medicine2.Route = routeText2.ToString();
+                        medicine1.Instructions = instructionText1.Text;
+                        medicine1.Dosage = dosageTextbox1.Text;
+                        medicine2.Name = medName2.Text;
+                        medicine2.Route = routeText2.Text;
                         medicine2.Quantity = (int)amntUpDown2.Value;
-                        medicine2.Instructions = instructionText2.ToString();
-                        medicine3.Name = medName3.ToString();
-                        medicine3.Route = routeText3.ToString();
+                        medicine2.Instructions = instructionText2.Text;
+                        medicine2.Dosage = dosageTextbox2.Text;
+                        medicine3.Name = medName3.Text;
+                        medicine3.Route = routeText3.Text;
                         medicine3.Quantity = (int)amntUpDown3.Value;
-                        medicine3.Instructions = instructionText3.ToString();
+                        medicine3.Instructions = instructionText3.Text;
+                        medicine3.Dosage = dosageTextbox3.Text;
                         medicines.Add(medicine1);
                         medicines.Add(medicine2);
                         medicines.Add(medicine3);
+                        Medicine.createMedicine(medicines, Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
+                        new AlertDialog("Your prescription has been made.").ShowDialog();
                     }
                     break;
                 case 4:
-                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()) || string.IsNullOrEmpty(medName3.ToString()) || string.IsNullOrEmpty(medName4.ToString()))
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text) || string.IsNullOrEmpty(medName4.Text) || (int)numericUpDownRefills.Value == 0)
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
-                        medicine1.Name = medName1.ToString();
-                        medicine1.Route = routeText1.ToString();
+                        medicine1.Name = medName1.Text;
+                        medicine1.Route = routeText1.Text;
                         medicine1.Quantity = (int)amntUpDown1.Value;
-                        medicine1.Instructions = instructionText1.ToString();
-                        medicine2.Name = medName2.ToString();
-                        medicine2.Route = routeText2.ToString();
+                        medicine1.Instructions = instructionText1.Text;
+                        medicine1.Dosage = dosageTextbox1.Text;
+                        medicine2.Name = medName2.Text;
+                        medicine2.Route = routeText2.Text;
                         medicine2.Quantity = (int)amntUpDown2.Value;
-                        medicine2.Instructions = instructionText2.ToString();
-                        medicine3.Name = medName3.ToString();
-                        medicine3.Route = routeText3.ToString();
+                        medicine2.Instructions = instructionText2.Text;
+                        medicine2.Dosage = dosageTextbox2.Text;
+                        medicine3.Name = medName3.Text;
+                        medicine3.Route = routeText3.Text;
                         medicine3.Quantity = (int)amntUpDown3.Value;
-                        medicine3.Instructions = instructionText3.ToString();
-                        medicine4.Name = medName4.ToString();
-                        medicine4.Route = routeText4.ToString();
+                        medicine3.Instructions = instructionText3.Text;
+                        medicine3.Dosage = dosageTextbox3.Text;
+                        medicine4.Name = medName4.Text;
+                        medicine4.Route = routeText4.Text;
                         medicine4.Quantity = (int)amntUpDown4.Value;
-                        medicine4.Instructions = instructionText4.ToString();
+                        medicine4.Instructions = instructionText4.Text;
+                        medicine4.Dosage = dosageTextBox4.Text;
                         medicines.Add(medicine1);
                         medicines.Add(medicine2);
                         medicines.Add(medicine3);
                         medicines.Add(medicine4);
+                        Medicine.createMedicine(medicines, Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
+                        new AlertDialog("Your prescription has been made.").ShowDialog();
                     }
                     break;
                 default:
                     new AlertDialog("You must add atleast one medicine to create a prescription.").ShowDialog();
                     break;
             }
+            
         }
     }
 }
