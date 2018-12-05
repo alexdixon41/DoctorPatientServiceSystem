@@ -148,10 +148,11 @@ namespace DoctorPatientSystem
 
 		private void requestMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
+            //TODO add confirmation
+
 			String message = Doctor.retrieveDoctorName(User.Id) + " wants to view your medical records.";
 			Notice.sendNotice(selectedPatient.Id, message, 7);
 			new AlertDialog("Your record request has been sent.").ShowDialog();
-
 		}
 
 		private void backToBasicInfoButton_Click(object sender, EventArgs e)
