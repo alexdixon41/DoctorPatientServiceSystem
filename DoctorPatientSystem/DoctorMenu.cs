@@ -74,5 +74,10 @@ namespace DoctorPatientSystem
             refillRequestControl.Dock = DockStyle.Fill;
             refillRequestControl.Show();
         }
+
+        private void doctorLogoutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

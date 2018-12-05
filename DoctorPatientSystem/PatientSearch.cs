@@ -23,11 +23,6 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
-        private void PatientSearch_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void viewPatientInformation_Click(object sender, EventArgs e)
         {
 			if (patientView.SelectedIndices.Count != 0)
@@ -78,8 +73,8 @@ namespace DoctorPatientSystem
 		{
 			bool hasAccess = selectedPatient.validateAccess(User.Id);
 			bool hasRecord = selectedPatient.hasMedicalRecord();
-			Console.WriteLine("hasRecord is " + hasRecord);
-			if (hasAccess && hasRecord)
+
+            if (hasAccess && hasRecord)
 			{
 				viewMedicalHistoryButton.Show();
                 createPrescriptionButton.Show();
