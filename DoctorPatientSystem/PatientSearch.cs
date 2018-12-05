@@ -111,12 +111,12 @@ namespace DoctorPatientSystem
 
 		private void viewMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
+            selectedPatient.retrieveMedicalRecord();
+            selectedPatient.retrieveMedicineHistory();
+            displayMedicalRecord();
+            displayMedicineHistory();
+            basicPatientInfoPanel.Hide();
 			viewMedicalRecordPanel.Show();
-			panel1.Hide();
-			selectedPatient.retrieveMedicalRecord();
-			selectedPatient.retrieveMedicineHistory();
-			displayMedicalRecord();
-			displayMedicineHistory();
 		}
 
 		private void displayMedicalRecord()
@@ -207,8 +207,8 @@ namespace DoctorPatientSystem
             updateOrCreateLabel.Text = "Create Medical Record";
             updateMedicalRecordButton.Hide();
             createMedicalRecordButton.Show();
+            basicPatientInfoPanel.Hide();
             updateRecordPanel.Show();
-			basicPatientInfoPanel.Hide();
 		}
 
 		private void createButton_Click(object sender, EventArgs e)
@@ -231,15 +231,14 @@ namespace DoctorPatientSystem
         {
 			doctorUser.Id = User.Id;
 			doctorUser.retrieveSchedule();
-
+            basicPatientInfoPanel.Hide();
 			createAppointmentPanel.Show();
-			basicPatientInfoPanel.Hide();
 		}
 
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
-            createPrescriptionPanel.Show();
             basicPatientInfoPanel.Hide();
+            createPrescriptionPanel.Show();
         }
 
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)

@@ -125,6 +125,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.patientBox.SuspendLayout();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
@@ -268,17 +269,17 @@
             // patientNameRecordLabel
             // 
             this.patientNameRecordLabel.AutoSize = true;
-            this.patientNameRecordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.patientNameRecordLabel.Location = new System.Drawing.Point(261, 12);
+            this.patientNameRecordLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientNameRecordLabel.Location = new System.Drawing.Point(100, 16);
             this.patientNameRecordLabel.Name = "patientNameRecordLabel";
-            this.patientNameRecordLabel.Size = new System.Drawing.Size(158, 29);
+            this.patientNameRecordLabel.Size = new System.Drawing.Size(248, 51);
             this.patientNameRecordLabel.TabIndex = 18;
             this.patientNameRecordLabel.Text = "Patient Name";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.medicineHistoryListView);
-            this.groupBox2.Location = new System.Drawing.Point(361, 50);
+            this.groupBox2.Location = new System.Drawing.Point(563, 117);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -318,7 +319,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.medicalRecordListView);
-            this.groupBox1.Location = new System.Drawing.Point(11, 50);
+            this.groupBox1.Location = new System.Drawing.Point(30, 84);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -339,10 +340,12 @@
             // 
             // updateMedicalRecordButton
             // 
-            this.updateMedicalRecordButton.Location = new System.Drawing.Point(19, 380);
+            this.updateMedicalRecordButton.AutoSize = true;
+            this.updateMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateMedicalRecordButton.Location = new System.Drawing.Point(943, 17);
             this.updateMedicalRecordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateMedicalRecordButton.Name = "updateMedicalRecordButton";
-            this.updateMedicalRecordButton.Size = new System.Drawing.Size(317, 44);
+            this.updateMedicalRecordButton.Size = new System.Drawing.Size(317, 48);
             this.updateMedicalRecordButton.TabIndex = 13;
             this.updateMedicalRecordButton.Text = "Update Medical Record";
             this.updateMedicalRecordButton.UseVisualStyleBackColor = true;
@@ -357,7 +360,7 @@
             this.backToBasicInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToBasicInfoButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToBasicInfoButton.Image = ((System.Drawing.Image)(resources.GetObject("backToBasicInfoButton.Image")));
-            this.backToBasicInfoButton.Location = new System.Drawing.Point(11, 6);
+            this.backToBasicInfoButton.Location = new System.Drawing.Point(19, 18);
             this.backToBasicInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backToBasicInfoButton.Name = "backToBasicInfoButton";
             this.backToBasicInfoButton.Size = new System.Drawing.Size(77, 47);
@@ -388,6 +391,9 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
@@ -400,7 +406,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1021, 372);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1241, 450);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // panel1
@@ -411,7 +417,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1015, 120);
+            this.panel1.Size = new System.Drawing.Size(1235, 146);
             this.panel1.TabIndex = 0;
             // 
             // label8
@@ -426,10 +432,13 @@
             // 
             // disordersTextBox
             // 
-            this.disordersTextBox.Location = new System.Drawing.Point(0, 30);
+            this.disordersTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.disordersTextBox.Location = new System.Drawing.Point(4, 30);
             this.disordersTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.disordersTextBox.Name = "disordersTextBox";
-            this.disordersTextBox.Size = new System.Drawing.Size(1012, 85);
+            this.disordersTextBox.Size = new System.Drawing.Size(1228, 104);
             this.disordersTextBox.TabIndex = 10;
             this.disordersTextBox.Text = "";
             // 
@@ -438,18 +447,21 @@
             this.panel2.Controls.Add(this.allergiesTextBox);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 126);
+            this.panel2.Location = new System.Drawing.Point(3, 152);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1015, 120);
+            this.panel2.Size = new System.Drawing.Size(1235, 146);
             this.panel2.TabIndex = 1;
             // 
             // allergiesTextBox
             // 
-            this.allergiesTextBox.Location = new System.Drawing.Point(0, 37);
+            this.allergiesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.allergiesTextBox.Location = new System.Drawing.Point(4, 37);
             this.allergiesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allergiesTextBox.Name = "allergiesTextBox";
-            this.allergiesTextBox.Size = new System.Drawing.Size(1012, 77);
+            this.allergiesTextBox.Size = new System.Drawing.Size(1228, 96);
             this.allergiesTextBox.TabIndex = 11;
             this.allergiesTextBox.Text = "";
             // 
@@ -468,10 +480,10 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.notesTextBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 250);
+            this.panel3.Location = new System.Drawing.Point(3, 302);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1015, 120);
+            this.panel3.Size = new System.Drawing.Size(1235, 146);
             this.panel3.TabIndex = 2;
             // 
             // label10
@@ -486,19 +498,25 @@
             // 
             // notesTextBox
             // 
-            this.notesTextBox.Location = new System.Drawing.Point(0, 31);
+            this.notesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notesTextBox.Location = new System.Drawing.Point(4, 31);
             this.notesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(1012, 86);
+            this.notesTextBox.Size = new System.Drawing.Size(1228, 102);
             this.notesTextBox.TabIndex = 12;
             this.notesTextBox.Text = "";
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(943, 30);
+            this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createButton.AutoSize = true;
+            this.createButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createButton.Location = new System.Drawing.Point(1153, 22);
             this.createButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(97, 39);
+            this.createButton.Size = new System.Drawing.Size(107, 48);
             this.createButton.TabIndex = 15;
             this.createButton.Text = "Create";
             this.createButton.UseVisualStyleBackColor = true;
@@ -523,10 +541,13 @@
             // 
             // submitUpdateButton
             // 
-            this.submitUpdateButton.Location = new System.Drawing.Point(943, 30);
+            this.submitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.submitUpdateButton.AutoSize = true;
+            this.submitUpdateButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitUpdateButton.Location = new System.Drawing.Point(1144, 21);
             this.submitUpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.submitUpdateButton.Name = "submitUpdateButton";
-            this.submitUpdateButton.Size = new System.Drawing.Size(97, 39);
+            this.submitUpdateButton.Size = new System.Drawing.Size(116, 48);
             this.submitUpdateButton.TabIndex = 13;
             this.submitUpdateButton.Text = "Update";
             this.submitUpdateButton.UseVisualStyleBackColor = true;
@@ -534,43 +555,50 @@
             // 
             // weightTextBox
             // 
-            this.weightTextBox.Location = new System.Drawing.Point(853, 91);
+            this.weightTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightTextBox.Location = new System.Drawing.Point(745, 81);
             this.weightTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(183, 22);
+            this.weightTextBox.Size = new System.Drawing.Size(183, 34);
             this.weightTextBox.TabIndex = 9;
             // 
             // heightTextBox
             // 
-            this.heightTextBox.Location = new System.Drawing.Point(376, 84);
+            this.heightTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightTextBox.Location = new System.Drawing.Point(451, 81);
             this.heightTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(183, 22);
+            this.heightTextBox.Size = new System.Drawing.Size(183, 34);
             this.heightTextBox.TabIndex = 8;
             // 
             // maritalStatusTextBox
             // 
-            this.maritalStatusTextBox.Location = new System.Drawing.Point(128, 82);
+            this.maritalStatusTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maritalStatusTextBox.Location = new System.Drawing.Point(160, 81);
             this.maritalStatusTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maritalStatusTextBox.Name = "maritalStatusTextBox";
-            this.maritalStatusTextBox.Size = new System.Drawing.Size(183, 22);
+            this.maritalStatusTextBox.Size = new System.Drawing.Size(183, 34);
             this.maritalStatusTextBox.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(792, 94);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(657, 84);
+            this.label7.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.Size = new System.Drawing.Size(82, 28);
             this.label7.TabIndex = 3;
             this.label7.Text = "Weight:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(317, 84);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(366, 84);
+            this.label6.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 17);
+            this.label6.Size = new System.Drawing.Size(79, 28);
             this.label6.TabIndex = 2;
             this.label6.Text = "Height:";
             // 
@@ -588,7 +616,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 84);
+            this.label4.Location = new System.Drawing.Point(14, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 28);
             this.label4.TabIndex = 0;
@@ -596,6 +624,7 @@
             // 
             // createAppointmentPanel
             // 
+            this.createAppointmentPanel.Controls.Add(this.label1);
             this.createAppointmentPanel.Controls.Add(this.confirmAppointmentButton);
             this.createAppointmentPanel.Controls.Add(this.backFromCreateAppointmentButton);
             this.createAppointmentPanel.Controls.Add(this.groupBox4);
@@ -610,10 +639,13 @@
             // 
             // confirmAppointmentButton
             // 
-            this.confirmAppointmentButton.Location = new System.Drawing.Point(813, 16);
+            this.confirmAppointmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.confirmAppointmentButton.AutoSize = true;
+            this.confirmAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmAppointmentButton.Location = new System.Drawing.Point(983, 16);
             this.confirmAppointmentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.confirmAppointmentButton.Name = "confirmAppointmentButton";
-            this.confirmAppointmentButton.Size = new System.Drawing.Size(177, 39);
+            this.confirmAppointmentButton.Size = new System.Drawing.Size(277, 48);
             this.confirmAppointmentButton.TabIndex = 22;
             this.confirmAppointmentButton.Text = "Create Appointment";
             this.confirmAppointmentButton.UseVisualStyleBackColor = true;
@@ -628,7 +660,7 @@
             this.backFromCreateAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backFromCreateAppointmentButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backFromCreateAppointmentButton.Image = ((System.Drawing.Image)(resources.GetObject("backFromCreateAppointmentButton.Image")));
-            this.backFromCreateAppointmentButton.Location = new System.Drawing.Point(4, 5);
+            this.backFromCreateAppointmentButton.Location = new System.Drawing.Point(19, 18);
             this.backFromCreateAppointmentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backFromCreateAppointmentButton.Name = "backFromCreateAppointmentButton";
             this.backFromCreateAppointmentButton.Size = new System.Drawing.Size(77, 47);
@@ -638,49 +670,54 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.availableAppointmentsListBox);
             this.groupBox4.Controls.Add(this.listBox1);
-            this.groupBox4.Location = new System.Drawing.Point(40, 139);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(40, 197);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(956, 347);
+            this.groupBox4.Size = new System.Drawing.Size(1220, 382);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Select a Time";
             // 
             // availableAppointmentsListBox
             // 
-            this.availableAppointmentsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.availableAppointmentsListBox.Font = new System.Drawing.Font("Segoe UI", 9.8F);
+            this.availableAppointmentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.availableAppointmentsListBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availableAppointmentsListBox.FormattingEnabled = true;
-            this.availableAppointmentsListBox.ItemHeight = 21;
-            this.availableAppointmentsListBox.Location = new System.Drawing.Point(5, 25);
+            this.availableAppointmentsListBox.ItemHeight = 31;
+            this.availableAppointmentsListBox.Location = new System.Drawing.Point(3, 29);
             this.availableAppointmentsListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.availableAppointmentsListBox.Name = "availableAppointmentsListBox";
-            this.availableAppointmentsListBox.Size = new System.Drawing.Size(944, 256);
+            this.availableAppointmentsListBox.Size = new System.Drawing.Size(1214, 351);
             this.availableAppointmentsListBox.TabIndex = 8;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
+            this.listBox1.ItemHeight = 28;
             this.listBox1.Location = new System.Drawing.Point(269, 128);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.Size = new System.Drawing.Size(120, 60);
             this.listBox1.TabIndex = 0;
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.appointmentDateTimePicker);
-            this.groupBox3.Location = new System.Drawing.Point(40, 57);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(40, 83);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(956, 90);
+            this.groupBox3.Size = new System.Drawing.Size(1220, 110);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select a Day";
@@ -694,10 +731,10 @@
             this.appointmentDateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.appointmentDateTimePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.appointmentDateTimePicker.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentDateTimePicker.Location = new System.Drawing.Point(5, 28);
+            this.appointmentDateTimePicker.Location = new System.Drawing.Point(3, 41);
             this.appointmentDateTimePicker.Margin = new System.Windows.Forms.Padding(149, 2, 149, 2);
             this.appointmentDateTimePicker.Name = "appointmentDateTimePicker";
-            this.appointmentDateTimePicker.Size = new System.Drawing.Size(944, 43);
+            this.appointmentDateTimePicker.Size = new System.Drawing.Size(1214, 43);
             this.appointmentDateTimePicker.TabIndex = 1;
             this.appointmentDateTimePicker.ValueChanged += new System.EventHandler(this.appointmentDateTimePicker_ValueChanged);
             // 
@@ -812,11 +849,12 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button1.Location = new System.Drawing.Point(1083, 9);
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1004, 16);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 75);
+            this.button1.Size = new System.Drawing.Size(262, 48);
             this.button1.TabIndex = 49;
             this.button1.Text = "Create Prescription";
             this.button1.UseVisualStyleBackColor = true;
@@ -1258,16 +1296,26 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name: ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(100, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(330, 51);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "New Appointment";
+            // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.basicPatientInfoPanel);
-            this.Controls.Add(this.createAppointmentPanel);
-            this.Controls.Add(this.viewMedicalRecordPanel);
             this.Controls.Add(this.updateRecordPanel);
             this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.createPrescriptionPanel);
+            this.Controls.Add(this.basicPatientInfoPanel);
+            this.Controls.Add(this.createAppointmentPanel);
+            this.Controls.Add(this.viewMedicalRecordPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PatientSearch";
             this.Size = new System.Drawing.Size(1287, 604);
@@ -1413,5 +1461,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
     }
 }
