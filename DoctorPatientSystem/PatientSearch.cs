@@ -239,6 +239,10 @@ namespace DoctorPatientSystem
         {
             basicPatientInfoPanel.Hide();
             createPrescriptionPanel.Show();
+            medicinePanel2.Hide();
+            medicinePanel3.Hide();
+            medicinePanel4.Hide();
+            basicPatientInfoPanel.Hide();
         }
 
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
@@ -305,22 +309,50 @@ namespace DoctorPatientSystem
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBox1.Checked)
+            {
+                medicinePanel1.Show();
+            }
+            else
+            {
+                medicinePanel1.Hide();
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBox2.Checked)
+            {
+                medicinePanel2.Show();
+            }
+            else
+            {
+                medicinePanel2.Hide();
+            }
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBox3.Checked)
+            {
+                medicinePanel3.Show();
+            }
+            else
+            {
+                medicinePanel3.Hide();
+            }
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBox4.Checked)
+            {
+                medicinePanel4.Show();
+            }
+            else
+            {
+                medicinePanel4.Hide();
+            }
         }
     }
 }
