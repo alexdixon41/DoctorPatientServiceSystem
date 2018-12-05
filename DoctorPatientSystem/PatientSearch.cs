@@ -237,6 +237,7 @@ namespace DoctorPatientSystem
         {
 			doctorUser.Id = User.Id;
 			doctorUser.retrieveSchedule();
+			showAvailableAppointmentTimes();
             basicPatientInfoPanel.Hide();
 			createAppointmentPanel.Show();
 		}
@@ -284,6 +285,12 @@ namespace DoctorPatientSystem
 		}
 
 		private void appointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
+		{
+			showAvailableAppointmentTimes();
+		}
+
+		//displays all the available times the doctor has for an appointment in the listbox
+		private void showAvailableAppointmentTimes()
 		{
 			availableAppointmentsListBox.Items.Clear();
 			if (doctorUser.WorkDays.Contains(appointmentDateTimePicker.Value.DayOfWeek))
