@@ -45,7 +45,8 @@
             // confirmButton
             // 
             this.confirmButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.confirmButton.Location = new System.Drawing.Point(370, 103);
+            this.confirmButton.Location = new System.Drawing.Point(349, 105);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(95, 34);
             this.confirmButton.TabIndex = 2;
@@ -61,6 +62,7 @@
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.primaryText);
             this.Name = "AlertDialog";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AlertDialog";
             this.Load += new System.EventHandler(this.AlertDialog_Load);
