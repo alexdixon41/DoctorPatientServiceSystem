@@ -70,9 +70,7 @@ namespace DoctorPatientSystem
 		private void displayPatientInfo(Patient selectedPatient)
 		{
 			patientNameLabel.Text = selectedPatient.Name;
-			patientIDLabel.Text = selectedPatient.Id.ToString();
 			patientDOBLabel.Text = selectedPatient.BirthDate;
-			
 		}
 
 		private void determineDoctorAccess(Patient selectedPatient)
