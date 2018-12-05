@@ -248,11 +248,19 @@ namespace DoctorPatientSystem
             medicinePanel3.Hide();
             medicinePanel4.Hide();
             Doctor.retrievePharmacies();
-            Doctor.displayPharmacies();
+            fillpharmacies(Doctor.displayPharmacies());
             basicPatientInfoPanel.Hide();
             createPrescriptionPanel.Show();
         }
-
+        private void fillpharmacies(ArrayList pharmacy)
+        {
+            int i = 0;
+            foreach (string s in pharmacy)
+            {
+                pharmacyListBox.Items.Add(s);
+                i++;
+            }
+        }
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
 		{
 			createAppointmentPanel.Hide();

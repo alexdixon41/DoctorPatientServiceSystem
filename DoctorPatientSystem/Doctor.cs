@@ -175,7 +175,6 @@ namespace DoctorPatientSystem
         {
             return doctors;
         }
-
         public static void getAvailableDoctors(DayOfWeek selectedDay)
         {
             ArrayList availableDoctors = new ArrayList();
