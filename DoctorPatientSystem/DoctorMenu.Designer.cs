@@ -35,13 +35,17 @@
             this.viewAppointmentsButton = new System.Windows.Forms.Button();
             this.patientSearchButton = new System.Windows.Forms.Button();
             this.refillRequestButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.doctorLogoutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // notificationButton
@@ -100,6 +104,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Size = new System.Drawing.Size(250, 753);
             this.splitContainer2.SplitterDistance = 420;
             this.splitContainer2.TabIndex = 0;
@@ -174,6 +179,35 @@
             this.refillRequestButton.UseVisualStyleBackColor = false;
             this.refillRequestButton.Click += new System.EventHandler(this.refillRequestButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.doctorLogoutButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.panel1.Size = new System.Drawing.Size(250, 329);
+            this.panel1.TabIndex = 0;
+            // 
+            // doctorLogoutButton
+            // 
+            this.doctorLogoutButton.BackColor = System.Drawing.Color.White;
+            this.doctorLogoutButton.BackgroundImage = global::DoctorPatientSystem.Properties.Resources.icons8_exit_50;
+            this.doctorLogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.doctorLogoutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doctorLogoutButton.FlatAppearance.BorderSize = 0;
+            this.doctorLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.doctorLogoutButton.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorLogoutButton.Location = new System.Drawing.Point(11, 10);
+            this.doctorLogoutButton.Name = "doctorLogoutButton";
+            this.doctorLogoutButton.Padding = new System.Windows.Forms.Padding(20);
+            this.doctorLogoutButton.Size = new System.Drawing.Size(228, 309);
+            this.doctorLogoutButton.TabIndex = 0;
+            this.doctorLogoutButton.Text = "Logout";
+            this.doctorLogoutButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.doctorLogoutButton.UseVisualStyleBackColor = false;
+            this.doctorLogoutButton.Click += new System.EventHandler(this.doctorLogoutButton_Click);
+            // 
             // DoctorMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -189,9 +223,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -204,5 +240,7 @@
         private System.Windows.Forms.Button refillRequestButton;
         private System.Windows.Forms.Button patientSearchButton;
         private System.Windows.Forms.Button viewAppointmentsButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button doctorLogoutButton;
     }
 }

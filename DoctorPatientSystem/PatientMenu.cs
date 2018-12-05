@@ -83,5 +83,10 @@ namespace DoctorPatientSystem
             notificationControl.Dock = DockStyle.Fill;
             notificationControl.Show();
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

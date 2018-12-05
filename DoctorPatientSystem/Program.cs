@@ -26,5 +26,6 @@ namespace DoctorPatientSystem
                     Application.Run(new PatientMenu());
             }
         }
+
     }
 }

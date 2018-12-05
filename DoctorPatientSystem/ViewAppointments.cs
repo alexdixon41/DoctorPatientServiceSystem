@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace DoctorPatientSystem
 {
 	public partial class ViewAppointments : UserControl
 	{
-		private Appointment selectedAppointment = new Appointment();
+        private Appointment selectedAppointment = new Appointment();
 
 		public ViewAppointments()
 		{
@@ -29,34 +30,6 @@ namespace DoctorPatientSystem
 				appointmentsListView.Items[i].SubItems.Add(appointment.StartTime);
 				appointmentsListView.Items[i].SubItems.Add(appointment.Status);
 				i++;
-			}
-		}
-
-		private void selectButton_Click(object sender, EventArgs e)
-		{
-			if (appointmentsListView.SelectedIndices.Count != 0)
-			{
-				selectedAppointment = (Appointment)(Appointment.displayAppointments()[appointmentsListView.SelectedIndices[0]]);
-				viewAppointmentsPanel.Hide();
-				appointmentDetailPanel.Show();
-				displayAppointmentDetails();
-			}
-		}
-
-		private void displayAppointmentDetails()
-		{
-			nameLabel.Text = selectedAppointment.PatientName;
-			timeLabel.Text = selectedAppointment.StartTime;
-			statusLabel.Text = selectedAppointment.Status;
-			if (selectedAppointment.Status.Equals("New"))
-			{
-				acceptButton.Show();
-				denyButton.Show();
-			}
-			else
-			{
-				acceptButton.Hide();
-				denyButton.Hide();
 			}
 		}
 
@@ -108,5 +81,24 @@ namespace DoctorPatientSystem
 			viewAppointmentsPanel.Show();
 			appointmentDetailPanel.Hide();
 		}
-	}
+
+        private void appointmentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(appointmentsListView.SelectedIndices.Count);
+            if (!(appointmentsListView.SelectedIndices.Count == 0))
+            {
+                selectedAppointment = (Appointment)(Appointment.displayAppointments()[appointmentsListView.SelectedIndices[0]]);
+                if (selectedAppointment.Status.Equals("New"))
+                {
+                    acceptButton.Enabled = true;
+                    denyButton.Enabled = true;
+                }
+                else
+                {
+                    acceptButton.Enabled = false;
+                    denyButton.Enabled = false;
+                }
+            }
+        }
+    }
 }

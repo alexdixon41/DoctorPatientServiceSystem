@@ -23,11 +23,6 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
-        private void PatientSearch_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void viewPatientInformation_Click(object sender, EventArgs e)
         {
 			if (patientView.SelectedIndices.Count != 0)
@@ -78,8 +73,8 @@ namespace DoctorPatientSystem
 		{
 			bool hasAccess = selectedPatient.validateAccess(User.Id);
 			bool hasRecord = selectedPatient.hasMedicalRecord();
-			Console.WriteLine("hasRecord is " + hasRecord);
-			if (hasAccess && hasRecord)
+
+            if (hasAccess && hasRecord)
 			{
 				viewMedicalHistoryButton.Show();
                 createPrescriptionButton.Show();
@@ -237,6 +232,7 @@ namespace DoctorPatientSystem
         {
 			doctorUser.Id = User.Id;
 			doctorUser.retrieveSchedule();
+			showAvailableAppointmentTimes();
             basicPatientInfoPanel.Hide();
 			createAppointmentPanel.Show();
 		}
@@ -295,6 +291,12 @@ namespace DoctorPatientSystem
 		}
 
 		private void appointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
+		{
+			showAvailableAppointmentTimes();
+		}
+
+		//displays all the available times the doctor has for an appointment in the listbox
+		private void showAvailableAppointmentTimes()
 		{
 			availableAppointmentsListBox.Items.Clear();
 			if (doctorUser.WorkDays.Contains(appointmentDateTimePicker.Value.DayOfWeek))

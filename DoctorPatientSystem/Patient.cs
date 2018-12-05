@@ -371,6 +371,18 @@ namespace DoctorPatientSystem
 				{
 					hasAccess = true;
 				}
+
+                sql = "SELECT name FROM DixonPatient WHERE patientID = @pid AND familyDoctor = @did;";
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@pid", Id);
+                cmd.Parameters.AddWithValue("@did", doctorID);
+                myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(table);
+
+                if (table.Rows.Count != 0)
+                {
+                    hasAccess = true;
+                }
 			}
 			catch (Exception ex)
 			{

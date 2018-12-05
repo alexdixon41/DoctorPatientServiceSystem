@@ -149,7 +149,7 @@ namespace DoctorPatientSystem
 				conn.Open();
 				string sql = @"SELECT p.name, a.appointmentTime, a.appointmentStatus, a.id, a.patientID 
 							FROM dixonpatient p join dixonappointment a on p.patientID = a.patientID join dixondoctor d on a.doctorID = d.id
-							WHERE d.id = @docID ORDER BY a.appointmentStatus";
+							WHERE d.id = @docID AND a.appointmentTime > CURRENT_TIME() ORDER BY a.appointmentStatus DESC, a.appointmentTime";
 				MySqlCommand cmd = new MySqlCommand(sql, conn);
 				cmd.Parameters.AddWithValue("@docID", doctorID);
 				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
