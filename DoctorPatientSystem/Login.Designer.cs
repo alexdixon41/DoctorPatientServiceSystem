@@ -210,6 +210,7 @@
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.loginMenuPanel);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.loginMenuPanel.ResumeLayout(false);
