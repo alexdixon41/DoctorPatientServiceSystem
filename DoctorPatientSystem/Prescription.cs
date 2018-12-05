@@ -391,9 +391,30 @@ namespace DoctorPatientSystem
             }
         }
 
-        public void createPrescription(int pharmID)
+        public int createPrescription(int pharmID, int refillAmnt, int patientID)
         {
-
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql;
+                sql = @"INSERT INTO DixonPrescription (datefilled, refills, prescriptionStatus, patientID, doctorID, pharmacyID, remainingRefills, canRequestRefill)
+                        VALUES ();";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@id", User.Id);
+                cmd.Parameters.AddWithValue("@pId", Id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            return 1;
         }
     }
 }

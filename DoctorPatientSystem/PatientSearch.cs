@@ -17,7 +17,7 @@ namespace DoctorPatientSystem
 		private Patient selectedPatient = new Patient();
 		private Doctor doctorUser = new Doctor();
 		private ArrayList appointmentTimes = new ArrayList();
-
+        private int checkBoxAmnt = 1;
 		public PatientSearch()
         {
             InitializeComponent();
@@ -246,6 +246,9 @@ namespace DoctorPatientSystem
             medicinePanel2.Hide();
             medicinePanel3.Hide();
             medicinePanel4.Hide();
+            checkBox2.Show();
+            checkBox3.Hide();
+            checkBox4.Hide();
             Doctor.retrievePharmacies();
             fillpharmacies(Doctor.displayPharmacies());
             basicPatientInfoPanel.Hide();
@@ -330,10 +333,14 @@ namespace DoctorPatientSystem
             if (checkBox1.Checked)
             {
                 medicinePanel1.Show();
+                checkBox2.Show();
+                checkBoxAmnt++;
             }
             else
             {
                 medicinePanel1.Hide();
+                checkBox2.Hide();
+                checkBoxAmnt--;
             }
         }
 
@@ -342,10 +349,14 @@ namespace DoctorPatientSystem
             if (checkBox2.Checked)
             {
                 medicinePanel2.Show();
+                checkBox3.Show();
+                checkBoxAmnt++;
             }
             else
             {
                 medicinePanel2.Hide();
+                checkBox3.Hide();
+                checkBoxAmnt--;
             }
         }
 
@@ -354,10 +365,14 @@ namespace DoctorPatientSystem
             if (checkBox3.Checked)
             {
                 medicinePanel3.Show();
+                checkBox4.Show();
+                checkBoxAmnt++;
             }
             else
             {
                 medicinePanel3.Hide();
+                checkBox4.Hide();
+                checkBoxAmnt--;
             }
         }
 
@@ -366,10 +381,12 @@ namespace DoctorPatientSystem
             if (checkBox4.Checked)
             {
                 medicinePanel4.Show();
+                checkBoxAmnt++;
             }
             else
             {
                 medicinePanel4.Hide();
+                checkBoxAmnt--;
             }
         }
 
@@ -380,7 +397,96 @@ namespace DoctorPatientSystem
 
         private void addPrescription_Click(object sender, EventArgs e)
         {
-            
+            Medicine medicine1 = new Medicine();
+            Medicine medicine2 = new Medicine();
+            Medicine medicine3 = new Medicine();
+            Medicine medicine4 = new Medicine();
+            ArrayList medicines = new ArrayList();
+            switch (checkBoxAmnt)
+            {
+                case 1:
+                    if (string.IsNullOrEmpty(medName1.ToString()))
+                    {
+                        new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
+                    } else {
+                        medicine1.Name = medName1.ToString();
+                        medicine1.Route = routeText1.ToString();
+                        medicine1.Quantity = (int)amntUpDown1.Value;
+                        medicine1.Instructions = instructionText1.ToString();
+                        medicines.Add(medicine1);
+                    }
+                    break;
+                case 2:
+                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()))
+                    {
+                        new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
+                    }
+                    else { 
+                        medicine1.Name = medName1.ToString();
+                        medicine1.Route = routeText1.ToString();
+                        medicine1.Quantity = (int)amntUpDown1.Value;
+                        medicine1.Instructions = instructionText1.ToString();
+                        medicine2.Name = medName2.ToString();
+                        medicine2.Route = routeText2.ToString();
+                        medicine2.Quantity = (int)amntUpDown2.Value;
+                        medicine2.Instructions = instructionText2.ToString();
+                        medicines.Add(medicine1);
+                        medicines.Add(medicine2);
+                    }
+                    break;
+                case 3:
+                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()) || string.IsNullOrEmpty(medName3.ToString()))
+                    {
+                        new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
+                    } else {
+                        medicine1.Name = medName1.ToString();
+                        medicine1.Route = routeText1.ToString();
+                        medicine1.Quantity = (int)amntUpDown1.Value;
+                        medicine1.Instructions = instructionText1.ToString();
+                        medicine2.Name = medName2.ToString();
+                        medicine2.Route = routeText2.ToString();
+                        medicine2.Quantity = (int)amntUpDown2.Value;
+                        medicine2.Instructions = instructionText2.ToString();
+                        medicine3.Name = medName3.ToString();
+                        medicine3.Route = routeText3.ToString();
+                        medicine3.Quantity = (int)amntUpDown3.Value;
+                        medicine3.Instructions = instructionText3.ToString();
+                        medicines.Add(medicine1);
+                        medicines.Add(medicine2);
+                        medicines.Add(medicine3);
+                    }
+                    break;
+                case 4:
+                    if (string.IsNullOrEmpty(medName1.ToString()) || string.IsNullOrEmpty(medName2.ToString()) || string.IsNullOrEmpty(medName3.ToString()) || string.IsNullOrEmpty(medName4.ToString()))
+                    {
+                        new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
+                    } else {
+                        medicine1.Name = medName1.ToString();
+                        medicine1.Route = routeText1.ToString();
+                        medicine1.Quantity = (int)amntUpDown1.Value;
+                        medicine1.Instructions = instructionText1.ToString();
+                        medicine2.Name = medName2.ToString();
+                        medicine2.Route = routeText2.ToString();
+                        medicine2.Quantity = (int)amntUpDown2.Value;
+                        medicine2.Instructions = instructionText2.ToString();
+                        medicine3.Name = medName3.ToString();
+                        medicine3.Route = routeText3.ToString();
+                        medicine3.Quantity = (int)amntUpDown3.Value;
+                        medicine3.Instructions = instructionText3.ToString();
+                        medicine4.Name = medName4.ToString();
+                        medicine4.Route = routeText4.ToString();
+                        medicine4.Quantity = (int)amntUpDown4.Value;
+                        medicine4.Instructions = instructionText4.ToString();
+                        medicines.Add(medicine1);
+                        medicines.Add(medicine2);
+                        medicines.Add(medicine3);
+                        medicines.Add(medicine4);
+                    }
+                    break;
+                default:
+                    new AlertDialog("You must add atleast one medicine to create a prescription.").ShowDialog();
+                    break;
+            }
         }
     }
 }

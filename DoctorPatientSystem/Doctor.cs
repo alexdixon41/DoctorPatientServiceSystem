@@ -21,6 +21,7 @@ namespace DoctorPatientSystem
         private ArrayList workDays = new ArrayList();
         private ArrayList appointments = new ArrayList();
         private static ArrayList pharmacies = new ArrayList();
+        private static ArrayList pharmaciesId = new ArrayList();
         public ArrayList WorkDays
         {
             get
@@ -103,6 +104,19 @@ namespace DoctorPatientSystem
             set
             {
                 pharmacies = value;
+            }
+        }
+
+        public static ArrayList PharmaciesId
+        {
+            get
+            {
+                return pharmaciesId;
+            }
+
+            set
+            {
+                pharmaciesId = value;
             }
         }
 
@@ -280,7 +294,7 @@ namespace DoctorPatientSystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = @"SELECT name FROM dixonpharmacy";
+                string sql = @"SELECT name, id FROM dixonpharmacy";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(dataTable);
@@ -293,6 +307,7 @@ namespace DoctorPatientSystem
             foreach (DataRow row in dataTable.Rows)
             {
                 Pharmacies.Add(row["name"].ToString());
+                PharmaciesId.Add(row["id"].ToString());
             }
             conn.Close();
         }

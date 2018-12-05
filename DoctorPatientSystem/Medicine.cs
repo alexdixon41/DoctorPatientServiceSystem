@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -98,6 +98,11 @@ namespace DoctorPatientSystem
             {
                 date = value;
             }
+        }
+
+        public static void createMedicine(ArrayList medicines, int prescriptionID)
+        {
+
         }
     }
 }
