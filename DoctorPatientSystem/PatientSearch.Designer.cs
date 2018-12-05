@@ -371,7 +371,6 @@
             // updateRecordPanel
             // 
             this.updateRecordPanel.Controls.Add(this.tableLayoutPanel1);
-            this.updateRecordPanel.Controls.Add(this.createButton);
             this.updateRecordPanel.Controls.Add(this.backToMedicalRecord);
             this.updateRecordPanel.Controls.Add(this.submitUpdateButton);
             this.updateRecordPanel.Controls.Add(this.weightTextBox);
@@ -381,6 +380,7 @@
             this.updateRecordPanel.Controls.Add(this.label6);
             this.updateRecordPanel.Controls.Add(this.updateOrCreateLabel);
             this.updateRecordPanel.Controls.Add(this.label4);
+            this.updateRecordPanel.Controls.Add(this.createButton);
             this.updateRecordPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.updateRecordPanel.Location = new System.Drawing.Point(0, 0);
             this.updateRecordPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
