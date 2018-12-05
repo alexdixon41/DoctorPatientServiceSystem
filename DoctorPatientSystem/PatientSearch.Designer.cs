@@ -93,12 +93,13 @@
             this.backToBasicPatientInfoPanel = new System.Windows.Forms.Button();
             this.basicPatientInfoPanel = new System.Windows.Forms.Panel();
             this.patientDOBLabel = new System.Windows.Forms.Label();
-            this.patientIDLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.patientBox.SuspendLayout();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
@@ -115,6 +116,8 @@
             this.createPrescriptionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefills)).BeginInit();
             this.basicPatientInfoPanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // fnameLabel
@@ -659,65 +662,85 @@
             // 
             // viewMedicalHistoryButton
             // 
-            this.viewMedicalHistoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.viewMedicalHistoryButton.Location = new System.Drawing.Point(557, 68);
+            this.viewMedicalHistoryButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.viewMedicalHistoryButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewMedicalHistoryButton.FlatAppearance.BorderSize = 0;
+            this.viewMedicalHistoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewMedicalHistoryButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.viewMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.viewMedicalHistoryButton.Name = "viewMedicalHistoryButton";
-            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(251, 92);
+            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(976, 72);
             this.viewMedicalHistoryButton.TabIndex = 2;
             this.viewMedicalHistoryButton.Text = "View Medical History";
-            this.viewMedicalHistoryButton.UseVisualStyleBackColor = true;
+            this.viewMedicalHistoryButton.UseVisualStyleBackColor = false;
             this.viewMedicalHistoryButton.Visible = false;
             this.viewMedicalHistoryButton.Click += new System.EventHandler(this.viewMedicalHistoryButton_Click);
             // 
             // requestMedicalHistoryButton
             // 
-            this.requestMedicalHistoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.requestMedicalHistoryButton.Location = new System.Drawing.Point(557, 68);
+            this.requestMedicalHistoryButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.requestMedicalHistoryButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.requestMedicalHistoryButton.FlatAppearance.BorderSize = 0;
+            this.requestMedicalHistoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.requestMedicalHistoryButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requestMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.requestMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.requestMedicalHistoryButton.Name = "requestMedicalHistoryButton";
-            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(251, 97);
+            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(976, 72);
             this.requestMedicalHistoryButton.TabIndex = 3;
             this.requestMedicalHistoryButton.Text = "Request to View Medical History";
-            this.requestMedicalHistoryButton.UseVisualStyleBackColor = true;
+            this.requestMedicalHistoryButton.UseVisualStyleBackColor = false;
             this.requestMedicalHistoryButton.Visible = false;
             this.requestMedicalHistoryButton.Click += new System.EventHandler(this.requestMedicalHistoryButton_Click);
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.createAppointmentButton.Location = new System.Drawing.Point(557, 203);
+            this.createAppointmentButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.createAppointmentButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createAppointmentButton.FlatAppearance.BorderSize = 0;
+            this.createAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createAppointmentButton.Location = new System.Drawing.Point(4, 84);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.createAppointmentButton.Name = "createAppointmentButton";
-            this.createAppointmentButton.Size = new System.Drawing.Size(251, 94);
+            this.createAppointmentButton.Size = new System.Drawing.Size(976, 72);
             this.createAppointmentButton.TabIndex = 4;
             this.createAppointmentButton.Text = "Create an Appointment";
-            this.createAppointmentButton.UseVisualStyleBackColor = true;
+            this.createAppointmentButton.UseVisualStyleBackColor = false;
             this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
             // 
             // createMedicalRecordButton
             // 
-            this.createMedicalRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.createMedicalRecordButton.Location = new System.Drawing.Point(557, 66);
+            this.createMedicalRecordButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.createMedicalRecordButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createMedicalRecordButton.FlatAppearance.BorderSize = 0;
+            this.createMedicalRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createMedicalRecordButton.Location = new System.Drawing.Point(4, 244);
             this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(4);
             this.createMedicalRecordButton.Name = "createMedicalRecordButton";
-            this.createMedicalRecordButton.Size = new System.Drawing.Size(251, 97);
+            this.createMedicalRecordButton.Size = new System.Drawing.Size(976, 73);
             this.createMedicalRecordButton.TabIndex = 17;
             this.createMedicalRecordButton.Text = "Create Medical Record";
-            this.createMedicalRecordButton.UseVisualStyleBackColor = true;
+            this.createMedicalRecordButton.UseVisualStyleBackColor = false;
             this.createMedicalRecordButton.Visible = false;
             this.createMedicalRecordButton.Click += new System.EventHandler(this.createMedicalRecordButton_Click);
             // 
             // createPrescriptionButton
             // 
-            this.createPrescriptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.createPrescriptionButton.Location = new System.Drawing.Point(557, 337);
+            this.createPrescriptionButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.createPrescriptionButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createPrescriptionButton.FlatAppearance.BorderSize = 0;
+            this.createPrescriptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createPrescriptionButton.Location = new System.Drawing.Point(4, 164);
             this.createPrescriptionButton.Margin = new System.Windows.Forms.Padding(4);
             this.createPrescriptionButton.Name = "createPrescriptionButton";
-            this.createPrescriptionButton.Size = new System.Drawing.Size(251, 94);
+            this.createPrescriptionButton.Size = new System.Drawing.Size(976, 72);
             this.createPrescriptionButton.TabIndex = 18;
             this.createPrescriptionButton.Text = "Create a Prescription";
-            this.createPrescriptionButton.UseVisualStyleBackColor = true;
+            this.createPrescriptionButton.UseVisualStyleBackColor = false;
             this.createPrescriptionButton.Click += new System.EventHandler(this.createPrescriptionButton_Click);
             // 
             // createPrescriptionPanel
@@ -803,18 +826,13 @@
             // 
             // basicPatientInfoPanel
             // 
+            this.basicPatientInfoPanel.Controls.Add(this.tableLayoutPanel2);
+            this.basicPatientInfoPanel.Controls.Add(this.label5);
             this.basicPatientInfoPanel.Controls.Add(this.patientDOBLabel);
-            this.basicPatientInfoPanel.Controls.Add(this.patientIDLabel);
             this.basicPatientInfoPanel.Controls.Add(this.patientNameLabel);
             this.basicPatientInfoPanel.Controls.Add(this.label2);
-            this.basicPatientInfoPanel.Controls.Add(this.label1);
             this.basicPatientInfoPanel.Controls.Add(this.backToPatientSearchButton);
             this.basicPatientInfoPanel.Controls.Add(this.label3);
-            this.basicPatientInfoPanel.Controls.Add(this.createPrescriptionButton);
-            this.basicPatientInfoPanel.Controls.Add(this.createAppointmentButton);
-            this.basicPatientInfoPanel.Controls.Add(this.createMedicalRecordButton);
-            this.basicPatientInfoPanel.Controls.Add(this.requestMedicalHistoryButton);
-            this.basicPatientInfoPanel.Controls.Add(this.viewMedicalHistoryButton);
             this.basicPatientInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.basicPatientInfoPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.basicPatientInfoPanel.Location = new System.Drawing.Point(0, 0);
@@ -826,51 +844,35 @@
             // 
             // patientDOBLabel
             // 
-            this.patientDOBLabel.AutoSize = true;
-            this.patientDOBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.patientDOBLabel.Location = new System.Drawing.Point(245, 203);
+            this.patientDOBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.patientDOBLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientDOBLabel.Location = new System.Drawing.Point(727, 92);
+            this.patientDOBLabel.Margin = new System.Windows.Forms.Padding(3, 0, 40, 0);
             this.patientDOBLabel.Name = "patientDOBLabel";
-            this.patientDOBLabel.Size = new System.Drawing.Size(79, 29);
+            this.patientDOBLabel.Size = new System.Drawing.Size(297, 46);
             this.patientDOBLabel.TabIndex = 16;
-            this.patientDOBLabel.Text = "label3";
-            // 
-            // patientIDLabel
-            // 
-            this.patientIDLabel.AutoSize = true;
-            this.patientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.patientIDLabel.Location = new System.Drawing.Point(245, 134);
-            this.patientIDLabel.Name = "patientIDLabel";
-            this.patientIDLabel.Size = new System.Drawing.Size(79, 29);
-            this.patientIDLabel.TabIndex = 15;
-            this.patientIDLabel.Text = "label3";
+            this.patientDOBLabel.Text = "06-06-1990";
             // 
             // patientNameLabel
             // 
             this.patientNameLabel.AutoSize = true;
-            this.patientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.patientNameLabel.Location = new System.Drawing.Point(245, 68);
+            this.patientNameLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientNameLabel.Location = new System.Drawing.Point(152, 92);
             this.patientNameLabel.Name = "patientNameLabel";
-            this.patientNameLabel.Size = new System.Drawing.Size(79, 29);
+            this.patientNameLabel.Size = new System.Drawing.Size(109, 46);
             this.patientNameLabel.TabIndex = 14;
             this.patientNameLabel.Text = "label3";
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 203);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(496, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 29);
+            this.label2.Size = new System.Drawing.Size(225, 46);
             this.label2.TabIndex = 13;
             this.label2.Text = "Date of Birth:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 134);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 29);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "ID:";
             // 
             // backToPatientSearchButton
             // 
@@ -881,7 +883,7 @@
             this.backToPatientSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToPatientSearchButton.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToPatientSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("backToPatientSearchButton.Image")));
-            this.backToPatientSearchButton.Location = new System.Drawing.Point(15, 6);
+            this.backToPatientSearchButton.Location = new System.Drawing.Point(19, 18);
             this.backToPatientSearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backToPatientSearchButton.Name = "backToPatientSearchButton";
             this.backToPatientSearchButton.Size = new System.Drawing.Size(77, 47);
@@ -892,13 +894,56 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(52, 68);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(32, 92);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 29);
+            this.label3.Size = new System.Drawing.Size(129, 46);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Patient Name:";
+            this.label3.Text = "Name: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(100, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(246, 51);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Patient Menu";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.createAppointmentButton, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.createMedicalRecordButton, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.createPrescriptionButton, 0, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(40, 180);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(40, 3, 40, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(984, 321);
+            this.tableLayoutPanel2.TabIndex = 20;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.requestMedicalHistoryButton);
+            this.panel4.Controls.Add(this.viewMedicalHistoryButton);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(976, 72);
+            this.panel4.TabIndex = 0;
             // 
             // PatientSearch
             // 
@@ -939,6 +984,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefills)).EndInit();
             this.basicPatientInfoPanel.ResumeLayout(false);
             this.basicPatientInfoPanel.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -997,10 +1044,8 @@
         private System.Windows.Forms.Button createPrescriptionButton;
         private System.Windows.Forms.Button createMedicalRecordButton;
         private System.Windows.Forms.Label patientDOBLabel;
-        private System.Windows.Forms.Label patientIDLabel;
         private System.Windows.Forms.Label patientNameLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button backToPatientSearchButton;
         private System.Windows.Forms.Button createAppointmentButton;
         private System.Windows.Forms.Button requestMedicalHistoryButton;
@@ -1015,5 +1060,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox notesTextBox;
         private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
     }
 }
