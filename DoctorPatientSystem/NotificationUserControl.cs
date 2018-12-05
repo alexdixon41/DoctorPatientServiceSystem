@@ -84,6 +84,8 @@ namespace DoctorPatientSystem
 				Notice.sendNotice(receiverID, message, 9);
 
 				//after denying a request, return to notifications
+				Notice.retrieveNotices();
+				populateList();
 				noticeDetailPanel.Hide();
 				notificationListPanel.Show();
 			}
@@ -102,6 +104,8 @@ namespace DoctorPatientSystem
 				Doctor.grantRecordAccess(doctorID, User.Id);
 
 				//after accepting a request, return to notifications
+				Notice.retrieveNotices();
+				populateList();
 				noticeDetailPanel.Hide();
 				notificationListPanel.Show();
 			}
