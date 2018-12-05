@@ -239,6 +239,7 @@ namespace DoctorPatientSystem
 
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
+            createPrescriptionPanel.Show();
             basicPatientInfoPanel.Hide();
         }
 
