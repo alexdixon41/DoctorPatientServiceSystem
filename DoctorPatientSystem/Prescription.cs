@@ -390,5 +390,10 @@ namespace DoctorPatientSystem
                 prescriptions.Add(newPrescription);
             }
         }
+
+        public void createPrescription(int pharmID)
+        {
+
+        }
     }
 }
