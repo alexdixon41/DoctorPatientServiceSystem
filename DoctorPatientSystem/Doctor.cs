@@ -20,6 +20,7 @@ namespace DoctorPatientSystem
         private string officeNumber;
         private ArrayList workDays = new ArrayList();
         private ArrayList appointments = new ArrayList();
+        private static ArrayList pharmacies = new ArrayList();
         public ArrayList WorkDays
         {
             get
@@ -90,6 +91,18 @@ namespace DoctorPatientSystem
             set
             {
                 appointments = value;
+            }
+        }
+        public static ArrayList Pharmacies
+        {
+            get
+            {
+                return pharmacies;
+            }
+
+            set
+            {
+                pharmacies = value;
             }
         }
 
@@ -259,6 +272,36 @@ namespace DoctorPatientSystem
 			conn.Close();
 		}
 
+        public static void retrievePharmacies()
+        {
+            DataTable dataTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = @"SELECT name FROM dixonpharmacy";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(dataTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Pharmacies.Add(row["name"].ToString());
+            }
+            conn.Close();
+        }
+
+        public static ArrayList displayPharmacies()
+        {
+            return Pharmacies;
+        }
 		//retrieves a doctor's schedule from the database
 		public void retrieveSchedule()
 		{

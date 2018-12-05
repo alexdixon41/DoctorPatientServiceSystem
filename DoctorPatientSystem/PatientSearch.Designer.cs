@@ -126,6 +126,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.addPrescription = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.patientBox.SuspendLayout();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
@@ -830,6 +835,11 @@
             // 
             // createPrescriptionPanel
             // 
+            this.createPrescriptionPanel.Controls.Add(this.label14);
+            this.createPrescriptionPanel.Controls.Add(this.label13);
+            this.createPrescriptionPanel.Controls.Add(this.label12);
+            this.createPrescriptionPanel.Controls.Add(this.label11);
+            this.createPrescriptionPanel.Controls.Add(this.addPrescription);
             this.createPrescriptionPanel.Controls.Add(this.button1);
             this.createPrescriptionPanel.Controls.Add(this.medicinePanel1);
             this.createPrescriptionPanel.Controls.Add(this.medicinePanel4);
@@ -1090,7 +1100,7 @@
             // MedicineTitleLabel
             // 
             this.MedicineTitleLabel.AutoSize = true;
-            this.MedicineTitleLabel.Location = new System.Drawing.Point(468, 62);
+            this.MedicineTitleLabel.Location = new System.Drawing.Point(633, 35);
             this.MedicineTitleLabel.Name = "MedicineTitleLabel";
             this.MedicineTitleLabel.Size = new System.Drawing.Size(58, 13);
             this.MedicineTitleLabel.TabIndex = 26;
@@ -1117,7 +1127,7 @@
             // 
             // numericUpDownRefills
             // 
-            this.numericUpDownRefills.Location = new System.Drawing.Point(24, 92);
+            this.numericUpDownRefills.Location = new System.Drawing.Point(24, 94);
             this.numericUpDownRefills.Name = "numericUpDownRefills";
             this.numericUpDownRefills.Size = new System.Drawing.Size(185, 20);
             this.numericUpDownRefills.TabIndex = 23;
@@ -1125,7 +1135,7 @@
             // refillsAmntLabel
             // 
             this.refillsAmntLabel.AutoSize = true;
-            this.refillsAmntLabel.Location = new System.Drawing.Point(20, 63);
+            this.refillsAmntLabel.Location = new System.Drawing.Point(21, 65);
             this.refillsAmntLabel.Name = "refillsAmntLabel";
             this.refillsAmntLabel.Size = new System.Drawing.Size(89, 13);
             this.refillsAmntLabel.TabIndex = 22;
@@ -1268,16 +1278,63 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name: ";
             // 
+            // addPrescription
+            // 
+            this.addPrescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addPrescription.Location = new System.Drawing.Point(1153, 13);
+            this.addPrescription.Name = "addPrescription";
+            this.addPrescription.Size = new System.Drawing.Size(120, 52);
+            this.addPrescription.TabIndex = 50;
+            this.addPrescription.Text = "Create Presctiption";
+            this.addPrescription.UseVisualStyleBackColor = true;
+            this.addPrescription.Click += new System.EventHandler(this.addPrescription_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(236, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.TabIndex = 51;
+            this.label11.Text = "Medicine Name:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(350, 156);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Amount:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(399, 156);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 53;
+            this.label13.Text = "Route:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(504, 156);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 13);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Instructions:";
+            // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.updateRecordPanel);
-            this.Controls.Add(this.patientSearchPanel);
-            this.Controls.Add(this.createPrescriptionPanel);
             this.Controls.Add(this.basicPatientInfoPanel);
             this.Controls.Add(this.createAppointmentPanel);
             this.Controls.Add(this.viewMedicalRecordPanel);
+            this.Controls.Add(this.updateRecordPanel);
+            this.Controls.Add(this.patientSearchPanel);
+            this.Controls.Add(this.createPrescriptionPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PatientSearch";
             this.Size = new System.Drawing.Size(1287, 604);
@@ -1424,5 +1481,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button addPrescription;
     }
 }
