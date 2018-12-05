@@ -1435,12 +1435,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.createPrescriptionPanel);
             this.Controls.Add(this.basicPatientInfoPanel);
             this.Controls.Add(this.createAppointmentPanel);
             this.Controls.Add(this.viewMedicalRecordPanel);
             this.Controls.Add(this.updateRecordPanel);
-            this.Controls.Add(this.patientSearchPanel);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PatientSearch";
             this.Size = new System.Drawing.Size(1250, 743);

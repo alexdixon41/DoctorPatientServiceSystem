@@ -34,12 +34,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
-            this.selectButton = new System.Windows.Forms.Button();
             this.viewAppointmentsPanel = new System.Windows.Forms.Panel();
-            this.appointmentDetailPanel = new System.Windows.Forms.Panel();
-            this.backButton = new System.Windows.Forms.Button();
             this.denyButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
+            this.appointmentDetailPanel = new System.Windows.Forms.Panel();
+            this.backButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -69,6 +68,7 @@
             this.appointmentsListView.TabIndex = 0;
             this.appointmentsListView.UseCompatibleStateImageBehavior = false;
             this.appointmentsListView.View = System.Windows.Forms.View.Details;
+            this.appointmentsListView.SelectedIndexChanged += new System.EventHandler(this.appointmentsListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -78,7 +78,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Appointment Time";
-            this.columnHeader2.Width = 180;
+            this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
@@ -95,21 +95,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Appointments";
             // 
-            // selectButton
-            // 
-            this.selectButton.AutoSize = true;
-            this.selectButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectButton.Location = new System.Drawing.Point(1056, 20);
-            this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(101, 48);
-            this.selectButton.TabIndex = 2;
-            this.selectButton.Text = "Select";
-            this.selectButton.UseVisualStyleBackColor = true;
-            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
-            // 
             // viewAppointmentsPanel
             // 
-            this.viewAppointmentsPanel.Controls.Add(this.selectButton);
+            this.viewAppointmentsPanel.Controls.Add(this.denyButton);
+            this.viewAppointmentsPanel.Controls.Add(this.acceptButton);
             this.viewAppointmentsPanel.Controls.Add(this.label1);
             this.viewAppointmentsPanel.Controls.Add(this.appointmentsListView);
             this.viewAppointmentsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,11 +107,38 @@
             this.viewAppointmentsPanel.Size = new System.Drawing.Size(1184, 562);
             this.viewAppointmentsPanel.TabIndex = 3;
             // 
+            // denyButton
+            // 
+            this.denyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.denyButton.AutoSize = true;
+            this.denyButton.Enabled = false;
+            this.denyButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denyButton.Location = new System.Drawing.Point(941, 18);
+            this.denyButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.denyButton.Name = "denyButton";
+            this.denyButton.Size = new System.Drawing.Size(92, 48);
+            this.denyButton.TabIndex = 10;
+            this.denyButton.Text = "Deny";
+            this.denyButton.UseVisualStyleBackColor = true;
+            this.denyButton.Click += new System.EventHandler(this.denyButton_Click);
+            // 
+            // acceptButton
+            // 
+            this.acceptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.acceptButton.AutoSize = true;
+            this.acceptButton.Enabled = false;
+            this.acceptButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acceptButton.Location = new System.Drawing.Point(1046, 18);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(111, 48);
+            this.acceptButton.TabIndex = 9;
+            this.acceptButton.Text = "Accept";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            // 
             // appointmentDetailPanel
             // 
             this.appointmentDetailPanel.Controls.Add(this.backButton);
-            this.appointmentDetailPanel.Controls.Add(this.denyButton);
-            this.appointmentDetailPanel.Controls.Add(this.acceptButton);
             this.appointmentDetailPanel.Controls.Add(this.statusLabel);
             this.appointmentDetailPanel.Controls.Add(this.timeLabel);
             this.appointmentDetailPanel.Controls.Add(this.nameLabel);
@@ -152,28 +168,6 @@
             this.backButton.TabIndex = 15;
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // denyButton
-            // 
-            this.denyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.denyButton.Location = new System.Drawing.Point(403, 315);
-            this.denyButton.Name = "denyButton";
-            this.denyButton.Size = new System.Drawing.Size(97, 40);
-            this.denyButton.TabIndex = 8;
-            this.denyButton.Text = "Deny";
-            this.denyButton.UseVisualStyleBackColor = true;
-            this.denyButton.Click += new System.EventHandler(this.denyButton_Click);
-            // 
-            // acceptButton
-            // 
-            this.acceptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.acceptButton.Location = new System.Drawing.Point(266, 315);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(97, 40);
-            this.acceptButton.TabIndex = 7;
-            this.acceptButton.Text = "Accept";
-            this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // statusLabel
             // 
@@ -268,11 +262,8 @@
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button selectButton;
 		private System.Windows.Forms.Panel viewAppointmentsPanel;
 		private System.Windows.Forms.Panel appointmentDetailPanel;
-		private System.Windows.Forms.Button denyButton;
-		private System.Windows.Forms.Button acceptButton;
 		private System.Windows.Forms.Label statusLabel;
 		private System.Windows.Forms.Label timeLabel;
 		private System.Windows.Forms.Label nameLabel;
@@ -281,5 +272,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button backButton;
-	}
+        private System.Windows.Forms.Button denyButton;
+        private System.Windows.Forms.Button acceptButton;
+    }
 }
