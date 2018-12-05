@@ -72,6 +72,7 @@
             this.updateOrCreateLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.createAppointmentPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.confirmAppointmentButton = new System.Windows.Forms.Button();
             this.backFromCreateAppointmentButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -125,7 +126,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.patientBox.SuspendLayout();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
@@ -241,7 +241,7 @@
             this.patientSearchPanel.Location = new System.Drawing.Point(0, 0);
             this.patientSearchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.patientSearchPanel.Name = "patientSearchPanel";
-            this.patientSearchPanel.Size = new System.Drawing.Size(965, 491);
+            this.patientSearchPanel.Size = new System.Drawing.Size(1287, 604);
             this.patientSearchPanel.TabIndex = 7;
             // 
             // viewMedicalRecordPanel
@@ -255,7 +255,7 @@
             this.viewMedicalRecordPanel.Location = new System.Drawing.Point(0, 0);
             this.viewMedicalRecordPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewMedicalRecordPanel.Name = "viewMedicalRecordPanel";
-            this.viewMedicalRecordPanel.Size = new System.Drawing.Size(965, 491);
+            this.viewMedicalRecordPanel.Size = new System.Drawing.Size(1287, 604);
             this.viewMedicalRecordPanel.TabIndex = 9;
             this.viewMedicalRecordPanel.Visible = false;
             // 
@@ -265,7 +265,7 @@
             this.patientNameRecordLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientNameRecordLabel.Location = new System.Drawing.Point(100, 16);
             this.patientNameRecordLabel.Name = "patientNameRecordLabel";
-            this.patientNameRecordLabel.Size = new System.Drawing.Size(248, 51);
+            this.patientNameRecordLabel.Size = new System.Drawing.Size(196, 41);
             this.patientNameRecordLabel.TabIndex = 18;
             this.patientNameRecordLabel.Text = "Patient Name";
             // 
@@ -378,7 +378,7 @@
             this.updateRecordPanel.Location = new System.Drawing.Point(0, 0);
             this.updateRecordPanel.Margin = new System.Windows.Forms.Padding(2);
             this.updateRecordPanel.Name = "updateRecordPanel";
-            this.updateRecordPanel.Size = new System.Drawing.Size(965, 491);
+            this.updateRecordPanel.Size = new System.Drawing.Size(1287, 604);
             this.updateRecordPanel.TabIndex = 17;
             this.updateRecordPanel.Visible = false;
             // 
@@ -392,14 +392,14 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 109);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 124);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1241, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1246, 459);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // panel1
@@ -410,7 +410,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1235, 146);
+            this.panel1.Size = new System.Drawing.Size(1242, 149);
             this.panel1.TabIndex = 0;
             // 
             // label8
@@ -432,7 +432,7 @@
             this.disordersTextBox.Location = new System.Drawing.Point(4, 30);
             this.disordersTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.disordersTextBox.Name = "disordersTextBox";
-            this.disordersTextBox.Size = new System.Drawing.Size(1228, 104);
+            this.disordersTextBox.Size = new System.Drawing.Size(1235, 107);
             this.disordersTextBox.TabIndex = 10;
             this.disordersTextBox.Text = "";
             // 
@@ -441,10 +441,10 @@
             this.panel2.Controls.Add(this.allergiesTextBox);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 152);
+            this.panel2.Location = new System.Drawing.Point(3, 155);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1235, 146);
+            this.panel2.Size = new System.Drawing.Size(1240, 149);
             this.panel2.TabIndex = 1;
             // 
             // allergiesTextBox
@@ -455,7 +455,7 @@
             this.allergiesTextBox.Location = new System.Drawing.Point(4, 37);
             this.allergiesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.allergiesTextBox.Name = "allergiesTextBox";
-            this.allergiesTextBox.Size = new System.Drawing.Size(1228, 96);
+            this.allergiesTextBox.Size = new System.Drawing.Size(1233, 99);
             this.allergiesTextBox.TabIndex = 11;
             this.allergiesTextBox.Text = "";
             // 
@@ -475,10 +475,10 @@
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.notesTextBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 302);
+            this.panel3.Location = new System.Drawing.Point(3, 308);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1235, 146);
+            this.panel3.Size = new System.Drawing.Size(1240, 149);
             this.panel3.TabIndex = 2;
             // 
             // label10
@@ -500,7 +500,7 @@
             this.notesTextBox.Location = new System.Drawing.Point(4, 31);
             this.notesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(1228, 102);
+            this.notesTextBox.Size = new System.Drawing.Size(1233, 105);
             this.notesTextBox.TabIndex = 12;
             this.notesTextBox.Text = "";
             // 
@@ -509,7 +509,7 @@
             this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.createButton.AutoSize = true;
             this.createButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createButton.Location = new System.Drawing.Point(1153, 22);
+            this.createButton.Location = new System.Drawing.Point(1153, 21);
             this.createButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(107, 48);
@@ -555,7 +555,7 @@
             this.weightTextBox.Location = new System.Drawing.Point(745, 81);
             this.weightTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(183, 34);
+            this.weightTextBox.Size = new System.Drawing.Size(183, 29);
             this.weightTextBox.TabIndex = 9;
             // 
             // heightTextBox
@@ -564,7 +564,7 @@
             this.heightTextBox.Location = new System.Drawing.Point(451, 81);
             this.heightTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(183, 34);
+            this.heightTextBox.Size = new System.Drawing.Size(183, 29);
             this.heightTextBox.TabIndex = 8;
             // 
             // maritalStatusTextBox
@@ -573,7 +573,7 @@
             this.maritalStatusTextBox.Location = new System.Drawing.Point(160, 81);
             this.maritalStatusTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maritalStatusTextBox.Name = "maritalStatusTextBox";
-            this.maritalStatusTextBox.Size = new System.Drawing.Size(183, 34);
+            this.maritalStatusTextBox.Size = new System.Drawing.Size(183, 29);
             this.maritalStatusTextBox.TabIndex = 7;
             // 
             // label7
@@ -583,7 +583,7 @@
             this.label7.Location = new System.Drawing.Point(657, 84);
             this.label7.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 28);
+            this.label7.Size = new System.Drawing.Size(67, 21);
             this.label7.TabIndex = 3;
             this.label7.Text = "Weight:";
             // 
@@ -594,7 +594,7 @@
             this.label6.Location = new System.Drawing.Point(366, 84);
             this.label6.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 28);
+            this.label6.Size = new System.Drawing.Size(64, 21);
             this.label6.TabIndex = 2;
             this.label6.Text = "Height:";
             // 
@@ -630,16 +630,26 @@
             this.createAppointmentPanel.Location = new System.Drawing.Point(0, 0);
             this.createAppointmentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.createAppointmentPanel.Name = "createAppointmentPanel";
-            this.createAppointmentPanel.Size = new System.Drawing.Size(965, 491);
+            this.createAppointmentPanel.Size = new System.Drawing.Size(1287, 604);
             this.createAppointmentPanel.TabIndex = 27;
             this.createAppointmentPanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(100, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 41);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "New Appointment";
             // 
             // confirmAppointmentButton
             // 
             this.confirmAppointmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.confirmAppointmentButton.AutoSize = true;
             this.confirmAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmAppointmentButton.Location = new System.Drawing.Point(983, 16);
+            this.confirmAppointmentButton.Location = new System.Drawing.Point(1305, 16);
             this.confirmAppointmentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.confirmAppointmentButton.Name = "confirmAppointmentButton";
             this.confirmAppointmentButton.Size = new System.Drawing.Size(277, 48);
@@ -677,7 +687,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(1220, 382);
+            this.groupBox4.Size = new System.Drawing.Size(1542, 495);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Select a Time";
@@ -687,21 +697,21 @@
             this.availableAppointmentsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.availableAppointmentsListBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availableAppointmentsListBox.FormattingEnabled = true;
-            this.availableAppointmentsListBox.ItemHeight = 31;
-            this.availableAppointmentsListBox.Location = new System.Drawing.Point(3, 29);
+            this.availableAppointmentsListBox.ItemHeight = 25;
+            this.availableAppointmentsListBox.Location = new System.Drawing.Point(3, 24);
             this.availableAppointmentsListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.availableAppointmentsListBox.Name = "availableAppointmentsListBox";
-            this.availableAppointmentsListBox.Size = new System.Drawing.Size(1214, 351);
+            this.availableAppointmentsListBox.Size = new System.Drawing.Size(1536, 469);
             this.availableAppointmentsListBox.TabIndex = 8;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 28;
+            this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(269, 128);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 60);
+            this.listBox1.Size = new System.Drawing.Size(120, 46);
             this.listBox1.TabIndex = 0;
             // 
             // groupBox3
@@ -714,7 +724,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(1220, 110);
+            this.groupBox3.Size = new System.Drawing.Size(1542, 110);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select a Day";
@@ -731,7 +741,7 @@
             this.appointmentDateTimePicker.Location = new System.Drawing.Point(3, 41);
             this.appointmentDateTimePicker.Margin = new System.Windows.Forms.Padding(149, 2, 149, 2);
             this.appointmentDateTimePicker.Name = "appointmentDateTimePicker";
-            this.appointmentDateTimePicker.Size = new System.Drawing.Size(1214, 43);
+            this.appointmentDateTimePicker.Size = new System.Drawing.Size(1536, 36);
             this.appointmentDateTimePicker.TabIndex = 1;
             this.appointmentDateTimePicker.ValueChanged += new System.EventHandler(this.appointmentDateTimePicker_ValueChanged);
             // 
@@ -745,7 +755,7 @@
             this.viewMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.viewMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.viewMedicalHistoryButton.Name = "viewMedicalHistoryButton";
-            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(888, 67);
+            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(1210, 95);
             this.viewMedicalHistoryButton.TabIndex = 2;
             this.viewMedicalHistoryButton.Text = "View Medical History";
             this.viewMedicalHistoryButton.UseVisualStyleBackColor = false;
@@ -762,7 +772,7 @@
             this.requestMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.requestMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(4);
             this.requestMedicalHistoryButton.Name = "requestMedicalHistoryButton";
-            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(888, 67);
+            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(1210, 95);
             this.requestMedicalHistoryButton.TabIndex = 3;
             this.requestMedicalHistoryButton.Text = "Request to View Medical History";
             this.requestMedicalHistoryButton.UseVisualStyleBackColor = false;
@@ -776,10 +786,10 @@
             this.createAppointmentButton.FlatAppearance.BorderSize = 0;
             this.createAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createAppointmentButton.Location = new System.Drawing.Point(4, 79);
+            this.createAppointmentButton.Location = new System.Drawing.Point(4, 107);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.createAppointmentButton.Name = "createAppointmentButton";
-            this.createAppointmentButton.Size = new System.Drawing.Size(888, 67);
+            this.createAppointmentButton.Size = new System.Drawing.Size(1210, 95);
             this.createAppointmentButton.TabIndex = 4;
             this.createAppointmentButton.Text = "Create an Appointment";
             this.createAppointmentButton.UseVisualStyleBackColor = false;
@@ -792,10 +802,10 @@
             this.createMedicalRecordButton.FlatAppearance.BorderSize = 0;
             this.createMedicalRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createMedicalRecordButton.Location = new System.Drawing.Point(4, 229);
+            this.createMedicalRecordButton.Location = new System.Drawing.Point(4, 313);
             this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(4);
             this.createMedicalRecordButton.Name = "createMedicalRecordButton";
-            this.createMedicalRecordButton.Size = new System.Drawing.Size(888, 69);
+            this.createMedicalRecordButton.Size = new System.Drawing.Size(1210, 98);
             this.createMedicalRecordButton.TabIndex = 17;
             this.createMedicalRecordButton.Text = "Create Medical Record";
             this.createMedicalRecordButton.UseVisualStyleBackColor = false;
@@ -809,10 +819,10 @@
             this.createPrescriptionButton.FlatAppearance.BorderSize = 0;
             this.createPrescriptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createPrescriptionButton.Location = new System.Drawing.Point(4, 154);
+            this.createPrescriptionButton.Location = new System.Drawing.Point(4, 210);
             this.createPrescriptionButton.Margin = new System.Windows.Forms.Padding(4);
             this.createPrescriptionButton.Name = "createPrescriptionButton";
-            this.createPrescriptionButton.Size = new System.Drawing.Size(888, 67);
+            this.createPrescriptionButton.Size = new System.Drawing.Size(1210, 95);
             this.createPrescriptionButton.TabIndex = 18;
             this.createPrescriptionButton.Text = "Create a Prescription";
             this.createPrescriptionButton.UseVisualStyleBackColor = false;
@@ -838,7 +848,7 @@
             this.createPrescriptionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.createPrescriptionPanel.Location = new System.Drawing.Point(0, 0);
             this.createPrescriptionPanel.Name = "createPrescriptionPanel";
-            this.createPrescriptionPanel.Size = new System.Drawing.Size(965, 491);
+            this.createPrescriptionPanel.Size = new System.Drawing.Size(1287, 604);
             this.createPrescriptionPanel.TabIndex = 19;
             this.createPrescriptionPanel.Visible = false;
             // 
@@ -847,8 +857,8 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.AutoSize = true;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1004, 16);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(1326, 16);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(262, 48);
             this.button1.TabIndex = 49;
@@ -865,7 +875,7 @@
             this.medicinePanel1.Controls.Add(this.textBox12);
             this.medicinePanel1.Location = new System.Drawing.Point(239, 182);
             this.medicinePanel1.Name = "medicinePanel1";
-            this.medicinePanel1.Size = new System.Drawing.Size(713, 58);
+            this.medicinePanel1.Size = new System.Drawing.Size(1035, 58);
             this.medicinePanel1.TabIndex = 48;
             // 
             // textBox9
@@ -876,7 +886,7 @@
             this.textBox9.Location = new System.Drawing.Point(268, 3);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(442, 49);
+            this.textBox9.Size = new System.Drawing.Size(764, 49);
             this.textBox9.TabIndex = 44;
             // 
             // textBox11
@@ -910,7 +920,7 @@
             this.medicinePanel4.Controls.Add(this.textBox8);
             this.medicinePanel4.Location = new System.Drawing.Point(239, 397);
             this.medicinePanel4.Name = "medicinePanel4";
-            this.medicinePanel4.Size = new System.Drawing.Size(713, 59);
+            this.medicinePanel4.Size = new System.Drawing.Size(1035, 59);
             this.medicinePanel4.TabIndex = 48;
             // 
             // textBox5
@@ -921,7 +931,7 @@
             this.textBox5.Location = new System.Drawing.Point(268, 3);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(442, 50);
+            this.textBox5.Size = new System.Drawing.Size(764, 50);
             this.textBox5.TabIndex = 44;
             // 
             // textBox7
@@ -955,7 +965,7 @@
             this.medicinePanel3.Controls.Add(this.textBox4);
             this.medicinePanel3.Location = new System.Drawing.Point(239, 325);
             this.medicinePanel3.Name = "medicinePanel3";
-            this.medicinePanel3.Size = new System.Drawing.Size(713, 59);
+            this.medicinePanel3.Size = new System.Drawing.Size(1035, 59);
             this.medicinePanel3.TabIndex = 48;
             // 
             // textBox1
@@ -966,7 +976,7 @@
             this.textBox1.Location = new System.Drawing.Point(268, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(442, 50);
+            this.textBox1.Size = new System.Drawing.Size(764, 50);
             this.textBox1.TabIndex = 44;
             // 
             // textBox3
@@ -1000,7 +1010,7 @@
             this.medicinePanel2.Controls.Add(this.textBox2);
             this.medicinePanel2.Location = new System.Drawing.Point(239, 256);
             this.medicinePanel2.Name = "medicinePanel2";
-            this.medicinePanel2.Size = new System.Drawing.Size(713, 59);
+            this.medicinePanel2.Size = new System.Drawing.Size(1035, 59);
             this.medicinePanel2.TabIndex = 47;
             // 
             // textBox10
@@ -1011,7 +1021,7 @@
             this.textBox10.Location = new System.Drawing.Point(268, 3);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(442, 50);
+            this.textBox10.Size = new System.Drawing.Size(764, 50);
             this.textBox10.TabIndex = 44;
             // 
             // textBox6
@@ -1102,7 +1112,7 @@
             this.pharmacyListBox.FormattingEnabled = true;
             this.pharmacyListBox.Location = new System.Drawing.Point(24, 157);
             this.pharmacyListBox.Name = "pharmacyListBox";
-            this.pharmacyListBox.Size = new System.Drawing.Size(185, 303);
+            this.pharmacyListBox.Size = new System.Drawing.Size(185, 407);
             this.pharmacyListBox.TabIndex = 24;
             // 
             // numericUpDownRefills
@@ -1152,7 +1162,7 @@
             this.basicPatientInfoPanel.Location = new System.Drawing.Point(0, 0);
             this.basicPatientInfoPanel.Margin = new System.Windows.Forms.Padding(2);
             this.basicPatientInfoPanel.Name = "basicPatientInfoPanel";
-            this.basicPatientInfoPanel.Size = new System.Drawing.Size(965, 491);
+            this.basicPatientInfoPanel.Size = new System.Drawing.Size(1287, 604);
             this.basicPatientInfoPanel.TabIndex = 8;
             this.basicPatientInfoPanel.Visible = false;
             // 
@@ -1175,7 +1185,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(896, 302);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1218, 415);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // panel4
@@ -1186,7 +1196,7 @@
             this.panel4.Location = new System.Drawing.Point(4, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(888, 67);
+            this.panel4.Size = new System.Drawing.Size(1210, 95);
             this.panel4.TabIndex = 0;
             // 
             // label5
@@ -1258,16 +1268,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name: ";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 51);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "New Appointment";
-            // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1278,9 +1278,9 @@
             this.Controls.Add(this.basicPatientInfoPanel);
             this.Controls.Add(this.createAppointmentPanel);
             this.Controls.Add(this.viewMedicalRecordPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PatientSearch";
-            this.Size = new System.Drawing.Size(965, 491);
+            this.Size = new System.Drawing.Size(1287, 604);
             this.Load += new System.EventHandler(this.PatientSearch_Load);
             this.patientBox.ResumeLayout(false);
             this.patientSearchPanel.ResumeLayout(false);
