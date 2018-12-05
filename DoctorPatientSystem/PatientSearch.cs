@@ -32,36 +32,37 @@ namespace DoctorPatientSystem
         {
 			if (patientView.SelectedIndices.Count != 0)
 			{
-				basicPatientInfoPanel.Show();
+                selectedPatient = (Patient)(patientResultsList[patientView.SelectedItems[0].Index]);
+                displayPatientInfo(selectedPatient);
+                determineDoctorAccess(selectedPatient);
+                basicPatientInfoPanel.Show();
 				patientSearchPanel.Hide();
-
-				selectedPatient = (Patient)(patientResultsList[patientView.SelectedItems[0].Index]);
-				displayPatientInfo(selectedPatient);
-				determineDoctorAccess(selectedPatient);
 			}
         }
 
 		public void resetPatientSearch()
 		{
 			patientView.Items.Clear();
-			patientSearchTextBox.Text = "";
+			patientSearchTextBox.Text = "Search for a patient";
 			patientSearchPanel.Show();
-			panel1.Hide();
+			basicPatientInfoPanel.Hide();
 			updateRecordPanel.Hide();
 			viewMedicalRecordPanel.Hide();
 		}
 
         private void nameSearch_Click(object sender, EventArgs e)
         {
-			patientView.Items.Clear();
+            if (patientSearchTextBox.Text.Equals("Search for a patient"))
+            {
+                patientSearchTextBox.Text = "";
+            }
+            patientView.Items.Clear();
 			Patient.retrievePatients(patientSearchTextBox.Text);
 			patientResultsList = Patient.displayPatients();
 			int i = 0;
 			foreach (Patient patient in patientResultsList)
 			{
-				
 				patientView.Items.Add(patient.Name);
-				patientView.Items[i].SubItems.Add(patient.Id.ToString());
 				patientView.Items[i].SubItems.Add(patient.BirthDate);
 				i++;
 			}
@@ -75,8 +76,6 @@ namespace DoctorPatientSystem
 
 		private void determineDoctorAccess(Patient selectedPatient)
 		{
-            // TODO fix button overlap for multiple buttons
-
 			bool hasAccess = selectedPatient.validateAccess(User.Id);
 			bool hasRecord = selectedPatient.hasMedicalRecord();
 			Console.WriteLine("hasRecord is " + hasRecord);
@@ -189,17 +188,20 @@ namespace DoctorPatientSystem
 
 		private void submitUpdateButton_Click(object sender, EventArgs e)
 		{
-			String ms = maritalStatusTextBox.Text;
-			int h = Int32.Parse(heightTextBox.Text);
-			int w = Int32.Parse(weightTextBox.Text);
-			String d = disordersTextBox.Text;
-			String a = allergiesTextBox.Text;
-			String n = notesTextBox.Text;
-			selectedPatient.updateMedicalRecord(ms, h, w, d, a, n);
-			displayMedicalRecord(); //display updated info
-			updateRecordPanel.Hide();
-			viewMedicalRecordPanel.Show();
-
+            if (new ConfirmationPopup("Are you sure you want to update " + selectedPatient.Name + "'s medical records?", "")
+                .ShowDialog() == DialogResult.OK)
+            {
+                String ms = maritalStatusTextBox.Text;
+                int h = Int32.Parse(heightTextBox.Text);
+                int w = Int32.Parse(weightTextBox.Text);
+                String d = disordersTextBox.Text;
+                String a = allergiesTextBox.Text;
+                String n = notesTextBox.Text;
+                selectedPatient.updateMedicalRecord(ms, h, w, d, a, n);
+                displayMedicalRecord(); //display updated info
+                updateRecordPanel.Hide();
+                viewMedicalRecordPanel.Show();
+            }
 		}
 
 		private void createMedicalRecordButton_Click(object sender, EventArgs e)
@@ -213,18 +215,22 @@ namespace DoctorPatientSystem
 
 		private void createButton_Click(object sender, EventArgs e)
 		{
-			String ms = maritalStatusTextBox.Text;
-			int h = Int32.Parse(heightTextBox.Text);
-			int w = Int32.Parse(weightTextBox.Text);
-			String d = disordersTextBox.Text;
-			String a = allergiesTextBox.Text;
-			String n = notesTextBox.Text;
-			selectedPatient.createMedicalRecord(ms, h, w, d, a, n);
-			displayMedicalRecord(); //display newly created record
-			updateRecordPanel.Hide();
-			viewMedicalRecordPanel.Show();
-			createMedicalRecordButton.Hide();
-			updateMedicalRecordButton.Show();
+            if (new ConfirmationPopup("Are you sure you want to create a new medical record for this patient?", "")
+                .ShowDialog() == DialogResult.OK)
+            {
+                String ms = maritalStatusTextBox.Text;
+                int h = Int32.Parse(heightTextBox.Text);
+                int w = Int32.Parse(weightTextBox.Text);
+                String d = disordersTextBox.Text;
+                String a = allergiesTextBox.Text;
+                String n = notesTextBox.Text;
+                selectedPatient.createMedicalRecord(ms, h, w, d, a, n);
+                displayMedicalRecord(); //display newly created record
+                updateRecordPanel.Hide();
+                viewMedicalRecordPanel.Show();
+                createMedicalRecordButton.Hide();
+                updateMedicalRecordButton.Show();
+            }
 		}
 
         private void createAppointmentButton_Click(object sender, EventArgs e)
@@ -254,24 +260,27 @@ namespace DoctorPatientSystem
 
 		private void confirmAppointmentButton_Click(object sender, EventArgs e)
 		{
-			DialogResult dialogResult = new ConfirmationPopup("Are you sure you want to make this appointment?",
-			   "Appointment with " + selectedPatient.Name + " at " + availableAppointmentsListBox.SelectedItem + " on " + appointmentDateTimePicker.Text).ShowDialog();
-			if (dialogResult == DialogResult.OK)
-			{
-				//Create new appointment
-				DateTime date = Convert.ToDateTime(appointmentDateTimePicker.Text);
-				DateTime time = Convert.ToDateTime(availableAppointmentsListBox.SelectedItem);
-				date = date.AddHours(time.Hour);
-				date = date.AddMinutes(time.Minute);
-				Appointment.createAppointment(User.Id, selectedPatient.Id, date.ToString("yyyy-MM-dd HH:mm:ss"), "Accepted");
+            if (availableAppointmentsListBox.SelectedIndices.Count != 0)
+            {
+                if (new ConfirmationPopup("Are you sure you want to make this appointment?",
+                   "Appointment with " + selectedPatient.Name + " at " + availableAppointmentsListBox.SelectedItem + " on "
+                   + appointmentDateTimePicker.Text).ShowDialog() == DialogResult.OK)
+                {
+                    //Create new appointment
+                    DateTime date = Convert.ToDateTime(appointmentDateTimePicker.Text);
+                    DateTime time = Convert.ToDateTime(availableAppointmentsListBox.SelectedItem);
+                    date = date.AddHours(time.Hour);
+                    date = date.AddMinutes(time.Minute);
+                    Appointment.createAppointment(User.Id, selectedPatient.Id, date.ToString("yyyy-MM-dd HH:mm:ss"), "Accepted");
 
-				//Display confirmation
-				new AlertDialog("The appointment was made.").ShowDialog();
-			}
+                    //Display confirmation
+                    new AlertDialog("The appointment was made.").ShowDialog();
+                }
 
-			//send notice to patient
-			String message = Doctor.retrieveDoctorName(User.Id) + " has made an appointment for you at " + availableAppointmentsListBox.SelectedItem + " on " + appointmentDateTimePicker.Text;
-			Notice.sendNotice(selectedPatient.Id, message, 12);
+                //send notice to patient
+                String message = Doctor.retrieveDoctorName(User.Id) + " has made an appointment for you at " + availableAppointmentsListBox.SelectedItem + " on " + appointmentDateTimePicker.Text;
+                Notice.sendNotice(selectedPatient.Id, message, Notice.SEND_NEW_APPOINTMENT_NOTICE_TYPE);
+            }
 		}
 
 		private void appointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -354,6 +363,11 @@ namespace DoctorPatientSystem
             {
                 medicinePanel4.Hide();
             }
+        }
+
+        private void patientSearchTextBox_Click(object sender, EventArgs e)
+        {
+            patientSearchTextBox.Text = "";
         }
 
         private void addPrescription_Click(object sender, EventArgs e)
