@@ -138,18 +138,6 @@
     <Compile Include="PatientSearch.Designer.cs">
       <DependentUpon>PatientSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhoneRequestResponse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PhoneRequestResponse.designer.cs">
-      <DependentUpon>PhoneRequestResponse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PhoneRequestResponsePopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PhoneRequestResponsePopup.designer.cs">
-      <DependentUpon>PhoneRequestResponsePopup.cs</DependentUpon>
-    </Compile>
     <Compile Include="Prescription.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,12 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PhoneRequestResponse.resx">
-      <DependentUpon>PhoneRequestResponse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PhoneRequestResponsePopup.resx">
-      <DependentUpon>PhoneRequestResponsePopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

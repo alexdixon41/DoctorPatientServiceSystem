@@ -209,6 +209,7 @@
             this.ClientSize = new System.Drawing.Size(832, 553);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.loginMenuPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

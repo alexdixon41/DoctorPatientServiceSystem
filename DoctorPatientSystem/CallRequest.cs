@@ -51,50 +51,48 @@ namespace DoctorPatientSystem
         {
             Patient currPatient = new Patient();
             currPatient.retrievePhoneNumber(User.Id);
-            selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
-            switch (currPatient.PhoneNums.Count)
+            if (!(doctorListView.SelectedIndices.Count == 0))
             {
-                case 1:
-                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0];
-                    Notice.sendNotice(selectedDoc.Id, message, 4);
-                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
-                    break;
-                case 2:
-                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", or " + currPatient.PhoneNums[1];
-                    Notice.sendNotice(selectedDoc.Id, message, 4);
-                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
-                    break;
-                case 3:
-                    message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", " + currPatient.PhoneNums[1] + ", or " + currPatient.PhoneNums[2];
-                    Notice.sendNotice(selectedDoc.Id, message, 4);
-                    new AlertDialog("Your phonecall request has been sent.").ShowDialog();
-                    break;
-                default:
-                    AlertDialog noPhoneAlert = new AlertDialog("You have no Phonenumber listed in our systems contact your systems administrator.");
-                    noPhoneAlert.ShowDialog();
-                    break;
+                selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+                switch (currPatient.PhoneNums.Count)
+                {
+                    case 1:
+                        message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0];
+                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        new AlertDialog("Your phone call request has been sent.").ShowDialog();
+                        break;
+                    case 2:
+                        message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", or " + currPatient.PhoneNums[1];
+                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        new AlertDialog("Your phone call request has been sent.").ShowDialog();
+                        break;
+                    case 3:
+                        message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", " + currPatient.PhoneNums[1] + ", or " + currPatient.PhoneNums[2];
+                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        new AlertDialog("Your phone call request has been sent.").ShowDialog();
+                        break;
+                    default:
+                        AlertDialog noPhoneAlert = new AlertDialog("You have no phone number listed in our systems. Please contact your systems administrator.");
+                        noPhoneAlert.ShowDialog();
+                        break;
+                }
             }
-            
-            
-        }
-
-        private void CallRequest_Load(object sender, EventArgs e)
-        {
-            Doctor.retrieveDoctors(key);
-            populateList();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             key = searchKey.Text;
-            if (!searchKey.Text.Equals(null))
+            if (!(searchKey.Text.Equals("Search for a doctor")))
             {
                 Doctor.retrieveDoctors(key);
                 populateList();
-            }else
-            {
-                populateList();
             }
+        }
+
+        private void searchKey_Click(object sender, EventArgs e)
+        {
+            searchKey.Text = "";
+            searchKey.ForeColor = Color.Black;
         }
     }
 }

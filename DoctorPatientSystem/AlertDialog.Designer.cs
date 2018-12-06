@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlertDialog));
             this.primaryText = new System.Windows.Forms.Label();
             this.confirmButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -36,7 +37,8 @@
             // 
             this.primaryText.AutoSize = true;
             this.primaryText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.primaryText.Location = new System.Drawing.Point(13, 13);
+            this.primaryText.Location = new System.Drawing.Point(11, 14);
+            this.primaryText.Margin = new System.Windows.Forms.Padding(3, 0, 18, 0);
             this.primaryText.Name = "primaryText";
             this.primaryText.Size = new System.Drawing.Size(92, 28);
             this.primaryText.TabIndex = 0;
@@ -45,10 +47,11 @@
             // confirmButton
             // 
             this.confirmButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.confirmButton.Location = new System.Drawing.Point(349, 105);
-            this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.confirmButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmButton.Location = new System.Drawing.Point(305, 111);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 11);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(95, 34);
+            this.confirmButton.Size = new System.Drawing.Size(83, 36);
             this.confirmButton.TabIndex = 2;
             this.confirmButton.Text = "OK";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -56,15 +59,18 @@
             // AlertDialog
             // 
             this.AcceptButton = this.confirmButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 149);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(417, 158);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.primaryText);
+            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlertDialog";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 26, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AlertDialog";
+            this.Text = "Alert";
             this.Load += new System.EventHandler(this.AlertDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
