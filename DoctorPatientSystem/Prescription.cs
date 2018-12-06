@@ -358,7 +358,7 @@ namespace DoctorPatientSystem
                 string sql;
                     sql = @"SELECT DATE_FORMAT(pr.datefilled, ""%Y-%m-%d"") AS 'dateFilled', pr.refills, pr.remainingRefills, pr.prescriptionStatus, pr.id, d.name AS 'doctorName', p.name AS 'patientName', ph.name AS 'pharmacyName', p.patientID, d.id AS 'doctorID', ph.id AS 'pharmacyID'
                             FROM dixonPrescription pr JOIN dixondoctor d ON pr.doctorID = d.id 
-                            JOIN dixonpharmacy ph ON pr.id = ph.id
+                            JOIN dixonpharmacy ph ON pr.pharmacyID = ph.id
                             JOIN DixonPatient p ON pr.patientID = p.patientID
                             WHERE pr.patientID = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
