@@ -56,10 +56,10 @@
             this.notificationButton.FlatAppearance.BorderSize = 0;
             this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.notificationButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notificationButton.Location = new System.Drawing.Point(10, 11);
-            this.notificationButton.Margin = new System.Windows.Forms.Padding(10, 11, 10, 0);
+            this.notificationButton.Location = new System.Drawing.Point(11, 10);
+            this.notificationButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.notificationButton.Name = "notificationButton";
-            this.notificationButton.Size = new System.Drawing.Size(230, 97);
+            this.notificationButton.Size = new System.Drawing.Size(228, 92);
             this.notificationButton.TabIndex = 2;
             this.notificationButton.Text = "Notices";
             this.notificationButton.UseVisualStyleBackColor = false;
@@ -83,8 +83,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer1.Size = new System.Drawing.Size(1081, 800);
+            this.splitContainer1.Size = new System.Drawing.Size(1235, 753);
             this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -106,8 +107,8 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
-            this.splitContainer2.Size = new System.Drawing.Size(250, 800);
-            this.splitContainer2.SplitterDistance = 446;
+            this.splitContainer2.Size = new System.Drawing.Size(250, 753);
+            this.splitContainer2.SplitterDistance = 419;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -122,14 +123,14 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 11);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 446);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 419);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // refillRequestButton
@@ -139,10 +140,10 @@
             this.refillRequestButton.FlatAppearance.BorderSize = 0;
             this.refillRequestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refillRequestButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refillRequestButton.Location = new System.Drawing.Point(10, 119);
-            this.refillRequestButton.Margin = new System.Windows.Forms.Padding(10, 11, 10, 0);
+            this.refillRequestButton.Location = new System.Drawing.Point(11, 112);
+            this.refillRequestButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.refillRequestButton.Name = "refillRequestButton";
-            this.refillRequestButton.Size = new System.Drawing.Size(230, 97);
+            this.refillRequestButton.Size = new System.Drawing.Size(228, 92);
             this.refillRequestButton.TabIndex = 6;
             this.refillRequestButton.Text = "Refill Requests";
             this.refillRequestButton.UseVisualStyleBackColor = false;
@@ -155,10 +156,10 @@
             this.patientSearchButton.FlatAppearance.BorderSize = 0;
             this.patientSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.patientSearchButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientSearchButton.Location = new System.Drawing.Point(10, 227);
-            this.patientSearchButton.Margin = new System.Windows.Forms.Padding(10, 11, 10, 0);
+            this.patientSearchButton.Location = new System.Drawing.Point(11, 214);
+            this.patientSearchButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.patientSearchButton.Name = "patientSearchButton";
-            this.patientSearchButton.Size = new System.Drawing.Size(230, 97);
+            this.patientSearchButton.Size = new System.Drawing.Size(228, 92);
             this.patientSearchButton.TabIndex = 5;
             this.patientSearchButton.Text = "Search for a Patient";
             this.patientSearchButton.UseVisualStyleBackColor = false;
@@ -171,10 +172,10 @@
             this.viewAppointmentsButton.FlatAppearance.BorderSize = 0;
             this.viewAppointmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewAppointmentsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewAppointmentsButton.Location = new System.Drawing.Point(10, 335);
-            this.viewAppointmentsButton.Margin = new System.Windows.Forms.Padding(10, 11, 10, 0);
+            this.viewAppointmentsButton.Location = new System.Drawing.Point(11, 316);
+            this.viewAppointmentsButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.viewAppointmentsButton.Name = "viewAppointmentsButton";
-            this.viewAppointmentsButton.Size = new System.Drawing.Size(230, 100);
+            this.viewAppointmentsButton.Size = new System.Drawing.Size(228, 93);
             this.viewAppointmentsButton.TabIndex = 4;
             this.viewAppointmentsButton.Text = "View Appointments";
             this.viewAppointmentsButton.UseVisualStyleBackColor = false;
@@ -186,8 +187,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.panel1.Size = new System.Drawing.Size(250, 350);
+            this.panel1.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.panel1.Size = new System.Drawing.Size(250, 330);
             this.panel1.TabIndex = 0;
             // 
             // doctorLogoutButton
@@ -199,10 +200,10 @@
             this.doctorLogoutButton.FlatAppearance.BorderSize = 0;
             this.doctorLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.doctorLogoutButton.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doctorLogoutButton.Location = new System.Drawing.Point(10, 11);
+            this.doctorLogoutButton.Location = new System.Drawing.Point(11, 10);
             this.doctorLogoutButton.Name = "doctorLogoutButton";
-            this.doctorLogoutButton.Padding = new System.Windows.Forms.Padding(18, 21, 18, 21);
-            this.doctorLogoutButton.Size = new System.Drawing.Size(230, 328);
+            this.doctorLogoutButton.Padding = new System.Windows.Forms.Padding(21, 20, 21, 20);
+            this.doctorLogoutButton.Size = new System.Drawing.Size(228, 310);
             this.doctorLogoutButton.TabIndex = 0;
             this.doctorLogoutButton.Text = "Logout";
             this.doctorLogoutButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -211,14 +212,13 @@
             // 
             // DoctorMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 800);
+            this.ClientSize = new System.Drawing.Size(1235, 753);
             this.Controls.Add(this.splitContainer1);
-            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1096, 739);
+            this.MinimumSize = new System.Drawing.Size(1250, 698);
             this.Name = "DoctorMenu";
             this.Text = "Doctor Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

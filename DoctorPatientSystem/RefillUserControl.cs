@@ -110,6 +110,9 @@ namespace DoctorPatientSystem
                 "Note: This will send the refill request to the pharmacy").ShowDialog() == DialogResult.OK)
             {
                 selectedRefillRequest.changeStatus(RefillRequest.ACCEPTED_STATUS_CODE);
+                string message = selectedRefillRequest.Prescription.PrescriberName + 
+                    " has granted your refill permit. Your refill request has been sent to " + selectedRefillRequest.Prescription.PharmacyId;
+                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId, message, Notice.SEND_REFILL_PERMIT_ACCEPT_NOTICE_TYPE);
                 new AlertDialog("The refill permit was accepted.");
                 statusLabel.Text = "New";
                 rejectButton.Enabled = false;
@@ -123,6 +126,9 @@ namespace DoctorPatientSystem
                 "Note: The patient will not be able to request this refill from the pharmacy").ShowDialog() == DialogResult.OK)
             {
                 selectedRefillRequest.changeStatus(RefillRequest.DENIED_STATUS_CODE);
+                string message = selectedRefillRequest.Prescription.PrescriberName +
+                    " has denied your refill permit. Please visit your doctor if you need a new prescription.";
+                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId, message, Notice.SEND_REFILL_PERMIT_DENY_NOTICE_TYPE);
                 new AlertDialog("The refill permit was denied.");
                 statusLabel.Text = "Denied";
                 rejectButton.Enabled = false;

@@ -84,6 +84,7 @@ namespace DoctorPatientSystem
                     if (dialogResult == DialogResult.OK)
                     {
                         selectedPrescription.createRefillRequest("Unapproved");
+                        selectedPrescription.disableRefillRequest();
                         new AlertDialog("The refill permit was requested.").ShowDialog();
                     }
                 }
@@ -94,10 +95,10 @@ namespace DoctorPatientSystem
                     if (dialogResult == DialogResult.OK)
                     {
                         selectedPrescription.createRefillRequest("New");
+                        selectedPrescription.disableRefillRequest();
                         new AlertDialog("The refill was requested.").ShowDialog();
                     }
-                }
-                selectedPrescription.disableRefillRequest();
+                }                
             }
             else
             {

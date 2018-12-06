@@ -274,13 +274,7 @@ namespace DoctorPatientSystem
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@id", User.Id);
                 cmd.Parameters.AddWithValue("@pId", Id);
-                cmd.ExecuteNonQuery();
-
-                sql = @"UPDATE DixonPrescription
-                    SET canRequestRefill = FALSE 
-                    WHERE id = @id;";
-                cmd.Parameters.AddWithValue("@id", User.Id);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();                                
                 Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)
