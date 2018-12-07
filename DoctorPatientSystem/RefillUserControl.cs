@@ -111,7 +111,7 @@ namespace DoctorPatientSystem
             {
                 selectedRefillRequest.changeStatus(RefillRequest.ACCEPTED_STATUS_CODE);
                 string message = selectedRefillRequest.Prescription.PrescriberName + 
-                    " has granted your refill permit. Your refill request has been sent to " + selectedRefillRequest.Prescription.PharmacyId;
+                    " has granted your refill permit. Your refill request has been sent to " + selectedRefillRequest.Prescription.PharmacyName;
                 Notice.sendNotice(selectedRefillRequest.Prescription.PatientId, message, Notice.SEND_REFILL_PERMIT_ACCEPT_NOTICE_TYPE);
                 new AlertDialog("The refill permit was accepted.");
                 statusLabel.Text = "New";

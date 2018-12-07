@@ -57,10 +57,10 @@
             this.appointmentButton.FlatAppearance.BorderSize = 0;
             this.appointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.appointmentButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointmentButton.Location = new System.Drawing.Point(11, 87);
+            this.appointmentButton.Location = new System.Drawing.Point(11, 89);
             this.appointmentButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.appointmentButton.Name = "appointmentButton";
-            this.appointmentButton.Size = new System.Drawing.Size(228, 67);
+            this.appointmentButton.Size = new System.Drawing.Size(228, 69);
             this.appointmentButton.TabIndex = 1;
             this.appointmentButton.Text = "Request Appointment";
             this.appointmentButton.UseVisualStyleBackColor = false;
@@ -73,10 +73,10 @@
             this.phoneCallButton.FlatAppearance.BorderSize = 0;
             this.phoneCallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.phoneCallButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneCallButton.Location = new System.Drawing.Point(11, 164);
+            this.phoneCallButton.Location = new System.Drawing.Point(11, 168);
             this.phoneCallButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.phoneCallButton.Name = "phoneCallButton";
-            this.phoneCallButton.Size = new System.Drawing.Size(228, 67);
+            this.phoneCallButton.Size = new System.Drawing.Size(228, 69);
             this.phoneCallButton.TabIndex = 2;
             this.phoneCallButton.Text = "Request a Phone Call";
             this.phoneCallButton.UseVisualStyleBackColor = false;
@@ -89,10 +89,10 @@
             this.refillButton.FlatAppearance.BorderSize = 0;
             this.refillButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refillButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refillButton.Location = new System.Drawing.Point(11, 241);
+            this.refillButton.Location = new System.Drawing.Point(11, 247);
             this.refillButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.refillButton.Name = "refillButton";
-            this.refillButton.Size = new System.Drawing.Size(228, 67);
+            this.refillButton.Size = new System.Drawing.Size(228, 69);
             this.refillButton.TabIndex = 3;
             this.refillButton.Text = "Request a Refill";
             this.refillButton.UseVisualStyleBackColor = false;
@@ -105,10 +105,10 @@
             this.recordsButton.FlatAppearance.BorderSize = 0;
             this.recordsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.recordsButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordsButton.Location = new System.Drawing.Point(11, 318);
+            this.recordsButton.Location = new System.Drawing.Point(11, 326);
             this.recordsButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.recordsButton.Name = "recordsButton";
-            this.recordsButton.Size = new System.Drawing.Size(228, 70);
+            this.recordsButton.Size = new System.Drawing.Size(228, 72);
             this.recordsButton.TabIndex = 4;
             this.recordsButton.Text = "View Medical Records";
             this.recordsButton.UseVisualStyleBackColor = false;
@@ -124,7 +124,7 @@
             this.notificationsButton.Location = new System.Drawing.Point(11, 10);
             this.notificationsButton.Margin = new System.Windows.Forms.Padding(11, 10, 11, 0);
             this.notificationsButton.Name = "notificationsButton";
-            this.notificationsButton.Size = new System.Drawing.Size(228, 67);
+            this.notificationsButton.Size = new System.Drawing.Size(228, 69);
             this.notificationsButton.TabIndex = 0;
             this.notificationsButton.Text = "Notices";
             this.notificationsButton.UseVisualStyleBackColor = false;
@@ -132,9 +132,10 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
@@ -156,8 +157,9 @@
             // 
             // splitContainer2
             // 
-            this.splitContainer2.BackColor = System.Drawing.Color.Black;
+            this.splitContainer2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer2.Name = "splitContainer2";
@@ -175,6 +177,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Size = new System.Drawing.Size(250, 753);
             this.splitContainer2.SplitterDistance = 398;
+            this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -190,7 +193,6 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -207,7 +209,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
-            this.panel1.Size = new System.Drawing.Size(250, 351);
+            this.panel1.Size = new System.Drawing.Size(250, 354);
             this.panel1.TabIndex = 1;
             // 
             // logoutButton
@@ -222,7 +224,7 @@
             this.logoutButton.Location = new System.Drawing.Point(11, 10);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Padding = new System.Windows.Forms.Padding(21, 20, 21, 20);
-            this.logoutButton.Size = new System.Drawing.Size(228, 331);
+            this.logoutButton.Size = new System.Drawing.Size(228, 334);
             this.logoutButton.TabIndex = 0;
             this.logoutButton.Text = "Logout";
             this.logoutButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

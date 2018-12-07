@@ -20,7 +20,7 @@ namespace DoctorPatientSystem
         private string doctorName;
         private string doctorID;
         private string status;
-		
+        
         public string StartTime
         {
             get
@@ -106,6 +106,20 @@ namespace DoctorPatientSystem
             }
         }
 
+        private static int newAppointmentCount;
+        public static int NewAppointmentCount
+        {
+            get
+            {
+                return newAppointmentCount;
+            }
+
+            set
+            {
+                newAppointmentCount = value;
+            }
+        }
+
         public static void createAppointment(int doctorID, int patientID, string time, string status)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -161,7 +175,7 @@ namespace DoctorPatientSystem
 				Console.WriteLine(ex.ToString());
 			}
 			conn.Close();
-
+            int newCount = 0;
 			appointmentList.Clear();
 			foreach (DataRow row in table.Rows)
 			{
@@ -171,8 +185,11 @@ namespace DoctorPatientSystem
 				newAppointment.status = row["appointmentStatus"].ToString();
 				newAppointment.id = Int32.Parse(row["id"].ToString());
 				newAppointment.patientID = row["patientID"].ToString();
+                if (newAppointment.status.Equals("New"))
+                    newCount++;
 				appointmentList.Add(newAppointment);
 			}
+            NewAppointmentCount = newCount;
 		}
 
 		//updates the status of the appointment to newStatus

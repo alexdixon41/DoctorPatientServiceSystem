@@ -337,7 +337,7 @@ namespace DoctorPatientSystem
         }
 
         /// <summary>
-        /// Execute SQL query to retrieve prescriptions matching user's id
+        /// Execute SQL query to retrieve a user's Complete prescriptions to request a refill of
         /// </summary>
         public static void retrievePatientPrescriptions()
         {
@@ -354,7 +354,7 @@ namespace DoctorPatientSystem
                             FROM dixonPrescription pr JOIN dixondoctor d ON pr.doctorID = d.id 
                             JOIN dixonpharmacy ph ON pr.pharmacyID = ph.id
                             JOIN DixonPatient p ON pr.patientID = p.patientID
-                            WHERE pr.patientID = @id";
+                            WHERE pr.patientID = @id AND pr.prescriptionStatus = 'Complete'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", User.Id);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);

@@ -24,7 +24,7 @@ namespace DoctorPatientSystem
 
         private void notificationButton_Click(object sender, EventArgs e)
         {
-            Notice.retrieveNotices();
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -37,6 +37,7 @@ namespace DoctorPatientSystem
 
         private void patientSearchButton_Click(object sender, EventArgs e)
         {
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -50,7 +51,7 @@ namespace DoctorPatientSystem
 
 		private void viewAppointmentsButton_Click(object sender, EventArgs e)
 		{
-			Appointment.retrieveAppointments(User.Id);
+            showUnread();
 			foreach (Control c in splitContainer1.Panel2.Controls)
 			{
 				c.Hide();
@@ -63,8 +64,8 @@ namespace DoctorPatientSystem
 		}
 
         private void refillRequestButton_Click(object sender, EventArgs e)
-        {
-            RefillRequest.retrieveRefillRequests();
+        {            
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -75,9 +76,24 @@ namespace DoctorPatientSystem
             refillRequestControl.Show();
         }
 
+        private void showUnread()
+        {
+            Notice.retrieveNotices();
+            RefillRequest.retrieveRefillRequests();
+            Appointment.retrieveAppointments(User.Id);
+            notificationButton.Text = "Notices  (" + Notice.Unread + ")";
+            refillRequestButton.Text = "Refill Requests  (" + RefillRequest.NewRefillRequestCount + ")";
+            viewAppointmentsButton.Text = "Appointments  (" + Appointment.NewAppointmentCount + ")";
+        }
+
         private void doctorLogoutButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void DoctorMenu_Load(object sender, EventArgs e)
+        {
+            showUnread();
         }
     }
 }

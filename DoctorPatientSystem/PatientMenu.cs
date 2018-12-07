@@ -25,6 +25,7 @@ namespace DoctorPatientSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -36,6 +37,7 @@ namespace DoctorPatientSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -47,6 +49,7 @@ namespace DoctorPatientSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
+            showUnread();
             Prescription.retrievePatientPrescriptions();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
@@ -61,6 +64,7 @@ namespace DoctorPatientSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -73,7 +77,7 @@ namespace DoctorPatientSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Notice.retrieveNotices();
+            showUnread();
             foreach (Control c in splitContainer1.Panel2.Controls)
             {
                 c.Hide();
@@ -82,6 +86,12 @@ namespace DoctorPatientSystem
             notificationControl.populateList();
             notificationControl.Dock = DockStyle.Fill;
             notificationControl.Show();
+        }
+
+        private void showUnread()
+        {
+            Notice.retrieveNotices();
+            notificationsButton.Text = "Notices  (" + Notice.Unread + ")";
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
