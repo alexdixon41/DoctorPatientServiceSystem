@@ -85,7 +85,7 @@
             this.prescriptionHistoryListView.FullRowSelect = true;
             this.prescriptionHistoryListView.Location = new System.Drawing.Point(2, 31);
             this.prescriptionHistoryListView.Name = "prescriptionHistoryListView";
-            this.prescriptionHistoryListView.Size = new System.Drawing.Size(480, 211);
+            this.prescriptionHistoryListView.Size = new System.Drawing.Size(677, 211);
             this.prescriptionHistoryListView.TabIndex = 0;
             this.prescriptionHistoryListView.UseCompatibleStateImageBehavior = false;
             this.prescriptionHistoryListView.View = System.Windows.Forms.View.Details;
@@ -129,8 +129,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
@@ -145,9 +145,9 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.generalHistoryListBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(494, 3);
+            this.panel3.Location = new System.Drawing.Point(691, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(486, 245);
+            this.panel3.Size = new System.Drawing.Size(289, 245);
             this.panel3.TabIndex = 4;
             // 
             // label4
@@ -172,7 +172,7 @@
             this.generalHistoryListBox.ItemHeight = 31;
             this.generalHistoryListBox.Location = new System.Drawing.Point(1, 31);
             this.generalHistoryListBox.Name = "generalHistoryListBox";
-            this.generalHistoryListBox.Size = new System.Drawing.Size(482, 211);
+            this.generalHistoryListBox.Size = new System.Drawing.Size(285, 211);
             this.generalHistoryListBox.TabIndex = 0;
             // 
             // panel4
@@ -182,7 +182,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(485, 245);
+            this.panel4.Size = new System.Drawing.Size(682, 245);
             this.panel4.TabIndex = 5;
             // 
             // label5

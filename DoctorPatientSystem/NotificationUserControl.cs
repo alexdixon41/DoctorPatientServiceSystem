@@ -100,7 +100,7 @@ namespace DoctorPatientSystem
 				//accept the record request
 				int doctorID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
 				String message = Patient.retrievePatientByID(User.Id).Name + " has accepted your request to view their medical records.";
-				Notice.sendNotice(doctorID, message, 8);
+				Notice.sendNotice(doctorID, message, Notice.SEND_RECORD_REQUEST_ACCEPT_NOTICE_TYPE);
 				Doctor.grantRecordAccess(doctorID, User.Id);
 
 				//after accepting a request, return to notifications

@@ -98,5 +98,10 @@ namespace DoctorPatientSystem
         {
             Application.Restart();
         }
+
+        private void PatientMenu_Load(object sender, EventArgs e)
+        {
+            showUnread();
+        }
     }
 }

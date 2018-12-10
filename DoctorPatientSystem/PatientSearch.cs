@@ -141,11 +141,13 @@ namespace DoctorPatientSystem
 
 		private void requestMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
-            //TODO add confirmation
-
-			String message = Doctor.retrieveDoctorName(User.Id) + " wants to view your medical records.";
-			Notice.sendNotice(selectedPatient.Id, message, 7);
-			new AlertDialog("Your record request has been sent.").ShowDialog();
+            if (new ConfirmationPopup("Are you sure you want to request to view " + selectedPatient.Name + "'s medical records?", "")
+                .ShowDialog() == DialogResult.OK)
+            {
+                String message = Doctor.retrieveDoctorName(User.Id) + " wants to view your medical records.";
+                Notice.sendNotice(selectedPatient.Id, message, 7);
+                new AlertDialog("Your record request has been sent.").ShowDialog();
+            }
 		}
 
 		private void backToBasicInfoButton_Click(object sender, EventArgs e)
@@ -244,20 +246,17 @@ namespace DoctorPatientSystem
             checkBox2.Show();
             checkBox3.Hide();
             checkBox4.Hide();
+
+            pharmacyListBox.Items.Clear();   
             Doctor.retrievePharmacies();
-            fillpharmacies(Doctor.displayPharmacies());
+            foreach (string s in Doctor.displayPharmacies())
+            {
+                pharmacyListBox.Items.Add(s);
+            }
             basicPatientInfoPanel.Hide();
             createPrescriptionPanel.Show();
         }
-        private void fillpharmacies(ArrayList pharmacy)
-        {
-            int i = 0;
-            foreach (string s in pharmacy)
-            {
-                pharmacyListBox.Items.Add(s);
-                i++;
-            }
-        }
+   
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
 		{
 			createAppointmentPanel.Hide();

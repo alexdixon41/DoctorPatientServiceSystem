@@ -11,7 +11,6 @@ namespace DoctorPatientSystem
 {
     class Prescription
     {
-
         private int id;
         private string date;
         private string patientName;
