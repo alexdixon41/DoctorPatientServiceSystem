@@ -58,17 +58,17 @@ namespace DoctorPatientSystem
                 {
                     case 1:
                         message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0];
-                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        Notice.sendNotice(selectedDoc.Id, message, Notice.SEND_PHONECALL_REQUEST_NOTICE_TYPE);
                         new AlertDialog("Your phone call request has been sent.").ShowDialog();
                         break;
                     case 2:
                         message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", or " + currPatient.PhoneNums[1];
-                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        Notice.sendNotice(selectedDoc.Id, message, Notice.SEND_PHONECALL_REQUEST_NOTICE_TYPE);
                         new AlertDialog("Your phone call request has been sent.").ShowDialog();
                         break;
                     case 3:
                         message = "" + currPatient.Name + " would like to request an immediate phone call, please call them at " + currPatient.PhoneNums[0] + ", " + currPatient.PhoneNums[1] + ", or " + currPatient.PhoneNums[2];
-                        Notice.sendNotice(selectedDoc.Id, message, 4);
+                        Notice.sendNotice(selectedDoc.Id, message, Notice.SEND_PHONECALL_REQUEST_NOTICE_TYPE);
                         new AlertDialog("Your phone call request has been sent.").ShowDialog();
                         break;
                     default:
@@ -81,12 +81,12 @@ namespace DoctorPatientSystem
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            key = searchKey.Text;
-            if (!(searchKey.Text.Equals("Search for a doctor")))
+            if (searchKey.Text.Equals("Search for a doctor"))
             {
-                Doctor.retrieveDoctors(key);
-                populateList();
-            }
+                searchKey.Text = "";
+            }            
+            Doctor.retrieveDoctors(key);
+            populateList();    
         }
 
         private void searchKey_Click(object sender, EventArgs e)

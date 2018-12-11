@@ -145,7 +145,7 @@ namespace DoctorPatientSystem
                 .ShowDialog() == DialogResult.OK)
             {
                 String message = Doctor.retrieveDoctorName(User.Id) + " wants to view your medical records.";
-                Notice.sendNotice(selectedPatient.Id, message, 7);
+                Notice.sendNotice(selectedPatient.Id, message, Notice.SEND_RECORD_REQUEST_NOTICE_TYPE);
                 new AlertDialog("Your record request has been sent.").ShowDialog();
             }
 		}
@@ -393,6 +393,7 @@ namespace DoctorPatientSystem
         private void patientSearchTextBox_Click(object sender, EventArgs e)
         {
             patientSearchTextBox.Text = "";
+            patientSearchTextBox.ForeColor = Color.Black;
         }
 
         private void addPrescription_Click(object sender, EventArgs e)
@@ -405,7 +406,7 @@ namespace DoctorPatientSystem
             switch (checkBoxAmnt)
             {
                 case 1:
-                    if (string.IsNullOrEmpty(medName1.Text) || (int)numericUpDownRefills.Value == 0)
+                    if (string.IsNullOrEmpty(medName1.Text))
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
@@ -416,12 +417,12 @@ namespace DoctorPatientSystem
                         medicine1.Dosage = dosageTextbox1.Text;
                         medicines.Add(medicine1);
                         
-                        Medicine.createMedicine(medicines ,Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
+                        Medicine.createMedicine(medicines, Prescription.createPrescription((int)Doctor.PharmaciesId[pharmacyListBox.SelectedIndex], (int)numericUpDownRefills.Value, selectedPatient.Id));
                         new AlertDialog("Your prescription has been made.").ShowDialog();
                     }
                     break;
                 case 2:
-                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || (int)numericUpDownRefills.Value == 0)
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text))
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     }
@@ -443,7 +444,7 @@ namespace DoctorPatientSystem
                     }
                     break;
                 case 3:
-                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text) || (int)numericUpDownRefills.Value == 0)
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text))
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
@@ -470,7 +471,7 @@ namespace DoctorPatientSystem
                     }
                     break;
                 case 4:
-                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text) || string.IsNullOrEmpty(medName4.Text) || (int)numericUpDownRefills.Value == 0)
+                    if (string.IsNullOrEmpty(medName1.Text) || string.IsNullOrEmpty(medName2.Text) || string.IsNullOrEmpty(medName3.Text) || string.IsNullOrEmpty(medName4.Text))
                     {
                         new AlertDialog("You're missing some information. Please be sure to fill out all forms throughout.").ShowDialog();
                     } else {
@@ -503,7 +504,7 @@ namespace DoctorPatientSystem
                     }
                     break;
                 default:
-                    new AlertDialog("You must add atleast one medicine to create a prescription.").ShowDialog();
+                    new AlertDialog("You must add at least one medicine to create a prescription.").ShowDialog();
                     break;
             }
             

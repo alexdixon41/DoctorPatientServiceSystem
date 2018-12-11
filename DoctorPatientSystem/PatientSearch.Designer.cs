@@ -128,13 +128,14 @@
             this.basicPatientInfoPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.createMedicalRecordButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.patientDOBLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.createMedicalRecordButton = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -430,8 +431,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 153);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -854,6 +855,8 @@
             // 
             // createPrescriptionPanel
             // 
+            this.createPrescriptionPanel.AutoScroll = true;
+            this.createPrescriptionPanel.AutoScrollMinSize = new System.Drawing.Size(900, 0);
             this.createPrescriptionPanel.Controls.Add(this.label17);
             this.createPrescriptionPanel.Controls.Add(this.label16);
             this.createPrescriptionPanel.Controls.Add(this.label14);
@@ -887,7 +890,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(557, 197);
+            this.label17.Location = new System.Drawing.Point(626, 197);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 23);
             this.label17.TabIndex = 56;
@@ -907,7 +910,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(780, 197);
+            this.label14.Location = new System.Drawing.Point(922, 197);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(103, 23);
             this.label14.TabIndex = 54;
@@ -917,7 +920,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(643, 197);
+            this.label13.Location = new System.Drawing.Point(746, 197);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 23);
             this.label13.TabIndex = 53;
@@ -927,7 +930,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(472, 197);
+            this.label12.Location = new System.Drawing.Point(515, 197);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 23);
             this.label12.TabIndex = 52;
@@ -937,7 +940,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(315, 197);
+            this.label11.Location = new System.Drawing.Point(319, 197);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(135, 23);
             this.label11.TabIndex = 51;
@@ -975,7 +978,7 @@
             // dosageTextbox1
             // 
             this.dosageTextbox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dosageTextbox1.Location = new System.Drawing.Point(239, 2);
+            this.dosageTextbox1.Location = new System.Drawing.Point(311, 4);
             this.dosageTextbox1.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
             this.dosageTextbox1.Name = "dosageTextbox1";
             this.dosageTextbox1.Size = new System.Drawing.Size(76, 34);
@@ -987,18 +990,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.instructionText1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionText1.Location = new System.Drawing.Point(465, 4);
+            this.instructionText1.Location = new System.Drawing.Point(607, 4);
             this.instructionText1.Margin = new System.Windows.Forms.Padding(4);
             this.instructionText1.Multiline = true;
             this.instructionText1.Name = "instructionText1";
             this.instructionText1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.instructionText1.Size = new System.Drawing.Size(443, 59);
+            this.instructionText1.Size = new System.Drawing.Size(301, 59);
             this.instructionText1.TabIndex = 44;
             // 
             // routeText1
             // 
             this.routeText1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeText1.Location = new System.Drawing.Point(325, 4);
+            this.routeText1.Location = new System.Drawing.Point(431, 4);
             this.routeText1.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
             this.routeText1.Name = "routeText1";
             this.routeText1.Size = new System.Drawing.Size(132, 34);
@@ -1007,10 +1010,10 @@
             // amntUpDown1
             // 
             this.amntUpDown1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amntUpDown1.Location = new System.Drawing.Point(181, 4);
+            this.amntUpDown1.Location = new System.Drawing.Point(200, 5);
             this.amntUpDown1.Margin = new System.Windows.Forms.Padding(40, 4, 40, 4);
             this.amntUpDown1.Name = "amntUpDown1";
-            this.amntUpDown1.Size = new System.Drawing.Size(45, 34);
+            this.amntUpDown1.Size = new System.Drawing.Size(67, 34);
             this.amntUpDown1.TabIndex = 36;
             // 
             // medName1
@@ -1040,7 +1043,7 @@
             // dosageTextBox4
             // 
             this.dosageTextBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dosageTextBox4.Location = new System.Drawing.Point(239, 4);
+            this.dosageTextBox4.Location = new System.Drawing.Point(311, 4);
             this.dosageTextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
             this.dosageTextBox4.Name = "dosageTextBox4";
             this.dosageTextBox4.Size = new System.Drawing.Size(76, 34);
@@ -1052,18 +1055,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.instructionText4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionText4.Location = new System.Drawing.Point(465, 4);
+            this.instructionText4.Location = new System.Drawing.Point(607, 4);
             this.instructionText4.Margin = new System.Windows.Forms.Padding(4);
             this.instructionText4.Multiline = true;
             this.instructionText4.Name = "instructionText4";
             this.instructionText4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.instructionText4.Size = new System.Drawing.Size(443, 61);
+            this.instructionText4.Size = new System.Drawing.Size(301, 61);
             this.instructionText4.TabIndex = 44;
             // 
             // routeText4
             // 
             this.routeText4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeText4.Location = new System.Drawing.Point(325, 5);
+            this.routeText4.Location = new System.Drawing.Point(431, 4);
             this.routeText4.Margin = new System.Windows.Forms.Padding(4);
             this.routeText4.Name = "routeText4";
             this.routeText4.Size = new System.Drawing.Size(132, 34);
@@ -1072,10 +1075,10 @@
             // amntUpDown4
             // 
             this.amntUpDown4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amntUpDown4.Location = new System.Drawing.Point(181, 4);
+            this.amntUpDown4.Location = new System.Drawing.Point(200, 5);
             this.amntUpDown4.Margin = new System.Windows.Forms.Padding(4);
             this.amntUpDown4.Name = "amntUpDown4";
-            this.amntUpDown4.Size = new System.Drawing.Size(45, 34);
+            this.amntUpDown4.Size = new System.Drawing.Size(67, 34);
             this.amntUpDown4.TabIndex = 36;
             // 
             // medName4
@@ -1105,7 +1108,7 @@
             // dosageTextbox3
             // 
             this.dosageTextbox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dosageTextbox3.Location = new System.Drawing.Point(239, 4);
+            this.dosageTextbox3.Location = new System.Drawing.Point(311, 4);
             this.dosageTextbox3.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
             this.dosageTextbox3.Name = "dosageTextbox3";
             this.dosageTextbox3.Size = new System.Drawing.Size(76, 34);
@@ -1117,18 +1120,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.instructionText3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionText3.Location = new System.Drawing.Point(465, 4);
+            this.instructionText3.Location = new System.Drawing.Point(607, 4);
             this.instructionText3.Margin = new System.Windows.Forms.Padding(4);
             this.instructionText3.Multiline = true;
             this.instructionText3.Name = "instructionText3";
             this.instructionText3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.instructionText3.Size = new System.Drawing.Size(443, 61);
+            this.instructionText3.Size = new System.Drawing.Size(301, 61);
             this.instructionText3.TabIndex = 44;
             // 
             // routeText3
             // 
             this.routeText3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeText3.Location = new System.Drawing.Point(325, 4);
+            this.routeText3.Location = new System.Drawing.Point(431, 4);
             this.routeText3.Margin = new System.Windows.Forms.Padding(4);
             this.routeText3.Name = "routeText3";
             this.routeText3.Size = new System.Drawing.Size(132, 34);
@@ -1137,10 +1140,10 @@
             // amntUpDown3
             // 
             this.amntUpDown3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amntUpDown3.Location = new System.Drawing.Point(181, 4);
+            this.amntUpDown3.Location = new System.Drawing.Point(200, 5);
             this.amntUpDown3.Margin = new System.Windows.Forms.Padding(4);
             this.amntUpDown3.Name = "amntUpDown3";
-            this.amntUpDown3.Size = new System.Drawing.Size(45, 34);
+            this.amntUpDown3.Size = new System.Drawing.Size(67, 34);
             this.amntUpDown3.TabIndex = 36;
             // 
             // medName3
@@ -1170,7 +1173,7 @@
             // dosageTextbox2
             // 
             this.dosageTextbox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dosageTextbox2.Location = new System.Drawing.Point(239, 4);
+            this.dosageTextbox2.Location = new System.Drawing.Point(311, 4);
             this.dosageTextbox2.Margin = new System.Windows.Forms.Padding(4, 4, 40, 4);
             this.dosageTextbox2.Name = "dosageTextbox2";
             this.dosageTextbox2.Size = new System.Drawing.Size(76, 34);
@@ -1182,18 +1185,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.instructionText2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionText2.Location = new System.Drawing.Point(465, 4);
+            this.instructionText2.Location = new System.Drawing.Point(607, 4);
             this.instructionText2.Margin = new System.Windows.Forms.Padding(4);
             this.instructionText2.Multiline = true;
             this.instructionText2.Name = "instructionText2";
             this.instructionText2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.instructionText2.Size = new System.Drawing.Size(443, 61);
+            this.instructionText2.Size = new System.Drawing.Size(301, 61);
             this.instructionText2.TabIndex = 44;
             // 
             // routeText2
             // 
             this.routeText2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.routeText2.Location = new System.Drawing.Point(325, 4);
+            this.routeText2.Location = new System.Drawing.Point(431, 4);
             this.routeText2.Margin = new System.Windows.Forms.Padding(4);
             this.routeText2.Name = "routeText2";
             this.routeText2.Size = new System.Drawing.Size(132, 34);
@@ -1202,10 +1205,10 @@
             // amntUpDown2
             // 
             this.amntUpDown2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amntUpDown2.Location = new System.Drawing.Point(181, 4);
+            this.amntUpDown2.Location = new System.Drawing.Point(200, 4);
             this.amntUpDown2.Margin = new System.Windows.Forms.Padding(4);
             this.amntUpDown2.Name = "amntUpDown2";
-            this.amntUpDown2.Size = new System.Drawing.Size(45, 34);
+            this.amntUpDown2.Size = new System.Drawing.Size(67, 34);
             this.amntUpDown2.TabIndex = 36;
             // 
             // medName2
@@ -1279,7 +1282,7 @@
             // 
             this.pharmacyLabel.AutoSize = true;
             this.pharmacyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pharmacyLabel.Location = new System.Drawing.Point(28, 197);
+            this.pharmacyLabel.Location = new System.Drawing.Point(22, 197);
             this.pharmacyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pharmacyLabel.Name = "pharmacyLabel";
             this.pharmacyLabel.Size = new System.Drawing.Size(154, 23);
@@ -1293,10 +1296,10 @@
             this.pharmacyListBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pharmacyListBox.FormattingEnabled = true;
             this.pharmacyListBox.ItemHeight = 28;
-            this.pharmacyListBox.Location = new System.Drawing.Point(32, 225);
+            this.pharmacyListBox.Location = new System.Drawing.Point(26, 224);
             this.pharmacyListBox.Margin = new System.Windows.Forms.Padding(4);
             this.pharmacyListBox.Name = "pharmacyListBox";
-            this.pharmacyListBox.Size = new System.Drawing.Size(245, 424);
+            this.pharmacyListBox.Size = new System.Drawing.Size(245, 480);
             this.pharmacyListBox.TabIndex = 24;
             // 
             // numericUpDownRefills
@@ -1387,6 +1390,23 @@
             this.panel4.Size = new System.Drawing.Size(1147, 160);
             this.panel4.TabIndex = 0;
             // 
+            // createMedicalRecordButton
+            // 
+            this.createMedicalRecordButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.createMedicalRecordButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createMedicalRecordButton.FlatAppearance.BorderSize = 0;
+            this.createMedicalRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createMedicalRecordButton.Location = new System.Drawing.Point(0, 0);
+            this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(5);
+            this.createMedicalRecordButton.Name = "createMedicalRecordButton";
+            this.createMedicalRecordButton.Size = new System.Drawing.Size(1147, 160);
+            this.createMedicalRecordButton.TabIndex = 18;
+            this.createMedicalRecordButton.Text = "Create Medical Record";
+            this.createMedicalRecordButton.UseVisualStyleBackColor = false;
+            this.createMedicalRecordButton.Visible = false;
+            this.createMedicalRecordButton.Click += new System.EventHandler(this.createMedicalRecordButton_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -1459,33 +1479,26 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name: ";
             // 
-            // createMedicalRecordButton
+            // panel5
             // 
-            this.createMedicalRecordButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.createMedicalRecordButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.createMedicalRecordButton.FlatAppearance.BorderSize = 0;
-            this.createMedicalRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createMedicalRecordButton.Location = new System.Drawing.Point(0, 0);
-            this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(5);
-            this.createMedicalRecordButton.Name = "createMedicalRecordButton";
-            this.createMedicalRecordButton.Size = new System.Drawing.Size(1147, 160);
-            this.createMedicalRecordButton.TabIndex = 18;
-            this.createMedicalRecordButton.Text = "Create Medical Record";
-            this.createMedicalRecordButton.UseVisualStyleBackColor = false;
-            this.createMedicalRecordButton.Visible = false;
-            this.createMedicalRecordButton.Click += new System.EventHandler(this.createMedicalRecordButton_Click);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1251, 743);
+            this.panel5.TabIndex = 20;
+            this.panel5.Visible = false;
             // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.basicPatientInfoPanel);
-            this.Controls.Add(this.createAppointmentPanel);
-            this.Controls.Add(this.viewMedicalRecordPanel);
-            this.Controls.Add(this.updateRecordPanel);
-            this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.createPrescriptionPanel);
+            this.Controls.Add(this.updateRecordPanel);
+            this.Controls.Add(this.basicPatientInfoPanel);
+            this.Controls.Add(this.viewMedicalRecordPanel);
+            this.Controls.Add(this.createAppointmentPanel);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.patientSearchPanel);
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "PatientSearch";
             this.Size = new System.Drawing.Size(1251, 743);
@@ -1639,5 +1652,6 @@
         private System.Windows.Forms.TextBox dosageTextbox3;
         private System.Windows.Forms.TextBox dosageTextbox2;
         private System.Windows.Forms.Button createMedicalRecordButton;
+        private System.Windows.Forms.Panel panel5;
     }
 }

@@ -128,7 +128,7 @@ namespace DoctorPatientSystem
                 selectedRefillRequest.changeStatus(RefillRequest.DENIED_STATUS_CODE);
                 string message = selectedRefillRequest.Prescription.PrescriberName +
                     " has denied your refill permit. Please visit your doctor if you need a new prescription.";
-                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId, message, Notice.SEND_REFILL_PERMIT_DENY_NOTICE_TYPE);
+                Notice.sendNotice(selectedRefillRequest.Prescription.PatientId, message, Notice.SEND_REFILL_PERMIT_REJECT_NOTICE_TYPE);
                 new AlertDialog("The refill permit was denied.");
                 statusLabel.Text = "Denied";
                 rejectButton.Enabled = false;

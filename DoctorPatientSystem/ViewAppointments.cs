@@ -50,7 +50,7 @@ namespace DoctorPatientSystem
 
 				// Send notice to patient that their appointment was denied
 				String message = Doctor.retrieveDoctorName(User.Id) + " has denied your appointment request.";
-				Notice.sendNotice(Int32.Parse(selectedAppointment.PatientID), message, 11);
+				Notice.sendNotice(Int32.Parse(selectedAppointment.PatientID), message, Notice.SEND_APPOINTMENT_REQUEST_REJECT_NOTICE_TYPE);
 
 				populateListView(); //update list view with changed status
 				viewAppointmentsPanel.Show();
@@ -68,7 +68,7 @@ namespace DoctorPatientSystem
 
 				// Send notice to patient that their appointment was accepted
 				String message = Doctor.retrieveDoctorName(User.Id) + " has accepted your appointment request.";
-				Notice.sendNotice(Int32.Parse(selectedAppointment.PatientID), message, 10);
+				Notice.sendNotice(Int32.Parse(selectedAppointment.PatientID), message, Notice.SEND_APPOINTMENT_REQUEST_ACCEPT_NOTICE_TYPE);
 
 				populateListView();
 				viewAppointmentsPanel.Show();

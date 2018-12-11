@@ -81,7 +81,7 @@ namespace DoctorPatientSystem
 				//deny the record request
 				String message = Patient.retrievePatientByID(User.Id).Name + " has denied your request to view their medical records.";
 				int receiverID = Notice.retrievedDoctorSenderID(selectedNotice.Id);
-				Notice.sendNotice(receiverID, message, 9);
+				Notice.sendNotice(receiverID, message, Notice.SEND_RECORD_REQUEST_REJECT_NOTICE_TYPE);
 
 				//after denying a request, return to notifications
 				Notice.retrieveNotices();

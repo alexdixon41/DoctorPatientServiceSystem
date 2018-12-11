@@ -140,9 +140,8 @@ namespace DoctorPatientSystem
                 request.Prescription.Refills = (int)row["refills"];
                 request.Prescription.RemainingRefills = (int)row["remainingRefills"];
                 request.Prescription.Id = (int)row["pid"];
-                request.Prescription.PatientId = (int)row["patientID"];
-                if (request.Status.Equals("New"))
-                    newCount++;
+                request.Prescription.PatientId = (int)row["patientID"];                
+                newCount++;
                 refillRequests.Add(request);
             }
             newRefillRequestCount = newCount;
