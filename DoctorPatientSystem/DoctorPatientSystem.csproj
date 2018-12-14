@@ -92,12 +92,6 @@
     <Compile Include="ConfirmationPopup.Designer.cs">
       <DependentUpon>ConfirmationPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateMedicalRecord.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CreateMedicalRecord.designer.cs">
-      <DependentUpon>CreateMedicalRecord.cs</DependentUpon>
-    </Compile>
     <Compile Include="Doctor.cs" />
     <Compile Include="DoctorMenu.cs">
       <SubType>Form</SubType>
@@ -170,9 +164,6 @@
     <EmbeddedResource Include="ConfirmationPopup.resx">
       <DependentUpon>ConfirmationPopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateMedicalRecord.resx">
-      <DependentUpon>CreateMedicalRecord.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DoctorMenu.resx">
       <DependentUpon>DoctorMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +198,7 @@
     <EmbeddedResource Include="ViewAppointments.resx">
       <DependentUpon>ViewAppointments.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

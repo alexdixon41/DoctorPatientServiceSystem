@@ -15,25 +15,28 @@ namespace DoctorPatientSystem
     {
 		private ArrayList patientResultsList = new ArrayList();
 		private Patient selectedPatient = new Patient();
-		private Doctor doctorUser = new Doctor();
+		private Doctor doctorUser = new Doctor();                
 		private ArrayList appointmentTimes = new ArrayList();
-        private int checkBoxAmnt = 1;
+        private int checkBoxAmnt = 1;            //number of medicines to add to a prescription
 		public PatientSearch()
         {
             InitializeComponent();
         }
+
+        //view information for the selected patient
         private void viewPatientInformation_Click(object sender, EventArgs e)
         {
 			if (patientView.SelectedIndices.Count != 0)
 			{
-                selectedPatient = (Patient)(patientResultsList[patientView.SelectedItems[0].Index]);
+                selectedPatient = (Patient)(patientResultsList[patientView.SelectedItems[0].Index]);   //save the patient selected from the list
                 displayPatientInfo(selectedPatient);
-                determineDoctorAccess(selectedPatient);
+                determineDoctorAccess(selectedPatient);                     //enable or disable buttons according to access level of user for patient
                 basicPatientInfoPanel.Show();
 				patientSearchPanel.Hide();
 			}
         }
 
+        //reset this UserControl to default state at patient search panel
 		public void resetPatientSearch()
 		{
 			patientView.Items.Clear();
@@ -44,6 +47,7 @@ namespace DoctorPatientSystem
 			viewMedicalRecordPanel.Hide();
 		}
 
+        //search for patients by name
         private void nameSearch_Click(object sender, EventArgs e)
         {
             if (patientSearchTextBox.Text.Equals("Search for a patient"))
@@ -51,10 +55,10 @@ namespace DoctorPatientSystem
                 patientSearchTextBox.Text = "";
             }
             patientView.Items.Clear();
-			Patient.retrievePatients(patientSearchTextBox.Text);
-			patientResultsList = Patient.displayPatients();
+			Patient.retrievePatients(patientSearchTextBox.Text);       //retrieve patients matching search field
+			patientResultsList = Patient.displayPatients();        
 			int i = 0;
-			foreach (Patient patient in patientResultsList)
+			foreach (Patient patient in patientResultsList)            //add name and birthdate of each patient to listview
 			{
 				patientView.Items.Add(patient.Name);
 				patientView.Items[i].SubItems.Add(patient.BirthDate);
@@ -62,17 +66,20 @@ namespace DoctorPatientSystem
 			}
         }
 
+        //show name and birth date of selected patient on patient submenu
 		private void displayPatientInfo(Patient selectedPatient)
 		{
 			patientNameLabel.Text = selectedPatient.Name;
 			patientDOBLabel.Text = selectedPatient.BirthDate;
 		}
 
+        //determine the access level of the doctor user for the selected patient
 		private void determineDoctorAccess(Patient selectedPatient)
 		{
-			bool hasAccess = selectedPatient.validateAccess(User.Id);
-			bool hasRecord = selectedPatient.hasMedicalRecord();
+			bool hasAccess = selectedPatient.validateAccess(User.Id);    //check if the doctor has been verified to access patient records
+			bool hasRecord = selectedPatient.hasMedicalRecord();         //check if the patient currently has records
 
+            //show or hide relevant menu buttons
             if (hasAccess && hasRecord)
 			{
 				viewMedicalHistoryButton.Show();
@@ -96,40 +103,44 @@ namespace DoctorPatientSystem
 			}
 		}
 
+        //return to the search panel
 		private void backButton_Click(object sender, EventArgs e)
 		{
 				basicPatientInfoPanel.Hide();
 				patientSearchPanel.Show();
 		}
 
+        //view the medical history of the selected patient
 		private void viewMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
-            selectedPatient.retrieveMedicalRecord();
-            selectedPatient.retrieveMedicineHistory();
+            selectedPatient.retrieveMedicalRecord();           //retrieve the selected patient's medical record
+            selectedPatient.retrieveMedicineHistory();         //retrieve the selected patient's medicine history (all medicines they have taken in the past)
             displayMedicalRecord();
             displayMedicineHistory();
             basicPatientInfoPanel.Hide();
 			viewMedicalRecordPanel.Show();
 		}
 
+        //display the medical record in the panel
 		private void displayMedicalRecord()
 		{
 			medicalRecordListView.Items.Clear();
 			patientNameRecordLabel.Text = selectedPatient.Name;
 			medicalRecordListView.Items.Add("Date of Birth: " + selectedPatient.BirthDate);
-			medicalRecordListView.Items.Add("Height: " + selectedPatient.Height);
-			medicalRecordListView.Items.Add("Weight: " + selectedPatient.Weight);
+			medicalRecordListView.Items.Add("Height: " + (selectedPatient.Height == 0 ? "" : selectedPatient.Height.ToString()));
+			medicalRecordListView.Items.Add("Weight: " + (selectedPatient.Weight == 0 ? "" : selectedPatient.Weight.ToString()));
 			medicalRecordListView.Items.Add("Marital Status: " + selectedPatient.MaritalStatus);
 			medicalRecordListView.Items.Add("Disorders: " + selectedPatient.Disorders);
 			medicalRecordListView.Items.Add("Allergies: " + selectedPatient.Allergies);
 			medicalRecordListView.Items.Add("Notes: " + selectedPatient.Notes);
 		}
 
+        //display each medicine the selected patient has taken
 		private void displayMedicineHistory()
 		{
 			medicineHistoryListView.Items.Clear();
 			int i = 0;
-			foreach (Medicine med in selectedPatient.MedicineHistory)
+			foreach (Medicine med in selectedPatient.MedicineHistory)          //add details for each medicine in the patient's medicine history to the listview
 			{
 				medicineHistoryListView.Items.Add(med.Name);
 				medicineHistoryListView.Items[i].SubItems.Add(med.Dosage);
@@ -139,6 +150,7 @@ namespace DoctorPatientSystem
 			
 		}
 
+        //request the selected patient's access to their medical records
 		private void requestMedicalHistoryButton_Click(object sender, EventArgs e)
 		{
             if (new ConfirmationPopup("Are you sure you want to request to view " + selectedPatient.Name + "'s medical records?", "")
@@ -150,12 +162,15 @@ namespace DoctorPatientSystem
             }
 		}
 
+        //return to the patient submenu
 		private void backToBasicInfoButton_Click(object sender, EventArgs e)
 		{
-			basicPatientInfoPanel.Show();
-			viewMedicalRecordPanel.Hide();
+            viewMedicalRecordPanel.Hide();
+            basicPatientInfoPanel.Show();
+            determineDoctorAccess(selectedPatient);
 		}
 
+        //update the patient's medical record
 		private void updateMedicalRecordButton_Click(object sender, EventArgs e)
 		{
 			updateRecordPanel.Show();
@@ -163,33 +178,44 @@ namespace DoctorPatientSystem
 			displayEditableInformation();
 			updateOrCreateLabel.Text = "Update Medical Record";
 			createButton.Hide();
-			updateMedicalRecordButton.Show();
+            submitUpdateButton.Show();
 		}
 
+        //fill in text boxes with the patient's current records so the doctor can edit each field
 		private void displayEditableInformation()
 		{
-			maritalStatusTextBox.Text = selectedPatient.MaritalStatus;
-			heightTextBox.Text = selectedPatient.Height.ToString();
-			weightTextBox.Text = selectedPatient.Weight.ToString();
+			maritalStatusTextBox.Text = selectedPatient.MaritalStatus;            
+			heightTextBox.Text = (selectedPatient.Height == 0 ? "" : selectedPatient.Height.ToString());
+			weightTextBox.Text = (selectedPatient.Weight == 0 ? "" : selectedPatient.Weight.ToString());
 			disordersTextBox.Text = selectedPatient.Disorders;
 			allergiesTextBox.Text = selectedPatient.Allergies;
 			notesTextBox.Text = selectedPatient.Notes;
 		}
 
+        //return to the patient's medical record
 		private void backToMedicalRecord_Click(object sender, EventArgs e)
 		{
 			updateRecordPanel.Hide();
 			viewMedicalRecordPanel.Show();
 		}
 
+        //submit an update to the patient's medical records
 		private void submitUpdateButton_Click(object sender, EventArgs e)
 		{
             if (new ConfirmationPopup("Are you sure you want to update " + selectedPatient.Name + "'s medical records?", "")
                 .ShowDialog() == DialogResult.OK)
             {
                 String ms = maritalStatusTextBox.Text;
-                int h = Int32.Parse(heightTextBox.Text);
-                int w = Int32.Parse(weightTextBox.Text);
+                int h;
+                if (heightTextBox.Text.Equals(""))
+                    h = 0;
+                else
+                    h = Int32.Parse(heightTextBox.Text);
+                int w;
+                if (weightTextBox.Text.Equals(""))
+                    w = 0;
+                else
+                    w = Int32.Parse(weightTextBox.Text);
                 String d = disordersTextBox.Text;
                 String a = allergiesTextBox.Text;
                 String n = notesTextBox.Text;
@@ -200,23 +226,33 @@ namespace DoctorPatientSystem
             }
 		}
 
+        //display panel to create a new medical record for the selected patient
 		private void createMedicalRecordButton_Click(object sender, EventArgs e)
 		{
-            updateOrCreateLabel.Text = "Create Medical Record";
-            updateMedicalRecordButton.Hide();
-            createMedicalRecordButton.Show();
+            updateOrCreateLabel.Text = "Create Medical Record";            
             basicPatientInfoPanel.Hide();
             updateRecordPanel.Show();
-		}
+            submitUpdateButton.Hide();
+            createButton.Show();
+        }
 
+        //create the new medical record for the selected patient
 		private void createButton_Click(object sender, EventArgs e)
-		{
+		{            
             if (new ConfirmationPopup("Are you sure you want to create a new medical record for this patient?", "")
                 .ShowDialog() == DialogResult.OK)
-            {
+            {              
                 String ms = maritalStatusTextBox.Text;
-                int h = Int32.Parse(heightTextBox.Text);
-                int w = Int32.Parse(weightTextBox.Text);
+                int h;
+                if (heightTextBox.Text.Equals(""))
+                    h = 0;
+                else
+                    h = Int32.Parse(heightTextBox.Text);
+                int w;
+                if (weightTextBox.Text.Equals(""))
+                    w = 0;
+                else
+                    w = Int32.Parse(weightTextBox.Text);
                 String d = disordersTextBox.Text;
                 String a = allergiesTextBox.Text;
                 String n = notesTextBox.Text;
@@ -229,6 +265,7 @@ namespace DoctorPatientSystem
             }
 		}
 
+        //display panel to create a new appointment
         private void createAppointmentButton_Click(object sender, EventArgs e)
         {
 			doctorUser.Id = User.Id;
@@ -238,6 +275,7 @@ namespace DoctorPatientSystem
 			createAppointmentPanel.Show();
 		}
 
+        //display panel to create a new prescription
         private void createPrescriptionButton_Click(object sender, EventArgs e)
         {
             medicinePanel2.Hide();
@@ -248,8 +286,8 @@ namespace DoctorPatientSystem
             checkBox4.Hide();
 
             pharmacyListBox.Items.Clear();   
-            Doctor.retrievePharmacies();
-            foreach (string s in Doctor.displayPharmacies())
+            Doctor.retrievePharmacies();                         //retrieve list of pharmacies
+            foreach (string s in Doctor.displayPharmacies())     //show pharmacy names
             {
                 pharmacyListBox.Items.Add(s);
             }
@@ -257,12 +295,14 @@ namespace DoctorPatientSystem
             createPrescriptionPanel.Show();
         }
    
+        //return to patient submenu
 		private void backFromCreateAppointmentButton_Click(object sender, EventArgs e)
 		{
 			createAppointmentPanel.Hide();
 			basicPatientInfoPanel.Show();
 		}
 
+        //create the new appointment for the selected patient
 		private void confirmAppointmentButton_Click(object sender, EventArgs e)
 		{
             if (availableAppointmentsListBox.SelectedIndices.Count != 0)
@@ -288,6 +328,7 @@ namespace DoctorPatientSystem
             }
 		}
 
+        //show all times when the doctor has no appointments
 		private void appointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
 		{
 			showAvailableAppointmentTimes();
@@ -322,12 +363,14 @@ namespace DoctorPatientSystem
 			}
 		}
 
+        //return to patient submenu
         private void backToBasicPatientInfoPanel_Click(object sender, EventArgs e)
         {
             createPrescriptionPanel.Hide();
             basicPatientInfoPanel.Show();
         }
 
+        //add a medicine row when checkbox is checked
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -344,6 +387,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //add a medicine row when checkbox changed
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
@@ -360,6 +404,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //add a medicine row when checkbox checked
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked)
@@ -376,6 +421,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //add a medicine row when checkbox checked
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox4.Checked)
@@ -390,12 +436,14 @@ namespace DoctorPatientSystem
             }
         }
 
+        //clear default text and change color to black when search box clicked
         private void patientSearchTextBox_Click(object sender, EventArgs e)
         {
             patientSearchTextBox.Text = "";
             patientSearchTextBox.ForeColor = Color.Black;
         }
 
+        //create the new prescription 
         private void addPrescription_Click(object sender, EventArgs e)
         {
             Medicine medicine1 = new Medicine();

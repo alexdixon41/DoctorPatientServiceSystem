@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DoctorPatientSystem.Appointment">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ggYBEAIGAQAAgAAAAAAgQAAAKAAAQAAEAGAAAAAAAgA=</HashCode>
+      <FileName>Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.Doctor">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAACEAAgAhAAIAKAAABAAgQAQAQUAACAAIIQAIIiAkE=</HashCode>
+      <FileName>Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.Medicine">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAgARAAIQMAAiFCAAAgQAAAAA=</HashCode>
+      <FileName>Medicine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.Notice">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAyCAgAEAAIgCABIpAAAAAhEAAAFABAAZQQAIAAYAyA=</HashCode>
+      <FileName>Notice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.Patient">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAgmCAAJBgAAYASABQAAAgUAAiIMGAKiAAgQAJQAMgI=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.Prescription">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAb7AAIGgQACQCCACAIAJAACAAACAgABAgAEIQoACgk=</HashCode>
+      <FileName>Prescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.RefillRequest">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAQCAAAEAACAAAAAAAAAAAgAAAAAAAAFAAVAIQoAAiE=</HashCode>
+      <FileName>RefillRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorPatientSystem.User">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAADAAAAAQAACEAAAgA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
