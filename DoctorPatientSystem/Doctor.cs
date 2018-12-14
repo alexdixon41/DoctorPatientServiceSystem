@@ -94,7 +94,8 @@ namespace DoctorPatientSystem
                 appointments = value;
             }
         }
-        public static ArrayList Pharmacies
+
+        private static ArrayList Pharmacies
         {
             get
             {
@@ -106,7 +107,6 @@ namespace DoctorPatientSystem
                 pharmacies = value;
             }
         }
-
         public static ArrayList PharmaciesId
         {
             get
@@ -288,6 +288,7 @@ namespace DoctorPatientSystem
         public static void retrievePharmacies()
         {
             pharmacies.Clear();
+            pharmaciesId.Clear();
             DataTable dataTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -317,6 +318,7 @@ namespace DoctorPatientSystem
         {
             return Pharmacies;
         }
+
 		//retrieves a doctor's schedule from the database
 		public void retrieveSchedule()
 		{

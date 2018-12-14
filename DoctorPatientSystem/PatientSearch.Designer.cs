@@ -47,8 +47,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.medicalRecordListView = new System.Windows.Forms.ListView();
             this.patientNameRecordLabel = new System.Windows.Forms.Label();
-            this.updateMedicalRecordButton = new System.Windows.Forms.Button();
             this.backToBasicInfoButton = new System.Windows.Forms.Button();
+            this.updateMedicalRecordButton = new System.Windows.Forms.Button();
             this.updateRecordPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,8 +68,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.updateOrCreateLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.createButton = new System.Windows.Forms.Button();
             this.submitUpdateButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
             this.createAppointmentPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.confirmAppointmentButton = new System.Windows.Forms.Button();
@@ -135,7 +135,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.backToPatientSearchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.caseNoticePanel = new System.Windows.Forms.Panel();
+            this.caseNoticeButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.sendNoticeButton = new System.Windows.Forms.Button();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.patientSearchPanel.SuspendLayout();
             this.viewMedicalRecordPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -162,6 +169,7 @@
             this.basicPatientInfoPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.caseNoticePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // patientSearchTextBox
@@ -371,20 +379,6 @@
             this.patientNameRecordLabel.TabIndex = 18;
             this.patientNameRecordLabel.Text = "Patient Name";
             // 
-            // updateMedicalRecordButton
-            // 
-            this.updateMedicalRecordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateMedicalRecordButton.AutoSize = true;
-            this.updateMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateMedicalRecordButton.Location = new System.Drawing.Point(912, 17);
-            this.updateMedicalRecordButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.updateMedicalRecordButton.Name = "updateMedicalRecordButton";
-            this.updateMedicalRecordButton.Size = new System.Drawing.Size(315, 59);
-            this.updateMedicalRecordButton.TabIndex = 13;
-            this.updateMedicalRecordButton.Text = "Update Medical Record";
-            this.updateMedicalRecordButton.UseVisualStyleBackColor = true;
-            this.updateMedicalRecordButton.Click += new System.EventHandler(this.updateMedicalRecordButton_Click);
-            // 
             // backToBasicInfoButton
             // 
             this.backToBasicInfoButton.AutoSize = true;
@@ -401,6 +395,20 @@
             this.backToBasicInfoButton.TabIndex = 12;
             this.backToBasicInfoButton.UseVisualStyleBackColor = false;
             this.backToBasicInfoButton.Click += new System.EventHandler(this.backToBasicInfoButton_Click);
+            // 
+            // updateMedicalRecordButton
+            // 
+            this.updateMedicalRecordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateMedicalRecordButton.AutoSize = true;
+            this.updateMedicalRecordButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateMedicalRecordButton.Location = new System.Drawing.Point(912, 17);
+            this.updateMedicalRecordButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.updateMedicalRecordButton.Name = "updateMedicalRecordButton";
+            this.updateMedicalRecordButton.Size = new System.Drawing.Size(315, 59);
+            this.updateMedicalRecordButton.TabIndex = 13;
+            this.updateMedicalRecordButton.Text = "Update Medical Record";
+            this.updateMedicalRecordButton.UseVisualStyleBackColor = true;
+            this.updateMedicalRecordButton.Click += new System.EventHandler(this.updateMedicalRecordButton_Click);
             // 
             // updateRecordPanel
             // 
@@ -632,20 +640,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Marital Status:";
             // 
-            // createButton
-            // 
-            this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.createButton.AutoSize = true;
-            this.createButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createButton.Location = new System.Drawing.Point(1071, 26);
-            this.createButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(143, 59);
-            this.createButton.TabIndex = 15;
-            this.createButton.Text = "Create";
-            this.createButton.UseVisualStyleBackColor = true;
-            this.createButton.Click += new System.EventHandler(this.createButton_Click);
-            // 
             // submitUpdateButton
             // 
             this.submitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -659,6 +653,20 @@
             this.submitUpdateButton.Text = "Update";
             this.submitUpdateButton.UseVisualStyleBackColor = true;
             this.submitUpdateButton.Click += new System.EventHandler(this.submitUpdateButton_Click);
+            // 
+            // createButton
+            // 
+            this.createButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.createButton.AutoSize = true;
+            this.createButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createButton.Location = new System.Drawing.Point(1071, 26);
+            this.createButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(143, 59);
+            this.createButton.TabIndex = 15;
+            this.createButton.Text = "Create";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // createAppointmentPanel
             // 
@@ -797,7 +805,7 @@
             this.viewMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.viewMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(5);
             this.viewMedicalHistoryButton.Name = "viewMedicalHistoryButton";
-            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(1147, 160);
+            this.viewMedicalHistoryButton.Size = new System.Drawing.Size(1147, 117);
             this.viewMedicalHistoryButton.TabIndex = 2;
             this.viewMedicalHistoryButton.Text = "View Medical History";
             this.viewMedicalHistoryButton.UseVisualStyleBackColor = false;
@@ -814,7 +822,7 @@
             this.requestMedicalHistoryButton.Location = new System.Drawing.Point(0, 0);
             this.requestMedicalHistoryButton.Margin = new System.Windows.Forms.Padding(5);
             this.requestMedicalHistoryButton.Name = "requestMedicalHistoryButton";
-            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(1147, 160);
+            this.requestMedicalHistoryButton.Size = new System.Drawing.Size(1147, 117);
             this.requestMedicalHistoryButton.TabIndex = 3;
             this.requestMedicalHistoryButton.Text = "Request to View Medical History";
             this.requestMedicalHistoryButton.UseVisualStyleBackColor = false;
@@ -828,10 +836,10 @@
             this.createAppointmentButton.FlatAppearance.BorderSize = 0;
             this.createAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createAppointmentButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createAppointmentButton.Location = new System.Drawing.Point(5, 175);
+            this.createAppointmentButton.Location = new System.Drawing.Point(5, 132);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(5);
             this.createAppointmentButton.Name = "createAppointmentButton";
-            this.createAppointmentButton.Size = new System.Drawing.Size(1147, 160);
+            this.createAppointmentButton.Size = new System.Drawing.Size(1147, 117);
             this.createAppointmentButton.TabIndex = 4;
             this.createAppointmentButton.Text = "Create an Appointment";
             this.createAppointmentButton.UseVisualStyleBackColor = false;
@@ -844,10 +852,10 @@
             this.createPrescriptionButton.FlatAppearance.BorderSize = 0;
             this.createPrescriptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createPrescriptionButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createPrescriptionButton.Location = new System.Drawing.Point(5, 345);
+            this.createPrescriptionButton.Location = new System.Drawing.Point(5, 259);
             this.createPrescriptionButton.Margin = new System.Windows.Forms.Padding(5);
             this.createPrescriptionButton.Name = "createPrescriptionButton";
-            this.createPrescriptionButton.Size = new System.Drawing.Size(1147, 161);
+            this.createPrescriptionButton.Size = new System.Drawing.Size(1147, 117);
             this.createPrescriptionButton.TabIndex = 18;
             this.createPrescriptionButton.Text = "Create a Prescription";
             this.createPrescriptionButton.UseVisualStyleBackColor = false;
@@ -1364,17 +1372,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.caseNoticeButton, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.createAppointmentButton, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.createPrescriptionButton, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(40, 212);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(53, 4, 53, 20);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1157, 511);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
@@ -1387,7 +1396,7 @@
             this.panel4.Location = new System.Drawing.Point(5, 5);
             this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1147, 160);
+            this.panel4.Size = new System.Drawing.Size(1147, 117);
             this.panel4.TabIndex = 0;
             // 
             // createMedicalRecordButton
@@ -1400,7 +1409,7 @@
             this.createMedicalRecordButton.Location = new System.Drawing.Point(0, 0);
             this.createMedicalRecordButton.Margin = new System.Windows.Forms.Padding(5);
             this.createMedicalRecordButton.Name = "createMedicalRecordButton";
-            this.createMedicalRecordButton.Size = new System.Drawing.Size(1147, 160);
+            this.createMedicalRecordButton.Size = new System.Drawing.Size(1147, 117);
             this.createMedicalRecordButton.TabIndex = 18;
             this.createMedicalRecordButton.Text = "Create Medical Record";
             this.createMedicalRecordButton.UseVisualStyleBackColor = false;
@@ -1479,26 +1488,123 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name: ";
             // 
-            // panel5
+            // caseNoticePanel
             // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1251, 743);
-            this.panel5.TabIndex = 20;
-            this.panel5.Visible = false;
+            this.caseNoticePanel.Controls.Add(this.label19);
+            this.caseNoticePanel.Controls.Add(this.messageTextBox);
+            this.caseNoticePanel.Controls.Add(this.sendNoticeButton);
+            this.caseNoticePanel.Controls.Add(this.listBox2);
+            this.caseNoticePanel.Controls.Add(this.label18);
+            this.caseNoticePanel.Controls.Add(this.button1);
+            this.caseNoticePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.caseNoticePanel.Location = new System.Drawing.Point(0, 0);
+            this.caseNoticePanel.Name = "caseNoticePanel";
+            this.caseNoticePanel.Size = new System.Drawing.Size(1251, 743);
+            this.caseNoticePanel.TabIndex = 20;
+            this.caseNoticePanel.Visible = false;
+            // 
+            // caseNoticeButton
+            // 
+            this.caseNoticeButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.caseNoticeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.caseNoticeButton.FlatAppearance.BorderSize = 0;
+            this.caseNoticeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caseNoticeButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.caseNoticeButton.Location = new System.Drawing.Point(5, 386);
+            this.caseNoticeButton.Margin = new System.Windows.Forms.Padding(5);
+            this.caseNoticeButton.Name = "caseNoticeButton";
+            this.caseNoticeButton.Size = new System.Drawing.Size(1147, 120);
+            this.caseNoticeButton.TabIndex = 19;
+            this.caseNoticeButton.Text = "Send a Case Discussion Notice";
+            this.caseNoticeButton.UseVisualStyleBackColor = false;
+            this.caseNoticeButton.Click += new System.EventHandler(this.caseNoticeButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(19, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 47);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(100, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(502, 51);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "Send Case Discussion Notice";
+            // 
+            // listBox2
+            // 
+            this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 31;
+            this.listBox2.Location = new System.Drawing.Point(25, 138);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(1195, 190);
+            this.listBox2.TabIndex = 23;
+            // 
+            // sendNoticeButton
+            // 
+            this.sendNoticeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendNoticeButton.AutoSize = true;
+            this.sendNoticeButton.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendNoticeButton.Location = new System.Drawing.Point(1071, 667);
+            this.sendNoticeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.sendNoticeButton.Name = "sendNoticeButton";
+            this.sendNoticeButton.Size = new System.Drawing.Size(149, 56);
+            this.sendNoticeButton.TabIndex = 24;
+            this.sendNoticeButton.Text = "Send";
+            this.sendNoticeButton.UseVisualStyleBackColor = true;
+            this.sendNoticeButton.Click += new System.EventHandler(this.sendNoticeButton_Click);
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageTextBox.Location = new System.Drawing.Point(25, 347);
+            this.messageTextBox.Multiline = true;
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(1195, 313);
+            this.messageTextBox.TabIndex = 25;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(19, 103);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(185, 32);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "Send Notice To:";
             // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.viewMedicalRecordPanel);
-            this.Controls.Add(this.createAppointmentPanel);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.caseNoticePanel);
             this.Controls.Add(this.patientSearchPanel);
             this.Controls.Add(this.createPrescriptionPanel);
             this.Controls.Add(this.updateRecordPanel);
             this.Controls.Add(this.basicPatientInfoPanel);
+            this.Controls.Add(this.viewMedicalRecordPanel);
+            this.Controls.Add(this.createAppointmentPanel);
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "PatientSearch";
             this.Size = new System.Drawing.Size(1251, 743);
@@ -1541,6 +1647,8 @@
             this.basicPatientInfoPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.caseNoticePanel.ResumeLayout(false);
+            this.caseNoticePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1652,6 +1760,13 @@
         private System.Windows.Forms.TextBox dosageTextbox3;
         private System.Windows.Forms.TextBox dosageTextbox2;
         private System.Windows.Forms.Button createMedicalRecordButton;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel caseNoticePanel;
+        private System.Windows.Forms.Button caseNoticeButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.Button sendNoticeButton;
+        private System.Windows.Forms.Label label19;
     }
 }

@@ -557,5 +557,46 @@ namespace DoctorPatientSystem
             }
             
         }
+
+        //show panel to send a case discussion notice
+        private void caseNoticeButton_Click(object sender, EventArgs e)
+        {
+            Doctor.retrievePharmacies();             //retrieve list of pharmacies
+            listBox2.Items.Clear();
+            foreach (string s in Doctor.displayPharmacies())
+            {
+                listBox2.Items.Add(s);
+            }
+            messageTextBox.Text = "I would like to discuss " + selectedPatient.Name + "'s case with you. Please contact me soon. Thank you.";              
+            basicPatientInfoPanel.Hide();
+            caseNoticePanel.Show();
+
+        }
+
+        //return to patient submenu
+        private void button1_Click(object sender, EventArgs e)
+        {
+            caseNoticePanel.Hide();
+            basicPatientInfoPanel.Show();
+        }
+
+        //send the case discussion notice to the selected pharmacy
+        private void sendNoticeButton_Click(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndices.Count == 0)
+            {
+                new AlertDialog("Please select a pharmacy to send the notice to.").ShowDialog();
+            }
+            else if (messageTextBox.Text.Equals(""))
+            {
+                new AlertDialog("Please enter a message for the case discussion notice.").ShowDialog();
+            }
+            else if (new ConfirmationPopup("Are you sure you want to send this case discussion notice to " 
+                + Doctor.displayPharmacies()[listBox2.SelectedIndex] + "?", "").ShowDialog() == DialogResult.OK)
+            {
+                Notice.sendNotice((int)Doctor.PharmaciesId[listBox2.SelectedIndex], messageTextBox.Text, Notice.SEND_CASE_DISCUSSION_NOTICE_TYPE);    //create the new notice
+                new AlertDialog("The notice was sent.").ShowDialog();
+            }
+        }
     }
 }

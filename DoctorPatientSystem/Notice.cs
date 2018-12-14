@@ -244,11 +244,11 @@ namespace DoctorPatientSystem
                 {
                     case SEND_CASE_DISCUSSION_NOTICE_TYPE:
                         sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, doctorSender, pharmacyReceiver)
-								VALUES ('Case Discussion', 'New', CURRENT_DATE, @message, @docID, @patientID)";
+								VALUES ('Case Discussion', 'New', CURRENT_DATE, @message, @docID, @pharmID)";
                         cmd = new MySqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@message", message);
                         cmd.Parameters.AddWithValue("@docID", User.Id);
-                        cmd.Parameters.AddWithValue("@patientID", receiverID);
+                        cmd.Parameters.AddWithValue("@pharmID", receiverID);
                         break;                    
                     case SEND_PHONECALL_REQUEST_NOTICE_TYPE:
                         sql = @"INSERT INTO DixonNotice (noticeType, noticeStatus, sentDate, message, patientSender, doctorReceiver)
