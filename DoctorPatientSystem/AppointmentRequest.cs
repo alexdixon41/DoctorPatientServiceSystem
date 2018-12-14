@@ -22,11 +22,12 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+        //add information to the listview
         public void populateList()
         {
             doctorListView.Items.Clear();
             int i = 0;
-            foreach (Doctor doc in Doctor.displayDoctors())
+            foreach (Doctor doc in Doctor.displayDoctors())           //get the list of doctors
             {
                 doctorListView.Items.Add(doc.Name);
                 doctorListView.Items[i].SubItems.Add(doc.OfficeName);
@@ -35,6 +36,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //after confirmation, create new appointment
         private void selectAppointmentButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = new ConfirmationPopup("Are you sure you want to request this appointment?",
@@ -53,6 +55,7 @@ namespace DoctorPatientSystem
             }
         }        
         
+        //view available appointments for selected day and doctor
         private void viewAppointmentsButton_Click(object sender, EventArgs e)
         {
             if (!(doctorListView.SelectedIndices.Count == 0))
@@ -61,7 +64,7 @@ namespace DoctorPatientSystem
                 appointmentTimes.Clear();
                 selectedDoctor = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
                 dateLabel.Text = dateTimePicker1.Text;
-                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.ToString("yyyy-MM-dd"));               
+                selectedDoctor.retrieveAppointments(dateTimePicker1.Value.ToString("yyyy-MM-dd"));    //get appointments for doctor on selected day             
                 foreach (string s in Doctor.appointmentTimes)
                 {
                     appointmentTimes.Add(s);
@@ -85,29 +88,33 @@ namespace DoctorPatientSystem
             }            
         }
 
+        //clear default text and change color to black when text box clicked
         private void textBox1_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox1.ForeColor = Color.Black;
         }
 
+        //search for doctors
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Equals("Search for a doctor"))
             {
                 textBox1.Text = "";
             }
-            Doctor.retrieveDoctors(textBox1.Text);
-            Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);
+            Doctor.retrieveDoctors(textBox1.Text);                           //retrieve doctors matching search parameters
+            Doctor.getAvailableDoctors(dateTimePicker1.Value.DayOfWeek);     //get doctors that work on chosen day
             populateList();
         }
 
+        //return to appointment selection panel
         private void backButton_Click(object sender, EventArgs e)
         {
             availableAppointmentPanel.Hide();
             appointmentDetailPanel.Show();
         }
 
+        //update list to only doctors available on the selected day
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             if (!textBox1.Text.Equals("Search for a doctor"))

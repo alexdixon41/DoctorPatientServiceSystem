@@ -46,7 +46,7 @@ namespace DoctorPatientSystem
 			if (dialogResult == DialogResult.OK)
 			{
 				//update appointment status
-				selectedAppointment.UpdateStatus("Denied");	
+				selectedAppointment.updateStatus("Denied");	
 
 				// Send notice to patient that their appointment was denied
 				String message = Doctor.retrieveDoctorName(User.Id) + " has denied your appointment request.";
@@ -64,7 +64,7 @@ namespace DoctorPatientSystem
 			dialogResult = new ConfirmationPopup("Are you sure you want to accept this appointment request?", "").ShowDialog();
 			if (dialogResult == DialogResult.OK)
 			{
-				selectedAppointment.UpdateStatus("Accepted");
+				selectedAppointment.updateStatus("Accepted");
 
 				// Send notice to patient that their appointment was accepted
 				String message = Doctor.retrieveDoctorName(User.Id) + " has accepted your appointment request.";

@@ -283,8 +283,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.availableAppointmentPanel);
             this.Controls.Add(this.appointmentDetailPanel);
+            this.Controls.Add(this.availableAppointmentPanel);
             this.Name = "AppointmentRequest";
             this.Size = new System.Drawing.Size(1029, 613);
             this.appointmentDetailPanel.ResumeLayout(false);

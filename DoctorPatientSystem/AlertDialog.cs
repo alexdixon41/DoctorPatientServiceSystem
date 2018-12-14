@@ -17,7 +17,7 @@ namespace DoctorPatientSystem
     /// </summary>
     public partial class AlertDialog : Form
     {
-        String messageText;
+        String messageText;                   //Text to be displayed in AlertDialog
 
         public AlertDialog(String messageText)
         {

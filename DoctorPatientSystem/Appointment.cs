@@ -13,6 +13,7 @@ namespace DoctorPatientSystem
     {
 		private static ArrayList appointmentList = new ArrayList();
 
+        //attributes of appointment
 		private int id;
 		private string startTime;
         private string patientName;
@@ -106,6 +107,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //count of new appointments
         private static int newAppointmentCount;
         public static int NewAppointmentCount
         {
@@ -120,6 +122,13 @@ namespace DoctorPatientSystem
             }
         }
 
+        /// <summary>
+        /// Add a new appointment to the database.
+        /// </summary>
+        /// <param name="doctorID">The id of the doctor</param>
+        /// <param name="patientID">The id of the patient</param>
+        /// <param name="time">The date and time of the appointment</param>
+        /// <param name="status">The status of the appointment</param>
         public static void createAppointment(int doctorID, int patientID, string time, string status)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -193,7 +202,7 @@ namespace DoctorPatientSystem
 		}
 
 		//updates the status of the appointment to newStatus
-		public void UpdateStatus(String newStatus)
+		public void updateStatus(string newStatus)
 		{
 			status = newStatus;
 			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
