@@ -101,6 +101,11 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Adds a prescription's medicines into the database
+		/// </summary>
+		/// <param name="medicines">List of medicines in the prescription</param>
+		/// <param name="prescriptionID">The ID of the prescription</param>
         public static void createMedicine(ArrayList medicines, int prescriptionID)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";

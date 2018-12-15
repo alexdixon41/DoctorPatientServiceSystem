@@ -21,6 +21,7 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+		//displays the details of the selected prescription
         private void selectPrescriptionButton_Click(object sender, EventArgs e)
         {
             if (!(prescriptionListView.SelectedIndices.Count == 0))
@@ -37,12 +38,14 @@ namespace DoctorPatientSystem
             }
         }
 
+		//returs to the prescriptions panel
         private void backButton_Click(object sender, EventArgs e)
         {
             prescriptionDetailPanel.Hide();
             prescriptionsPanel.Show();
         }    
 
+		//Displays the medicines of the selected prescription in the listview
         public void populateMedicineList()
         {
             prescriptionDetailListView.Items.Clear();
@@ -57,6 +60,8 @@ namespace DoctorPatientSystem
                 i++;
             }
         }
+		
+		//displays the patients prescriptions in the listview
         public void populatePrescriptionList()
         {
             prescriptionListView.Items.Clear();
@@ -73,6 +78,10 @@ namespace DoctorPatientSystem
             }
         }        
 
+		/// <summary>
+		/// Requests refill permit from the doctor if a prescription has no refills remaining or a refill from the 
+		/// pharmacy if the prescription does have refills remaining
+		/// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             if (selectedPrescription.canRequestRefill())

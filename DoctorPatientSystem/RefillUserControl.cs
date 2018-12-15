@@ -19,6 +19,7 @@ namespace DoctorPatientSystem
 
         private RefillRequest selectedRefillRequest;
 
+		//displays refill requests for the doctor in the listview
         public void populateList()
         {
             newRefillRequestsListView.Items.Clear();
@@ -35,6 +36,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//Displays details of the select refill request and the patient who requested it
         private void viewRefillRequestsButton_Click(object sender, EventArgs e)
         {
             if (!(newRefillRequestsListView.SelectedIndices.Count == 0))
@@ -96,6 +98,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//return to the new refill requests panel and refresh the listview
         private void backButton_Click(object sender, EventArgs e)
         {
             RefillRequest.retrieveRefillRequests();
@@ -104,6 +107,7 @@ namespace DoctorPatientSystem
             newRefillRequestsPanel.Show();
         }
 
+		//Sends a notice to the patient informing them their request is accepted and sends the refill request to the pharmacy
         private void acceptButton_Click(object sender, EventArgs e)
         {
             if (new ConfirmationPopup("Are you sure you want to accept this refill permit?",
@@ -120,6 +124,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//Sends a notice to the patient informing them that their request has been denied
         private void rejectButton_Click(object sender, EventArgs e)
         {
             if (new ConfirmationPopup("Are you sure you want to deny this refill permit?",

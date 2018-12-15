@@ -194,18 +194,20 @@ namespace DoctorPatientSystem
         }
 
         private static int newPrescriptionCount;
-        private static ArrayList prescriptions = new ArrayList();
+        private static ArrayList prescriptions = new ArrayList();	//list of a patient's prescriptions
 
-
+		//return list of patient's prescriptions
         public static ArrayList displayPrescriptions()
         {
             return prescriptions;
         }
+		//returns list of a prescription's medicines
         public ArrayList displayMedicines()
         {
             return Medicines;
         }
 
+		//retrieves patient's record and medicine history
         public Patient retrievePatientDetails()
         {
             Patient patient = new Patient();
@@ -258,6 +260,10 @@ namespace DoctorPatientSystem
             Medicines = medicines;
         }
 
+		/// <summary>
+		/// Adds a new refill request into the database
+		/// </summary>
+		/// <param name="status">The status of the refill request</param>
         public void createRefillRequest(string status)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -283,6 +289,10 @@ namespace DoctorPatientSystem
             conn.Close();
         }
 
+		/// <summary>
+		/// Queries the database to determine if the user can request a refill on a prescription
+		/// </summary>
+		/// <returns>Returns true if the user can request a refill and false if they cannot</returns>
         public bool canRequestRefill()
         {
             bool result = true;
@@ -312,6 +322,7 @@ namespace DoctorPatientSystem
             return result;
         }
 
+		//Disables user's ability to request a refill on this prescription
         public void disableRefillRequest()
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -384,6 +395,13 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Inserts a new prescription to the database
+		/// </summary>
+		/// <param name="pharmID">The id of the pharmacy the prescription will go to</param>
+		/// <param name="refillAmnt">The amount of refills the prescription has</param>
+		/// <param name="patientID">The id of the patient the prescription is for</param>
+		/// <returns></returns>
         public static int createPrescription(int pharmID, int refillAmnt, int patientID)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";

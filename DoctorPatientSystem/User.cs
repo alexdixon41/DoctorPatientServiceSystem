@@ -41,6 +41,13 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Determines if user has entered a valid username and password
+		/// </summary>
+		/// <param name="userType">The type of user</param>
+		/// <param name="u">The username entered by the user</param>
+		/// <param name="p">The password entered by the user</param>
+		/// <returns>Returns true is user entered valid login information and false if they did not</returns>
         public static Boolean authenticate(int userType, string u, string p)
         {
             DataTable table = new DataTable();

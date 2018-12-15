@@ -21,6 +21,7 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+		//sets usertype to doctor and shows login panel
         private void doctorButton_Click(object sender, EventArgs e)
         {            
             textBox1.Text = "";
@@ -32,6 +33,7 @@ namespace DoctorPatientSystem
             userType = User.DOCTOR_USER_TYPE;
         }
 
+		//sets usertype to patient and shows login panel
         private void patientButton_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
@@ -43,12 +45,14 @@ namespace DoctorPatientSystem
             userType = User.PATIENT_USER_TYPE;
         }
 
+		//shows the login menu panel
         private void backButton_Click(object sender, EventArgs e)
         {
             loginPanel.Hide();
             loginMenuPanel.Show();
         }
 
+		//validates if login was a success
         private void button1_Click(object sender, EventArgs e)
         {
             if (User.authenticate(userType, textBox1.Text, textBox2.Text))

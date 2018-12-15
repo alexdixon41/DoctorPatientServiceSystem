@@ -93,11 +93,13 @@ namespace DoctorPatientSystem
         public const int ACCEPTED_STATUS_CODE = 0;
         public const int DENIED_STATUS_CODE = 1;
 
+		//returns the list of refill requests
         public static ArrayList displayRefillRequests()
         {
             return refillRequests;
         }
 
+		//Retrieves the user's refill requests from the database and saves them in the refillReqeusts arraylist
         public static void retrieveRefillRequests()
         {
             refillRequests.Clear();
@@ -147,6 +149,10 @@ namespace DoctorPatientSystem
             newRefillRequestCount = newCount;
         }
 
+		/// <summary>
+		/// Updates the status of the refill request in the database
+		/// </summary>
+		/// <param name="newStatusCode">The code for the new status</param>
         public void changeStatus(int newStatusCode)
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";

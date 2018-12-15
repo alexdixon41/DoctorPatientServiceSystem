@@ -22,6 +22,7 @@ namespace DoctorPatientSystem
 			InitializeComponent();
 		}
 
+		//displays the notification usercontrol
         private void notificationButton_Click(object sender, EventArgs e)
         {
             showUnread();
@@ -35,6 +36,7 @@ namespace DoctorPatientSystem
             notificationControl.Show();
         }
 
+		//displays the patient search usercontrol
         private void patientSearchButton_Click(object sender, EventArgs e)
         {
             showUnread();
@@ -48,7 +50,7 @@ namespace DoctorPatientSystem
             patientSearchControl.Show();
         }
 
-
+		//displays the view appointments usercontrol
 		private void viewAppointmentsButton_Click(object sender, EventArgs e)
 		{
             showUnread();
@@ -63,6 +65,7 @@ namespace DoctorPatientSystem
 			viewAppointmentsControl.Show();
 		}
 
+		//displays the refill request usercontrol
         private void refillRequestButton_Click(object sender, EventArgs e)
         {            
             showUnread();
@@ -76,6 +79,7 @@ namespace DoctorPatientSystem
             refillRequestControl.Show();
         }
 
+		//displays how many unread notifications there are
         private void showUnread()
         {
             Notice.retrieveNotices();
@@ -86,11 +90,13 @@ namespace DoctorPatientSystem
             viewAppointmentsButton.Text = "Appointments  (" + Appointment.NewAppointmentCount + ")";
         }
 
+		//restarts the application
         private void doctorLogoutButton_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
+		//shows number of unread notifications
         private void DoctorMenu_Load(object sender, EventArgs e)
         {
             showUnread();

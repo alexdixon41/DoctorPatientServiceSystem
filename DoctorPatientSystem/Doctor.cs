@@ -120,7 +120,10 @@ namespace DoctorPatientSystem
             }
         }
 
-	
+		/// <summary>
+		/// Retrieves doctors from the database whose first or last name matches the search criteria and saves them in the doctors list
+		/// </summary>
+		/// <param name="sqlStr">The search criteria</param>
         public static void retrieveDoctors(string sqlStr)
         {
             doctors.Clear();
@@ -186,10 +189,16 @@ namespace DoctorPatientSystem
             }
         }
 
+		//returns the list of doctors 
         public static ArrayList displayDoctors()
         {
             return doctors;
         }
+
+		/// <summary>
+		/// Determines which doctors work on a selected day of the week and saves them in the doctors list
+		/// </summary>
+		/// <param name="selectedDay">The selected day of the week</param>
         public static void getAvailableDoctors(DayOfWeek selectedDay)
         {
             ArrayList availableDoctors = new ArrayList();
@@ -201,6 +210,7 @@ namespace DoctorPatientSystem
             doctors = availableDoctors;           
         }
 
+		//Retrieves appointments on a specific date from the database and saves them in the appointments list
         public void retrieveAppointments(string date)
         {
             DataTable dataTable = new DataTable();
@@ -237,6 +247,11 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Retrieves the name of a doctor from the database
+		/// </summary>
+		/// <param name="docID">The ID of the doctor whose name is being retrieved</param>
+		/// <returns>Returns the name of the doctor</returns>
 		public static String retrieveDoctorName(int docID)
 		{
 			String doctorName = "";
@@ -265,6 +280,11 @@ namespace DoctorPatientSystem
 			return doctorName;
 		}
 
+		/// <summary>
+		/// Grants a doctor access to a patient's records and saves this access in the database
+		/// </summary>
+		/// <param name="doctorID">The doctor's ID</param>
+		/// <param name="patientID">The patient's ID</param>
 		public static void grantRecordAccess(int doctorID, int patientID)
 		{
 			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=none";
@@ -286,6 +306,7 @@ namespace DoctorPatientSystem
 			conn.Close();
 		}
 
+		//Retrieves the names and ids of pharmacies from the database 
         public static void retrievePharmacies()
         {
             pharmacies.Clear();
@@ -315,6 +336,7 @@ namespace DoctorPatientSystem
             conn.Close();
         }
 
+		//returns the list of pharmacies
         public static ArrayList displayPharmacies()
         {
             return Pharmacies;
