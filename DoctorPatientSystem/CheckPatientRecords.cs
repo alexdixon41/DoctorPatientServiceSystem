@@ -17,6 +17,7 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
         
+		//displays patient's record information in the list boxes
         public void populateLists()
         {
             Patient patient = Patient.retrievePatientByID(User.Id);

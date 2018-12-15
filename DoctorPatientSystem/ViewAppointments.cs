@@ -20,6 +20,7 @@ namespace DoctorPatientSystem
 			InitializeComponent();
 		}
 
+		//displays the doctors appointments in the list view 
 		public void populateListView()
 		{
 			appointmentsListView.Items.Clear();
@@ -33,12 +34,14 @@ namespace DoctorPatientSystem
 			}
 		}
 
+		//returns to the viewAppointmentsPanel
 		private void backButton_Click(object sender, EventArgs e)
 		{
 			viewAppointmentsPanel.Show();
 			appointmentDetailPanel.Hide();
 		}
 
+		//Denies the appointment and sends notice that appointment was denied
 		private void denyButton_Click(object sender, EventArgs e)
 		{
 			DialogResult dialogResult = new DialogResult();
@@ -58,6 +61,7 @@ namespace DoctorPatientSystem
 			}
 		}
 
+		//Accepts the appointment and sends notice that the appointment was accepted
 		private void acceptButton_Click(object sender, EventArgs e)
 		{
 			DialogResult dialogResult = new DialogResult();
@@ -76,15 +80,16 @@ namespace DoctorPatientSystem
 			}
 		}
 
+		//reset this UserControl to default state at view appointments panel
 		public void resetViewAppointment()
 		{
 			viewAppointmentsPanel.Show();
 			appointmentDetailPanel.Hide();
 		}
 
+		//Determines if the accept and deny button are enabled based on the appointments status
         private void appointmentsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(appointmentsListView.SelectedIndices.Count);
             if (!(appointmentsListView.SelectedIndices.Count == 0))
             {
                 selectedAppointment = (Appointment)(Appointment.displayAppointments()[appointmentsListView.SelectedIndices[0]]);

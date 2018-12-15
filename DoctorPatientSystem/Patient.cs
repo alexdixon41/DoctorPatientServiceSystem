@@ -235,11 +235,20 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Returns the patients arraylist
+		/// </summary>
+		/// <returns>Arraylist containing the results of the patient search</returns>
         public static ArrayList displayPatients()
         {
             return patients;
         }
 
+		/// <summary>
+		/// Retrieves patients from the database whose first or last name matches the search criteria and stores the results 
+		/// in the patients arraylist
+		/// </summary>
+		/// <param name="searchKey">Search criteria used to find a patient</param>
         public static void retrievePatients(string searchKey)
         {
             DataTable table = new DataTable();
@@ -275,6 +284,10 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Retrieves the medicines the patient has been prescribed from the database and stores them
+		/// in the medicineHistory arraylist
+		/// </summary>
         public void retrieveMedicineHistory()
         {
             DataTable table = new DataTable();
@@ -315,6 +328,9 @@ namespace DoctorPatientSystem
             }
         }
 
+		/// <summary>
+		/// Retrieves the patient's medical record from the database
+		/// </summary>
         public void retrieveMedicalRecord()
         {
             DataTable table = new DataTable();
@@ -349,6 +365,11 @@ namespace DoctorPatientSystem
             Console.WriteLine("Done");
         }
 
+		/// <summary>
+		/// Determines if a doctor has access to view a patient's medical records.
+		/// </summary>
+		/// <param name="doctorID">The id of the doctor wanting to access the records</param>
+		/// <returns>Returns true if the doctor has access to the record and false if they do not</returns>
 		public bool validateAccess(int doctorID) 
 		{
 			bool hasAccess = false;
@@ -393,6 +414,16 @@ namespace DoctorPatientSystem
 			return hasAccess;
 		}
 
+		/// <summary>
+		/// Sets the value of the maritalStatus, height, weight, disorders, allergies, and notes attributes
+		/// to the entered values
+		/// </summary>
+		/// <param name="newMarStatus">The new value for maritalStatus</param>
+		/// <param name="newHeight">The new value for height</param>
+		/// <param name="newWeight">The new value for weight</param>
+		/// <param name="newDisorders">The new value for disorders</param>
+		/// <param name="newAllergies">The new value for allergies</param>
+		/// <param name="newNotes">The new value for notes</param>
 		public void updateMedicalRecord(String newMarStatus, int newHeight, int newWeight, String newDisorders, String newAllergies, String newNotes)
 		{
 			maritalStatus = newMarStatus;
@@ -405,6 +436,9 @@ namespace DoctorPatientSystem
 			saveMedicalRecord();
 		}
 
+		/// <summary>
+		/// Saves the value of the maritalStatus, height, weight, disorders, allergies, and notes attributes to the database
+		/// </summary>
 		private void saveMedicalRecord()
 		{
 			string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -433,6 +467,10 @@ namespace DoctorPatientSystem
 			conn.Close();
 		}
 
+		/// <summary>
+		/// Determines if the patient has a medical record in the database
+		/// </summary>
+		/// <returns>True if the patient has a medical record and false if they do not</returns>
 		public bool hasMedicalRecord()
 		{
 			bool hasRecord = false;
@@ -463,7 +501,16 @@ namespace DoctorPatientSystem
 
 			return hasRecord;
 		}
-		
+
+		/// <summary>
+		/// Creates a new medical record in the database for an existing patient who did not have a medical record
+		/// </summary>
+		/// <param name="newMarStatus">Value of the maritalStatus to be saved in the database</param>
+		/// <param name="newHeight">Value of the height to be saved in the database</param>
+		/// <param name="newWeight">Value of the weight to be saved in the database</param>
+		/// <param name="newDisorders">Value of the disorders to be saved in the database</param>
+		/// <param name="newAllergies">Value of the allergies to be saved in the database</param>
+		/// <param name="newNotes">Value of the notes to be saved in the database</param>
 		public void createMedicalRecord(String newMarStatus, int newHeight, int newWeight, String newDisorders, String newAllergies, String newNotes)
 		{
 			maritalStatus = newMarStatus;
@@ -499,7 +546,12 @@ namespace DoctorPatientSystem
 			}
 			conn.Close();
 		}
-
+		
+		/// <summary>
+		/// Retrieves a patient's name and birthday from the database
+		/// </summary>
+		/// <param name="patientID">The id of the patient whose information is being retrieved</param>
+		/// <returns>A patient object with attributes storing the data retrieved from the database</returns>
 		public static Patient retrievePatientByID(int patientID)
 		{
             Patient patient = new Patient();
@@ -530,6 +582,10 @@ namespace DoctorPatientSystem
 			return patient;
 		}
 
+		/// <summary>
+		/// Retrieves a patient's phone number from the database
+		/// </summary>
+		/// <param name="id">The id of the patient whose phone number is being retrieved</param>
         public void retrievePhoneNumber(int id)
         {
             

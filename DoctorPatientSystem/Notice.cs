@@ -129,11 +129,15 @@ namespace DoctorPatientSystem
         private static int unread;
         private static ArrayList notices = new ArrayList();
 
+		//returns the arraylist of the user's notices
         public static ArrayList displayNotices()
         {
             return notices;
         }
 
+		/// <summary>
+		/// Retrieves the user's notices from the databae and saves them in the notices arraylist
+		/// </summary>
         public static void retrieveNotices()
         {
             ArrayList noticeList = new ArrayList();
@@ -203,6 +207,7 @@ namespace DoctorPatientSystem
             Notice.Unread = unreadCount;
         }
 
+		//Updates the status of the notice to received in the database
         public void updateStatus()
         {
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;SSLMode=None";
@@ -337,6 +342,11 @@ namespace DoctorPatientSystem
             conn.Close();
         }
 		
+		/// <summary>
+		/// Retrieves the id of the doctor who sent a notice from the database
+		/// </summary>
+		/// <param name="noticeID">The ID of the notice</param>
+		/// <returns>The ID of the doctor who sent the notice</returns>
 		public static int retrievedDoctorSenderID(int noticeID)
 		{
 			int senderID = -1;
