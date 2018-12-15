@@ -19,6 +19,7 @@ namespace DoctorPatientSystem
 
         private Notice selectedNotice;
 
+		//displays the user's notices in the listview
         public void populateList()
         {
             noticesListView.Items.Clear();
@@ -34,6 +35,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//displays the details of the selected notice and updates the status of the notice to received
         private void selectNotificationButton_Click(object sender, EventArgs e)
         {
             if (!(noticesListView.SelectedIndices.Count == 0))
@@ -58,12 +60,14 @@ namespace DoctorPatientSystem
             }
         }
 
+		//returns to the notification list panel
         private void confirmButton_Click(object sender, EventArgs e)
         {
             noticeDetailPanel.Hide();
             notificationListPanel.Show();
         }            
 
+		//returns to the notificaitons list panel and refreshed the list
         private void backButton_Click(object sender, EventArgs e)
         {
             Notice.retrieveNotices();
@@ -72,6 +76,7 @@ namespace DoctorPatientSystem
             notificationListPanel.Show();
         }
 
+		//Sends a record request denied notice to the doctor
 		private void denyButton_Click(object sender, EventArgs e)
 		{
 			DialogResult dialogResult = new DialogResult();
@@ -91,6 +96,7 @@ namespace DoctorPatientSystem
 			}
 		}
 
+		//Sends a record request accepted notice to the doctor and grants the doctor access to the patient's records
 		private void acceptButton_Click(object sender, EventArgs e)
 		{
 			DialogResult dialogResult = new DialogResult();

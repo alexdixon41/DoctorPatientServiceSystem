@@ -34,6 +34,7 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+		//displays doctors from the search in the list view
         public void populateList()
         {
             doctorListView.Items.Clear();
@@ -47,6 +48,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//Creates message and sends a phone call request
         private void button1_Click(object sender, EventArgs e)
         {
             Patient currPatient = new Patient();
@@ -79,6 +81,7 @@ namespace DoctorPatientSystem
             }
         }
 
+		//Searches for doctors and displays results in the listview
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (searchKey.Text.Equals("Search for a doctor"))
@@ -89,6 +92,7 @@ namespace DoctorPatientSystem
             populateList();    
         }
 
+		//Removes default text from search bar 
         private void searchKey_Click(object sender, EventArgs e)
         {
             searchKey.Text = "";

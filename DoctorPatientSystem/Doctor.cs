@@ -120,6 +120,7 @@ namespace DoctorPatientSystem
             }
         }
 
+	
         public static void retrieveDoctors(string sqlStr)
         {
             doctors.Clear();
