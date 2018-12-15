@@ -241,3 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Database Design.vsdx
+/User Manual.docx
+/Design Specification Report - Doctor Patient System.docx
