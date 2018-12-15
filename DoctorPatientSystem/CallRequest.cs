@@ -34,6 +34,7 @@ namespace DoctorPatientSystem
             InitializeComponent();
         }
 
+        //add doctor information to listview
         public void populateList()
         {
             doctorListView.Items.Clear();
@@ -47,13 +48,14 @@ namespace DoctorPatientSystem
             }
         }
 
+        //send phone call request
         private void button1_Click(object sender, EventArgs e)
         {
             Patient currPatient = new Patient();
             currPatient.retrievePhoneNumber(User.Id);
             if (!(doctorListView.SelectedIndices.Count == 0))
             {
-                selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+                selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];    //get the selected doctor
                 switch (currPatient.PhoneNums.Count)
                 {
                     case 1:
@@ -79,6 +81,7 @@ namespace DoctorPatientSystem
             }
         }
 
+        //search for a doctor
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (searchKey.Text.Equals("Search for a doctor"))
@@ -89,6 +92,7 @@ namespace DoctorPatientSystem
             populateList();    
         }
 
+        //reset search box when clicked
         private void searchKey_Click(object sender, EventArgs e)
         {
             searchKey.Text = "";

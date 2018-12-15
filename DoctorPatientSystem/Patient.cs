@@ -450,7 +450,7 @@ namespace DoctorPatientSystem
 				MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
 				myAdapter.Fill(table);
 
-				if (table.Rows.Count != 0)
+				if (table.Rows.Count > 0)
 				{
 					hasRecord = true;
 				}
