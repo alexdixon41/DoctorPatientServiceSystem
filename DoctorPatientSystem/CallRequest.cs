@@ -55,7 +55,7 @@ namespace DoctorPatientSystem
             currPatient.retrievePhoneNumber(User.Id);
             if (!(doctorListView.SelectedIndices.Count == 0))
             {
-                selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];
+                selectedDoc = (Doctor)Doctor.displayDoctors()[doctorListView.SelectedIndices[0]];    //get the selected doctor
                 switch (currPatient.PhoneNums.Count)
                 {
                     case 1:
